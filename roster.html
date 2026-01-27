@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lynx Racing Spain Team - Roster</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Orbitron', sans-serif;
+            background-color: #0b0b0b;
+            color: #eaeaea;
+            padding-top: 80px;
+        }
+
+        header {
+            background: linear-gradient(90deg, #120000, #1a0a00);
+            padding: 30px 20px;
+            text-align: center;
+            border-bottom: 3px solid #ff6a00;
+        }
+
+        header h1 {
+            color: #ff6a00;
+            letter-spacing: 2px;
+        }
+
+        .menu {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #111;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 15px 0;
+            border-bottom: 2px solid #ff6a00;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.7);
+        }
+
+        .menu a {
+            color: #eaeaea;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .menu a:hover {
+            color: #ff6a00;
+        }
+
+        section {
+            padding: 50px 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        h2 {
+            color: #ffffff;
+            border-left: 5px solid #ff6a00;
+            padding-left: 15px;
+            margin-bottom: 30px;
+            text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff;
+        }
+
+        .roster {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .member {
+            background-color: #141414;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #ff6a00;
+            text-align: center;
+            display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    background-color: #141414;
+    padding: 10px;
+    border-radius: 6px;
+    border-left: 4px solid #ff6a00;
+    text-align: center;
+    transition: transform 0.3s; /* transición suave */
+        }
+
+        .member a {
+            display: inline-block; 
+            color: #ff6a00;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        .member a:hover {
+            transform: rotateY(10deg) scale(1.05);
+            color: #ffffff;
+            cursor: pointer;
+        }
+
+        footer {
+            background-color: #111;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            border-top: 2px solid #ff6a00;
+        }
+        .member .flag {
+    width: 24px;
+    height: 16px;
+    border: 1px solid #2a2a2a;
+    border-radius: 3px;
+    }
+ .member {
+    display: flex;
+    flex-direction: column; /* vertical */
+    align-items: center;
+    gap: 5px;
+    background-color: #141414;
+    padding: 10px;
+    border-radius: 6px;
+    border-left: 4px solid #ff6a00;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s; /* transición suave para rotación y sombra */
+}
+
+.member .top-info {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.member .dorsal {
+    color: #ff6a00;
+    font-weight: bold;
+}
+
+.member .flag {
+    width: 16px;
+    height: 11px;
+    border: 1px solid #2a2a2a;
+    border-radius: 2px;
+}
+
+.member a, .member span {
+    display: block;
+    color: #ff6a00;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.member a:hover {
+    color: #ffffff;
+    cursor: pointer;
+}
+
+/* Hover para toda la tarjeta */
+.member:hover {
+    transform: rotateY(10deg) scale(1.05); /* ligera rotación y aumento */
+    box-shadow: 0 8px 20px rgba(255, 106, 0, 0.4); /* sombra naranja suave */
+}
+
+.member .twitch {
+    color: #6441a5; /* color característico de Twitch */
+    transition: color 0.3s;
+}
+
+    </style>
+</head>
+<body>
+
+<nav class="menu">
+    <a href="index.html">Inicio</a>
+    <a href="roster.html">Roster</a>
+    <a href="resultados.html">Resultados</a>
+    <a href="#contacto">Contacto</a>
+</nav>
+
+<header>
+    <h1>Roster - Lynx Racing Spain Team</h1>
+</header>
+
+<section>
+    <h2>Miembros del equipo</h2>
+    <div class="roster">
+        <div class="member">
+            <div class="top-info">
+                <span class="dorsal">#83</span>
+                <img src="banderas/spain.png" alt="España" class="flag">
+            </div>
+            <a href="https://www.twitch.tv/juan_serrano83" target="_blank"class="twitch">Juan Serrano</a>
+        </div>
+
+        <div class="member">
+            <div class="top-info">
+                <span class="dorsal">#30</span>
+                <img src="banderas/cat.jpg" alt="Catalunya" class="flag">
+            </div>
+            <a href="https://www.twitch.tv/perfect_nich" target="_blank" class="twitch">Xavier Sobrerroca</a>
+        </div>
+
+        <div class="member">
+            <div class="top-info">
+                <span class="dorsal">#10</span>
+                <img src="banderas/cat.jpg" alt="Catalunya" class="flag">
+            </div>
+            <a href="https://www.twitch.tv/josh_mopar" target="_blank" class="twitch">Josh Mopar</a>
+        </div>
+
+        <div class="member">
+            <div class="top-info">
+                <span class="dorsal">#720</span>
+                <img src="banderas/cat.jpg" alt="Catalunya" class="flag">
+            </div>
+            <a href="https://www.twitch.tv/gombii99" target="_blank" class="twitch">Albert Gombau</a>
+        </div>
+
+        <div class="member">
+            <div class="top-info">
+                <span class="dorsal">#53</span>
+                <img src="banderas/spain.png" alt="España" class="flag">
+            </div>
+            <span>Adrian Sanchez</span>
+        </div>
+
+        <div class="member">
+            <div class="top-info">
+                <span class="dorsal">#144</span>
+                <img src="banderas/spain.png" alt="España" class="flag">
+            </div>
+            <span>Jose Linares</span>
+        </div>
+
+        <div class="member">
+            <div class="top-info">
+                <span class="dorsal">#87</span>
+                <img src="banderas/spain.png" alt="España" class="flag">
+            </div>
+            <a href="https://www.twitch.tv/lalo_87" target="_blank" class="twitch">Gonzalo Sanchez</a>
+        </div>
+
+        <div class="member">
+            <div class="top-info">
+                <span>-</span>
+                <img src="banderas/spain.png" alt="España" class="flag">
+            </div>
+            <a href="https://www.twitch.tv/wilfredoflowers" target="_blank" class="twitch">Guillermo Heredia</a>
+        </div>
+
+        <div class="member">
+            <div class="top-info">
+                <span class="dorsal">#85</span>
+                <img src="banderas/cat.jpg" alt="Catalunya" class="flag">
+            </div>
+            <a href="https://www.twitch.tv/coro85" target="_blank" class="twitch">David Corominas</a>
+        </div>
+
+        <div class="member">
+            <div class="top-info">
+                <span class="dorsal">#666</span>
+                <img src="banderas/spain.png" alt="España" class="flag">
+            </div>
+            <a href="https://www.twitch.tv/pist4chon" target="_blank" class="twitch">Angel Alvarado</a>
+        </div>
+
+        <div class="member">
+            <div class="top-info">
+                <span class="dorsal">#13</span>
+                <img src="banderas/spain.png" alt="España" class="flag">
+            </div>
+            <span>Carlos Molina</span>
+        </div>
+
+        <div class="member">
+            <div class="top-info">
+                <span class="dorsal">#34</span>
+                <img src="banderas/serbia.jpg" alt="Serbia" class="flag">
+            </div>
+            <span>Relja Ljubobratovic</span>
+        </div>
+
+        <div class="member">
+            <div class="top-info">
+                <span>-</span>
+                <img src="banderas/cat.jpg" alt="Catalunya" class="flag">
+            </div>
+            <span>Dani Diaz</span>
+        </div>
+
+        <div class="member">
+            <div class="top-info">
+                <span class="dorsal">#95</span>
+                <img src="banderas/spain.png" alt="España" class="flag">
+            </div>
+            <span>Ruben Juarez</span>
+        </div>
+
+        <div class="member">
+            <div class="top-info">
+                <span class="dorsal">#15</span>
+                <img src="banderas/spain.png" alt="España" class="flag">
+            </div>
+            <a href="https://www.twitch.tv/jarrini15" target="_blank" class="twitch">Nacho Jarrín</a>
+        </div>
+
+        <div class="member">
+            <div class="top-info">
+                <span>-</span>
+                <img src="banderas/spain.png" alt="España" class="flag">
+            </div>
+            <span>Juanmi Asmigon</span>
+        </div>
+
+        <div class="member">
+            <div class="top-info">
+                <span>-</span>
+                <img src="banderas/cat.jpg" alt="Catalunya" class="flag">
+            </div>
+            <a href="https://www.twitch.tv/aidabp" target="_blank" class="twitch">Aida Bueno</a>
+        </div>
+
+        <div class="member">
+            <div class="top-info">
+                <span>-</span>
+                <img src="banderas/spain.png" alt="España" class="flag">
+            </div>
+            <a href="https://www.twitch.tv/Kikologo" target="_blank" class="twitch">Francisco Sierra</a>
+        </div>
+
+        <div class="member">
+            <div class="top-info">
+                <span>-</span>
+                <img src="banderas/spain.png" alt="España" class="flag">
+            </div>
+            <a href="https://www.twitch.tv/javi_gras" target="_blank" class="twitch">Javi Gras</a>
+        </div>
+
+        <div class="member">
+            <div class="top-info">
+                <span>-</span>
+                <img src="banderas/cat.jpg" alt="Catalunya" class="flag">
+            </div>
+            <a href="https://www.twitch.tv/capi71" target="_blank" class="twitch">Jordi Capdevila</a>
+        </div>
+
+        <div class="member">
+            <div class="top-info">
+                <span class="dorsal">#71</span>
+                <img src="banderas/valencia.png" alt="Valencia" class="flag">
+            </div>
+            <span>Luis Ungo</span>
+        </div>
+
+        <div class="member">
+            <div class="top-info">
+                <span>-</span>
+                <img src="banderas/spain.png" alt="España" class="flag">
+            </div>
+            <span>Jesus Jimenez</span>
+        </div>
+
+        <div class="member">
+            <div class="top-info">
+                <span>-</span>
+                <img src="banderas/spain.png" alt="España" class="flag">
+            </div>
+            <span>Antonio Balboa</span>
+        </div>
+
+        <div class="member">
+            <div class="top-info">
+                <span>-</span>
+                <img src="banderas/spain.png" alt="España" class="flag">
+            </div>
+            <span>Alfonso Guerrero</span>
+        </div>
+
+        <div class="member">
+            <div class="top-info">
+                <span>-</span>
+               <img src="banderas/cat.jpg" alt="Catalunya" class="flag">
+            </div>
+            <span>Álvaro Salazar</span>
+        </div>
+     
+
+        <div class="member">
+            <div class="top-info">
+                <span>-</span>
+                <img src="banderas/spain.png" alt="España" class="flag">
+            </div>
+            <span>Fran Gambín</span>
+        </div>
+
+        <div class="member">
+            <div class="top-info">
+                <span class="dorsal">#27</span>
+                <img src="banderas/colombia.png" alt="Colombia" class="flag">
+            </div>
+            <a href="https://www.twitch.tv/typicalchibito" target="_blank" class="twitch">Juanjo</a>
+        </div>
+    </div>
+</section>
+
+
+<footer>
+    © 2026 · Lynx Racing Spain Team
+</footer>
+
+</body>
+</html>

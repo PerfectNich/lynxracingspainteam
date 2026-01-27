@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lynx Racing Spain Team - Resultados</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Orbitron', sans-serif;
+            background-color: #0b0b0b;
+            color: #eaeaea;
+            padding-top: 80px;
+        }
+
+        header {
+            background: linear-gradient(90deg, #120000, #1a0a00);
+            padding: 30px 20px;
+            text-align: center;
+            border-bottom: 3px solid #ff6a00;
+        }
+
+        header h1 {
+            color: #ff6a00;
+            letter-spacing: 2px;
+        }
+
+        .menu {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #111;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 15px 0;
+            border-bottom: 2px solid #ff6a00;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.7);
+        }
+
+        .menu a {
+            color: #eaeaea;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .menu a:hover {
+            color: #ff6a00;
+        }
+
+        section {
+            padding: 50px 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        h2 {
+            color: #ffffff;
+            border-left: 5px solid #ff6a00;
+            padding-left: 15px;
+            margin-bottom: 30px;
+            text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff;
+        }
+
+        /* Tablas de resultados */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 50px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #2a2a2a;
+        }
+
+        th {
+            background-color: #141414;
+            color: #ff6a00;
+        }
+
+        tr:nth-child(even) {
+            background-color: #1a1a1a;
+        }
+
+        tr:hover {
+            background-color: #2a2a2a;
+            transform: scale(1.01);
+            transition: all 0.2s;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            border-top: 2px solid #ff6a00;
+            background-color: #111;
+            font-size: 14px;
+        }
+		.top-contact {
+    position: fixed;       /* siempre visible */
+    top: 10px;
+    right: 20px;
+    font-size: 14px;       /* pequeño, discreto */
+    z-index: 1001;         /* por encima del menú */
+    background-color: rgba(0,0,0,0.6); /* semitransparente */
+    padding: 5px 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 8px rgba(255,106,0,0.7); /* glow naranja suave */
+}
+
+.top-contact a {
+    color: #ff6a00;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.top-contact a:hover {
+    color: #ffffff;
+}
+
+    </style>
+</head>
+<body>
+
+<div class="top-contact">
+    📧 <a href="mailto:lynxracingspain@gmail.com" target="_blank">lynxracingspain@gmail.com</a> |
+    🎮 <a href="https://discord.gg/H8eNsptxVw" target="_blank">Discord</a>
+</div>
+
+<nav class="menu">
+    <a href="index.html">Inicio</a>
+    <a href="roster.html">Roster</a>
+    <a href="resultados.html">Resultados</a>
+    <a href="#contacto">Contacto</a>
+</nav>
+
+<header>
+    <h1>Resultados y Endurance</h1>
+</header>
+
+<section>
+    <h2>Endurance League 2026</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Pos</th>
+                <th>Piloto</th>
+                <th>Simulador</th>
+                <th>Tiempo Total</th>
+                <th>Puntos</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Juan Serrano</td>
+                <td>iRacing</td>
+                <td>2:34:12</td>
+                <td>25</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Xavier Sobrerroca</td>
+                <td>iRacing</td>
+                <td>2:35:45</td>
+                <td>18</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Josh Mopar</td>
+                <td>Le Mans Ultimate</td>
+                <td>2:37:10</td>
+                <td>15</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Resultados Rally</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Pos</th>
+                <th>Piloto</th>
+                <th>Simulador</th>
+                <th>Tiempo Total</th>
+                <th>Puntos</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Albert Gombau</td>
+                <td>Assetto Corsa Rally</td>
+                <td>1:45:22</td>
+                <td>25</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Adrian Sanchez</td>
+                <td>Assetto Corsa Rally</td>
+                <td>1:47:10</td>
+                <td>18</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+<div class="footer">
+    © 2026 · Lynx Racing Spain Team
+</div>
+
+</body>
+</html>
