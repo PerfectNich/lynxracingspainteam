@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <title>Multimedia - Lynx Racing Spain Team</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="favicon.png">
 <style>
 html, body {
     margin: 0;
@@ -37,6 +38,10 @@ body {
     margin: auto;
 }
 
+
+html {
+  scroll-behavior: smooth;
+}
 /* Menú */
 .menu {
     position: fixed;
@@ -217,52 +222,52 @@ footer {
     <!-- Galería -->
     <div class="gallery">
         <!-- Fotos -->
-        <div class="gallery-item" data-game="iRacing">
+        <div class="gallery-item" data-game="iRacing" loading="lazy">
             <img src="media/porsche.png" alt="iRacing">
         </div>
-        <div class="gallery-item" data-game="iRacing">
+        <div class="gallery-item" data-game="iRacing" loading="lazy">
             <img src="media/porsche2.png" alt="iRacing">
         </div>
-        <div class="gallery-item" data-game="iRacing">
+        <div class="gallery-item" data-game="iRacing" loading="lazy">
             <img src="media/mazda.png" alt="iRacing">
         </div>
-        <div class="gallery-item" data-game="iRacing">
+        <div class="gallery-item" data-game="iRacing" loading="lazy">
             <img src="media/acura.jpg" alt="iRacing">
         </div>
-        <div class="gallery-item" data-game="iRacing">
+        <div class="gallery-item" data-game="iRacing" loading="lazy">
             <img src="media/bmw.png" alt="iRacing">
         </div>
-        <div class="gallery-item" data-game="LMU">
+        <div class="gallery-item" data-game="LMU" loading="lazy">
             <img src="media/lmu_bmw.png" alt="LMU">
         </div>
         <div class="gallery-item" data-game="Assetto">
-            <video>
+            <video preload="none" controls>
                 <source src="media/meihan.mp4" type="video/mp4">
                 Tu navegador no soporta video HTML5
             </video>
         </div>
-        <div class="gallery-item" data-game="Assetto">
+        <div class="gallery-item" data-game="Assetto" loading="lazy">
             <img src="media/ferrari.jpg" alt="Assetto">
         </div>
-        <div class="gallery-item" data-game="Assetto">
+        <div class="gallery-item" data-game="Assetto" loading="lazy">
             <img src="media/crew.png" alt="Assetto">
         </div>
         <div class="gallery-item" data-game="Assetto">
-            <video>
+            <video preload="none" controls>
                 <source src="media/accvideo.mp4" type="video/mp4">
                 Tu navegador no soporta video HTML5
             </video>
         </div>
         <div class="gallery-item" data-game="Assetto">
-            <video>
+            <video preload="none" controls>
                 <source src="media/rally.mov" type="video/mp4">
                 Tu navegador no soporta video HTML5
             </video>
         </div>
-        <div class="gallery-item" data-game="LMU">
+        <div class="gallery-item" data-game="LMU" loading="lazy">
             <img src="media/mustang.png" alt="LMU">
         </div>
-        <div class="gallery-item" data-game="AMS2">
+        <div class="gallery-item" data-game="AMS2" loading="lazy">
             <img src="media/ams2.png" alt="AMS2">
         </div>
         <div class="gallery-item" data-game="RRE">
