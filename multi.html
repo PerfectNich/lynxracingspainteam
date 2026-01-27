@@ -55,6 +55,15 @@
             margin: auto;
         }
 
+
+ footer {
+            background-color: #111;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            border-top: 2px solid #ff6a00;
+        }
+
         h1 {
             color: #ff6a00;
             font-size: 60px;
@@ -106,12 +115,16 @@
     object-fit: cover;  /* rellena el div, recortando lo que sobre */
     display: block;
         cursor: pointer; /* cambia el cursor al pasar por encima */
+            transition: transform 0.3s; /* transición suave */
+
 
 }
 
         .gallery-item video {
             border-radius: 10px;
                 cursor: pointer; /* cambia el cursor al pasar por encima */
+                    transition: transform 0.3s; /* transición suave */
+
 
         }
 
@@ -202,5 +215,10 @@ function closeLightbox() {
     lightbox.style.display = 'none';
 }
 </script>
+
+<footer>
+    © 2026 · Lynx Racing Spain Team
+</footer>
+
 </body>
 </html>

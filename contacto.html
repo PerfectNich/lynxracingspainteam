@@ -102,6 +102,29 @@
             transform: scale(1.1);
             box-shadow: 0 0 12px #ff6a00;
         }
+
+         html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Orbitron', sans-serif;
+    background-color: #0b0b0b;
+    color: #eaeaea;
+    display: flex;
+    flex-direction: column; /* organiza header + contenido + footer en columna */
+}
+
+body > section {
+    flex: 1; /* hace que la sección principal ocupe todo el espacio disponible */
+}
+
+footer {
+    background-color: #111;
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+    border-top: 2px solid #ff6a00;
+}
     </style>
 </head>
 <body>
@@ -128,6 +151,10 @@
         <a href="mailto:lynxracingspain@gmail.com" class="email">📧 Correo</a>
     </div>
 </section>
+
+<footer>
+    © 2026 · Lynx Racing Spain Team
+</footer>
 
 </body>
 </html>
