@@ -1,160 +1,197 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Multimedia - Lynx Racing Spain Team</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Orbitron', sans-serif;
-            background-color: #0b0b0b;
-            color: #eaeaea;
-            padding-top: 100px;
-
-            /* Fondo tribal-agresivo */
-            background-image:
-                repeating-linear-gradient(45deg, rgba(255,106,0,0.05) 0 10px, transparent 10px 20px),
-                repeating-linear-gradient(-45deg, rgba(255,106,0,0.05) 0 10px, transparent 10px 20px),
-                repeating-linear-gradient(135deg, rgba(255,106,0,0.03) 0 15px, transparent 15px 30px),
-                repeating-linear-gradient(-135deg, rgba(255,106,0,0.03) 0 15px, transparent 15px 30px);
-            background-size: 60px 60px;
-        }
-
-        .menu {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background-color: #111;
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            padding: 15px 0;
-            border-bottom: 2px solid #ff6a00;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.7);
-        }
-
-        .menu a {
-            color: #eaeaea;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 20px;
-            transition: color 0.3s, transform 0.2s;
-        }
-
-        .menu a:hover {
-            color: #ff6a00;
-            transform: scale(1.1);
-        }
-
-        section {
-            padding: 50px 20px;
-            text-align: center;
-            max-width: 1200px;
-            margin: auto;
-        }
-
-
- footer {
-            background-color: #111;
-            text-align: center;
-            padding: 20px;
-            font-size: 14px;
-            border-top: 2px solid #ff6a00;
-        }
-
-        h1 {
-            color: #ff6a00;
-            font-size: 60px;
-            letter-spacing: 2px;
-            text-shadow: 0 0 10px #ff6a00;
-        }
-
-        h2 {
-            color: #ffffff;
-            border-left: 5px solid #ff6a00;
-            padding-left: 15px;
-            margin-bottom: 30px;
-            font-size: 36px;
-            text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff;
-            animation: glow 2s infinite alternate;
-        }
-
-        @keyframes glow {
-            0% { text-shadow: 0 0 5px #ff6a00, 0 0 20px #ff4500, 0 0 30px #ff4500; }
-            50% { text-shadow: 0 0 10px #ff6a00, 0 0 30px #ff4500, 0 0 40px #ff4500; }
-            100% { text-shadow: 0 0 5px #ff6a00, 0 0 20px #ff4500, 0 0 30px #ff4500; }
-        }
-
-        /* Galería de fotos y videos */
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .gallery-item {
-       position: relative;
-        overflow: hidden;
-        border-radius: 10px;
-        box-shadow: 0 0 12px rgba(255,106,0,0.7);
-        transition: transform 0.3s, box-shadow 0.3s;
-        height: 250px; /* altura fija, cambia a lo que quieras */
+<meta charset="UTF-8">
+<title>Multimedia - Lynx Racing Spain Team</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+<style>
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Orbitron', sans-serif;
+    background-color: #0b0b0b;
+    color: #eaeaea;
 }
 
-        .gallery-item:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 20px #ff6a00;
-        }
-
-        .gallery-item img, 
-        .gallery-item video {
-    width: 100%;
-    height: 100%;      /* toma toda la altura del div */
-    object-fit: cover;  /* rellena el div, recortando lo que sobre */
-    display: block;
-        cursor: pointer; /* cambia el cursor al pasar por encima */
-            transition: transform 0.3s; /* transición suave */
-
-
+/* Fondo tribal-agresivo */
+body {
+    background-image:
+        repeating-linear-gradient(45deg, rgba(255,106,0,0.05) 0 10px, transparent 10px 20px),
+        repeating-linear-gradient(-45deg, rgba(255,106,0,0.05) 0 10px, transparent 10px 20px),
+        repeating-linear-gradient(135deg, rgba(255,106,0,0.03) 0 15px, transparent 15px 30px),
+        repeating-linear-gradient(-135deg, rgba(255,106,0,0.03) 0 15px, transparent 15px 30px);
+    background-size: 60px 60px;
 }
 
-        .gallery-item video {
-            border-radius: 10px;
-                cursor: pointer; /* cambia el cursor al pasar por encima */
-                    transition: transform 0.3s; /* transición suave */
+.page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
 
+.content {
+    flex: 1;
+    padding-top: 100px;
+    max-width: 1200px;
+    margin: auto;
+}
 
-        }
-
-
-        /* Lightbox */
-#lightbox {
+/* Menú */
+.menu {
     position: fixed;
     top: 0;
-    left: 0;
     width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.9);
-    display: none; /* oculto por defecto */
+    background-color: #111;
+    display: flex;
     justify-content: center;
-    align-items: center;
-    z-index: 2000;
+    gap: 40px;
+    padding: 15px 0;
+    border-bottom: 2px solid #ff6a00;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.7);
+}
+.menu a {
+    color: #eaeaea;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+    transition: color 0.3s, transform 0.2s;
+}
+.menu a:hover {
+    color: #ff6a00;
+    transform: scale(1.1);
 }
 
-#lightbox img {
+/* Títulos */
+h1 {
+    color: #ff6a00;
+    font-size: 60px;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px #ff6a00;
+    text-align: center;
+}
+h2 {
+    color: #ffffff;
+    border-left: 5px solid #ff6a00;
+    padding-left: 15px;
+    margin-bottom: 30px;
+    font-size: 36px;
+    text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff;
+    animation: glow 2s infinite alternate;
+    text-align: center;
+}
+@keyframes glow {
+    0% { text-shadow: 0 0 5px #ff6a00,0 0 20px #ff4500,0 0 30px #ff4500; }
+    50% { text-shadow: 0 0 10px #ff6a00,0 0 30px #ff4500,0 0 40px #ff4500; }
+    100% { text-shadow: 0 0 5px #ff6a00,0 0 20px #ff4500,0 0 30px #ff4500; }
+}
+
+/* Filtros */
+.filters {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+.filters button {
+    background-color: #ff6a00;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+.filters button:hover {
+    transform: scale(1.1);
+}
+.filters button.active {
+    background-color: #ffffff;
+    color: #ff6a00;
+}
+
+/* Galería */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 0 12px rgba(255,106,0,0.7);
+    cursor: pointer;
+}
+.gallery-item img,
+.gallery-item video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s;
+}
+.gallery-item:hover img,
+.gallery-item:hover video {
+    transform: scale(1.05);
+}
+
+/* Lightbox para imágenes */
+#lightbox-img-overlay {
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-color: rgba(0,0,0,0.9);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:2000;
+}
+#lightbox-img-overlay img {
     max-width: 90%;
     max-height: 90%;
     border-radius: 10px;
     box-shadow: 0 0 20px #ff6a00;
 }
 
-    </style>
+/* Lightbox para videos */
+#lightbox-video-overlay {
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-color: rgba(0,0,0,0.9);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:2000;
+}
+#lightbox-video-overlay video {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #ff6a00;
+}
+
+/* Footer */
+footer {
+    background-color: #111;
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+    border-top: 2px solid #ff6a00;
+}
+</style>
 </head>
 <body>
+<div class="page-container">
 
-<!-- Menú fijo -->
 <nav class="menu">
     <a href="index.html">Inicio</a>
     <a href="calendar.html">Agenda</a>
@@ -163,62 +200,144 @@
     <a href="contacto.html">Contacto</a>
 </nav>
 
-<section>
+<div class="content">
     <h1>Multimedia</h1>
     <h2>Fotos y Videos del Equipo</h2>
 
+    <!-- Filtros -->
+    <div class="filters">
+        <button class="active" data-filter="All">Todos los juegos</button>
+        <button data-filter="iRacing">iRacing</button>
+        <button data-filter="Assetto">Assetto</button>
+        <button data-filter="LMU">LMU</button>
+        <button data-filter="AMS2">AMS2</button>
+        <button data-filter="RRE">RRE</button>
+    </div>
+
+    <!-- Galería -->
     <div class="gallery">
         <!-- Fotos -->
-        <div class="gallery-item">
-            <img src="media/porsche.png" alt="Foto 1">
+        <div class="gallery-item" data-game="iRacing">
+            <img src="media/porsche.png" alt="iRacing">
         </div>
-        <div class="gallery-item">
-            <img src="media/porsche2.png" alt="Foto 2">
+        <div class="gallery-item" data-game="iRacing">
+            <img src="media/porsche2.png" alt="iRacing">
         </div>
-
-        <!-- Videos -->
-        <div class="gallery-item">
-            <video controls>
-                <source src="media/video1.mp4" type="video/mp4">
+        <div class="gallery-item" data-game="iRacing">
+            <img src="media/mazda.png" alt="iRacing">
+        </div>
+        <div class="gallery-item" data-game="iRacing">
+            <img src="media/acura.jpg" alt="iRacing">
+        </div>
+        <div class="gallery-item" data-game="iRacing">
+            <img src="media/bmw.png" alt="iRacing">
+        </div>
+        <div class="gallery-item" data-game="LMU">
+            <img src="media/lmu_bmw.png" alt="LMU">
+        </div>
+        <div class="gallery-item" data-game="Assetto">
+            <video>
+                <source src="media/meihan.mp4" type="video/mp4">
                 Tu navegador no soporta video HTML5
             </video>
         </div>
-        <div class="gallery-item">
-            <video controls>
-                <source src="media/video2.mp4" type="video/mp4">
+        <div class="gallery-item" data-game="Assetto">
+            <img src="media/ferrari.jpg" alt="Assetto">
+        </div>
+        <div class="gallery-item" data-game="Assetto">
+            <img src="media/crew.png" alt="Assetto">
+        </div>
+        <div class="gallery-item" data-game="Assetto">
+            <video>
+                <source src="media/accvideo.mp4" type="video/mp4">
                 Tu navegador no soporta video HTML5
             </video>
         </div>
-        
-        <!-- Agrega más fotos y videos aquí -->
-
-        <div id="lightbox" onclick="closeLightbox()">
-    <img id="lightbox-img" src="" alt="">
-</div>
+        <div class="gallery-item" data-game="Assetto">
+            <video>
+                <source src="media/rally.mov" type="video/mp4">
+                Tu navegador no soporta video HTML5
+            </video>
+        </div>
+        <div class="gallery-item" data-game="LMU">
+            <img src="media/mustang.png" alt="LMU">
+        </div>
+        <div class="gallery-item" data-game="AMS2">
+            <img src="media/ams2.png" alt="AMS2">
+        </div>
+        <div class="gallery-item" data-game="RRE">
+            <img src="media/rre.png" alt="RRE">
+        </div>
     </div>
-</section>
-<script>
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightbox-img');
 
-// Seleccionamos todas las imágenes de la galería
-const galleryImages = document.querySelectorAll('.gallery-item img');
+    <!-- Lightboxes -->
+    <div id="lightbox-img-overlay" onclick="closeImageLightbox()">
+        <img id="lightbox-img" src="" alt="">
+    </div>
+    <div id="lightbox-video-overlay" onclick="closeVideoLightbox()">
+        <video id="lightbox-video" controls></video>
+    </div>
 
-galleryImages.forEach(img => {
-    img.addEventListener('click', () => {
-        lightbox.style.display = 'flex';     // mostramos el Lightbox
-        lightboxImg.src = img.src;           // ponemos la misma foto
-    });
-});
-
-function closeLightbox() {
-    lightbox.style.display = 'none';
-}
-</script>
+</div>
 
 <footer>
     © 2026 · Lynx Racing Spain Team
 </footer>
+</div>
+
+<script>
+// Lightbox de imágenes
+const lightboxImgOverlay = document.getElementById('lightbox-img-overlay');
+const lightboxImg = document.getElementById('lightbox-img');
+const galleryImages = document.querySelectorAll('.gallery-item img');
+
+galleryImages.forEach(img => {
+    img.addEventListener('click', () => {
+        lightboxImgOverlay.style.display = 'flex';
+        lightboxImg.src = img.src;
+    });
+});
+function closeImageLightbox() {
+    lightboxImgOverlay.style.display = 'none';
+}
+
+// Lightbox de videos
+const lightboxVideoOverlay = document.getElementById('lightbox-video-overlay');
+const lightboxVideo = document.getElementById('lightbox-video');
+const galleryVideos = document.querySelectorAll('.gallery-item video');
+
+galleryVideos.forEach(video => {
+    video.addEventListener('click', () => {
+        lightboxVideoOverlay.style.display = 'flex';
+        lightboxVideo.src = video.querySelector('source').src;
+        lightboxVideo.play();
+    });
+});
+function closeVideoLightbox() {
+    lightboxVideo.pause();
+    lightboxVideo.src = '';
+    lightboxVideoOverlay.style.display = 'none';
+}
+
+// Filtros
+const filterButtons = document.querySelectorAll('.filters button');
+const galleryItems = document.querySelectorAll('.gallery-item');
+
+filterButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.getAttribute('data-filter');
+        galleryItems.forEach(item => {
+            if(filter === "All" || item.getAttribute('data-game') === filter) {
+                item.style.display = "block";
+            } else {
+                item.style.display = "none";
+            }
+        });
+    });
+});
+</script>
 
 </body>
 </html>
