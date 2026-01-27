@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Multimedia - Lynx Racing Spain Team</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Orbitron', sans-serif;
+            background-color: #0b0b0b;
+            color: #eaeaea;
+            padding-top: 100px;
+
+            /* Fondo tribal-agresivo */
+            background-image:
+                repeating-linear-gradient(45deg, rgba(255,106,0,0.05) 0 10px, transparent 10px 20px),
+                repeating-linear-gradient(-45deg, rgba(255,106,0,0.05) 0 10px, transparent 10px 20px),
+                repeating-linear-gradient(135deg, rgba(255,106,0,0.03) 0 15px, transparent 15px 30px),
+                repeating-linear-gradient(-135deg, rgba(255,106,0,0.03) 0 15px, transparent 15px 30px);
+            background-size: 60px 60px;
+        }
+
+        .menu {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #111;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 15px 0;
+            border-bottom: 2px solid #ff6a00;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.7);
+        }
+
+        .menu a {
+            color: #eaeaea;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 20px;
+            transition: color 0.3s, transform 0.2s;
+        }
+
+        .menu a:hover {
+            color: #ff6a00;
+            transform: scale(1.1);
+        }
+
+        section {
+            padding: 50px 20px;
+            text-align: center;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        h1 {
+            color: #ff6a00;
+            font-size: 60px;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px #ff6a00;
+        }
+
+        h2 {
+            color: #ffffff;
+            border-left: 5px solid #ff6a00;
+            padding-left: 15px;
+            margin-bottom: 30px;
+            font-size: 36px;
+            text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff;
+            animation: glow 2s infinite alternate;
+        }
+
+        @keyframes glow {
+            0% { text-shadow: 0 0 5px #ff6a00, 0 0 20px #ff4500, 0 0 30px #ff4500; }
+            50% { text-shadow: 0 0 10px #ff6a00, 0 0 30px #ff4500, 0 0 40px #ff4500; }
+            100% { text-shadow: 0 0 5px #ff6a00, 0 0 20px #ff4500, 0 0 30px #ff4500; }
+        }
+
+        /* Galería de fotos y videos */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+       position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 0 12px rgba(255,106,0,0.7);
+        transition: transform 0.3s, box-shadow 0.3s;
+        height: 250px; /* altura fija, cambia a lo que quieras */
+}
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px #ff6a00;
+        }
+
+        .gallery-item img, 
+        .gallery-item video {
+    width: 100%;
+    height: 100%;      /* toma toda la altura del div */
+    object-fit: cover;  /* rellena el div, recortando lo que sobre */
+    display: block;
+        cursor: pointer; /* cambia el cursor al pasar por encima */
+
+}
+
+        .gallery-item video {
+            border-radius: 10px;
+                cursor: pointer; /* cambia el cursor al pasar por encima */
+
+        }
+
+
+        /* Lightbox */
+#lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.9);
+    display: none; /* oculto por defecto */
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+#lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #ff6a00;
+}
+
+    </style>
+</head>
+<body>
+
+<!-- Menú fijo -->
+<nav class="menu">
+    <a href="index.html">Inicio</a>
+    <a href="calendar.html">Agenda</a>
+    <a href="multi.html">Multimedia</a>
+    <a href="roster.html">Roster</a>
+    <a href="contacto.html">Contacto</a>
+</nav>
+
+<section>
+    <h1>Multimedia</h1>
+    <h2>Fotos y Videos del Equipo</h2>
+
+    <div class="gallery">
+        <!-- Fotos -->
+        <div class="gallery-item">
+            <img src="media/porsche.png" alt="Foto 1">
+        </div>
+        <div class="gallery-item">
+            <img src="media/porsche2.png" alt="Foto 2">
+        </div>
+
+        <!-- Videos -->
+        <div class="gallery-item">
+            <video controls>
+                <source src="media/video1.mp4" type="video/mp4">
+                Tu navegador no soporta video HTML5
+            </video>
+        </div>
+        <div class="gallery-item">
+            <video controls>
+                <source src="media/video2.mp4" type="video/mp4">
+                Tu navegador no soporta video HTML5
+            </video>
+        </div>
+        
+        <!-- Agrega más fotos y videos aquí -->
+
+        <div id="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="">
+</div>
+    </div>
+</section>
+<script>
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+
+// Seleccionamos todas las imágenes de la galería
+const galleryImages = document.querySelectorAll('.gallery-item img');
+
+galleryImages.forEach(img => {
+    img.addEventListener('click', () => {
+        lightbox.style.display = 'flex';     // mostramos el Lightbox
+        lightboxImg.src = img.src;           // ponemos la misma foto
+    });
+});
+
+function closeLightbox() {
+    lightbox.style.display = 'none';
+}
+</script>
+</body>
+</html>

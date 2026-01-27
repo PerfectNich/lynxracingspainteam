@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Calendario de Carreras - Lynx Racing Spain Team</title>
+    <title>Contacto - Lynx Racing Spain Team</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -20,6 +20,8 @@
 			linear-gradient(315deg, rgba(255,106,0,0.05) 25%, transparent 25%);
 			background-size: 60px 60px;
 			background-position: 0 0, 0 30px, 30px -30px, -30px 0px;
+
+            
         }
 
         .menu {
@@ -34,13 +36,14 @@
             border-bottom: 2px solid #ff6a00;
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0,0,0,0.7);
+            font-size: 20px;
         }
 
         .menu a {
             color: #eaeaea;
             text-decoration: none;
             font-weight: bold;
-            font-size: 20px;
+            font-size: 20x;
             transition: color 0.3s, transform 0.2s;
         }
 
@@ -50,16 +53,17 @@
         }
 
         section {
-            padding: 50px 20px;
+            padding: 45px 20px;
             text-align: center;
+            max-width: 800px;
+            margin: auto;
         }
 
-
-        
         h1 {
             color: #ff6a00;
+            font-size: 60px;
+            letter-spacing: 2px;
             text-shadow: 0 0 10px #ff6a00;
-            font-size: 40px;
         }
 
         h2 {
@@ -67,6 +71,7 @@
             border-left: 5px solid #ff6a00;
             padding-left: 15px;
             margin-bottom: 30px;
+            font-size: 36px;
             text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff;
             animation: glow 2s infinite alternate;
         }
@@ -77,18 +82,25 @@
             100% { text-shadow: 0 0 5px #ff6a00, 0 0 20px #ff4500, 0 0 30px #ff4500; }
         }
 
-        .calendar-widget {
+        .contact-links a {
             display: inline-block;
-            box-shadow: 0 0 12px rgba(255,106,0,0.7);
-            border-radius: 8px;
-            overflow: hidden;
+            margin: 10px 15px;
+            padding: 8px 12px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: transform 0.3s, color 0.3s, box-shadow 0.3s;
         }
 
-        @media screen and (max-width: 900px) {
-            .calendar-widget iframe {
-                width: 100%;
-                height: 400px;
-            }
+        .contact-links a.discord { background-color: #7289da; color: #fff; }
+        .contact-links a.twitter { background-color: #1da1f2; color: #fff; }
+        .contact-links a.instagram { background-color: #e1306c; color: #fff; }
+        .contact-links a.twitch { background-color: #9146ff; color: #fff; }
+        .contact-links a.email { background-color: #ff6a00; color: #fff; }
+
+        .contact-links a:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 12px #ff6a00;
         }
     </style>
 </head>
@@ -98,21 +110,22 @@
 <nav class="menu">
     <a href="index.html">Inicio</a>
     <a href="calendar.html">Agenda</a>
-   <a href="multi.html">Multimedia</a>
+    <a href="multi.html">Multimedia</a>
    <a href="roster.html" class="btn">Roster</a>
     <a href="contacto.html">Contacto</a>
 </nav>
 
 <section>
-    <h1>Lynx Racing Spain Team</h1>
-    <h2>Calendario de Carreras</h2>
-    <div class="calendar-widget">
-        <iframe src="https://calendar.google.com/calendar/embed?src=MmU4M2UzNGQxYTZhMTE3NWU3NjRmZDhmMGFkY2JmZGI0NzFhYjQyMjdlNTk4NTQxMDUxZjcxNTQ3ZTFjYTU1NUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&ctz=Europe/Madrid" 
-                width="800" 
-                height="600" 
-                frameborder="0" 
-                scrolling="no">
-        </iframe>
+    <h1>Contacto</h1>
+    <h2>Lynx Racing Spain Team</h2>
+    <p>Conéctate con nosotros y sigue todas nuestras novedades, carreras y eventos.</p>
+
+    <div class="contact-links">
+        <a href="https://discord.gg/H8eNsptxVw" target="_blank" class="discord">🎮 Discord</a>
+        <a href="https://x.com/LynxRacingSpain" target="_blank" class="twitter">🐦 Twitter / X</a>
+        <a href="https://www.instagram.com/lynxracingspain/" target="_blank" class="instagram">📷 Instagram</a>
+        <a href="https://www.twitch.tv/kikologo" target="_blank" class="twitch">🎥 Twitch</a>
+        <a href="mailto:lynxracingspain@gmail.com" class="email">📧 Correo</a>
     </div>
 </section>
 
