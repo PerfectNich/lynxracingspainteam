@@ -79,6 +79,7 @@
         section {
             padding: 50px 20px;
             max-width: 1100px;
+            text-align: center;
             margin: auto;
         }
 		@keyframes glow {
@@ -221,6 +222,26 @@ h2 {
     transform: scale(1.2);
     cursor: pointer;
 }
+.discord-widget {
+    position: absolute;       /* siempre visible */
+    top: 150px;             /* debajo del menú */
+    right: 20px;           /* esquina derecha */
+    width: 300px;
+    height: 400px;
+    z-index: 1001;         /* por encima del contenido */
+    box-shadow: 0 0 12px rgba(255,106,0,0.7); /* glow naranja suave */
+    border-radius: 8px;
+    overflow: hidden;      /* que no se salga del borde */
+}
+
+/* Para pantallas pequeñas, ocultar el widget */
+@media screen and (max-width: 900px) {
+    .discord-widget {
+        display: none;
+    }
+}
+
+
 
 @keyframes scroll {
     0% { transform: translateX(0); }
@@ -252,31 +273,15 @@ h2 {
     <p>Simracing para todos los niveles · MultiSimulador · Disfrutar y competir</p>
 </header>
 
-<!-- Sobre el equipo -->
-<section id="equipo">
-    <h2>Sobre el Equipo</h2>
-    <p>
-        Comunidad del equipo hispano Lynx Racing Spain Team, 
-        equipo con más de 3 años de trayectoria y con cientos de 
-        carreras competidas y algún que otro evento hecho. 
-        Nos puedes encontrar en Assetto, iRacing, LMU, entre otros!
-    </p>
-</section>
-
-<!-- Simuladores -->
-<section id="simuladores">
-    <h2>Simuladores</h2>
-    <div class="sim-grid">
-        <div class="sim-card">iRacing</div>
-        <div class="sim-card">Le Mans Ultimate</div>
-        <div class="sim-card">Assetto Corsa</div>
-        <div class="sim-card">Assetto Corsa EVO</div>
-        <div class="sim-card">Assetto Corsa Rally</div>
-        <div class="sim-card">Automobilista 2</div>
-        <div class="sim-card">RaceRoom</div>
-		<div class="sim-card">Gran Turismo</div>
-    </div>
-</section>
+<div class="discord-widget">
+    <iframe src="https://discord.com/widget?id=959966624381796393&theme=dark" 
+            width="300" 
+            height="400" 
+            allowtransparency="true" 
+            frameborder="0" 
+            sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts">
+    </iframe>
+</div>
 
 <section id="sponsors">
     <h2>Sponsors</h2>
@@ -326,6 +331,33 @@ h2 {
     </div>
 </div>
 </section>
+
+<!-- Sobre el equipo -->
+<section id="equipo">
+    <h2>Sobre el Equipo</h2>
+    <p>
+        Comunidad del equipo hispano Lynx Racing Spain Team, 
+        equipo con más de 3 años de trayectoria y con cientos de 
+        carreras competidas y algún que otro evento hecho. 
+        Nos puedes encontrar en Assetto, iRacing, LMU, entre otros!
+    </p>
+</section>
+
+<!-- Simuladores -->
+<section id="simuladores">
+    <h2>Simuladores</h2>
+    <div class="sim-grid">
+        <div class="sim-card">iRacing</div>
+        <div class="sim-card">Le Mans Ultimate</div>
+        <div class="sim-card">Assetto Corsa</div>
+        <div class="sim-card">Assetto Corsa EVO</div>
+        <div class="sim-card">Assetto Corsa Rally</div>
+        <div class="sim-card">Automobilista 2</div>
+        <div class="sim-card">RaceRoom</div>
+		<div class="sim-card">Gran Turismo</div>
+    </div>
+</section>
+
 
 <!-- Roster -->
 <section id="roster-link">
