@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Lynx Racing Spain Team</title>
+    <!-- favicon -->
+<link rel="icon" type="image/png" href="favicon.png">
+
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
@@ -326,6 +329,59 @@ h2 {
     </iframe>
 </div>
 
+<div id="live-popup" style="display:none; position:fixed; top:20px; right:20px; background:#111; border:2px solid #ff6a00; padding:15px 20px; border-radius:10px; color:#fff; z-index:5000; box-shadow:0 0 20px #ff6a00;">
+  <div style="display:flex; align-items:center; gap:10px;">
+    <span style="width:10px; height:10px; background:red; border-radius:50%; animation: blink 1s infinite;"></span>
+    <div>
+      <h3 id="live-user" style="margin:0; font-size:18px;"></h3>
+      <p id="live-title" style="margin:0; font-size:14px;"></p>
+      <a id="live-link" href="#" target="_blank" style="color:#ff6a00; text-decoration:none; font-weight:bold;">Ver directo</a>
+    </div>
+    <button onclick="document.getElementById('live-popup').style.display='none'" style="margin-left:auto; background:none; border:none; color:#ff6a00; font-size:16px; cursor:pointer;">×</button>
+  </div>
+</div>
+
+<script>
+const clientId = "0etizzff58p4oyqvm1y4hintldba0d";
+const channels = ["piloto1","piloto2","piloto3","piloto4"]; // pon aquí los usuarios de Twitch
+
+async function checkLive() {
+    // Creamos la URL con todos los usuarios
+    const url = `https://api.twitch.tv/helix/streams?user_login=${channels.join('&user_login=')}`;
+    
+    try {
+        const res = await fetch(url, {
+            headers: {
+                "Client-ID": clientId,
+                "Authorization": "Bearer YOUR_PUBLIC_TOKEN" // pon aquí un token público si tienes
+            }
+        });
+        const data = await res.json();
+        if (data.data && data.data.length > 0) {
+            // Tomamos el primer piloto en directo
+            const stream = data.data[0];
+            document.getElementById('live-user').innerText = `${stream.user_name} está en directo!`;
+            document.getElementById('live-title').innerText = stream.title;
+            document.getElementById('live-link').href = `https://twitch.tv/${stream.user_name}`;
+            document.getElementById('live-popup').style.display = 'flex';
+        }
+    } catch(err) {
+        console.log("No se pudo comprobar Twitch:", err);
+    }
+}
+
+// Comprobamos al cargar la página
+window.addEventListener('load', () => {
+    checkLive();
+    // También lo podemos refrescar cada 2 min
+    setInterval(checkLive, 120000);
+});
+</script>
+
+
+<style>
+@keyframes blink { 0%,50%,100%{opacity:1}25%,75%{opacity:0} }
+</style>
 
 <section id="sponsors">
     <h2>Sponsors</h2>
