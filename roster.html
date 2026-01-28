@@ -188,6 +188,52 @@
     transition: color 0.3s;
 }
 
+.twitch-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    box-shadow: 0 0 15px rgba(255,106,0,0.5);
+    border-radius: 8px;
+    overflow: hidden;
+}
+@media screen and (max-width: 900px) {
+    .twitch-container iframe {
+        height: 300px;
+    }
+}
+
+.embed-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.twitch-card {
+    background-color: #141414;
+    border-left: 4px solid #ff6a00;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(255,106,0,0.5);
+    display: flex;
+    flex-direction: column;
+}
+
+.twitch-card h3 {
+    margin: 0;
+    padding: 10px;
+    font-size: 16px;
+    color: #ff6a00;
+    text-align: center;
+    background-color: #111;
+    border-bottom: 1px solid #ff6a00;
+}
+
+.twitch-card iframe {
+    width: 100%;
+    height: 300px;
+}
     </style>
 </head>
 
@@ -436,9 +482,56 @@
     </div>
 </section>
 
+<h2>Directos del equipo</h2>
 
+<section id="twitch-embeds">
+        <div class="embed-grid">
+            <div class="twitch-embed" data-channel="perfect_nich"></div>
+            <div class="twitch-embed" data-channel="gombii99"></div>
+            <div class="twitch-embed" data-channel="jarrini15"></div>
+            <div class="twitch-embed" data-channel="capi71"></div>
+            <div class="twitch-embed" data-channel="coro85"></div>
+            <div class="twitch-embed" data-channel="kikologo"></div>
+        </div>
+    </section>
+
+    <!-- Twitch Embed JS -->
+    <script src="https://player.twitch.tv/js/embed/v1.js"></script>
+    <script>
+        const embeds = document.querySelectorAll('.twitch-embed');
+        embeds.forEach(el => {
+            const channel = el.dataset.channel;
+            new Twitch.Embed(el, {
+                width: '100%',
+                height: 400,
+                channel: channel,
+                layout: "video",
+                theme: "dark"
+       });  });
+
+    </script>
 <script src="js/main.js" defer></script>
 
+<script>
+const twitchCards = document.querySelectorAll('.twitch-card');
+twitchCards.forEach(card => {
+    const channel = card.dataset.channel;
+
+    // Título con el nombre del canal
+    const title = document.createElement('h3');
+    title.textContent = channel;
+    card.appendChild(title);
+
+    // Embed de Twitch
+    new Twitch.Embed(card, {
+        width: '100%',
+        height: 500,
+        channel: channel,
+        layout: "video",
+        theme: "dark"
+    });
+})  ;
+</script>
 
 <footer>
     © 2026 · Lynx Racing Spain Team
