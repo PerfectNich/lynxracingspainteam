@@ -3,543 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <title>Lynx Racing Spain Team</title>
-    <!-- favicon -->
-<link rel="icon" type="image/png" href="favicon.png">
 
-<meta property="og:title" content="Lynx Racing Spain Team">
-<meta property="og:description" content="Simracing para todos los niveles · MultiSimulador · Disfrutar y competir">
-<meta property="og:image" content="https://perfectnich.github.io/lynxracingspainteam/logo.jpg">
-<meta property="og:url" content="https://perfectnich.github.io/lynxracingspainteam/index.html">
-<meta property="og:type" content="website">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
 
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Lynx Racing Spain Team">
-<meta name="twitter:description" content="Simracing para todos los niveles · MultiSimulador · Disfrutar y competir">
-<meta name="twitter:image" content="https://perfectnich.github.io/lynxracingspainteam/logo.jpg">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Lynx Racing Spain Team">
+    <meta property="og:description" content="Simracing para todos los niveles · MultiSimulador · Disfrutar y competir">
+    <meta property="og:image" content="https://perfectnich.github.io/lynxracingspainteam/logo.jpg">
+    <meta property="og:url" content="https://perfectnich.github.io/lynxracingspainteam/index.html">
+    <meta property="og:type" content="website">
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Lynx Racing Spain Team">
+    <meta name="twitter:description" content="Simracing para todos los niveles · MultiSimulador · Disfrutar y competir">
+    <meta name="twitter:image" content="https://perfectnich.github.io/lynxracingspainteam/logo.jpg">
 
-    <style>
-        body {
-			margin: 0;
-			font-family: 'Orbitron', sans-serif;
-			background-color: #0b0b0b;
-			color: #eaeaea;
-			padding-top: 100px;
-    
-    /* Fondo agresivo */
-    background-image: 
-			linear-gradient(135deg, rgba(255,106,0,0.05) 25%, transparent 25%),
-			linear-gradient(225deg, rgba(255,106,0,0.05) 25%, transparent 25%),
-			linear-gradient(45deg, rgba(255,106,0,0.05) 25%, transparent 25%),
-			linear-gradient(315deg, rgba(255,106,0,0.05) 25%, transparent 25%);
-			background-size: 60px 60px;
-			background-position: 0 0, 0 30px, 30px -30px, -30px 0px;
-		}
+    <!-- Fuente -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 
-        header {
-            background: linear-gradient(90deg, #120000, #1a0a00);
-            padding: 50px 20px 20px 20px; /* menos padding abajo por menú */
-            text-align: center;
-            border-bottom: 3px solid #ff6a00;
-        }
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
 
-        header h1 {
-            font-size: 50px;
-            margin: 0;
-            color: #ff6a00;
-            letter-spacing: 2px;
-        }
-html {
-  scroll-behavior: smooth;
-}
-        header p {
-            margin-top: 10px;
-            font-size: 18px;
-            color: #ffb347;
-        }
-
-        .logo {
-            width: 300px;
-            margin-bottom: 20px;
-            filter: drop-shadow(0 0 12px rgba(255, 106, 0, 0.6));
-        }
-
-        .menu {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background-color: #111;
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            padding: 15px 0;
-            border-bottom: 2px solid #ff6a00;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.7);
-        }
-
-        .menu a {
-            color: #eaeaea;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 20px;
-            transition: color 0.3s, transform 0.2s;
-        }
-
-        .menu a:hover {
-            color: #ff6a00;
-            transform: scale(1.1);
-        }
-
-        section {
-            padding: 50px 20px;
-            max-width: 1100px;
-            text-align: center;
-            margin: auto;
-        }
-		@keyframes glow {
-    0% { text-shadow: 0 0 5px #ff6a00, 0 0 20px #ff4500, 0 0 30px #ff4500; }
-    50% { text-shadow: 0 0 10px #ff6a00, 0 0 30px #ff4500, 0 0 40px #ff4500; }
-    100% { text-shadow: 0 0 5px #ff6a00, 0 0 20px #ff4500, 0 0 30px #ff4500; }
-}
-h2 {
-    color: #ffffff; /* texto blanco */
-    border-left: 5px solid #ff6a00; /* mantiene acento naranja */
-    padding-left: 15px;
-    font-size: 40px;
-    margin-bottom: 30px;
-
-    /* Glow blanco intenso */
-    text-shadow: 
-        0 0 5px #ffffff,
-        0 0 10px #ffffff,
-        0 0 20px #ffffff,
-        0 0 30px #ffffff,
-        0 0 40px #ffffff;
-	  animation: glow 2s infinite alternate;
-
-}
-
-        .sim-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-        }
-
-        .sim-card {
-            background-color: #141414;
-            padding: 20px;
-            border-radius: 8px;
-            border: 1px solid #2a2a2a;
-            text-align: center;
-        }
-
-        .roster {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-        }
-
-        .member {
-            background-color: #141414;
-            padding: 15px;
-            border-radius: 6px;
-            border-left: 4px solid #ff6a00;
-        }
-
-        footer {
-            background-color: #111;
-            text-align: center;
-            padding: 20px;
-            font-size: 14px;
-            border-top: 2px solid #ff6a00;
-        }
-		#contacto a {
-    color: #ff6a00;       /* Color normal de los enlaces (puedes cambiarlo) */
-    text-decoration: none; /* Quita subrayado */
-    font-weight: bold;     /* Negrita */
-    font-family: 'Orbitron', sans-serif; /* Tipo de letra deseada */
-    transition: color 0.3s, transform 0.2s; /* Para efecto suave al pasar el mouse */
-}
-
-#contacto a:hover {
-    color: #ffffff; /* Color al pasar el ratón */
-    transform: scale(1.05); /* Efecto pequeño de zoom al hover */
-}
-.member a {
-    display: inline-block; 
-    color: #ff6a00;      /* color naranja agresivo */
-    text-decoration: none;
-    font-weight: bold;
-    transition: transform 0.3s, color 0.3s;
-}
-
-.member a:hover {
-    transform: rotateY(10deg) scale(1.05); /* gira y crece un poco */
-    color: #ffffff; /* blanco al pasar el mouse */
-    cursor: pointer;
-}
-.top-contact {
-    position: fixed;       /* siempre visible */
-    top: 10px;
-    right: 20px;
-    font-size: 14px;       /* pequeño, discreto */
-    z-index: 1001;         /* por encima del menú */
-    background-color: rgba(0,0,0,0.6); /* semitransparente */
-    padding: 5px 10px;
-    border-radius: 5px;
-    box-shadow: 0 0 8px rgba(255,106,0,0.7); /* glow naranja suave */
-}
-
-.top-contact a {
-    color: #ff6a00;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s;
-}
-
-.top-contact a:hover {
-    color: #ffffff;
-}
-
-#sponsors {
-    padding: 50px 20px;
-    text-align: center;
-}
-
-#sponsors h2 {
-    color: #ffffff;
-    border-left: 5px solid #ff6a00;
-    padding-left: 15px;
-    margin-bottom: 30px;
-    text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff;
-}
-
-.sponsor-carousel {
-    overflow: hidden;
-    width: 100%;
-    margin: auto;
-}
-
-.carousel-track {
-    display: flex;
-    gap: 50px;
-    animation: scroll 20s linear infinite;
-    align-items: center; /* centra verticalmente */
-}
-
-.carousel-track img {
-    width: 100px;   /* tamaño más pequeño */
-    height: auto;
-    transition: transform 0.3s;
-}
-
-.carousel-track img:hover {
-    transform: scale(1.2);
-    cursor: pointer;
-}
-.discord-widget {
-    position: absolute;       /* siempre visible */
-    top: 150px;             /* debajo del menú */
-    right: 20px;           /* esquina derecha */
-    width: 300px;
-    height: 400px;
-    z-index: 1001;         /* por encima del contenido */
-    box-shadow: 0 0 12px rgba(255,106,0,0.7); /* glow naranja suave */
-    border-radius: 8px;
-    overflow: hidden;      /* que no se salga del borde */
-}
-
-/* Para pantallas pequeñas, ocultar el widget */
-@media screen and (max-width: 900px) {
-    .discord-widget {
-        display: none;
-    }
-}
-
-
-
-@keyframes scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-}
-
-
-#back-to-top {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background-color: #ff6a00;
-    color: #0b0b0b;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    box-shadow: 0 0 8px #ff6a00;
-    display: none;
-}
-
-#equipo p {
-    font-size: 20px;      /* antes 18px, puedes ajustar */
-    line-height: 1.6;     /* para que no se vea apretado */
-    color: #eaeaea;       /* mantiene el color actual */
-}
-
-#roster-link p {
-    font-size: 20px;      /* antes 18px, puedes ajustar */
-    line-height: 1.6;     /* para que no se vea apretado */
-    color: #eaeaea;       /* mantiene el color actual */
-}
-
-.calendar-widget {
-    display: inline-block;
-    box-shadow: 0 0 12px rgba(255,106,0,0.7);
-    border-radius: 8px;
-    overflow: hidden;
-}
-
-/* Responsive para móviles */
-@media screen and (max-width: 900px) {
-    .calendar-widget iframe {
-        width: 100%;
-        height: 400px;
-    }
-}
-
-    </style>
-
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX'); // tu ID de GA4
+    </script>
 
-  gtag('config', 'G-XXXXXXXXXX'); // reemplaza con tu ID de GA4
-</script>
-
+    <!-- JS para header y footer -->
+    <script src="js/main.js" defer></script>
 </head>
 
 <body>
 
-<div class="top-contact">
-    🎮 <a href="https://discord.gg/H8eNsptxVw" target="_blank">Discord</a>
-</div>
+    <!-- Menú (header.html inyectado con JS) -->
+    <div id="header"></div>
 
-<!-- Menú fijo -->
-<nav class="menu">
-    <a href="index.html">Inicio</a>
-    <a href="calendar.html">Agenda</a>
-   <a href="multi.html">Multimedia</a>
-   <a href="roster.html" class="btn">Roster</a>
-    <a href="contacto.html">Contacto</a>
-</nav>
-
-<!-- Header -->
-<header id="inicio">
-    <img src="logo.jpg" class="logo">
-    <h1>LYNX RACING SPAIN TEAM</h1>
-    <p>Simracing para todos los niveles · MultiSimulador · Disfrutar y competir</p>
-</header>
-
-<div class="discord-widget">
-    <iframe src="https://discord.com/widget?id=959966624381796393&theme=dark" 
-            width="300" 
-            height="400" 
-            allowtransparency="true" 
-            frameborder="0" 
-            sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts">
-    </iframe>
-</div>
-
-<div id="live-popup" style="display:none; position:fixed; top:20px; right:20px; background:#111; border:2px solid #ff6a00; padding:15px 20px; border-radius:10px; color:#fff; z-index:5000; box-shadow:0 0 20px #ff6a00;">
-  <div style="display:flex; align-items:center; gap:10px;">
-    <span style="width:10px; height:10px; background:red; border-radius:50%; animation: blink 1s infinite;"></span>
-    <div>
-      <h3 id="live-user" style="margin:0; font-size:18px;"></h3>
-      <p id="live-title" style="margin:0; font-size:14px;"></p>
-      <a id="live-link" href="#" target="_blank" style="color:#ff6a00; text-decoration:none; font-weight:bold;">Ver directo</a>
-    </div>
-    <button onclick="document.getElementById('live-popup').style.display='none'" style="margin-left:auto; background:none; border:none; color:#ff6a00; font-size:16px; cursor:pointer;">×</button>
-  </div>
-</div>
-
-<script>
-const clientId = "0etizzff58p4oyqvm1y4hintldba0d";
-const channels = ["piloto1","piloto2","piloto3","piloto4"]; // pon aquí los usuarios de Twitch
-
-async function checkLive() {
-    // Creamos la URL con todos los usuarios
-    const url = `https://api.twitch.tv/helix/streams?user_login=${channels.join('&user_login=')}`;
-    
-    try {
-        const res = await fetch(url, {
-            headers: {
-                "Client-ID": clientId,
-                "Authorization": "Bearer YOUR_PUBLIC_TOKEN" // pon aquí un token público si tienes
-            }
-        });
-        const data = await res.json();
-        if (data.data && data.data.length > 0) {
-            // Tomamos el primer piloto en directo
-            const stream = data.data[0];
-            document.getElementById('live-user').innerText = `${stream.user_name} está en directo!`;
-            document.getElementById('live-title').innerText = stream.title;
-            document.getElementById('live-link').href = `https://twitch.tv/${stream.user_name}`;
-            document.getElementById('live-popup').style.display = 'flex';
-        }
-    } catch(err) {
-        console.log("No se pudo comprobar Twitch:", err);
-    }
-}
-
-// Comprobamos al cargar la página
-window.addEventListener('load', () => {
-    checkLive();
-    // También lo podemos refrescar cada 2 min
-    setInterval(checkLive, 120000);
-});
-</script>
-
-
-<style>
-@keyframes blink { 0%,50%,100%{opacity:1}25%,75%{opacity:0} }
-</style>
-
-<section id="sponsors">
-    <h2>Sponsors</h2>
-    <div class="sponsor-carousel">
-    <div class="carousel-track">
-        <a href="https://www.instagram.com/orbitaldetailcars/" target="_blank">
-            <img src="sponsors/bg.png" alt="Sponsor 1">
-        </a>
-        <a href="https://bjsimracing.com/" target="_blank">
-            <img src="sponsors/bj.png" alt="Sponsor 2">
-        </a>
-        <a href="https://nowheelssim.com/" target="_blank">
-            <img src="sponsors/nowheels.png" alt="Sponsor 3">
-        </a>
-        <a href="https://www.racemax.es/" target="_blank">
-            <img src="sponsors/racemax1.png" alt="Sponsor 4">
-        </a>
-        <a href="https://www.twitch.tv/kikologo" target="_blank">
-            <img src="sponsors/kiko.png" alt="Sponsor 5">
-        </a>
-        <a href="https://www.instagram.com/gimnasiosport_generation/" target="_blank">
-            <img src="sponsors/sport.png" alt="Sponsor 6">
-        </a>
-        <!-- el séptimo sin enlace -->
-        <img src="sponsors/wear.png" alt="Sponsor 7">
-
-        <!-- repetimos para bucle infinito -->
-        <a href="https://www.instagram.com/orbitaldetailcars/" target="_blank">
-            <img src="sponsors/bg.png" alt="Sponsor 1">
-        </a>
-        <a href="https://bjsimracing.com/" target="_blank">
-            <img src="sponsors/bj.png" alt="Sponsor 2">
-        </a>
-        <a href="https://nowheelssim.com/" target="_blank">
-            <img src="sponsors/nowheels.png" alt="Sponsor 3">
-        </a>
-        <a href="https://www.racemax.es/" target="_blank">
-            <img src="sponsors/racemax1.png" alt="Sponsor 4">
-        </a>
-        <a href="https://www.twitch.tv/kikologo" target="_blank">
-            <img src="sponsors/kiko.png" alt="Sponsor 5">
-        </a>
-        <a href="https://www.instagram.com/gimnasiosport_generation/" target="_blank">
-            <img src="sponsors/sport.png" alt="Sponsor 6">
-        </a>
-        <img src="sponsors/wear.png" alt="Sponsor 7">
-    </div>
-</div>
-</section>
-
-<!-- Sobre el equipo -->
-<section id="equipo">
-    <h2>Sobre el Equipo</h2>
-    <p>
-        Comunidad del equipo hispano Lynx Racing Spain Team, 
-        equipo con más de 3 años de trayectoria y con cientos de 
-        carreras competidas y algún que otro evento hecho. 
-        Nos puedes encontrar en Assetto, iRacing, LMU, entre otros!
-    </p>
-</section>
-
-<!-- Simuladores -->
-<section id="simuladores">
-    <h2>Simuladores</h2>
-    <div class="sim-grid">
-        <div class="sim-card">iRacing</div>
-        <div class="sim-card">Le Mans Ultimate</div>
-        <div class="sim-card">Assetto Corsa</div>
-        <div class="sim-card">Assetto Corsa EVO</div>
-        <div class="sim-card">Assetto Corsa Rally</div>
-        <div class="sim-card">Automobilista 2</div>
-        <div class="sim-card">RaceRoom</div>
-		<div class="sim-card">Gran Turismo</div>
-    </div>
-</section>
-
-
-<!-- Roster -->
-<section id="roster-link">
-    <h2>Roster del Equipo</h2>
-    <p>Puedes ver todos nuestros pilotos y sus Twitch <a href="roster.html">aquí</a>.</p>
-</section>
-
-<!-- Contacto -->
-<section id="contacto">
-    <h2>Contacto</h2>
-    <p style="text-align:center;">
-        📧 <a href="mailto:lynxracingspain@gmail.com" target="_blank">lynxracingspain@gmail.com</a> |
-        📷 <a href="https://www.instagram.com/lynxracingspain/" target="_blank">Instagram</a> |
-        🐦 <a href="https://x.com/LynxRacingSpain" target="_blank">X</a> |
+    <!-- Contacto superior fijo -->
+    <div class="top-contact">
         🎮 <a href="https://discord.gg/H8eNsptxVw" target="_blank">Discord</a>
-    </p>
-</section>
+    </div>
 
+    <!-- Header principal de la página -->
+    <header id="inicio">
+        <img src="logo.jpg" class="logo" alt="Logo Lynx Racing" loading="lazy">
+        <h1>LYNX RACING SPAIN TEAM</h1>
+        <p>Simracing para todos los niveles · MultiSimulador · Disfrutar y competir</p>
+    </header>
 
-<script>
-const slider = document.querySelector('.sponsor-slider');
-const imgs = slider.querySelectorAll('img');
-let index = 0;
+    <!-- Widget Discord -->
+    <div class="discord-widget">
+        <iframe src="https://discord.com/widget?id=959966624381796393&theme=dark" 
+                width="300" 
+                height="400" 
+                allowtransparency="true" 
+                frameborder="0" 
+                sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts">
+        </iframe>
+    </div>
 
-function rotateSponsors() {
-    // mueve el primer logo al final
-    const first = slider.firstElementChild;
-    slider.appendChild(first);
-}
-setInterval(rotateSponsors, 3000); // cada 3 segundos
-</script>
+    <!-- Sponsors -->
+    <section id="sponsors">
+        <h2>Sponsors</h2>
+        <div class="sponsor-carousel">
+            <div class="carousel-track">
+                <!-- tus logos repetidos -->
+                <a href="https://www.instagram.com/orbitaldetailcars/" target="_blank"><img src="sponsors/bg.png" alt="Sponsor 1" loading="lazy"></a>
+                <a href="https://bjsimracing.com/" target="_blank"><img src="sponsors/bj.png" alt="Sponsor 2" loading="lazy"></a>
+                <a href="https://nowheelssim.com/" target="_blank"><img src="sponsors/nowheels.png" alt="Sponsor 3" loading="lazy"></a>
+                <a href="https://www.racemax.es/" target="_blank"><img src="sponsors/racemax1.png" alt="Sponsor 4" loading="lazy"></a>
+                <a href="https://www.twitch.tv/kikologo" target="_blank"><img src="sponsors/kiko.png" alt="Sponsor 5" loading="lazy"></a>
+                <a href="https://www.instagram.com/gimnasiosport_generation/" target="_blank"><img src="sponsors/sport.png" alt="Sponsor 6" loading="lazy"></a>
+                <img src="sponsors/wear.png" alt="Sponsor 7">
+                <a href="https://www.instagram.com/orbitaldetailcars/" target="_blank"><img src="sponsors/bg.png" alt="Sponsor 1" loading="lazy"></a>
+                <a href="https://bjsimracing.com/" target="_blank"><img src="sponsors/bj.png" alt="Sponsor 2" loading="lazy"></a>
+                <a href="https://nowheelssim.com/" target="_blank"><img src="sponsors/nowheels.png" alt="Sponsor 3" loading="lazy"></a>
+                <a href="https://www.racemax.es/" target="_blank"><img src="sponsors/racemax1.png" alt="Sponsor 4" loading="lazy"></a>
+                <a href="https://www.twitch.tv/kikologo" target="_blank"><img src="sponsors/kiko.png" alt="Sponsor 5" loading="lazy"></a>
+                <a href="https://www.instagram.com/gimnasiosport_generation/" target="_blank"><img src="sponsors/sport.png" alt="Sponsor 6" loading="lazy"></a>
+                <img src="sponsors/wear.png" alt="Sponsor 7">
+                <!-- repetir si quieres bucle infinito -->
+            </div>
+        </div>
+    </section>
 
-<div id="back-to-top" onclick="window.scrollTo({top: 0, behavior:'smooth'});">⬆️</div>
+    <!-- Sobre el equipo -->
+    <section id="equipo">
+        <h2>Sobre el Equipo</h2>
+        <p>
+            Comunidad del equipo hispano Lynx Racing Spain Team, equipo con más de 3 años de trayectoria y con cientos de carreras competidas y algún que otro evento hecho. Nos puedes encontrar en Assetto, iRacing, LMU, entre otros!
+        </p>
+    </section>
 
+    <!-- Simuladores -->
+    <section id="simuladores">
+        <h2>Simuladores</h2>
+        <div class="sim-grid">
+            <div class="sim-card">iRacing</div>
+            <div class="sim-card">Le Mans Ultimate</div>
+            <div class="sim-card">Assetto Corsa</div>
+            <div class="sim-card">Assetto Corsa EVO</div>
+            <div class="sim-card">Assetto Corsa Rally</div>
+            <div class="sim-card">Automobilista 2</div>
+            <div class="sim-card">RaceRoom</div>
+            <div class="sim-card">Gran Turismo</div>
+        </div>
+    </section>
 
-<footer>
-    © 2026 · Lynx Racing Spain Team
-</footer>
+    <!-- Roster -->
+    <section id="roster-link">
+        <h2>Roster del Equipo</h2>
+        <p>Puedes ver todos nuestros pilotos y sus Twitch <a href="roster.html">aquí</a>.</p>
+    </section>
 
+    <!-- Contacto -->
+    <section id="contacto">
+        <h2>Contacto</h2>
+        <p style="text-align:center;">
+            📧 <a href="mailto:lynxracingspain@gmail.com" target="_blank">lynxracingspain@gmail.com</a> |
+            📷 <a href="https://www.instagram.com/lynxracingspain/" target="_blank">Instagram</a> |
+            🐦 <a href="https://x.com/LynxRacingSpain" target="_blank">X</a> |
+            🎮 <a href="https://discord.gg/H8eNsptxVw" target="_blank">Discord</a>
+        </p>
+    </section>
 
-<script>
-// Selecciona el botón
-const backToTop = document.getElementById('back-to-top');
+    <!-- Footer -->
+    <div id="footer"></div>
 
-// Mostrar u ocultar según el scroll
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 200) {   // si haces scroll más de 200px
-        backToTop.style.display = 'block';
-    } else {
-        backToTop.style.display = 'none';
-    }
-});
-
-// Función para scroll suave
-function scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-</script>
-
+    <!-- Back to top -->
+    <div id="back-to-top" onclick="window.scrollTo({top:0, behavior:'smooth'});">⬆️</div>
 
 </body>
 </html>
