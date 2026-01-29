@@ -203,6 +203,66 @@ footer {
     border-radius: 10px;
     box-shadow: 0 0 20px #ff6a00;
 }
+
+.sim-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  max-width: 1100px;
+  margin: auto;
+  padding: 20px 0;
+}
+
+.sim-card {
+    background-color: #141414;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #2a2a2a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.sim-card {
+    background-color: #141414;
+    border-radius: 8px;
+    border: 1px solid #2a2a2a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    height: 100%; /* altura fija para todas */
+    width: 100%;   /* se adapta al grid */
+}
+
+.sim-card img,
+.sim-card video {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    display: block;
+}
+
+/* LIGHTBOX */
+#lightbox-img-overlay, #lightbox-video-overlay {
+  position: fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background-color: rgba(0,0,0,0.9);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:2000;
+}
+
+#lightbox-img-overlay img, #lightbox-video-overlay video {
+  max-width:90%;
+  max-height:90%;
+  border-radius:10px;
+  box-shadow:0 0 20px #ff6a00;
+}
 </style>
 </head>
 
@@ -227,28 +287,21 @@ footer {
 <main class="content">
     <h2>Fotos y Videos del Equipo</h2>
 
-    <div class="filters">
-        <button class="active" data-filter="All">Todos</button>
-        <button data-filter="iRacing">iRacing</button>
-        <button data-filter="Assetto">Assetto</button>
-        <button data-filter="LMU">LMU</button>
-        <button data-filter="AMS2">AMS2</button>
-        <button data-filter="RRE">RRE</button>
-    </div>
+   
 
-    <div class="gallery">
+    <div class="sim-grid">
 
     <!-- iRacing -->
-    <div class="gallery-item" data-game="iRacing">
+    <div class="sim-grid gallery-item" data-game="iRacing">
         <img src="media/porsche.png" alt="iRacing" loading="lazy">
     </div>
-    <div class="gallery-item" data-game="iRacing">
+    <div class="sim-grid gallery-item" data-game="iRacing">
         <img src="media/porsche2.png" alt="iRacing" loading="lazy">
     </div>
-    <div class="gallery-item" data-game="iRacing">
+    <div class="sim-grid gallery-item" data-game="iRacing">
         <img src="media/mazda.png" alt="iRacing" loading="lazy">
     </div>
-    <div class="gallery-item" data-game="iRacing">
+    <div class="sim-grid gallery-item" data-game="iRacing">
         <img src="media/acura.jpg" alt="iRacing" loading="lazy">
     </div>
     <div class="gallery-item" data-game="iRacing">
@@ -323,25 +376,51 @@ footer {
 <script src="js/main.js" defer></script>
 
 <script>
-// Lightbox de videos
+// LIGHTBOX IMÁGENES
+const lightboxImgOverlay = document.getElementById('lightbox-img-overlay');
+const lightboxImg = document.getElementById('lightbox-img');
+document.querySelectorAll('.gallery-item img').forEach(img => {
+  img.addEventListener('click', e => {
+    e.stopPropagation();
+    lightboxImgOverlay.style.display = 'flex';
+    lightboxImg.src = img.src;
+  });
+});
+function closeImageLightbox() { lightboxImgOverlay.style.display='none'; lightboxImg.src=''; }
+
+// LIGHTBOX VIDEOS
 const lightboxVideoOverlay = document.getElementById('lightbox-video-overlay');
 const lightboxVideo = document.getElementById('lightbox-video');
-const galleryVideos = document.querySelectorAll('.gallery-item video');
-
-galleryVideos.forEach(video => {
-    video.addEventListener('click', (e) => {
-        e.stopPropagation(); // evita que el click cierre el overlay si haces click en el video
-        lightboxVideoOverlay.style.display = 'flex';
-        lightboxVideo.src = video.querySelector('source').src;
-        lightboxVideo.play();
-    });
+document.querySelectorAll('.gallery-item video').forEach(video => {
+  video.addEventListener('click', e => {
+    e.stopPropagation();
+    lightboxVideoOverlay.style.display = 'flex';
+    lightboxVideo.src = video.querySelector('source').src;
+    lightboxVideo.play();
+  });
 });
+function closeVideoLightbox() { lightboxVideo.pause(); lightboxVideo.src=''; lightboxVideoOverlay.style.display='none'; }
 
-function closeVideoLightbox() {
-    lightboxVideo.pause();
-    lightboxVideo.src = '';
-    lightboxVideoOverlay.style.display = 'none';
-}
+document.addEventListener('keydown', function(event) {
+    if (event.key === "Escape") {
+        // Cierra el lightbox de imagen
+        const lightboxImgOverlay = document.getElementById('lightbox-img-overlay');
+        const lightboxImg = document.getElementById('lightbox-img');
+        if (lightboxImgOverlay.style.display === 'flex') {
+            lightboxImgOverlay.style.display = 'none';
+            lightboxImg.src = '';
+        }
+
+        // Cierra el lightbox de video
+        const lightboxVideoOverlay = document.getElementById('lightbox-video-overlay');
+        const lightboxVideo = document.getElementById('lightbox-video');
+        if (lightboxVideoOverlay.style.display === 'flex') {
+            lightboxVideo.pause();
+            lightboxVideoOverlay.style.display = 'none';
+            lightboxVideo.src = '';
+        }
+    }
+});
 </script>
 
 </body>
