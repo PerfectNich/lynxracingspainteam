@@ -12,6 +12,7 @@
             background-color: #0b0b0b;
             color: #eaeaea;
             padding-top: 100px;
+            
 
              /* Fondo agresivo */
     background-image: 
@@ -24,7 +25,19 @@
 
             
         }
+        html, body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
 
+
+        header {
+    background: linear-gradient(90deg, #120000, #1a0a00);
+    padding: 30px 20px;
+    text-align: center;
+    border-bottom: 3px solid #ff6a00;
+}
         .menu {
             position: fixed;
             top: 0;
@@ -109,16 +122,7 @@
             box-shadow: 0 0 12px #ff6a00;
         }
 
-         html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    font-family: 'Orbitron', sans-serif;
-    background-color: #0b0b0b;
-    color: #eaeaea;
-    display: flex;
-    flex-direction: column; /* organiza header + contenido + footer en columna */
-}
+
 
 body > section {
     flex: 1; /* hace que la sección principal ocupe todo el espacio disponible */
@@ -155,8 +159,11 @@ p {
     <a href="contacto.html" class="active">Contacto</a>
 </nav>
 
+<header>
+     <h1>Contacto</h1>
+</header>
+
 <section>
-    <h1>Contacto</h1>
     <h2>Redes Sociales</h2>
     <p>Conéctate con nosotros en las siguientes plataformas y sigue todas nuestras novedades, carreras y eventos.</p>
 
