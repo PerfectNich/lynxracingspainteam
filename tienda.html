@@ -360,68 +360,38 @@ footer {
 </footer>
 
 <script>
-// Configuración de imágenes por producto
-const productImages = {
-    0: ['img/camiseta_v1.jpg', 'img/camiseta_v2.jpg', 'img/camiseta_v3.jpg']
-};
+// Solo buscamos todos los carruseles de imágenes
+document.querySelectorAll('.image-carousel-container').forEach((carousel, carouselId) => {
+    const images = carousel.querySelectorAll('.carousel-image');
+    let currentIndex = 0;
 
-// Estado del carrusel para cada producto
-const carouselState = {};
+    const indicator = carousel.querySelector('.current-index');
 
-// Inicializar estado del carrusel
-Object.keys(productImages).forEach(productId => {
-    carouselState[productId] = 0;
-});
-
-function nextImage(productId) {
-    const images = productImages[productId];
-    if (!images) return;
-    
-    const currentIndex = carouselState[productId];
-    const nextIndex = (currentIndex + 1) % images.length;
-    
-    updateCarousel(productId, nextIndex);
-}
-
-function previousImage(productId) {
-    const images = productImages[productId];
-    if (!images) return;
-    
-    const currentIndex = carouselState[productId];
-    const prevIndex = (currentIndex - 1 + images.length) % images.length;
-    
-    updateCarousel(productId, prevIndex);
-}
-
-function updateCarousel(productId, newIndex) {
-    // Encontrar el contenedor del carrusel
-    const cards = document.querySelectorAll('.product-card');
-    const targetCard = Array.from(cards).find(card => {
-        const images = card.querySelectorAll('.product-image');
-        return images.length > 0 && productImages[productId] && images[0].src.includes(productImages[productId][0].split('/')[1].split('_')[0]);
-    });
-    
-    if (!targetCard) return;
-    
-    // Actualizar visibilidad de imágenes
-    const images = targetCard.querySelectorAll('.product-image');
-    images.forEach((img, index) => {
-        if (index === newIndex) {
-            img.classList.remove('hidden');
-        } else {
-            img.classList.add('hidden');
-        }
-    });
-    
-    // Actualizar indicador
-    const indicator = targetCard.querySelector('.current-index');
-    if (indicator) {
-        indicator.textContent = newIndex + 1;
+    function showImage(index) {
+        images.forEach((img, i) => {
+            img.classList.toggle('hidden', i !== index);
+        });
+        if (indicator) indicator.textContent = index + 1;
+        currentIndex = index;
     }
-    
-    // Actualizar estado
-    carouselState[productId] = newIndex;
-}
+
+    // Botones
+    const prevBtn = carousel.querySelector('.carousel-controls .carousel-btn:first-child');
+    const nextBtn = carousel.querySelector('.carousel-controls .carousel-btn:last-child');
+
+    if (prevBtn) prevBtn.addEventListener('click', () => {
+        const newIndex = (currentIndex - 1 + images.length) % images.length;
+        showImage(newIndex);
+    });
+
+    if (nextBtn) nextBtn.addEventListener('click', () => {
+        const newIndex = (currentIndex + 1) % images.length;
+        showImage(newIndex);
+    });
+
+    // Inicializamos mostrando la primera imagen
+    showImage(0);
+});
 </script>
 
 </body>
