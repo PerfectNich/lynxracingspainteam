@@ -325,7 +325,7 @@ footer {
         <img src="media/crew.png" alt="Assetto" loading="lazy">
     </div>
 
-   <div class="gallery-item" data-game="Assetto">
+   <div class="gallery-item" data-game="Assetto" controls poster="img/thumbnail1.png">
     <video controls poster="media/meihan.jpg">
         <source src="media/meihan.mp4" type="video/mp4">
         Tu navegador no soporta video HTML5
@@ -422,6 +422,20 @@ document.addEventListener('keydown', function(event) {
         }
     }
 });
+
+
+const videos = document.querySelectorAll("video");
+
+videos.forEach(video => {
+    video.addEventListener("play", () => {
+        videos.forEach(otherVideo => {
+            if (otherVideo !== video) {
+                otherVideo.pause();
+            }
+        });
+    });
+});
+
 </script>
 
 </body>
