@@ -290,7 +290,7 @@ footer {
 
    
 
-    <div class="sim-grid">
+    <div class="sim-grid gallery-item">
 
     <!-- iRacing -->
     <div class="sim-grid gallery-item" data-game="iRacing">
@@ -333,14 +333,16 @@ footer {
 </div>
 
     <div class="gallery-item" data-game="Assetto">
-        <video controls preload="none">
+       <video class="video-thumb" controls preload="metadata" poster="media/thumbnail2.png">
             <source src="media/accvideo.mp4" type="video/mp4">
+            Tu navegador no soporta video HTML5
         </video>
     </div>
 
     <div class="gallery-item" data-game="Assetto">
-        <video controls preload="none">
+        <video class="video-thumb" controls preload="metadata" poster="media/thumbnail3.png">
             <source src="media/rally.mov" type="video/mp4">
+            Tu navegador no soporta video HTML5
         </video>
     </div>
 
@@ -387,6 +389,8 @@ document.querySelectorAll('.gallery-item img').forEach(img => {
     lightboxImg.src = img.src;
   });
 });
+
+
 function closeImageLightbox() { lightboxImgOverlay.style.display='none'; lightboxImg.src=''; }
 
 // LIGHTBOX VIDEOS
@@ -397,10 +401,17 @@ document.querySelectorAll('.gallery-item video').forEach(video => {
     e.stopPropagation();
     lightboxVideoOverlay.style.display = 'flex';
     lightboxVideo.src = video.querySelector('source').src;
+     lightboxVideo.currentTime = 0;
     lightboxVideo.play();
   });
 });
-function closeVideoLightbox() { lightboxVideo.pause(); lightboxVideo.src=''; lightboxVideoOverlay.style.display='none'; }
+
+function closeVideoLightbox() {
+    lightboxVideo.pause();
+    lightboxVideo.currentTime = 0;
+    lightboxVideo.src = '';
+    lightboxVideoOverlay.style.display = 'none';
+}
 
 document.addEventListener('keydown', function(event) {
     if (event.key === "Escape") {
