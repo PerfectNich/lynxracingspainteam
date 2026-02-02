@@ -230,6 +230,54 @@ footer {
     box-shadow: 0 0 10px #ff6a00;
 }
 
+/* Estilos para rotación de imágenes */
+.image-carousel-container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.carousel-image {
+    transition: opacity 0.3s ease-in-out;
+    opacity: 1;
+}
+
+.carousel-image.hidden {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+}
+
+.carousel-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.carousel-btn {
+    background-color: #ff6a00;
+    color: #0b0b0b;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 3px;
+    font-weight: bold;
+    font-size: 12px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.carousel-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 8px #ff6a00;
+}
+
+.carousel-indicator {
+    font-size: 12px;
+    color: #ff6a00;
+    font-weight: bold;
+}
+
 /* Responsive */
 @media screen and (max-width: 600px) {
     .product-card img {
@@ -262,37 +310,46 @@ footer {
     <div class="products-grid">
         <!-- Producto 1 -->
         <div class="product-card">
-            <img src="img/camiseta.jpg" alt="Camiseta">
+            <div class="image-carousel-container">
+                <img src="img/camiseta_v1.jpg" alt="Camiseta" class="carousel-image product-image" data-index="0">
+                <img src="img/camiseta_v2.jpg" alt="Camiseta" class="carousel-image product-image hidden" data-index="1">
+                <img src="img/camiseta_v3.jpg" alt="Camiseta" class="carousel-image product-image hidden" data-index="2">
+                <div class="carousel-controls">
+                    <button class="carousel-btn" onclick="previousImage(0)">← Anterior</button>
+                    <span class="carousel-indicator"><span class="current-index">1</span>/3</span>
+                    <button class="carousel-btn" onclick="nextImage(0)">Siguiente →</button>
+                </div>
+            </div>
             <h3>Camiseta Oficial</h3>
-            <p>€25.00</p>
+            <p>25.00€</p>
             <button>Comprar</button>
         </div>
         <!-- Producto 2 -->
         <div class="product-card">
             <img src="img/guantes.jpg" alt="Guantes">
             <h3>Guantes de Simracing</h3>
-            <p>€35.00</p>
+            <p>35.00€</p>
             <button>Comprar</button>
         </div>
         <!-- Producto 3 -->
         <div class="product-card">
             <img src="img/bw.jpg" alt="Pegatinas">
             <h3>Pegatinas del Equipo</h3>
-            <p>€5.00</p>
+            <p>5.00€</p>
             <button>Comprar</button>
         </div>
         <!-- Producto 4 -->
         <div class="product-card">
             <img src="img/gorra.jpg" alt="Gorra">
             <h3>Gorra Oficial</h3>
-            <p>€20.00</p>
+            <p>20.00€</p>
             <button>Comprar</button>
         </div>
         <!-- Producto 5 -->
         <div class="product-card">
             <img src="img/taza.jpg" alt="Taza">
             <h3>Taza del Equipo</h3>
-            <p>€15.00</p>
+            <p>15.00€</p>
             <button>Comprar</button>
         </div>
     </div>
@@ -301,6 +358,71 @@ footer {
 <footer>
     © 2026 · Lynx Racing Spain Team
 </footer>
+
+<script>
+// Configuración de imágenes por producto
+const productImages = {
+    0: ['img/camiseta_v1.jpg', 'img/camiseta_v2.jpg', 'img/camiseta_v3.jpg']
+};
+
+// Estado del carrusel para cada producto
+const carouselState = {};
+
+// Inicializar estado del carrusel
+Object.keys(productImages).forEach(productId => {
+    carouselState[productId] = 0;
+});
+
+function nextImage(productId) {
+    const images = productImages[productId];
+    if (!images) return;
+    
+    const currentIndex = carouselState[productId];
+    const nextIndex = (currentIndex + 1) % images.length;
+    
+    updateCarousel(productId, nextIndex);
+}
+
+function previousImage(productId) {
+    const images = productImages[productId];
+    if (!images) return;
+    
+    const currentIndex = carouselState[productId];
+    const prevIndex = (currentIndex - 1 + images.length) % images.length;
+    
+    updateCarousel(productId, prevIndex);
+}
+
+function updateCarousel(productId, newIndex) {
+    // Encontrar el contenedor del carrusel
+    const cards = document.querySelectorAll('.product-card');
+    const targetCard = Array.from(cards).find(card => {
+        const images = card.querySelectorAll('.product-image');
+        return images.length > 0 && productImages[productId] && images[0].src.includes(productImages[productId][0].split('/')[1].split('_')[0]);
+    });
+    
+    if (!targetCard) return;
+    
+    // Actualizar visibilidad de imágenes
+    const images = targetCard.querySelectorAll('.product-image');
+    images.forEach((img, index) => {
+        if (index === newIndex) {
+            img.classList.remove('hidden');
+        } else {
+            img.classList.add('hidden');
+        }
+    });
+    
+    // Actualizar indicador
+    const indicator = targetCard.querySelector('.current-index');
+    if (indicator) {
+        indicator.textContent = newIndex + 1;
+    }
+    
+    // Actualizar estado
+    carouselState[productId] = newIndex;
+}
+</script>
 
 </body>
 </html>
