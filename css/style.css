@@ -219,10 +219,10 @@ h2 {
 }
 .discord-widget {
     position: absolute;       /* siempre visible */
-    top: 300px;             /* debajo del menú */
+    top: 100px;             /* debajo del menú */
     right: 20px;           /* esquina derecha */
     width: 300px;
-    height: 400px;
+    height: 300px;
     z-index: 1001;         /* por encima del contenido */
     box-shadow: 0 0 12px rgba(255,106,0,0.7); /* glow naranja suave */
     border-radius: 8px;
