@@ -219,7 +219,7 @@ h2 {
 }
 .discord-widget {
     position: absolute;       /* siempre visible */
-    top: 100px;             /* debajo del menú */
+    top: 300px;             /* debajo del menú */
     right: 20px;           /* esquina derecha */
     width: 300px;
     height: 400px;
