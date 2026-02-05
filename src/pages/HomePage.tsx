@@ -22,8 +22,8 @@ export function HomePage() {
       <Section id="equipo">
         <SectionTitle>Sobre el Equipo</SectionTitle>
         <p className="text-lg md:text-xl leading-relaxed">
-          Comunidad del equipo hispano Lynx Racing Spain Team, equipo con mas de
-          3 anos de trayectoria y con cientos de carreras competidas y algun que
+          Comunidad del equipo hispano Lynx Racing Spain Team, equipo con más de
+          3 años de trayectoria y con cientos de carreras competidas y algún que
           otro evento hecho. Nos puedes encontrar en Assetto, iRacing, LMU,
           entre otros!
         </p>
@@ -39,7 +39,7 @@ export function HomePage() {
         <p className="text-lg md:text-xl leading-relaxed">
           Puedes ver todos nuestros pilotos y sus Twitch{" "}
           <Link to="/roster" className="text-lynx-orange hover:text-white">
-            aqui
+            aquí
           </Link>
           .
         </p>

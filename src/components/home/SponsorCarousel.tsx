@@ -14,8 +14,8 @@ export function SponsorCarousel() {
   const velocity = useRef(0);
   const lastX = useRef(0);
   const lastTime = useRef(0);
-  const animationRef = useRef<number>();
-  const resumeTimeout = useRef<NodeJS.Timeout>();
+  const animationRef = useRef<number | null>(null);
+  const resumeTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // Wrap translateX so it stays within one section, creating infinite loop
   const wrapTranslateX = useCallback((x: number) => {

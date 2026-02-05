@@ -45,7 +45,7 @@ export function ContactPage() {
       <Section className="flex-1">
         <SectionTitle>Redes Sociales</SectionTitle>
         <p className="text-lg md:text-xl leading-relaxed mb-8">
-          Conectate con nosotros en las siguientes plataformas y sigue todas
+          Conéctate con nosotros en las siguientes plataformas y sigue todas
           nuestras novedades, carreras y eventos.
         </p>
 

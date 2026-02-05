@@ -18,7 +18,7 @@ export function RosterPage() {
       <PageHeader title="Plantilla del equipo" />
 
       <Section>
-        <SectionTitle>Direccion</SectionTitle>
+        <SectionTitle>Dirección</SectionTitle>
         <div className="grid grid-cols-[repeat(auto-fit,minmax(160px,1fr))] gap-3">
           {management.map((member) => (
             <MemberCard key={member.name} member={member} />
