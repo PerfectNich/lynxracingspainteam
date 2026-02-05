@@ -17,6 +17,16 @@ export function SponsorCarousel() {
   const animationRef = useRef<number>();
   const resumeTimeout = useRef<NodeJS.Timeout>();
 
+  // Wrap translateX so it stays within one section, creating infinite loop
+  const wrapTranslateX = useCallback((x: number) => {
+    if (!innerRef.current) return x;
+    const sectionWidth = innerRef.current.scrollWidth / 3;
+    if (sectionWidth === 0) return x;
+    let wrapped = x % sectionWidth;
+    if (wrapped > 0) wrapped -= sectionWidth;
+    return wrapped;
+  }, []);
+
   // Get current animation translateX value
   const getCurrentTranslate = useCallback(() => {
     if (!innerRef.current) return 0;
@@ -63,7 +73,7 @@ export function SponsorCarousel() {
 
     lastX.current = clientX;
     lastTime.current = now;
-    setTranslateX((prev) => prev + dx);
+    setTranslateX((prev) => wrapTranslateX(prev + dx));
   };
 
   // Handle touch/mouse end - apply inertia
@@ -80,7 +90,7 @@ export function SponsorCarousel() {
         return;
       }
 
-      setTranslateX((prev) => prev + velocity.current);
+      setTranslateX((prev) => wrapTranslateX(prev + velocity.current));
       animationRef.current = requestAnimationFrame(applyInertia);
     };
 
