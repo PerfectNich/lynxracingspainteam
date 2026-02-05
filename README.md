@@ -1,12 +1,9 @@
-<p align="center">
-  <img src="public/logo.jpg" alt="Lynx Racing Spain Team" width="200">
-</p>
+![Lynx Racing Spain Team](public/logo.jpg)
+---
 
-<h1 align="center">Lynx Racing Spain Team</h1>
+Pagina web oficial del equipo de simracing **Lynx Racing Spain Team**, construida con **React 19**, **TypeScript**, **Vite** y **Tailwind CSS 4**.
 
-<p align="center">
-  <img src="public/img/cabecera.jpg" alt="Cabecera" width="100%">
-</p>
+**Web en vivo:** https://perfectnich.github.io/lynxracingspainteam/
 
 ---
 
