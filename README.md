@@ -1,4 +1,7 @@
-![Lynx Racing Spain Team](public/logo.jpg)
+<p align="center">
+  <img src="public/logo.jpg" alt="Lynx Racing Spain Team" width="200">
+</p>
+
 ---
 
 Pagina web oficial del equipo de simracing **Lynx Racing Spain Team**, construida con **React 19**, **TypeScript**, **Vite** y **Tailwind CSS 4**.
