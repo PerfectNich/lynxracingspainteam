@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { FaPlay } from "react-icons/fa";
 import type { MediaItem } from "../../types";
 import { Lightbox } from "./Lightbox";
 import { assetUrl } from "../../utils/assetUrl";
@@ -31,15 +32,19 @@ export function GalleryGrid({ items }: GalleryGridProps) {
                 loading="lazy"
               />
             ) : (
-              <video
-                poster={item.poster ? assetUrl(item.poster) : undefined}
-                className="w-full h-full object-cover block transition-transform duration-300 group-hover:scale-105"
-                controls
-                preload="metadata"
-              >
-                <source src={assetUrl(item.src)} type="video/mp4" />
-                Tu navegador no soporta video HTML5
-              </video>
+              <div className="relative">
+                <img
+                  src={item.poster ? assetUrl(item.poster) : undefined}
+                  alt={item.game || "Video"}
+                  className="w-full h-full object-cover block transition-transform duration-300 group-hover:scale-105"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="bg-black/60 rounded-full p-4 group-hover:bg-lynx-orange/80 transition-colors duration-300">
+                    <FaPlay className="text-white text-2xl ml-1" />
+                  </div>
+                </div>
+              </div>
             )}
           </div>
         ))}
