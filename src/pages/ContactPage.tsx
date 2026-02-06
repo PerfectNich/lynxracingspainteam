@@ -25,7 +25,7 @@ const socialLinks = [
   },
   {
     name: "Twitch",
-    url: "https://www.twitch.tv/kikologo",
+    url: "https://www.twitch.tv/lynxracingspainteam",
     icon: FaTwitch,
     className: "bg-social-twitch",
   },
