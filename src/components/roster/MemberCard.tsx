@@ -1,15 +1,16 @@
 import type { Member } from "../../types";
+import { assetUrl } from "../../utils/assetUrl";
 
 interface MemberCardProps {
   member: Member;
 }
 
 const countryFlags: Record<string, string> = {
-  spain: "/banderas/spain.png",
-  cat: "/banderas/cat.jpg",
-  serbia: "/banderas/serbia.jpg",
-  valencia: "/banderas/valencia.png",
-  colombia: "/banderas/colombia.png",
+  spain: "banderas/spain.png",
+  cat: "banderas/cat.jpg",
+  serbia: "banderas/serbia.jpg",
+  valencia: "banderas/valencia.png",
+  colombia: "banderas/colombia.png",
 };
 
 export function MemberCard({ member }: MemberCardProps) {
@@ -20,7 +21,7 @@ export function MemberCard({ member }: MemberCardProps) {
           {member.dorsal ? `#${member.dorsal}` : "-"}
         </span>
         <img
-          src={countryFlags[member.country] || countryFlags.spain}
+          src={assetUrl(countryFlags[member.country] || countryFlags.spain)}
           alt={member.country}
           className="w-6 h-4 border border-lynx-border rounded-sm"
         />

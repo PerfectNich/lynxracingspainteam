@@ -2,6 +2,7 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import { createPortal } from "react-dom";
 import { FaChevronLeft, FaChevronRight, FaTimes } from "react-icons/fa";
 import type { MediaItem } from "../../types";
+import { assetUrl } from "../../utils/assetUrl";
 
 interface LightboxProps {
   items: MediaItem[];
@@ -136,7 +137,7 @@ export function Lightbox({ items, currentIndex, onClose, onNavigate }: LightboxP
       {/* Content */}
       {item.type === "image" ? (
         <img
-          src={item.src}
+          src={assetUrl(item.src)}
           alt={item.alt || item.game}
           className="max-w-[90vw] max-h-[80vh] object-contain rounded-lg shadow-orange-glow"
           onClick={(e) => e.stopPropagation()}
@@ -144,7 +145,7 @@ export function Lightbox({ items, currentIndex, onClose, onNavigate }: LightboxP
       ) : (
         <video
           ref={videoRef}
-          src={item.src}
+          src={assetUrl(item.src)}
           controls
           className="max-w-[90vw] max-h-[80vh] object-contain rounded-lg shadow-orange-glow"
           onClick={(e) => e.stopPropagation()}

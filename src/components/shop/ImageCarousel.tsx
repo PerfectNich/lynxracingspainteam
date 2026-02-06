@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { assetUrl } from "../../utils/assetUrl";
 
 interface ImageCarouselProps {
   images: string[];
@@ -12,7 +13,7 @@ export function ImageCarousel({ images, alt }: ImageCarouselProps) {
   if (images.length === 1) {
     return (
       <img
-        src={images[0]}
+        src={assetUrl(images[0])}
         alt={alt}
         className="w-full h-[220px] object-contain rounded-md mb-3"
         loading="lazy"
@@ -31,7 +32,7 @@ export function ImageCarousel({ images, alt }: ImageCarouselProps) {
   return (
     <div className="relative w-full">
       <img
-        src={images[currentIndex]}
+        src={assetUrl(images[currentIndex])}
         alt={alt}
         className="w-full h-[220px] object-contain rounded-md mb-3 transition-opacity duration-300"
         loading="lazy"

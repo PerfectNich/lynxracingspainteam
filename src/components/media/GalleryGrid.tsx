@@ -1,6 +1,7 @@
 import { useState } from "react";
 import type { MediaItem } from "../../types";
 import { Lightbox } from "./Lightbox";
+import { assetUrl } from "../../utils/assetUrl";
 
 interface GalleryGridProps {
   items: MediaItem[];
@@ -24,19 +25,19 @@ export function GalleryGrid({ items }: GalleryGridProps) {
           >
             {item.type === "image" ? (
               <img
-                src={item.src}
+                src={assetUrl(item.src)}
                 alt={item.alt || item.game}
                 className="w-full h-full object-cover block transition-transform duration-300 group-hover:scale-105"
                 loading="lazy"
               />
             ) : (
               <video
-                poster={item.poster}
+                poster={item.poster ? assetUrl(item.poster) : undefined}
                 className="w-full h-full object-cover block transition-transform duration-300 group-hover:scale-105"
                 controls
                 preload="metadata"
               >
-                <source src={item.src} type="video/mp4" />
+                <source src={assetUrl(item.src)} type="video/mp4" />
                 Tu navegador no soporta video HTML5
               </video>
             )}

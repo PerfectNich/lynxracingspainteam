@@ -1,6 +1,7 @@
 import { useRef, useState, useEffect, useCallback } from "react";
 import sponsors from "../../data/sponsors.json";
 import type { Sponsor } from "../../types";
+import { assetUrl } from "../../utils/assetUrl";
 
 export function SponsorCarousel() {
   const sponsorList = sponsors as Sponsor[];
@@ -132,7 +133,7 @@ export function SponsorCarousel() {
         {duplicatedSponsors.map((sponsor, index) => {
           const content = (
             <img
-              src={sponsor.logo}
+              src={assetUrl(sponsor.logo)}
               alt={sponsor.name}
               className="max-h-[82px] w-auto object-contain flex-shrink-0 transition-transform duration-300 hover:scale-125 hover:cursor-pointer"
               loading="lazy"
