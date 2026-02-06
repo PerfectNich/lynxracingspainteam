@@ -5,8 +5,13 @@ import { SectionTitle } from "../components/common/SectionTitle";
 import { GalleryGrid } from "../components/media/GalleryGrid";
 import type { MediaItem } from "../types";
 
+// TODO: re-enable when media files are available
+const hiddenGames = ["AMS2", "RRE"];
+
 export function MediaPage() {
-  const items = mediaItems as MediaItem[];
+  const items = (mediaItems as MediaItem[]).filter(
+    (item) => !hiddenGames.includes(item.game ?? "")
+  );
 
   return (
     <>
