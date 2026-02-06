@@ -1,0 +1,27 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Layout } from "./components/layout/Layout";
+import { HomePage } from "./pages/HomePage";
+import { RosterPage } from "./pages/RosterPage";
+import { CalendarPage } from "./pages/CalendarPage";
+import { ResultsPage } from "./pages/ResultsPage";
+import { ShopPage } from "./pages/ShopPage";
+import { ContactPage } from "./pages/ContactPage";
+import { MediaPage } from "./pages/MediaPage";
+
+export default function App() {
+  return (
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomePage />} />
+          <Route path="roster" element={<RosterPage />} />
+          <Route path="agenda" element={<CalendarPage />} />
+          <Route path="resultados" element={<ResultsPage />} />
+          <Route path="tienda" element={<ShopPage />} />
+          <Route path="contacto" element={<ContactPage />} />
+          <Route path="multimedia" element={<MediaPage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
+}
