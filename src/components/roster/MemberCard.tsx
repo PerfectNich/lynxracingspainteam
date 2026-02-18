@@ -11,6 +11,7 @@ const countryFlags: Record<string, string> = {
   serbia: "banderas/serbia.jpg",
   valencia: "banderas/valencia.png",
   colombia: "banderas/colombia.png",
+  andalucia: "banderas/andalucia.png",
 };
 
 export function MemberCard({ member }: MemberCardProps) {
