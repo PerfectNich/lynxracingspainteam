@@ -14,6 +14,17 @@ const countryFlags: Record<string, string> = {
   andalucia: "banderas/andalucia.png",
 };
 
+// utility to split a full name into two lines (first word + rest)
+function formatName(full: string) {
+  const [first, ...rest] = full.split(" ");
+  return (
+    <>
+      <span className="block">{first}</span>
+      {rest.length > 0 && <span className="block">{rest.join(" ")}</span>}
+    </>
+  );
+}
+
 export function MemberCard({ member }: MemberCardProps) {
   return (
     <div className="flex flex-col items-center gap-2 bg-lynx-dark-card p-3 rounded-md border-l-4 border-lynx-orange text-center transition-all duration-300 hover:scale-105 hover:rotate-y-[10deg] hover:shadow-[0_8px_20px_rgba(255,106,0,0.4)]">
@@ -34,10 +45,10 @@ export function MemberCard({ member }: MemberCardProps) {
           rel="noopener noreferrer"
           className="member-link text-social-twitch font-bold hover:text-white transition-colors"
         >
-          {member.name}
+          {formatName(member.name)}
         </a>
       ) : (
-        <span className="text-lynx-text font-bold">{member.name}</span>
+        <span className="text-lynx-text font-bold">{formatName(member.name)}</span>
       )}
     </div>
   );
