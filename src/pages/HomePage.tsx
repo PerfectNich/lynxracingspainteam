@@ -22,9 +22,9 @@ export function HomePage() {
       <Section id="equipo">
         <SectionTitle>Sobre el Equipo</SectionTitle>
         <p className="text-lg md:text-xl leading-relaxed">
-          Comunidad del equipo hispano Lynx Racing Spain Team, equipo con más de
+          Somos Lynx Racing Spain Team, un equipo con más de
           3 años de trayectoria y con cientos de carreras competidas y algún que
-          otro evento hecho. Nos puedes encontrar en Assetto, iRacing, LMU,
+          otro evento y/o liga organizado a lo largo de estos años. Nos puedes encontrar en Assetto, iRacing, LMU,
           entre otros!
         </p>
       </Section>
