@@ -1,6 +1,7 @@
 import { PageHeader } from "../components/common/PageHeader";
 import { Section } from "../components/common/Section";
 import { SectionTitle } from "../components/common/SectionTitle";
+import { TwitterWidget } from "../components/common/TwitterWidget";
 
 export function CalendarPage() {
   return (
@@ -31,6 +32,14 @@ export function CalendarPage() {
                 Detalles de la próxima carrera, fecha, lugar, etc. Puedes
                 reemplazar este texto y añadir una imagen o rótulo.
               </p>
+              {/* optional twitter timeline */}
+              <div className="mt-6">
+                <TwitterWidget
+                  username="LynxRacingSpain"
+                  height={250}
+                  tweetLimit={1}
+                />
+              </div>
             </div>
           </aside>
         </div>
