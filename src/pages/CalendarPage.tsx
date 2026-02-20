@@ -20,28 +20,6 @@ export function CalendarPage() {
               title="Calendario de Carreras"
             />
           </div>
-          {/* sidebar for upcoming race info */}
-          <aside className="w-full lg:w-[300px] flex-shrink-0">
-            <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-4">
-              <h2 className="text-xl font-semibold mb-2">Próxima Carrera</h2>
-              {/* Placeholder for image or label */}
-              <div className="h-40 bg-gray-200 dark:bg-gray-700 rounded-md mb-4 flex items-center justify-center">
-                <span className="text-gray-500">Imagen/Info aquí</span>
-              </div>
-              <p className="text-sm">
-                Detalles de la próxima carrera, fecha, lugar, etc. Puedes
-                reemplazar este texto y añadir una imagen o rótulo.
-              </p>
-              {/* optional twitter timeline */}
-              <div className="mt-6">
-                <TwitterWidget
-                  username="LynxRacingSpain"
-                  height={250}
-                  tweetLimit={1}
-                />
-              </div>
-            </div>
-          </aside>
         </div>
       </Section>
     </>
