@@ -7,6 +7,7 @@ import { ResultsPage } from "./pages/ResultsPage";
 import { ShopPage } from "./pages/ShopPage";
 import { ContactPage } from "./pages/ContactPage";
 import { MediaPage } from "./pages/MediaPage";
+import { PalmaresPage } from "./pages/PalmaresPage";
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
           <Route path="roster" element={<RosterPage />} />
           <Route path="agenda" element={<CalendarPage />} />
           <Route path="resultados" element={<ResultsPage />} />
+          <Route path="palmares" element={<PalmaresPage />} />
           <Route path="tienda" element={<ShopPage />} />
           <Route path="contacto" element={<ContactPage />} />
           <Route path="multimedia" element={<MediaPage />} />

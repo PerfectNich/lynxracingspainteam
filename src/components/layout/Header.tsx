@@ -7,6 +7,7 @@ const navLinks = [
   { to: "/agenda", label: "Agenda" },
   { to: "/multimedia", label: "Multimedia" },
   { to: "/roster", label: "Roster" },
+  { to: "/palmares", label: "Palmarés" },
   { to: "/tienda", label: "Tienda" },
   { to: "/contacto", label: "Contacto" },
 ];
