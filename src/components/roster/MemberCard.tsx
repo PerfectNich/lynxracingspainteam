@@ -12,6 +12,7 @@ const countryFlags: Record<string, string> = {
   valencia: "banderas/valencia.png",
   colombia: "banderas/colombia.png",
   andalucia: "banderas/andalucia.png",
+  argentina: "banderas/argentina.jpg"
 };
 
 // utility to split a full name into two lines (first word + rest)
