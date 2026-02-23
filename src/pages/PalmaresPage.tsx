@@ -71,7 +71,7 @@ export function PalmaresPage() {
           </li>
           <li>
             {medal(7)} <span className="font-semibold" style={{ color: "var(--color-lynx-orange-light)" }}>
-              Resistencia 24h Nordschleife | Pitskill
+              P7 Resistencia 24h Nordschleife | Pitskill
             </span>{" "}
             Jordi Capdevila | Luis Ungo | Juan Serrano | Xavier Sobrerroca | Albert Gombau – 2025
             <span className="ml-2 inline-block w-4 h-4">
@@ -117,7 +117,7 @@ export function PalmaresPage() {
             {medal(2)} <span className="font-semibold" style={{ color: "var(--color-lynx-orange-light)" }}>
               Resistencia 24h Daytona
             </span>{" "}
-            Jordi Capdevila | Jesus Jimenez | Francisco Sierra | Luis Ungo | Xavier Sobrerroca – 2026
+            Jordi Capdevila | Jesús Jiménez | Francisco Sierra | Luis Ungo | Xavier Sobrerroca – 2026
             <span className="ml-2 inline-block w-4 h-4">
               <img
                 src={assetUrl("/marcas/porsche.png")}
@@ -128,7 +128,7 @@ export function PalmaresPage() {
           </li>
           <li>
             {medal(4)} <span className="font-semibold" style={{ color: "var(--color-lynx-orange-light)" }}>
-              Resistencia 6h Watkins Glen
+              P4 Resistencia 6h Watkins Glen
             </span>{" "}
             Albert Gombau | Lalo Sanchez – 2024
             <span className="ml-2 inline-block w-4 h-4">
