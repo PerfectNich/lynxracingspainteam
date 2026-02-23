@@ -87,7 +87,7 @@ export function PalmaresPage() {
           </li>
           <li>
             {medal(4)} P4 Endurance 4h Titanium Red | Jordi Capdevila,
-            Francisco Sierra
+            Francisco Sierra - 2025
             <span className="ml-2 inline-block w-4 h-4">
               <img
                 src={assetUrl("/marcas/ferrari.png")}
