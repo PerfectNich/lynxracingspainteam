@@ -31,7 +31,9 @@ export function PalmaresPage() {
         <SectionTitle>Assetto Corsa Competizione</SectionTitle>
         <ul className="list-disc list-inside space-y-1">
           <li>
-            {medal(1)} P1 Resistencia 4h Barcelona | Benéfica de La Cueva
+            {medal(1)} <span className="font-semibold" style={{ color: "var(--color-lynx-orange-light)" }}>
+              Resistencia 4h Barcelona | Benéfica de La Cueva
+            </span>{" "}
             (Kiko Ribes + Xavier Sobrerroca) – 2023
             <span className="ml-2 inline-block w-4 h-4">
               <img
@@ -42,8 +44,10 @@ export function PalmaresPage() {
             </span>
           </li>
           <li>
-            {medal(2)} P2 Resistencia 8h Suzuka | CER-V (Dani Gala + Juan
-            Serrano + Jorge Pola) – 2022
+            {medal(2)} <span className="font-semibold" style={{ color: "var(--color-lynx-orange-light)" }}>
+              Resistencia 8h Suzuka | CER-V
+            </span>{" "}
+            (Dani Gala + Juan Serrano + Jorge Pola) – 2022
             <span className="ml-2 inline-block w-4 h-4">
               <img
                 src={assetUrl("/marcas/aston.png")}
@@ -53,8 +57,10 @@ export function PalmaresPage() {
             </span>
           </li>
           <li>
-            {medal(3)} P3 Resistencia 9h Kyalami | CER-V (Kiko Ribes + Juan
-            Serrano) – 2022
+            {medal(3)} <span className="font-semibold" style={{ color: "var(--color-lynx-orange-light)" }}>
+              Resistencia 9h Kyalami | CER-V
+            </span>{" "}
+            (Kiko Ribes + Juan Serrano) – 2022
             <span className="ml-2 inline-block w-4 h-4">
               <img
                 src={assetUrl("/marcas/aston.png")}
@@ -64,8 +70,10 @@ export function PalmaresPage() {
             </span>
           </li>
           <li>
-            {medal(7)} P7 Resistencia 24h Nordschleife | Pitskill (Jordi Capdevila,
-            Luis Ungo, Juan Serrano, Xavier Sobrerroca, Albert Gombau) – 2025
+            {medal(7)} <span className="font-semibold" style={{ color: "var(--color-lynx-orange-light)" }}>
+              Resistencia 24h Nordschleife | Pitskill
+            </span>{" "}
+            (Jordi Capdevila, Luis Ungo, Juan Serrano, Xavier Sobrerroca, Albert Gombau) – 2025
             <span className="ml-2 inline-block w-4 h-4">
               <img
                 src={assetUrl("/marcas/ferrari.png")}
@@ -75,8 +83,10 @@ export function PalmaresPage() {
             </span>
           </li>
           <li>
-            {medal(1)} P1 Campeonato CNE II VRGirona (Juan Serrano, Josh Mopar, Xavier Sobrerroca)
-            – 2023
+            {medal(1)} <span className="font-semibold" style={{ color: "var(--color-lynx-orange-light)" }}>
+              Campeonato CNE II VRGirona
+            </span>{" "}
+            (Juan Serrano, Josh Mopar, Xavier Sobrerroca) – 2023
             <span className="ml-2 inline-block w-4 h-4">
               <img
                 src={assetUrl("/marcas/aston.png")}
@@ -86,8 +96,10 @@ export function PalmaresPage() {
             </span>
           </li>
           <li>
-            {medal(4)} P4 Endurance 4h Titanium Red | Jordi Capdevila,
-            Francisco Sierra - 2025
+            {medal(4)} <span className="font-semibold" style={{ color: "var(--color-lynx-orange-light)" }}>
+              Endurance 4h Titanium Red
+            </span>{" "}
+            (Jordi Capdevila, Francisco Sierra) – 2025
             <span className="ml-2 inline-block w-4 h-4">
               <img
                 src={assetUrl("/marcas/ferrari.png")}
@@ -102,8 +114,10 @@ export function PalmaresPage() {
         <SectionTitle>iRacing</SectionTitle>
         <ul className="list-disc list-inside space-y-1">
           <li>
-            {medal(2)} P2 Resistencia 24h Daytona | Jordi Capdevila, Jesus Jimenez,
-            Francisco Sierra, Luis Ungo, Xavier Sobrerroca – 2026 | 
+            {medal(2)} <span className="font-semibold" style={{ color: "var(--color-lynx-orange-light)" }}>
+              Resistencia 24h Daytona
+            </span>{" "}
+            (Jordi Capdevila, Jesus Jimenez, Francisco Sierra, Luis Ungo, Xavier Sobrerroca) – 2026
             <span className="ml-2 inline-block w-4 h-4">
               <img
                 src={assetUrl("/marcas/porsche.png")}
@@ -113,8 +127,10 @@ export function PalmaresPage() {
             </span>
           </li>
           <li>
-            {medal(4)}  P4 Resistencia 6h Watkins Glen | Albert Gombau, Lalo Sanchez –
-            2024 | 
+            {medal(4)} <span className="font-semibold" style={{ color: "var(--color-lynx-orange-light)" }}>
+              Resistencia 6h Watkins Glen
+            </span>{" "}
+            (Albert Gombau, Lalo Sanchez) – 2024
             <span className="ml-2 inline-block w-4 h-4">
               <img
                 src={assetUrl("/marcas/acura.png")}
@@ -122,11 +138,12 @@ export function PalmaresPage() {
                 className="w-full h-full object-contain"
               />
             </span>
-          
           </li>
           <li>
-            {medal(3)} P3 Resistencia 12h Mount Panorama | Angel Alvarado -
-            Albert Gombau - Nacho Jarrín – 
+            {medal(3)} <span className="font-semibold" style={{ color: "var(--color-lynx-orange-light)" }}>
+              Resistencia 12h Mount Panorama
+            </span>{" "}
+            (Angel Alvarado - Albert Gombau - Nacho Jarrín)
             <span className="ml-2 inline-block w-4 h-4">
               <img
                 src={assetUrl("/marcas/mclaren.png")}
@@ -134,7 +151,6 @@ export function PalmaresPage() {
                 className="w-full h-full object-contain"
               />
             </span>
-            
           </li>
         </ul>
       </Section>
