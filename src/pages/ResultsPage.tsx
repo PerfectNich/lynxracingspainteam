@@ -1,4 +1,6 @@
+import { useLocation } from "react-router-dom";
 import results from "../data/results.json";
+import resultsEn from "../data/en/results.json";
 import { PageHeader } from "../components/common/PageHeader";
 import { Section } from "../components/common/Section";
 import { SectionTitle } from "../components/common/SectionTitle";
@@ -60,10 +62,12 @@ function ResultsTable({ category }: { category: ResultsCategory }) {
 }
 
 export function ResultsPage() {
-  const { endurance, rally } = results as {
+  const location = useLocation();
+  const source = (location.pathname.startsWith("/en") ? (resultsEn as unknown) : results) as {
     endurance: ResultsCategory;
     rally: ResultsCategory;
   };
+  const { endurance, rally } = source;
 
   return (
     <>

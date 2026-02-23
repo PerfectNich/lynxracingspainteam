@@ -1,0 +1,16 @@
+[
+  { "type": "image", "src": "/media/porsche.png", "alt": "iRacing", "game": "iRacing" },
+  { "type": "image", "src": "/media/porsche2.png", "alt": "iRacing", "game": "iRacing" },
+  { "type": "image", "src": "/media/mazda.png", "alt": "iRacing", "game": "iRacing" },
+  { "type": "image", "src": "/media/acura.jpg", "alt": "iRacing", "game": "iRacing" },
+  { "type": "image", "src": "/media/bmw.png", "alt": "iRacing", "game": "iRacing" },
+  { "type": "image", "src": "/media/lmu_bmw.png", "alt": "Le Mans Ultimate", "game": "LMU" },
+  { "type": "image", "src": "/media/mustang.png", "alt": "Le Mans Ultimate", "game": "LMU" },
+  { "type": "image", "src": "/media/ferrari.jpg", "alt": "Assetto Corsa", "game": "Assetto" },
+  { "type": "image", "src": "/media/crew.png", "alt": "Assetto Corsa", "game": "Assetto" },
+  { "type": "video", "src": "/media/meihan.mp4", "poster": "/media/thumbnail1.png", "game": "Assetto" },
+  { "type": "video", "src": "/media/accvideo.mp4", "poster": "/media/thumbnail2.png", "game": "Assetto" },
+  { "type": "video", "src": "/media/rally.mov", "poster": "/media/thumbnail3.png", "game": "Assetto" },
+  { "type": "image", "src": "/media/ams2.png", "alt": "AMS2", "game": "AMS2" },
+  { "type": "image", "src": "/media/rre.png", "alt": "RRE", "game": "RRE" }
+]

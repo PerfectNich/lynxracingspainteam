@@ -152,6 +152,19 @@ export function PalmaresPage() {
               />
             </span>
           </li>
+          <li>
+            {medal(3)} <span className="font-semibold" style={{ color: "var(--color-lynx-orange-light)" }}>
+              P4 Resistencia 6h Sebring
+            </span>{" "}
+            Jordi Capdevila | Francisco Sierra - 2026
+            <span className="ml-2 inline-block w-4 h-4">
+              <img
+                src={assetUrl("/marcas/porsche.png")}
+                alt="Porsche"
+                className="w-full h-full object-contain"
+              />
+            </span>
+          </li>
         </ul>
       </Section>
     </>

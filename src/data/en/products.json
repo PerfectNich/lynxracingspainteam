@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "name": "Official T-shirt",
+    "price": 25.0,
+    "images": [
+      "/img/camisetav1.jpg",
+      "/img/camisetav2.jpg",
+      "/img/camisetav3.jpg",
+      "/img/camisetav4.jpg"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Simracing Gloves",
+    "price": 35.0,
+    "images": ["/img/guantes.jpg"]
+  },
+  {
+    "id": 3,
+    "name": "Team Stickers",
+    "price": 5.0,
+    "images": ["/img/bw.jpg"]
+  },
+  {
+    "id": 4,
+    "name": "Lynx Cap",
+    "price": 20.0,
+    "images": ["/img/gorra.jpg"]
+  },
+  {
+    "id": 5,
+    "name": "Team Mug",
+    "price": 15.0,
+    "images": ["/img/taza.jpg.png"]
+  }
+]

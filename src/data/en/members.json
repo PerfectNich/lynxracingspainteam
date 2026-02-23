@@ -1,0 +1,47 @@
+{
+  "management": [
+    { "name": "Juan Serrano", "dorsal": "83", "country": "spain", "twitch": "juan_serrano83" },
+    { "name": "Xavier Sobrerroca", "dorsal": "30", "country": "cat", "twitch": "perfect_nich" },
+    { "name": "Josh Mopar", "dorsal": "10", "country": "cat", "twitch": "josh_mopar" },
+    { "name": "Albert Gombau", "dorsal": "720", "country": "cat", "twitch": "gombii99" },
+    { "name": "Nacho Jarrin", "dorsal": "15", "country": "spain", "twitch": "jarrini15" }
+  ],
+  "drivers": [
+    { "name": "Adrian Sanchez", "dorsal": "53", "country": "spain", "twitch": null },
+    { "name": "Jose Linares", "dorsal": "144", "country": "spain", "twitch": null },
+    { "name": "Gonzalo Sanchez", "dorsal": "87", "country": "spain", "twitch": "lalo_87" },
+    { "name": "Guillermo Heredia", "dorsal": "314", "country": "andalucia", "twitch": "wilfredoflowers" },
+    { "name": "David Corominas", "dorsal": "85", "country": "cat", "twitch": "coro85" },
+    { "name": "Angel Alvarado", "dorsal": "666", "country": "spain", "twitch": "pist4chon" },
+    { "name": "Carlos Molina", "dorsal": "113", "country": "spain", "twitch": null },
+    { "name": "Relja Ljubobratovic", "dorsal": "34", "country": "serbia", "twitch": null },
+    { "name": "Dani Diaz", "dorsal": null, "country": "cat", "twitch": null },
+    { "name": "Javi Castello", "dorsal": "814", "country": "spain", "twitch": "castello814" },
+    { "name": "Ruben Juarez", "dorsal": "95", "country": "spain", "twitch": null },
+    { "name": "Juanmi Asmigon", "dorsal": null, "country": "spain", "twitch": null },
+    { "name": "Aida Bueno", "dorsal": "13", "country": "cat", "twitch": "aidabp" },
+    { "name": "Francisco Sierra", "dorsal": "2", "country": "spain", "twitch": "Kikologo" },
+    { "name": "Javi Gras", "dorsal": null, "country": "spain", "twitch": "javi_gras" },
+    { "name": "Jordi Capdevila", "dorsal": "71", "country": "cat", "twitch": "capi71" },
+    { "name": "Luis Ungo", "dorsal": null, "country": "valencia", "twitch": null },
+    { "name": "Jesus Jimenez", "dorsal": "82", "country": "andalucia", "twitch": null },
+    { "name": "Antonio Balboa", "dorsal": null, "country": "cat", "twitch": null },
+    { "name": "Alfonso Guerrero", "dorsal": null, "country": "spain", "twitch": null },
+    { "name": "Alvaro Salazar", "dorsal": null, "country": "cat", "twitch": null },
+    { "name": "Fran Gambin", "dorsal": null, "country": "spain", "twitch": null },
+    { "name": "Ruben Gomez", "dorsal": "27", "country": "cat", "twitch": "typicalchibito" },
+    { "name": "Juanjo Morales", "dorsal": null, "country": "colombia", "twitch": null },
+    { "name": "Emiliano Sturniolo", "dorsal": "43", "country": "spain", "twitch": null }
+    
+  ],
+  "twitchChannels": [
+    "perfect_nich",
+    "gombii99",
+    "jarrini15",
+    "capi71",
+    "coro85",
+    "kikologo",
+    "lalo_87",
+    "pist4chon"
+  ]
+}

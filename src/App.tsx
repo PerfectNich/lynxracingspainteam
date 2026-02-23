@@ -8,6 +8,14 @@ import { ShopPage } from "./pages/ShopPage";
 import { ContactPage } from "./pages/ContactPage";
 import { MediaPage } from "./pages/MediaPage";
 import { PalmaresPage } from "./pages/PalmaresPage";
+import { PalmaresPageEN } from "./pages/en/PalmaresPage";
+import { HomePageEN } from "./pages/en/HomePage";
+import { RosterPageEN } from "./pages/en/RosterPage";
+import { CalendarPageEN } from "./pages/en/CalendarPage";
+import { ResultsPageEN } from "./pages/en/ResultsPage";
+import { ShopPageEN } from "./pages/en/ShopPage";
+import { ContactPageEN } from "./pages/en/ContactPage";
+import { MediaPageEN } from "./pages/en/MediaPage";
 
 export default function App() {
   return (
@@ -15,6 +23,17 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
+          {/* English routes */}
+          <Route path="en" element={<Layout />}>
+            <Route index element={<HomePageEN />} />
+            <Route path="roster" element={<RosterPageEN />} />
+            <Route path="agenda" element={<CalendarPageEN />} />
+            <Route path="resultados" element={<ResultsPageEN />} />
+            <Route path="palmares" element={<PalmaresPageEN />} />
+            <Route path="tienda" element={<ShopPageEN />} />
+            <Route path="contacto" element={<ContactPageEN />} />
+            <Route path="multimedia" element={<MediaPageEN />} />
+          </Route>
           <Route path="roster" element={<RosterPage />} />
           <Route path="agenda" element={<CalendarPage />} />
           <Route path="resultados" element={<ResultsPage />} />

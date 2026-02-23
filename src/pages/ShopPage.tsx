@@ -1,11 +1,14 @@
+import { useLocation } from "react-router-dom";
 import products from "../data/products.json";
+import productsEn from "../data/en/products.json";
 import { PageHeader } from "../components/common/PageHeader";
 import { Section } from "../components/common/Section";
 import { ProductCard } from "../components/shop/ProductCard";
 import type { Product } from "../types";
 
 export function ShopPage() {
-  const productList = products as Product[];
+  const location = useLocation();
+  const productList = (location.pathname.startsWith("/en") ? (productsEn as Product[]) : (products as Product[]));
 
   return (
     <>

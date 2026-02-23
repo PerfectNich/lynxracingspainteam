@@ -1,0 +1,17 @@
+{
+  "endurance": {
+    "title": "Endurance League 2026",
+    "results": [
+      { "pos": 1, "driver": "Juan Serrano", "simulator": "iRacing", "time": "2:34:12", "points": 25 },
+      { "pos": 2, "driver": "Xavier Sobrerroca", "simulator": "iRacing", "time": "2:35:45", "points": 18 },
+      { "pos": 3, "driver": "Josh Mopar", "simulator": "Le Mans Ultimate", "time": "2:37:10", "points": 15 }
+    ]
+  },
+  "rally": {
+    "title": "Rally Results",
+    "results": [
+      { "pos": 1, "driver": "Albert Gombau", "simulator": "Assetto Corsa Rally", "time": "1:45:22", "points": 25 },
+      { "pos": 2, "driver": "Adrian Sanchez", "simulator": "Assetto Corsa Rally", "time": "1:47:10", "points": 18 }
+    ]
+  }
+}
