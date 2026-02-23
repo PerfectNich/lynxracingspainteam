@@ -29,7 +29,7 @@
     { "name": "Alfonso Guerrero", "dorsal": null, "country": "spain", "twitch": null },
     { "name": "Alvaro Salazar", "dorsal": null, "country": "cat", "twitch": null },
     { "name": "Fran Gambin", "dorsal": null, "country": "spain", "twitch": null },
-    { "name": "Ruben Gomez", "dorsal": null, "country": "cat", "twitch": "typicalchibito" },
+    { "name": "Ruben Gomez", "dorsal": "27", "country": "cat", "twitch": "typicalchibito" },
     { "name": "Juanjo Morales", "dorsal": null, "country": "colombia", "twitch": null },
     { "name": "Emiliano Sturniolo", "dorsal": "43", "country": "spain", "twitch": null }
     
