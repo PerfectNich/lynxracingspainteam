@@ -143,7 +143,7 @@ export function PalmaresPage() {
             {medal(3)} <span className="font-semibold" style={{ color: "var(--color-lynx-orange-light)" }}>
               Resistencia 12h Mount Panorama
             </span>{" "}
-            Angel Alvarado | Albert Gombau | Nacho Jarrín
+            Angel Alvarado | Albert Gombau | Nacho Jarrín - 2026
             <span className="ml-2 inline-block w-4 h-4">
               <img
                 src={assetUrl("/marcas/mclaren.png")}
