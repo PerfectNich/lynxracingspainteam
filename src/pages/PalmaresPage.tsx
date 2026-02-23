@@ -22,10 +22,15 @@ export function PalmaresPage() {
 
       <Section>
         <p className="text-lynx-text text-center">
-          A continuación mostramos los puestos destacados conseguidos por el
-          equipo en las diferentes categorías. Se incluyen sólo las posiciones
-          de podio o buenas clasificaciones relevantes.
+          A continuación mostramos los puestos destacados y/o relevantes conseguidos por el
+          equipo en las diferentes simuladores. 
         </p>
+
+      <h2
+  className={`text-white border-l-[5px] border-lynx-orange pl-4 mt-8 mb-8 text-3xl md:text-4xl text-center animate-glow ${className}`}
+>
+  {children}
+</h2>
 
         <SectionTitle>Equipo / Resistencias</SectionTitle>
         <ul className="list-disc list-inside space-y-1">
@@ -54,6 +59,11 @@ export function PalmaresPage() {
             Kikologo
           </li>
         </ul>
+        <h2
+  className={`text-white border-l-[5px] border-lynx-orange pl-4 mt-8 mb-8 text-3xl md:text-4xl text-center animate-glow ${className}`}
+>
+  {children}
+</h2>
 
         <SectionTitle>iRacing</SectionTitle>
         <ul className="list-disc list-inside space-y-1">
