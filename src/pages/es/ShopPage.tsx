@@ -1,17 +1,20 @@
-import products from "../../data/en/products.json";
+import { useLocation } from "react-router-dom";
+import products from "../../data/products.json";
+import productsEn from "../../data/en/products.json";
 import { PageHeader } from "../../components/common/PageHeader";
 import { Section } from "../../components/common/Section";
 import { ProductCard } from "../../components/shop/ProductCard";
 import type { Product } from "../../types";
 
-export function ShopPageEN() {
-  const productList = products as Product[];
+export function ShopPage() {
+  const location = useLocation();
+  const productList = (location.pathname.startsWith("/en") ? (productsEn as Product[]) : (products as Product[]));
 
   return (
     <>
       <PageHeader
-        title="Official Lynx Racing Shop"
-        subtitle="Merch and team products"
+        title="Tienda Oficial Lynx Racing"
+        subtitle="Merchandising y productos del equipo"
       />
 
       <Section>

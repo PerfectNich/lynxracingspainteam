@@ -1,7 +1,7 @@
-import { PageHeader } from "../components/common/PageHeader";
-import { Section } from "../components/common/Section";
-import { SectionTitle } from "../components/common/SectionTitle";
-import { assetUrl } from "../utils/assetUrl";
+import { PageHeader } from "../../components/common/PageHeader";
+import { Section } from "../../components/common/Section";
+import { SectionTitle } from "../../components/common/SectionTitle";
+import { assetUrl } from "../../utils/assetUrl";
 
 export function PalmaresPage() {
   const medal = (pos: number) => {
@@ -98,4 +98,3 @@ export function PalmaresPage() {
     </>
   );
 }
- 

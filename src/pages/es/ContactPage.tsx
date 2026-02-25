@@ -12,7 +12,7 @@ const socialLinks = [
     className: "bg-social-discord",
   },
   {
-    name: "X (Twitter)",
+    name: "Twitter / X",
     url: "https://x.com/LynxRacingSpain",
     icon: FaXTwitter,
     className: "bg-social-twitter",
@@ -30,23 +30,23 @@ const socialLinks = [
     className: "bg-social-twitch",
   },
   {
-    name: "Email",
+    name: "Correo",
     url: "mailto:lynxracingspain@gmail.com",
     icon: FaEnvelope,
     className: "bg-lynx-orange",
   },
 ];
 
-export function ContactPageEN() {
+export function ContactPage() {
   return (
     <>
-      <PageHeader title="Contact" />
+      <PageHeader title="Contacto" />
 
       <Section className="flex-1">
-        <SectionTitle>Socials</SectionTitle>
+        <SectionTitle>Redes Sociales</SectionTitle>
         <p className="text-lg md:text-xl leading-relaxed mb-8">
-          Connect with us on the following platforms to follow our updates,
-          races and events.
+          Conéctate con nosotros en las siguientes plataformas y sigue todas
+          nuestras novedades, carreras y eventos.
         </p>
 
         <div className="flex justify-center gap-3 md:gap-6">

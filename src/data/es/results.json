@@ -8,7 +8,7 @@
     ]
   },
   "rally": {
-    "title": "Rally Results",
+    "title": "Resultados Rally",
     "results": [
       { "pos": 1, "driver": "Albert Gombau", "simulator": "Assetto Corsa Rally", "time": "1:45:22", "points": 25 },
       { "pos": 2, "driver": "Adrian Sanchez", "simulator": "Assetto Corsa Rally", "time": "1:47:10", "points": 18 }
