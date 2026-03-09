@@ -8,8 +8,8 @@ export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const { t, i18n } = useTranslation();
   const location = useLocation();
-  const isEn = i18n.language === "en";
-  const prefix = isEn ? "/en" : "";
+  const lang = i18n.language;
+  const prefix = lang === "en" ? "/en" : lang === "ca" ? "/ca" : "";
 
   const navLinks = [
     { to: `${prefix}/`, label: t("nav.home") },
@@ -21,12 +21,7 @@ export function Header() {
     { to: `${prefix}/contacto`, label: t("nav.contact") },
   ];
 
-  const buildSwitchPath = () => {
-    if (isEn) {
-      return location.pathname.replace(/^\/en(?=\/|$)/, "") || "/";
-    }
-    return location.pathname === "/" ? "/en" : "/en" + location.pathname;
-  };
+  const basePath = location.pathname.replace(/^\/(en|ca)(?=\/|$)/, "") || "/";
 
   const toggleMenu = () => setIsOpen(!isOpen);
   const closeMenu = () => setIsOpen(false);
@@ -36,7 +31,7 @@ export function Header() {
       {/* Desktop nav */}
       <div className="hidden md:flex justify-between items-center py-4 px-6">
         <div className="flex items-center gap-4">
-          <LanguageToggle isEn={isEn} to={buildSwitchPath()} />
+          <LanguageToggle lang={lang} basePath={basePath} />
         </div>
         <div className="flex-1 flex justify-center gap-10">
           {navLinks.map((link) => (
@@ -59,7 +54,7 @@ export function Header() {
       {/* Mobile nav */}
       <div className="md:hidden flex justify-between items-center px-4 py-3">
         <div className="flex items-center gap-3">
-          <LanguageToggle isEn={isEn} to={buildSwitchPath()} />
+          <LanguageToggle lang={lang} basePath={basePath} />
           <span className="text-lynx-orange font-bold text-lg">LYNX RACING</span>
         </div>
         <button

@@ -7,7 +7,9 @@ export function LanguageWrapper() {
   const location = useLocation();
 
   useLayoutEffect(() => {
-    const lang = location.pathname.startsWith("/en") ? "en" : "es";
+    let lang = "es";
+    if (location.pathname.startsWith("/en")) lang = "en";
+    else if (location.pathname.startsWith("/ca")) lang = "ca";
     if (i18n.language !== lang) {
       i18n.changeLanguage(lang);
     }

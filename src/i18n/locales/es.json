@@ -31,7 +31,14 @@
   "shop": {
     "page_title": "Tienda Oficial Lynx Racing",
     "subtitle": "Merchandising y productos del equipo",
-    "buy": "Comprar"
+    "buy": "Comprar",
+    "products": {
+      "tshirt": "Camiseta Oficial",
+      "gloves": "Guantes de Simracing",
+      "stickers": "Pegatinas del Equipo",
+      "cap": "Gorra Lynx",
+      "mug": "Taza del Equipo"
+    }
   },
   "media": {
     "page_title": "Multimedia",
@@ -55,6 +62,20 @@
   },
   "palmares": {
     "page_title": "Palmarés",
-    "intro": "A continuación mostramos los puestos destacados y/o conseguidos por el equipo en las diferentes simuladores."
+    "intro": "A continuación mostramos los puestos destacados y/o conseguidos por el equipo en las diferentes simuladores.",
+    "acc": {
+      "e1": "Resistencia 4h Barcelona | Benéfica de La Cueva",
+      "e2": "Resistencia 8h Suzuka | CER-V",
+      "e3": "Resistencia 9h Kyalami | CER-V",
+      "e4": "P7 Resistencia 24h Nordschleife | Pitskill",
+      "e5": "Campeonato CNE II VRGirona",
+      "e6": "Endurance 4h Titanium Red"
+    },
+    "iracing": {
+      "e1": "Resistencia 24h Daytona",
+      "e2": "P4 Resistencia 6h Watkins Glen",
+      "e3": "Resistencia 12h Mount Panorama",
+      "e4": "P4 Resistencia 6h Sebring"
+    }
   }
 }

@@ -34,6 +34,9 @@ export default function App() {
           <Route path="/en" element={<Layout />}>
             {pages}
           </Route>
+          <Route path="/ca" element={<Layout />}>
+            {pages}
+          </Route>
         </Route>
       </Routes>
     </BrowserRouter>

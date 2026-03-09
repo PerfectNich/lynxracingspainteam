@@ -22,12 +22,12 @@ export function ProductCard({ product }: ProductCardProps) {
 
   return (
     <div className="bg-lynx-dark-card border border-lynx-border rounded-lg overflow-hidden text-center p-4 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_15px_rgba(255,106,0,0.6)] flex flex-col">
-      <ImageCarousel images={product.images} alt={product.name} currentIndex={currentIndex} />
+      <ImageCarousel images={product.images} alt={t(product.nameKey)} currentIndex={currentIndex} />
       {/* space between details and button to push buy to bottom */}
       <div className="flex-1 flex flex-col justify-between mt-2">
         <div>
           <h3 className="text-lynx-orange text-xl my-2 min-h-[2.5rem] whitespace-pre-line">
-            {product.name.replace(" ", "\n")}
+            {t(product.nameKey).replace(" ", "\n")}
           </h3>
           <p className="text-lynx-text text-base my-2">
             {product.price.toFixed(2)}€

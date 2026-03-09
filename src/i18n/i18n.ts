@@ -2,12 +2,16 @@ import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import es from "./locales/es.json";
 import en from "./locales/en.json";
+import ca from "./locales/ca.json";
 
 const pathDetector = {
   type: "languageDetector" as const,
   init() {},
   detect(): string {
-    return window.location.pathname.startsWith("/en") ? "en" : "es";
+    const path = window.location.pathname;
+    if (path.startsWith("/en")) return "en";
+    if (path.startsWith("/ca")) return "ca";
+    return "es";
   },
   cacheUserLanguage() {},
 };
@@ -19,6 +23,7 @@ i18n
     resources: {
       es: { translation: es },
       en: { translation: en },
+      ca: { translation: ca },
     },
     fallbackLng: "es",
     interpolation: {

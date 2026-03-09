@@ -11,7 +11,8 @@ import { FaXTwitter } from "react-icons/fa6";
 
 export function HomePage() {
   const { t, i18n } = useTranslation();
-  const rosterPath = i18n.language === "en" ? "/en/roster" : "/roster";
+  const prefix = i18n.language === "en" ? "/en" : i18n.language === "ca" ? "/ca" : "";
+  const rosterPath = `${prefix}/roster`;
 
   return (
     <>
