@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { NavLink, useLocation, Link } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { FaBars, FaTimes } from "react-icons/fa";
+import { LanguageToggle } from "./LanguageToggle";
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -35,9 +36,7 @@ export function Header() {
       {/* Desktop nav */}
       <div className="hidden md:flex justify-between items-center py-4 px-6">
         <div className="flex items-center gap-4">
-          <Link to={buildSwitchPath()} className="text-lg hover:scale-110 transition-transform" aria-label={isEn ? "Cambiar a español" : "Switch to English"}>
-            {isEn ? "🇬🇧" : "🇪🇸"}
-          </Link>
+          <LanguageToggle isEn={isEn} to={buildSwitchPath()} />
         </div>
         <div className="flex-1 flex justify-center gap-10">
           {navLinks.map((link) => (
@@ -60,9 +59,7 @@ export function Header() {
       {/* Mobile nav */}
       <div className="md:hidden flex justify-between items-center px-4 py-3">
         <div className="flex items-center gap-3">
-          <Link to={buildSwitchPath()} className="text-lg hover:scale-110 transition-transform" aria-label={isEn ? "Cambiar a español" : "Switch to English"}>
-            {isEn ? "🇬🇧" : "🇪🇸"}
-          </Link>
+          <LanguageToggle isEn={isEn} to={buildSwitchPath()} />
           <span className="text-lynx-orange font-bold text-lg">LYNX RACING</span>
         </div>
         <button
