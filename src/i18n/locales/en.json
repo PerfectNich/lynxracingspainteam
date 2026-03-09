@@ -1,0 +1,60 @@
+{
+  "nav": {
+    "home": "Home",
+    "calendar": "Calendar",
+    "media": "Media",
+    "roster": "Roster",
+    "palmares": "Achievements",
+    "shop": "Shop",
+    "contact": "Contact"
+  },
+  "hero": {
+    "subtitle": "Simracing for all levels \u00b7 MultiSimulator \u00b7 Enjoy and compete"
+  },
+  "home": {
+    "about_title": "About the Team",
+    "about_text": "We are Lynx Racing Spain Team, a team with over 3 years of experience and hundreds of races competed, along with several events and leagues organized over the years. You can find us on Assetto, iRacing, LMU, and more!",
+    "simulators_title": "Simulators",
+    "roster_title": "Team Roster",
+    "roster_text": "You can see all our drivers and their Twitch",
+    "roster_link": "here",
+    "contact_title": "Contact"
+  },
+  "results": {
+    "page_title": "Results & Endurance",
+    "pos": "Pos",
+    "driver": "Driver",
+    "simulator": "Simulator",
+    "total_time": "Total Time",
+    "points": "Points"
+  },
+  "shop": {
+    "page_title": "Lynx Racing Official Shop",
+    "subtitle": "Merchandising and team products",
+    "buy": "Buy"
+  },
+  "media": {
+    "page_title": "Media",
+    "gallery_title": "Team Photos and Videos"
+  },
+  "roster": {
+    "page_title": "Team Roster",
+    "management": "Management",
+    "drivers": "Drivers",
+    "streams": "Team Streams"
+  },
+  "calendar": {
+    "page_title": "Dates",
+    "section_title": "Race Calendar"
+  },
+  "contact": {
+    "page_title": "Contact",
+    "section_title": "Social Media",
+    "description": "Connect with us on the following platforms and follow all our news, races and events.",
+    "email": "Email"
+  },
+  "palmares": {
+    "page_title": "Achievements",
+    "intro": "Below we showcase the notable results achieved by the team across different simulators."
+  }
+}

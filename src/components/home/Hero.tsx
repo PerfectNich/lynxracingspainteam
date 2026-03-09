@@ -1,6 +1,9 @@
+import { useTranslation } from "react-i18next";
 import { assetUrl } from "../../utils/assetUrl";
 
 export function Hero() {
+  const { t } = useTranslation();
+
   return (
     <header className="text-center py-6 md:py-12 px-5 mt-8 bg-gradient-to-r from-[#120000] to-[#1a0a00] border-b-[3px] border-lynx-orange">
       <img
@@ -10,8 +13,7 @@ export function Hero() {
         loading="lazy"
       />
       <p className="mt-2 md:mt-3 text-sm md:text-xl text-lynx-orange-light">
-        Simracing para todos los niveles &middot; MultiSimulador &middot;
-        Disfrutar y competir
+        {t("hero.subtitle")}
       </p>
     </header>
   );

@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import type { Product } from "../../types";
 import { ImageCarousel } from "./ImageCarousel";
 import { useState } from "react";
@@ -8,6 +9,7 @@ interface ProductCardProps {
 }
 
 export function ProductCard({ product }: ProductCardProps) {
+  const { t } = useTranslation();
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handlePrev = () => {
@@ -54,7 +56,7 @@ export function ProductCard({ product }: ProductCardProps) {
           </div>
         )}
         <button className="bg-lynx-orange text-lynx-dark border-none px-4 py-2.5 rounded font-bold cursor-pointer transition-all duration-200 hover:scale-105 hover:shadow-orange-glow mt-4">
-          Comprar
+          {t("shop.buy")}
         </button>
       </div>
     </div>

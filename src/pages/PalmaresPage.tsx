@@ -1,9 +1,12 @@
+import { useTranslation } from "react-i18next";
 import { PageHeader } from "../components/common/PageHeader";
 import { Section } from "../components/common/Section";
 import { SectionTitle } from "../components/common/SectionTitle";
 import { assetUrl } from "../utils/assetUrl";
 
 export function PalmaresPage() {
+  const { t } = useTranslation();
+
   const medal = (pos: number) => {
     switch (pos) {
       case 1:
@@ -19,12 +22,11 @@ export function PalmaresPage() {
 
   return (
     <>
-      <PageHeader title="Palmarés" />
+      <PageHeader title={t("palmares.page_title")} />
 
       <Section>
         <p className="text-lynx-text text-center">
-          A continuación mostramos los puestos destacados y/o conseguidos por el
-          equipo en las diferentes simuladores. 
+          {t("palmares.intro")}
         </p>
         <hr className="border-lynx-border my-6" />
 
@@ -98,4 +100,3 @@ export function PalmaresPage() {
     </>
   );
 }
- 

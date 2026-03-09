@@ -1,12 +1,11 @@
-import { useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import results from "../data/results.json";
-import resultsEn from "../data/en/results.json";
 import { PageHeader } from "../components/common/PageHeader";
 import { Section } from "../components/common/Section";
 import { SectionTitle } from "../components/common/SectionTitle";
 import type { ResultsCategory } from "../types";
 
-function ResultsTable({ category }: { category: ResultsCategory }) {
+function ResultsTable({ category, t }: { category: ResultsCategory; t: (key: string) => string }) {
   return (
     <div className="mb-12">
       <SectionTitle>{category.title}</SectionTitle>
@@ -15,19 +14,19 @@ function ResultsTable({ category }: { category: ResultsCategory }) {
           <thead>
             <tr>
               <th className="bg-lynx-dark-card text-lynx-orange p-3 text-center border-b border-lynx-border">
-                Pos
+                {t("results.pos")}
               </th>
               <th className="bg-lynx-dark-card text-lynx-orange p-3 text-center border-b border-lynx-border">
-                Piloto
+                {t("results.driver")}
               </th>
               <th className="bg-lynx-dark-card text-lynx-orange p-3 text-center border-b border-lynx-border">
-                Simulador
+                {t("results.simulator")}
               </th>
               <th className="bg-lynx-dark-card text-lynx-orange p-3 text-center border-b border-lynx-border">
-                Tiempo Total
+                {t("results.total_time")}
               </th>
               <th className="bg-lynx-dark-card text-lynx-orange p-3 text-center border-b border-lynx-border">
-                Puntos
+                {t("results.points")}
               </th>
             </tr>
           </thead>
@@ -62,20 +61,19 @@ function ResultsTable({ category }: { category: ResultsCategory }) {
 }
 
 export function ResultsPage() {
-  const location = useLocation();
-  const source = (location.pathname.startsWith("/en") ? (resultsEn as unknown) : results) as {
+  const { t } = useTranslation();
+  const { endurance, rally } = results as {
     endurance: ResultsCategory;
     rally: ResultsCategory;
   };
-  const { endurance, rally } = source;
 
   return (
     <>
-      <PageHeader title="Resultados y Endurance" />
+      <PageHeader title={t("results.page_title")} />
 
       <Section>
-        <ResultsTable category={endurance} />
-        <ResultsTable category={rally} />
+        <ResultsTable category={endurance} t={t} />
+        <ResultsTable category={rally} t={t} />
       </Section>
     </>
   );

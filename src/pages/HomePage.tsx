@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { Hero } from "../components/home/Hero";
 import { SponsorCarousel } from "../components/home/SponsorCarousel";
 import { SimulatorsGrid } from "../components/home/SimulatorsGrid";
@@ -9,6 +10,9 @@ import { FaEnvelope, FaInstagram, FaDiscord } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
 export function HomePage() {
+  const { t, i18n } = useTranslation();
+  const rosterPath = i18n.language === "en" ? "/en/roster" : "/roster";
+
   return (
     <>
       <Hero />
@@ -20,33 +24,30 @@ export function HomePage() {
       </Section>
 
       <Section id="equipo">
-        <SectionTitle>Sobre el Equipo</SectionTitle>
+        <SectionTitle>{t("home.about_title")}</SectionTitle>
         <p className="text-lg md:text-xl leading-relaxed">
-          Somos Lynx Racing Spain Team, un equipo con más de
-          3 años de trayectoria y con cientos de carreras competidas y algún que
-          otro evento y/o liga organizado a lo largo de estos años. Nos puedes encontrar en Assetto, iRacing, LMU,
-          entre otros!
+          {t("home.about_text")}
         </p>
       </Section>
 
       <Section id="simuladores">
-        <SectionTitle>Simuladores</SectionTitle>
+        <SectionTitle>{t("home.simulators_title")}</SectionTitle>
         <SimulatorsGrid />
       </Section>
 
       <Section id="roster-link">
-        <SectionTitle>Roster del Equipo</SectionTitle>
+        <SectionTitle>{t("home.roster_title")}</SectionTitle>
         <p className="text-lg md:text-xl leading-relaxed">
-          Puedes ver todos nuestros pilotos y sus Twitch{" "}
-          <Link to="/roster" className="text-lynx-orange hover:text-white">
-            aquí
+          {t("home.roster_text")}{" "}
+          <Link to={rosterPath} className="text-lynx-orange hover:text-white">
+            {t("home.roster_link")}
           </Link>
           .
         </p>
       </Section>
 
       <Section id="contacto">
-        <SectionTitle>Contacto</SectionTitle>
+        <SectionTitle>{t("home.contact_title")}</SectionTitle>
         <div className="flex justify-center items-center gap-8 text-4xl">
           <a
             href="mailto:lynxracingspain@gmail.com"
