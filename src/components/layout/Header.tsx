@@ -22,7 +22,7 @@ export function Header() {
 
   const buildSwitchPath = () => {
     if (isEn) {
-      return location.pathname.replace(/^\/en/, "") || "/";
+      return location.pathname.replace(/^\/en(?=\/|$)/, "") || "/";
     }
     return location.pathname === "/" ? "/en" : "/en" + location.pathname;
   };
