@@ -1,10 +1,32 @@
-[
-  "iRacing",
-  "Le Mans Ultimate",
-  "Assetto Corsa",
-  "Assetto Corsa EVO",
-  "Assetto Corsa Rally",
-  "Automobilista 2",
-  "RaceRoom",
-  "Gran Turismo"
-]
+[{
+  "name": "iRacing",
+  "url": "https://store.steampowered.com/app/266410/iRacing"
+},
+{
+  "name": "Le Mans Ultimate",
+  "url": "https://lemans-ultimate.com"
+},
+{
+  "name": "Assetto Corsa",
+  "url": "https://store.steampowered.com/app/244210/Assetto_Corsa"
+},
+{
+  "name": "Assetto Corsa EVO",
+  "url": "https://store.steampowered.com/app/3058630/Assetto_Corsa_EVO"
+},
+{
+  "name": "Assetto Corsa Rally",
+  "url": "https://store.steampowered.com/app/3917090/Assetto_Corsa_Rally"
+},
+{
+  "name": "Automobilista 2",
+  "url": "https://store.steampowered.com/app/1066890/Automobilista_2/"
+},
+{
+  "name": "RaceRoom",
+  "url": "https://store.steampowered.com/app/211500/RaceRoom_Racing_Experience/"
+},
+{
+  "name": "Gran Turismo",
+  "url": "https://www.gran-turismo.com"
+}]
