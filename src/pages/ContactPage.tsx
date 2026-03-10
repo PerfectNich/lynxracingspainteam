@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import { PageHeader } from "../components/common/PageHeader";
 import { Section } from "../components/common/Section";
 import { SectionTitle } from "../components/common/SectionTitle";
-import { FaDiscord, FaInstagram, FaTwitch, FaEnvelope } from "react-icons/fa";
+import { FaDiscord, FaInstagram, FaTwitch, FaEnvelope, FaFacebook } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
 export function ContactPage() {
