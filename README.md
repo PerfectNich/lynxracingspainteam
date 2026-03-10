@@ -6,7 +6,7 @@
 
 Pagina web oficial del equipo de simracing **Lynx Racing Spain Team**, construida con **React 19**, **TypeScript**, **Vite** y **Tailwind CSS 4**.
 
-**Web en vivo:** https://perfectnich.github.io/lynxracingspainteam/
+**Web en vivo:** https://lynxracingspainteam.com/
 
 ---
 
@@ -124,7 +124,7 @@ public/            # Imagenes y videos (se copian tal cual al build)
 ## Despliegue
 
 El proyecto esta alojado en **GitHub Pages**:
-https://perfectnich.github.io/lynxracingspainteam/
+https://lynxracingspainteam.com/
 
 Cada push a la rama `main` despliega automaticamente.
 

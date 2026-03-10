@@ -1,0 +1,81 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "calendar": "Agenda",
+    "media": "Multimedia",
+    "roster": "Roster",
+    "palmares": "Palmarés",
+    "shop": "Tienda",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "subtitle": "Simracing para todos los niveles \u00b7 MultiSimulador \u00b7 Disfrutar y competir"
+  },
+  "home": {
+    "about_title": "Sobre el Equipo",
+    "about_text": "Somos Lynx Racing Spain Team, un equipo con más de 3 años de trayectoria y con cientos de carreras competidas y algún que otro evento y/o liga organizado a lo largo de estos años. Nos puedes encontrar en Assetto, iRacing, LMU, entre otros!",
+    "simulators_title": "Simuladores",
+    "roster_title": "Roster del Equipo",
+    "roster_text": "Puedes ver todos nuestros pilotos y sus Twitch",
+    "roster_link": "aquí",
+    "contact_title": "Contacto"
+  },
+  "results": {
+    "page_title": "Resultados y Endurance",
+    "pos": "Pos",
+    "driver": "Piloto",
+    "simulator": "Simulador",
+    "total_time": "Tiempo Total",
+    "points": "Puntos"
+  },
+  "shop": {
+    "page_title": "Tienda Oficial Lynx Racing",
+    "subtitle": "Merchandising y productos del equipo",
+    "buy": "Comprar",
+    "products": {
+      "tshirt": "Camiseta Oficial",
+      "gloves": "Guantes de Simracing",
+      "stickers": "Pegatinas del Equipo",
+      "cap": "Gorra Lynx",
+      "mug": "Taza del Equipo"
+    }
+  },
+  "media": {
+    "page_title": "Multimedia",
+    "gallery_title": "Fotos y Videos del Equipo"
+  },
+  "roster": {
+    "page_title": "Plantilla del equipo",
+    "management": "Dirección",
+    "drivers": "Pilotos",
+    "streams": "Directos del equipo"
+  },
+  "calendar": {
+    "page_title": "Fechas",
+    "section_title": "Calendario de Carreras"
+  },
+  "contact": {
+    "page_title": "Contacto",
+    "section_title": "Redes Sociales",
+    "description": "Conéctate con nosotros en las siguientes plataformas y sigue todas nuestras novedades, carreras y eventos.",
+    "email": "Correo"
+  },
+  "palmares": {
+    "page_title": "Palmarés",
+    "intro": "A continuación mostramos los puestos destacados y/o conseguidos por el equipo en las diferentes simuladores.",
+    "acc": {
+      "e1": "Resistencia 4h Barcelona | Benéfica de La Cueva",
+      "e2": "Resistencia 8h Suzuka | CER-V",
+      "e3": "Resistencia 9h Kyalami | CER-V",
+      "e4": "P7 Resistencia 24h Nordschleife | Pitskill",
+      "e5": "Campeonato CNE II VRGirona",
+      "e6": "Endurance 4h Titanium Red"
+    },
+    "iracing": {
+      "e1": "Resistencia 24h Daytona",
+      "e2": "P4 Resistencia 6h Watkins Glen",
+      "e3": "Resistencia 12h Mount Panorama",
+      "e4": "P4 Resistencia 6h Sebring"
+    }
+  }
+}

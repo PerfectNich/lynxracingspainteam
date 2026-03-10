@@ -13,7 +13,7 @@ export interface Sponsor {
 
 export interface Product {
   id: number;
-  name: string;
+  nameKey: string;
   price: number;
   images: string[];
 }

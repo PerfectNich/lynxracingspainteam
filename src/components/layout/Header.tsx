@@ -1,30 +1,27 @@
 import { useState } from "react";
-import { NavLink, useLocation, Link } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { FaBars, FaTimes } from "react-icons/fa";
-
-const navLinks = [
-  { to: "/", label: "Inicio" },
-  { to: "/agenda", label: "Agenda" },
-  { to: "/multimedia", label: "Multimedia" },
-  { to: "/roster", label: "Roster" },
-  { to: "/palmares", label: "Palmarés" },
-  { to: "/tienda", label: "Tienda" },
-  { to: "/contacto", label: "Contacto" },
-];
+import { LanguageToggle } from "./LanguageToggle";
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const { t, i18n } = useTranslation();
   const location = useLocation();
-  const isEn = location.pathname.startsWith("/en");
+  const lang = i18n.language;
+  const prefix = lang === "en" ? "/en" : lang === "ca" ? "/ca" : "";
 
-  const buildSwitchPath = () => {
-    if (isEn) {
-      const without = location.pathname.replace(/^\/en/, "") || "/";
-      return without;
-    }
-    const withEn = location.pathname === "/" ? "/en" : "/en" + location.pathname;
-    return withEn;
-  };
+  const navLinks = [
+    { to: `${prefix}/`, label: t("nav.home") },
+    { to: `${prefix}/agenda`, label: t("nav.calendar") },
+    { to: `${prefix}/multimedia`, label: t("nav.media") },
+    { to: `${prefix}/roster`, label: t("nav.roster") },
+    { to: `${prefix}/palmares`, label: t("nav.palmares") },
+    { to: `${prefix}/tienda`, label: t("nav.shop") },
+    { to: `${prefix}/contacto`, label: t("nav.contact") },
+  ];
+
+  const basePath = location.pathname.replace(/^\/(en|ca)(?=\/|$)/, "") || "/";
 
   const toggleMenu = () => setIsOpen(!isOpen);
   const closeMenu = () => setIsOpen(false);
@@ -34,15 +31,14 @@ export function Header() {
       {/* Desktop nav */}
       <div className="hidden md:flex justify-between items-center py-4 px-6">
         <div className="flex items-center gap-4">
-          <Link to={buildSwitchPath()} className="text-sm text-lynx-text/80 hover:text-lynx-orange">
-            {isEn ? "ES" : "EN"}
-          </Link>
+          <LanguageToggle lang={lang} basePath={basePath} />
         </div>
         <div className="flex-1 flex justify-center gap-10">
           {navLinks.map((link) => (
             <NavLink
               key={link.to}
               to={link.to}
+              end={link.to === `${prefix}/`}
               className={({ isActive }) =>
                 `font-bold text-xl transition-all duration-300 hover:text-lynx-orange hover:scale-110 ${
                   isActive ? "text-lynx-orange underline underline-offset-4" : "text-lynx-text no-underline"
@@ -58,9 +54,7 @@ export function Header() {
       {/* Mobile nav */}
       <div className="md:hidden flex justify-between items-center px-4 py-3">
         <div className="flex items-center gap-3">
-          <Link to={buildSwitchPath()} className="text-sm text-lynx-text/80 hover:text-lynx-orange">
-            {isEn ? "ES" : "EN"}
-          </Link>
+          <LanguageToggle lang={lang} basePath={basePath} />
           <span className="text-lynx-orange font-bold text-lg">LYNX RACING</span>
         </div>
         <button
@@ -83,6 +77,7 @@ export function Header() {
             <NavLink
               key={link.to}
               to={link.to}
+              end={link.to === `${prefix}/`}
               onClick={closeMenu}
               className={({ isActive }) =>
                 `font-bold text-lg transition-all duration-300 hover:text-lynx-orange ${
