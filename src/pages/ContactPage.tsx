@@ -33,6 +33,12 @@ export function ContactPage() {
       icon: FaTwitch,
       className: "bg-social-twitch",
     },
+     {
+      name: "Facebook",
+      url: "https://www.facebook.com/people/Lynxracingspainteam/100083332022870/",
+      icon: FaFacebook,
+      className: "bg-social-facebook",
+    },
     {
       name: t("contact.email"),
       url: "mailto:lynxracingspain@gmail.com",
