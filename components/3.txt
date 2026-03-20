@@ -1,0 +1,205 @@
+You are given a task to integrate an existing React component in the codebase
+
+The codebase should support:
+- shadcn project structure
+- Tailwind CSS
+- Typescript
+
+If it doesn't, provide instructions on how to setup project via shadcn CLI, install Tailwind or Typescript.
+
+Determine the default path for components and styles.
+If default path for components is not /components/ui, provide instructions on why it's important to create this folder
+Copy-paste this component to /components/ui folder:
+```tsx
+image-tiles.tsx
+'use client'
+import { motion, Variants } from 'framer-motion';
+import React from 'react';
+
+interface ImageRevealProps {
+    leftImage: string;
+    middleImage: string;
+    rightImage: string;
+}
+
+export default function ImageReveal({ leftImage, middleImage, rightImage }: ImageRevealProps) {
+    const containerVariants: Variants = {
+        initial: {
+            opacity: 0,
+        },
+        animate: {
+            opacity: 1,
+            transition: {
+                delay: 0.2,
+                staggerChildren: 0.2,
+            }
+        }
+    };
+
+    const leftImageVariants: Variants = {
+        initial: { rotate: 0, x: 0, y: 0 },
+        animate: {
+            rotate: -8,
+            x: -150,
+            y: 10,
+            transition: {
+                type: "spring" as const,
+                stiffness: 120,
+                damping: 12
+            }
+        },
+        hover: {
+            rotate: 1,
+            x: -160,
+            y: 0,
+            transition: {
+                type: "spring" as const,
+                stiffness: 200,
+                damping: 15
+            }
+        }
+    };
+
+    const middleImageVariants: Variants = {
+        initial: { rotate: 0, x: 0, y: 0 },
+        animate: {
+            rotate: 6,
+            x: 0,
+            y: 0,
+            transition: {
+                type: "spring" as const,
+                stiffness: 120,
+                damping: 12
+            }
+        },
+        hover: {
+            rotate: 0,
+            x: 0,
+            y: -10,
+            transition: {
+                type: "spring" as const,
+                stiffness: 200,
+                damping: 15
+            }
+        }
+    };
+
+    const rightImageVariants: Variants = {
+        initial: { rotate: 0, x: 0, y: 0 },
+        animate: {
+            rotate: -6,
+            x: 200,
+            y: 20,
+            transition: {
+                type: "spring" as const,
+                stiffness: 120,
+                damping: 12
+            }
+        },
+        hover: {
+            rotate: 3,
+            x: 200,
+            y: 10,
+            transition: {
+                type: "spring" as const,
+                stiffness: 200,
+                damping: 15
+            }
+        }
+    };
+
+    return (
+        <motion.div
+            className="relative flex items-center justify-center w-64 h-64 my-12 "
+            variants={containerVariants}
+            initial="initial"
+            animate="animate"
+        >
+            {/* Left Image - Lowest z-index */}
+            <motion.div
+                className="absolute w-48 h-48 origin-bottom-right overflow-hidden rounded-xl shadow-lg bg-white"
+                variants={leftImageVariants}
+                whileHover="hover"
+                animate="animate"
+                style={{ zIndex: 30 }}
+            >
+                <img
+                    src={leftImage}
+                    alt="Left image"
+                    className="object-cover p-2 rounded-xl"
+                />
+            </motion.div>
+
+            {/* Middle Image - Middle z-index */}
+            <motion.div
+                className="absolute w-48 h-48 origin-bottom-left overflow-hidden rounded-xl shadow-lg bg-white"
+                variants={middleImageVariants}
+                whileHover="hover"
+                animate="animate"
+                style={{ zIndex: 20 }}
+            >
+                <img
+                    src={middleImage}
+                    alt="Middle image"
+                    className="object-cover p-2 rounded-2xl"
+                />
+            </motion.div>
+
+            {/* Right Image - Highest z-index */}
+            <motion.div
+                className="absolute w-48 h-48 origin-bottom-right overflow-hidden rounded-xl shadow-lg bg-white"
+                variants={rightImageVariants}
+                whileHover="hover"
+                animate="animate"
+                style={{ zIndex: 10 }}
+            >
+                <img
+                    src={rightImage}
+                    alt="Right image"
+                    className="object-cover p-2 rounded-2xl"
+                />
+            </motion.div>
+        </motion.div>
+    );
+}
+
+
+demo.tsx
+import ImageReveal from "@/components/ui/image-tiles";
+import React from "react";
+
+export default function DemoOne() {
+  return (
+    <div>
+      <ImageReveal
+          leftImage="https://res.cloudinary.com/dctgknnt7/image/upload/v1758636339/left_oog9ck.jpg"
+          middleImage="https://res.cloudinary.com/dctgknnt7/image/upload/v1758636339/middle_vqdg9p.jpg"
+          rightImage="https://res.cloudinary.com/dctgknnt7/image/upload/v1758636340/right_tpkukv.jpg"
+      />
+    </div>
+  );
+}
+
+```
+
+Install NPM dependencies:
+```bash
+framer-motion
+```
+
+Implementation Guidelines
+ 1. Analyze the component structure and identify all required dependencies
+ 2. Review the component's argumens and state
+ 3. Identify any required context providers or hooks and install them
+ 4. Questions to Ask
+ - What data/props will be passed to this component?
+ - Are there any specific state management requirements?
+ - Are there any required assets (images, icons, etc.)?
+ - What is the expected responsive behavior?
+ - What is the best place to use this component in the app?
+
+Steps to integrate
+ 0. Copy paste all the code above in the correct directories
+ 1. Install external dependencies
+ 2. Fill image assets with Unsplash stock images you know exist
+ 3. Use lucide-react icons for svgs or logos if component requires them
