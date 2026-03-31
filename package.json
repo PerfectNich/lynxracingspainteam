@@ -4,12 +4,15 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
+    "sync:x": "node scripts/fetch-latest-x-post.mjs",
+    "sync:media": "node scripts/sync-media.mjs",
     "dev": "vite",
     "build": "tsc -b && vite build && cp dist/index.html dist/404.html",
     "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
+    "framer-motion": "^12.38.0",
     "i18next": "^25.8.16",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",

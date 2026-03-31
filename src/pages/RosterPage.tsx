@@ -1,50 +1,314 @@
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { motion } from "framer-motion";
 import members from "../data/members.json";
-import { PageHeader } from "../components/common/PageHeader";
-import { Section } from "../components/common/Section";
-import { SectionTitle } from "../components/common/SectionTitle";
-import { MemberCard } from "../components/roster/MemberCard";
+import { ExpandCards } from "@/components/ui/expand-cards";
+import type { ExpandCardItem } from "@/components/ui/expand-cards";
+import { GradientDots } from "@/components/ui/gradient-dots";
 import { TwitchEmbed } from "../components/roster/TwitchEmbed";
+import { FaChevronDown, FaTwitch } from "react-icons/fa";
 import type { Member } from "../types";
+import { assetUrl } from "../utils/assetUrl";
+
+const { management, drivers, twitchChannels } = members as {
+  management: Member[];
+  drivers: Member[];
+  twitchChannels: string[];
+};
+
+const FLAG_MAP: Record<string, string> = {
+  spain: assetUrl("/banderas/spain.png"),
+  cat: assetUrl("/banderas/cat.jpg"),
+  serbia: assetUrl("/banderas/serbia.jpg"),
+  colombia: assetUrl("/banderas/colombia.png"),
+  andalucia: assetUrl("/banderas/andalucia.png"),
+  valencia: assetUrl("/banderas/valencia.png"),
+};
+
+// Retratos deterministas: mujer para Aida Bueno, hombre para el resto
+const FEMALE_NAMES = ['Aida'];
+
+function portraitUrl(m: Member, globalIndex: number): string {
+  const firstName = m.name.split(' ')[0];
+  if (FEMALE_NAMES.includes(firstName)) {
+    return `https://randomuser.me/api/portraits/women/${(globalIndex % 70) + 1}.jpg`;
+  }
+  return `https://randomuser.me/api/portraits/men/${(globalIndex % 90) + 1}.jpg`;
+}
+
+function memberToCard(m: Member, globalIndex: number): ExpandCardItem {
+  return {
+    id: m.name,
+    imageSrc: portraitUrl(m, globalIndex),
+    flagSrc: FLAG_MAP[m.country] ?? assetUrl("/banderas/spain.png"),
+    name: m.name,
+    dorsal: m.dorsal,
+  };
+}
+
+const managementCards = management.map((m, i) => memberToCard(m, i));
+const driverCards = drivers.map((m, i) => memberToCard(m, management.length + i));
+const mainChannel = "lynxracingspainteam";
+const secondaryChannels = twitchChannels.filter((channel) => channel !== mainChannel);
+
+// Split drivers into rows of 7
+function chunkArray<T>(arr: T[], size: number): T[][] {
+  const chunks: T[][] = [];
+  for (let i = 0; i < arr.length; i += size) {
+    chunks.push(arr.slice(i, i + size));
+  }
+  return chunks;
+}
+const driverRows = chunkArray(driverCards, 7);
+
 
 export function RosterPage() {
   const { t } = useTranslation();
-  const { management, drivers, twitchChannels } = members as {
-    management: Member[];
-    drivers: Member[];
-    twitchChannels: string[];
-  };
+  const [otherChannelsOpen, setOtherChannelsOpen] = useState(false);
+  const [selectedChannel, setSelectedChannel] = useState(mainChannel);
 
   return (
-    <>
-      <PageHeader title={t("roster.page_title")} />
-
-      <Section>
-        <SectionTitle>{t("roster.management")}</SectionTitle>
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(160px,1fr))] gap-3">
-          {management.map((member) => (
-            <MemberCard key={member.name} member={member} />
-          ))}
+    <div className="overflow-x-hidden">
+      {/* Header */}
+      <div className="relative overflow-hidden py-24 px-6 text-center border-b border-lynx-border">
+        <div className="absolute inset-0 opacity-15">
+          <GradientDots
+            dotSize={5}
+            spacing={14}
+            duration={35}
+            colorCycleDuration={7}
+            backgroundColor="#0b0b0b"
+          />
         </div>
-      </Section>
+        <div
+          className="absolute inset-0 opacity-10"
+          style={{ background: 'radial-gradient(ellipse 60% 50% at 50% 0%, rgba(255,106,0,0.5) 0%, transparent 70%)' }}
+        />
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="relative z-10"
+        >
+          <p
+            className="text-lynx-orange text-xs tracking-[0.4em] uppercase mb-3"
+            style={{ fontFamily: 'var(--font-rajdhani)', fontWeight: 700 }}
+          >
+            Lynx Racing Spain
+          </p>
+          <h1
+            className="text-4xl md:text-6xl font-black text-white"
+            style={{ fontFamily: 'var(--font-orbitron)' }}
+          >
+            {t("roster.page_title")}
+          </h1>
+        </motion.div>
+      </div>
 
-      <Section>
-        <SectionTitle>{t("roster.drivers")}</SectionTitle>
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(160px,1fr))] gap-3">
-          {drivers.map((member) => (
-            <MemberCard key={member.name} member={member} />
-          ))}
-        </div>
-      </Section>
+      {/* Management */}
+      <section className="py-16 px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="max-w-7xl mx-auto"
+        >
+          <div className="text-center mb-10">
+            <p
+              className="text-lynx-orange text-xs tracking-[0.4em] uppercase mb-2"
+              style={{ fontFamily: 'var(--font-rajdhani)', fontWeight: 700 }}
+            >
+              Equipo directivo
+            </p>
+            <h2
+              className="text-2xl md:text-4xl font-black text-white"
+              style={{ fontFamily: 'var(--font-orbitron)' }}
+            >
+              {t("roster.management")}
+            </h2>
+          </div>
+          <div className="overflow-x-auto">
+            <ExpandCards
+              items={managementCards}
+              cardHeight={300}
+              expandedWidth={320}
+              collapsedWidth={80}
+            />
+          </div>
+        </motion.div>
+      </section>
 
-      <Section>
-        <SectionTitle>{t("roster.streams")}</SectionTitle>
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-5">
-          {twitchChannels.map((channel) => (
-            <TwitchEmbed key={channel} channel={channel} />
-          ))}
-        </div>
-      </Section>
-    </>
+      {/* Divider */}
+      <div className="h-px max-w-5xl mx-auto bg-lynx-border mx-6" />
+
+      {/* Drivers */}
+      <section className="py-16 px-4 bg-lynx-dark-card">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="max-w-7xl mx-auto"
+        >
+          <div className="text-center mb-10">
+            <p
+              className="text-lynx-orange text-xs tracking-[0.4em] uppercase mb-2"
+              style={{ fontFamily: 'var(--font-rajdhani)', fontWeight: 700 }}
+            >
+              {drivers.length} pilotos
+            </p>
+            <h2
+              className="text-2xl md:text-4xl font-black text-white"
+              style={{ fontFamily: 'var(--font-orbitron)' }}
+            >
+              {t("roster.drivers")}
+            </h2>
+          </div>
+
+          <div className="flex flex-col gap-3">
+            {driverRows.map((row, rowIdx) => (
+              <div key={rowIdx} className="overflow-x-auto">
+                <ExpandCards
+                  items={row}
+                  cardHeight={240}
+                  expandedWidth={280}
+                  collapsedWidth={68}
+                />
+              </div>
+            ))}
+          </div>
+        </motion.div>
+      </section>
+
+      {/* Streams */}
+      <section className="py-16 px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="max-w-7xl mx-auto"
+        >
+          <div className="text-center mb-10">
+            <p
+              className="text-lynx-orange text-xs tracking-[0.4em] uppercase mb-2"
+              style={{ fontFamily: 'var(--font-rajdhani)', fontWeight: 700 }}
+            >
+              En directo
+            </p>
+            <h2
+              className="text-2xl md:text-4xl font-black text-white"
+              style={{ fontFamily: 'var(--font-orbitron)' }}
+            >
+              {t("roster.streams")}
+            </h2>
+          </div>
+          <div className="max-w-4xl mx-auto rounded-2xl border border-lynx-border bg-lynx-dark-card overflow-hidden">
+            <div className="p-5 space-y-5">
+              <div className="flex items-center gap-3 min-w-0">
+                <div className="w-10 h-10 rounded-full flex items-center justify-center bg-[#9146ff]/15 border border-[#9146ff]/30 flex-shrink-0">
+                  <FaTwitch className="text-[#9146ff] text-lg" />
+                </div>
+                <div className="min-w-0">
+                  <p
+                    className="text-white font-bold"
+                    style={{ fontFamily: 'var(--font-orbitron)' }}
+                  >
+                    Canal principal
+                  </p>
+                  <p
+                    className="text-sm text-lynx-text/65"
+                    style={{ fontFamily: 'var(--font-rajdhani)' }}
+                  >
+                    Directo principal de Lynx con acceso compacto al resto de pilotos.
+                  </p>
+                </div>
+              </div>
+
+              <button
+                type="button"
+                onClick={() => setSelectedChannel(mainChannel)}
+                className={`w-full rounded-xl border px-4 py-3 text-left transition-all ${
+                  selectedChannel === mainChannel
+                    ? "border-[#9146ff] bg-[#9146ff]/15 text-white"
+                    : "border-lynx-border text-lynx-text/80 hover:border-[#9146ff]/40 hover:text-white"
+                }`}
+              >
+                <span
+                  className="block font-bold"
+                  style={{ fontFamily: 'var(--font-orbitron)', fontSize: '0.92rem' }}
+                >
+                  {mainChannel}
+                </span>
+                <span
+                  className="block text-sm text-lynx-text/65 mt-1"
+                  style={{ fontFamily: 'var(--font-rajdhani)' }}
+                >
+                  Directo principal del equipo
+                </span>
+              </button>
+
+              {selectedChannel && (
+                <TwitchEmbed channel={selectedChannel} height={320} />
+              )}
+
+              <div className="rounded-xl border border-lynx-border overflow-hidden">
+                <button
+                  type="button"
+                  onClick={() => setOtherChannelsOpen((open) => !open)}
+                  className="w-full flex items-center justify-between gap-4 px-4 py-3 text-left hover:bg-white/3 transition-colors"
+                >
+                  <div>
+                    <p
+                      className="text-white font-bold"
+                      style={{ fontFamily: 'var(--font-orbitron)', fontSize: '0.85rem' }}
+                    >
+                      Otros canales
+                    </p>
+                    <p
+                      className="text-sm text-lynx-text/60 mt-1"
+                      style={{ fontFamily: 'var(--font-rajdhani)' }}
+                    >
+                      {secondaryChannels.length} canales disponibles
+                    </p>
+                  </div>
+                  <FaChevronDown
+                    className={`text-lynx-orange transition-transform duration-300 ${otherChannelsOpen ? "rotate-180" : ""}`}
+                  />
+                </button>
+
+                {otherChannelsOpen && (
+                  <div className="border-t border-lynx-border p-4">
+                    <div className="flex flex-wrap gap-2">
+                      {secondaryChannels.map((channel) => {
+                        const active = channel === selectedChannel;
+
+                        return (
+                          <button
+                            key={channel}
+                            type="button"
+                            onClick={() => setSelectedChannel(channel)}
+                            className={`px-3 py-2 rounded-full border text-sm transition-all ${
+                              active
+                                ? "border-[#9146ff] bg-[#9146ff]/15 text-white"
+                                : "border-lynx-border text-lynx-text/70 hover:border-[#9146ff]/40 hover:text-white"
+                            }`}
+                            style={{ fontFamily: 'var(--font-rajdhani)', fontWeight: 700 }}
+                          >
+                            {channel}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      </section>
+    </div>
   );
 }

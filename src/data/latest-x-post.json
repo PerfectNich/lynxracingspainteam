@@ -1,0 +1,7 @@
+{
+  "account": "@LynxRacingSpain",
+  "dateLabel": "Pendiente de sincronizar con la API de X",
+  "text": "Todavia no se ha podido cargar el ultimo post automaticamente. Ejecuta la sincronizacion local para traer la ultima publicacion real de la cuenta.",
+  "url": "https://x.com/LynxRacingSpain",
+  "source": "fallback"
+}

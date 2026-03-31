@@ -1,62 +1,196 @@
+import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import { GradientDots } from "@/components/ui/gradient-dots";
 import results from "../data/results.json";
-import { PageHeader } from "../components/common/PageHeader";
-import { Section } from "../components/common/Section";
-import { SectionTitle } from "../components/common/SectionTitle";
 import type { ResultsCategory } from "../types";
 
-function ResultsTable({ category, t }: { category: ResultsCategory; t: (key: string) => string }) {
+function posStyle(pos: number) {
+  if (pos === 1) return { badge: "#EAB308", text: "text-yellow-400" };
+  if (pos === 2) return { badge: "#CBD5E1", text: "text-slate-300" };
+  if (pos === 3) return { badge: "#CD7C2F", text: "text-amber-500" };
+  return { badge: "#6B7280", text: "text-zinc-400" };
+}
+
+function ResultsTable({
+  category,
+  delay = 0,
+}: {
+  category: ResultsCategory;
+  delay?: number;
+}) {
+  const { t } = useTranslation();
+
   return (
-    <div className="mb-12">
-      <SectionTitle>{category.title}</SectionTitle>
-      <div className="overflow-x-auto">
-        <table className="w-full border-collapse mb-12">
-          <thead>
-            <tr>
-              <th className="bg-lynx-dark-card text-lynx-orange p-3 text-center border-b border-lynx-border">
-                {t("results.pos")}
-              </th>
-              <th className="bg-lynx-dark-card text-lynx-orange p-3 text-center border-b border-lynx-border">
-                {t("results.driver")}
-              </th>
-              <th className="bg-lynx-dark-card text-lynx-orange p-3 text-center border-b border-lynx-border">
-                {t("results.simulator")}
-              </th>
-              <th className="bg-lynx-dark-card text-lynx-orange p-3 text-center border-b border-lynx-border">
-                {t("results.total_time")}
-              </th>
-              <th className="bg-lynx-dark-card text-lynx-orange p-3 text-center border-b border-lynx-border">
-                {t("results.points")}
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {category.results.map((result) => (
-              <tr
-                key={`${result.driver}-${result.pos}`}
-                className="even:bg-[#1a1a1a] hover:bg-lynx-border hover:scale-[1.01] transition-all duration-200"
-              >
-                <td className="p-3 text-center border-b border-lynx-border">
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay }}
+    >
+      <h2
+        className="text-2xl md:text-3xl font-black text-white mb-6"
+        style={{ fontFamily: "var(--font-orbitron)" }}
+      >
+        {category.title}
+      </h2>
+
+      <div className="md:hidden flex flex-col gap-3">
+        {category.results.map((result, i) => {
+          const style = posStyle(result.pos);
+          return (
+            <motion.div
+              key={`${result.driver}-${result.pos}-mobile`}
+              initial={{ opacity: 0, x: -10 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.3, delay: delay + i * 0.05 }}
+              className="rounded-xl border border-lynx-border bg-lynx-dark-card p-4 space-y-3"
+            >
+              <div className="flex items-center gap-3">
+                <span
+                  className="w-9 h-9 rounded-full flex items-center justify-center text-black font-black text-xs flex-shrink-0"
+                  style={{
+                    backgroundColor: style.badge,
+                    fontFamily: "var(--font-orbitron)",
+                  }}
+                >
                   {result.pos}
-                </td>
-                <td className="p-3 text-center border-b border-lynx-border">
-                  {result.driver}
-                </td>
-                <td className="p-3 text-center border-b border-lynx-border">
-                  {result.simulator}
-                </td>
-                <td className="p-3 text-center border-b border-lynx-border">
-                  {result.time}
-                </td>
-                <td className="p-3 text-center border-b border-lynx-border">
+                </span>
+                <div className="min-w-0">
+                  <p
+                    className="text-white font-semibold leading-tight"
+                    style={{
+                      fontFamily: "var(--font-rajdhani)",
+                      fontSize: "1rem",
+                    }}
+                  >
+                    {result.driver}
+                  </p>
+                  <p
+                    className="text-lynx-text/60 text-sm"
+                    style={{ fontFamily: "var(--font-rajdhani)" }}
+                  >
+                    {result.simulator}
+                  </p>
+                </div>
+                <span
+                  className={`ml-auto font-black ${style.text}`}
+                  style={{ fontFamily: "var(--font-orbitron)" }}
+                >
                   {result.points}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+                </span>
+              </div>
+
+              <div className="grid grid-cols-2 gap-3 text-sm">
+                <div>
+                  <p
+                    className="text-lynx-orange uppercase tracking-widest text-[11px]"
+                    style={{
+                      fontFamily: "var(--font-rajdhani)",
+                      fontWeight: 700,
+                    }}
+                  >
+                    {t("results.total_time")}
+                  </p>
+                  <p
+                    className="text-lynx-text/70"
+                    style={{ fontFamily: "var(--font-rajdhani)" }}
+                  >
+                    {result.time}
+                  </p>
+                </div>
+                <div>
+                  <p
+                    className="text-lynx-orange uppercase tracking-widest text-[11px]"
+                    style={{
+                      fontFamily: "var(--font-rajdhani)",
+                      fontWeight: 700,
+                    }}
+                  >
+                    {t("results.points")}
+                  </p>
+                  <p
+                    className={`font-black ${style.text}`}
+                    style={{ fontFamily: "var(--font-orbitron)" }}
+                  >
+                    {result.points}
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          );
+        })}
       </div>
-    </div>
+
+      <div className="hidden md:block rounded-xl overflow-hidden border border-lynx-border">
+        <div
+          className="grid gap-0 text-lynx-orange text-xs tracking-widest uppercase px-4 py-3 border-b border-lynx-border bg-lynx-dark-card"
+          style={{
+            gridTemplateColumns: "3rem 1fr 1fr 1fr 3rem",
+            fontFamily: "var(--font-rajdhani)",
+            fontWeight: 700,
+          }}
+        >
+          <span className="text-center">{t("results.pos")}</span>
+          <span>{t("results.driver")}</span>
+          <span>{t("results.simulator")}</span>
+          <span>{t("results.total_time")}</span>
+          <span className="text-center">{t("results.points")}</span>
+        </div>
+
+        {category.results.map((result, i) => {
+          const style = posStyle(result.pos);
+          return (
+            <motion.div
+              key={`${result.driver}-${result.pos}`}
+              initial={{ opacity: 0, x: -10 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.3, delay: delay + i * 0.05 }}
+              className="grid items-center px-4 py-3 border-b border-lynx-border/50 last:border-0 hover:bg-white/5 transition-colors duration-200"
+              style={{ gridTemplateColumns: "3rem 1fr 1fr 1fr 3rem" }}
+            >
+              <div className="flex justify-center">
+                <span
+                  className="w-8 h-8 rounded-full flex items-center justify-center text-black font-black text-xs"
+                  style={{
+                    backgroundColor: style.badge,
+                    fontFamily: "var(--font-orbitron)",
+                  }}
+                >
+                  {result.pos}
+                </span>
+              </div>
+
+              <span
+                className="text-white font-semibold"
+                style={{ fontFamily: "var(--font-rajdhani)", fontSize: "1rem" }}
+              >
+                {result.driver}
+              </span>
+              <span
+                className="text-lynx-text/60"
+                style={{ fontFamily: "var(--font-rajdhani)" }}
+              >
+                {result.simulator}
+              </span>
+              <span
+                className="text-lynx-text/60"
+                style={{ fontFamily: "var(--font-rajdhani)" }}
+              >
+                {result.time}
+              </span>
+              <span
+                className={`text-center font-black ${style.text}`}
+                style={{ fontFamily: "var(--font-orbitron)" }}
+              >
+                {result.points}
+              </span>
+            </motion.div>
+          );
+        })}
+      </div>
+    </motion.div>
   );
 }
 
@@ -68,13 +202,52 @@ export function ResultsPage() {
   };
 
   return (
-    <>
-      <PageHeader title={t("results.page_title")} />
+    <div className="overflow-x-hidden">
+      <div className="relative overflow-hidden py-24 px-6 text-center border-b border-lynx-border">
+        <div className="absolute inset-0 opacity-15">
+          <GradientDots
+            dotSize={5}
+            spacing={14}
+            duration={35}
+            colorCycleDuration={7}
+            backgroundColor="#0b0b0b"
+          />
+        </div>
+        <div
+          className="absolute inset-0 opacity-10"
+          style={{
+            background:
+              "radial-gradient(ellipse 60% 50% at 50% 0%, rgba(255,106,0,0.5) 0%, transparent 70%)",
+          }}
+        />
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="relative z-10"
+        >
+          <p
+            className="text-lynx-orange text-xs tracking-[0.4em] uppercase mb-3"
+            style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 700 }}
+          >
+            Clasificaciones
+          </p>
+          <h1
+            className="text-4xl md:text-6xl font-black text-white"
+            style={{ fontFamily: "var(--font-orbitron)" }}
+          >
+            {t("results.page_title")}
+          </h1>
+        </motion.div>
+      </div>
 
-      <Section>
-        <ResultsTable category={endurance} t={t} />
-        <ResultsTable category={rally} t={t} />
-      </Section>
-    </>
+      <section className="py-14 px-6">
+        <div className="max-w-4xl mx-auto flex flex-col gap-14">
+          <ResultsTable category={endurance} delay={0} />
+          <ResultsTable category={rally} delay={0.1} />
+        </div>
+      </section>
+    </div>
   );
 }
