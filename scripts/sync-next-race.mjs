@@ -3,6 +3,7 @@ import path from "node:path";
 
 const projectRoot = process.cwd();
 const outputPath = path.join(projectRoot, "src", "data", "next-race.json");
+const upcomingEventsPath = path.join(projectRoot, "src", "data", "upcoming-events.json");
 const calendarId =
   "2e83e34d1a6a1175e764fd8f0adcbfdb471ab4227e598541051f71547e1ca555@group.calendar.google.com";
 const calendarUrl = `https://calendar.google.com/calendar/ical/${calendarId}/public/basic.ics`;
@@ -90,6 +91,10 @@ async function main() {
     .sort((left, right) => left.date - right.date);
 
   const nextRace = events[0] ?? null;
+  const upcomingEvents = events.slice(0, 8).map((event) => ({
+    title: event.title,
+    date: event.date.toISOString(),
+  }));
 
   const output = nextRace
     ? {
@@ -102,6 +107,7 @@ async function main() {
       };
 
   await fs.writeFile(outputPath, `${JSON.stringify(output, null, 2)}\n`, "utf8");
+  await fs.writeFile(upcomingEventsPath, `${JSON.stringify(upcomingEvents, null, 2)}\n`, "utf8");
   console.log("Proxima carrera sincronizada en src/data/next-race.json");
 }
 

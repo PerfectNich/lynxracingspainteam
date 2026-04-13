@@ -53,7 +53,7 @@ export function Hero() {
       >
         <span className="text-xs tracking-[0.3em] uppercase text-lynx-text"
           style={{ fontFamily: 'var(--font-rajdhani)' }}>
-          Scroll
+          {t("hero.scroll")}
         </span>
         <div className="w-px h-10 bg-gradient-to-b from-lynx-orange to-transparent" />
       </div>

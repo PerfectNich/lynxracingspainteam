@@ -9,13 +9,61 @@
     "contact": "Contact"
   },
   "hero": {
-    "subtitle": "Simracing for all levels · Multi-simulator · Enjoy and compete"
+    "label": "Lynx Racing Spain Team",
+    "subtitle": "Simracing for all levels · Multi-simulator · Enjoy and compete",
+    "description": "Community, competition and endurance on track. A team for drivers who want to improve, enjoy the process and race with identity.",
+    "primary_cta": "View calendar",
+    "secondary_cta": "Meet the roster",
+    "scroll": "Scroll"
+  },
+  "seo": {
+    "home": {
+      "title": "Lynx Racing Spain Team | Multi-simulator simracing team",
+      "description": "Spanish simracing team with drivers, calendar, results, media and sponsors across ACC, iRacing and more simulators."
+    },
+    "calendar": {
+      "title": "Calendar | Lynx Racing Spain Team",
+      "description": "Check the race calendar and upcoming team events for Lynx Racing Spain Team."
+    },
+    "media": {
+      "title": "Media | Lynx Racing Spain Team",
+      "description": "Browse team photos and videos, including races, practice sessions, highlights and behind-the-scenes moments."
+    },
+    "roster": {
+      "title": "Roster | Lynx Racing Spain Team",
+      "description": "Meet the Lynx Racing Spain Team roster, including drivers, staff members and Twitch channels."
+    },
+    "palmares": {
+      "title": "Achievements | Lynx Racing Spain Team",
+      "description": "Discover podiums, achievements and standout results from Lynx Racing Spain Team across multiple simulators."
+    },
+    "shop": {
+      "title": "Shop | Lynx Racing Spain Team",
+      "description": "Explore official Lynx Racing Spain Team merchandise and team products."
+    },
+    "contact": {
+      "title": "Contact | Lynx Racing Spain Team",
+      "description": "Get in touch with Lynx Racing Spain Team and follow us on Discord, Instagram, X, Twitch, Facebook and email."
+    },
+    "results": {
+      "title": "Results | Lynx Racing Spain Team",
+      "description": "Review team results, standings and simracing performance in endurance, rally and other competitions."
+    }
   },
   "home": {
     "sponsors_label": "Partners",
+    "sponsors_title": "Sponsors",
     "about_label": "Who we are",
     "about_title": "About the team",
     "about_text": "We are Lynx Racing Spain Team, a squad with more than three years of experience, hundreds of races completed, and several events and leagues organised along the way. We compete and enjoy simracing in Assetto Corsa Competizione, iRacing, Le Mans Ultimate and other platforms.",
+    "stats": {
+      "years_value": "3+",
+      "years_label": "Years racing",
+      "races_value": "100+",
+      "races_label": "Races completed",
+      "platforms_value": "4",
+      "platforms_label": "Active simulators"
+    },
     "simulators_label": "Platforms",
     "simulators_title": "Simulators",
     "pulse_label": "Next race",
@@ -40,6 +88,7 @@
     "main_sponsor_text": "Our leading partner helps drive the team on and off the track. Discover their work and follow them on Instagram.",
     "main_sponsor_cta": "View Instagram",
     "contact_label": "Contact",
+    "contact_text": "If you want to follow the team, collaborate with us or just talk racing, here are our main channels.",
     "contact_title": "Contact"
   },
   "results": {
@@ -76,7 +125,18 @@
   },
   "calendar": {
     "page_title": "Calendar",
-    "section_title": "Race calendar"
+    "section_title": "Upcoming races",
+    "next_label": "Next event",
+    "list_label": "Team calendar",
+    "acc_column": "ACC",
+    "iracing_column": "iRacing",
+    "date_label": "Date",
+    "time_label": "Time",
+    "today": "Today",
+    "tomorrow": "Tomorrow",
+    "other_events": "Other events",
+    "open_full": "Open full calendar",
+    "pending": "To be confirmed"
   },
   "contact": {
     "page_title": "Contact",
