@@ -54,7 +54,7 @@ export function MediaPage() {
             className="text-lynx-orange text-xs tracking-[0.4em] uppercase mb-3"
             style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 700 }}
           >
-            Fotos & Videos
+            {t("media.section_label")}
           </p>
           <h1
             className="text-4xl md:text-6xl font-black text-white"
@@ -90,7 +90,7 @@ export function MediaPage() {
                 className="text-2xl font-black text-white mb-8"
                 style={{ fontFamily: "var(--font-orbitron)" }}
               >
-                Videos
+                {t("media.videos_title")}
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {videoItems.map((item, idx) => (

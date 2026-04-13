@@ -62,8 +62,10 @@
     }
   },
   "media": {
+    "section_label": "Fotos i vídeos",
     "page_title": "Multimèdia",
-    "gallery_title": "Fotos i vídeos de l'equip"
+    "gallery_title": "Fotos i vídeos de l'equip",
+    "videos_title": "Vídeos"
   },
   "roster": {
     "page_title": "Plantilla de l'equip",

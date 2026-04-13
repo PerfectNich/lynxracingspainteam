@@ -62,8 +62,10 @@
     }
   },
   "media": {
+    "section_label": "Photos & videos",
     "page_title": "Media",
-    "gallery_title": "Team photos and videos"
+    "gallery_title": "Team photos and videos",
+    "videos_title": "Videos"
   },
   "roster": {
     "page_title": "Team roster",
