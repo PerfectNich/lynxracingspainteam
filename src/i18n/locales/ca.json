@@ -9,40 +9,61 @@
     "contact": "Contacte"
   },
   "hero": {
-    "subtitle": "Simracing per a tots els nivells · MultiSimulador · Gaudir i competir"
+    "subtitle": "Simracing per a tots els nivells · Multisimulador · Gaudir i competir"
   },
   "home": {
-    "about_title": "Sobre l'Equip",
-    "about_text": "Som Lynx Racing Spain Team, un equip amb més de 3 anys de trajectòria i amb centenars de curses competides i algun que altre event i/o lliga organitzat al llarg d'aquests anys. Ens pots trobar a Assetto, iRacing, LMU, entre d'altres!",
+    "sponsors_label": "Col·laboradors",
+    "about_label": "Qui som",
+    "about_title": "Sobre l'equip",
+    "about_text": "Som Lynx Racing Spain Team, un equip amb més de tres anys de trajectòria, centenars de curses disputades i diversos esdeveniments i lligues organitzats durant aquest temps. Competim i gaudim del simracing a Assetto Corsa Competizione, iRacing, Le Mans Ultimate i altres plataformes.",
+    "simulators_label": "Plataformes",
     "simulators_title": "Simuladors",
-    "roster_title": "Roster de l'Equip",
-    "roster_text": "Pots veure tots els nostres pilots i els seus Twitch",
-    "roster_link": "aquí",
+    "pulse_label": "Actualitat esportiva",
+    "pulse_title": "Últims resultats i pròxima cursa",
+    "pulse_results_label": "Últims resultats",
+    "pulse_next_label": "Pròxima cursa",
+    "pulse_points_suffix": "pts",
+    "pulse_date_label": "Data",
+    "pulse_simulator_label": "Simulador",
+    "pulse_lineup_label": "Alineació",
+    "pulse_pending": "Per confirmar",
+    "pulse_lineup_pending": "Pendents de confirmar",
+    "pulse_results_link": "Veure resultats",
+    "pulse_calendar_link": "Veure agenda",
+    "team_label": "El nostre equip",
+    "roster_title": "Roster de l'equip",
+    "roster_text": "Coneix els nostres pilots, l'staff i els canals de Twitch de l'equip.",
+    "roster_link": "Veure roster",
+    "gallery_label": "Galeria",
+    "gallery_title": "Multimèdia",
+    "gallery_text": "Fotos i vídeos de curses, entrenaments i moments de l'equip.",
+    "gallery_link": "Veure multimèdia",
+    "contact_label": "Contacte",
     "contact_title": "Contacte"
   },
   "results": {
-    "page_title": "Resultats i Endurance",
+    "page_title": "Resultats i endurance",
     "pos": "Pos",
     "driver": "Pilot",
     "simulator": "Simulador",
-    "total_time": "Temps Total",
+    "total_time": "Temps total",
     "points": "Punts"
   },
   "shop": {
-    "page_title": "Botiga Oficial Lynx Racing",
+    "page_title": "Botiga oficial Lynx Racing",
     "subtitle": "Merchandising i productes de l'equip",
     "buy": "Comprar",
     "products": {
-      "tshirt": "Samarreta Oficial",
-      "gloves": "Guants de Simracing",
-      "stickers": "Enganxines de l'Equip",
+      "tshirt": "Samarreta oficial",
+      "gloves": "Guants de simracing",
+      "stickers": "Adhesius de l'equip",
       "cap": "Gorra Lynx",
-      "mug": "Tassa de l'Equip"
+      "mug": "Tassa de l'equip"
     }
   },
   "media": {
     "page_title": "Multimèdia",
-    "gallery_title": "Fotos i Vídeos de l'Equip"
+    "gallery_title": "Fotos i vídeos de l'equip"
   },
   "roster": {
     "page_title": "Plantilla de l'equip",
@@ -51,18 +72,18 @@
     "streams": "Directes de l'equip"
   },
   "calendar": {
-    "page_title": "Dates",
-    "section_title": "Calendari de Curses"
+    "page_title": "Agenda",
+    "section_title": "Calendari de curses"
   },
   "contact": {
     "page_title": "Contacte",
-    "section_title": "Xarxes Socials",
-    "description": "Connecta amb nosaltres a les següents plataformes i segueix totes les nostres novetats, curses i events.",
+    "section_title": "Xarxes socials",
+    "description": "Connecta amb nosaltres a les plataformes següents i segueix totes les nostres novetats, curses i esdeveniments.",
     "email": "Correu"
   },
   "palmares": {
     "page_title": "Palmarès",
-    "intro": "A continuació mostrem els llocs destacats i/o aconseguits per l'equip en els diferents simuladors.",
+    "intro": "A continuació mostrem les posicions destacades aconseguides per l'equip en els diferents simuladors.",
     "acc": {
       "e1": "Resistència 4h Barcelona | Benèfica de La Cueva",
       "e2": "Resistència 8h Suzuka | CER-V",

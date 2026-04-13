@@ -9,40 +9,61 @@
     "contact": "Contacto"
   },
   "hero": {
-    "subtitle": "Simracing para todos los niveles \u00b7 MultiSimulador \u00b7 Disfrutar y competir"
+    "subtitle": "Simracing para todos los niveles · Multisimulador · Disfrutar y competir"
   },
   "home": {
-    "about_title": "Sobre el Equipo",
-    "about_text": "Somos Lynx Racing Spain Team, un equipo con más de 3 años de trayectoria y con cientos de carreras competidas y algún que otro evento y/o liga organizado a lo largo de estos años. Nos puedes encontrar en Assetto, iRacing, LMU, entre otros!",
+    "sponsors_label": "Colaboradores",
+    "about_label": "Quiénes somos",
+    "about_title": "Sobre el equipo",
+    "about_text": "Somos Lynx Racing Spain Team, un equipo con más de tres años de trayectoria, cientos de carreras disputadas y varios eventos y ligas organizados a lo largo de este tiempo. Competimos y disfrutamos del simracing en Assetto Corsa Competizione, iRacing, Le Mans Ultimate y otras plataformas.",
+    "simulators_label": "Plataformas",
     "simulators_title": "Simuladores",
-    "roster_title": "Roster del Equipo",
-    "roster_text": "Puedes ver todos nuestros pilotos y sus Twitch",
-    "roster_link": "aquí",
+    "pulse_label": "Actualidad deportiva",
+    "pulse_title": "Últimos resultados y próxima carrera",
+    "pulse_results_label": "Últimos resultados",
+    "pulse_next_label": "Próxima carrera",
+    "pulse_points_suffix": "pts",
+    "pulse_date_label": "Fecha",
+    "pulse_simulator_label": "Simulador",
+    "pulse_lineup_label": "Alineación",
+    "pulse_pending": "Por confirmar",
+    "pulse_lineup_pending": "Pendiente de confirmar",
+    "pulse_results_link": "Ver resultados",
+    "pulse_calendar_link": "Ver agenda",
+    "team_label": "Nuestro equipo",
+    "roster_title": "Roster del equipo",
+    "roster_text": "Conoce a nuestros pilotos, el staff y los canales de Twitch del equipo.",
+    "roster_link": "Ver roster",
+    "gallery_label": "Galería",
+    "gallery_title": "Multimedia",
+    "gallery_text": "Fotos y vídeos de carreras, entrenamientos y momentos del equipo.",
+    "gallery_link": "Ver multimedia",
+    "contact_label": "Contacto",
     "contact_title": "Contacto"
   },
   "results": {
-    "page_title": "Resultados y Endurance",
+    "page_title": "Resultados y endurance",
     "pos": "Pos",
     "driver": "Piloto",
     "simulator": "Simulador",
-    "total_time": "Tiempo Total",
+    "total_time": "Tiempo total",
     "points": "Puntos"
   },
   "shop": {
-    "page_title": "Tienda Oficial Lynx Racing",
+    "page_title": "Tienda oficial Lynx Racing",
     "subtitle": "Merchandising y productos del equipo",
     "buy": "Comprar",
     "products": {
-      "tshirt": "Camiseta Oficial",
-      "gloves": "Guantes de Simracing",
-      "stickers": "Pegatinas del Equipo",
+      "tshirt": "Camiseta oficial",
+      "gloves": "Guantes de simracing",
+      "stickers": "Pegatinas del equipo",
       "cap": "Gorra Lynx",
-      "mug": "Taza del Equipo"
+      "mug": "Taza del equipo"
     }
   },
   "media": {
     "page_title": "Multimedia",
-    "gallery_title": "Fotos y Videos del Equipo"
+    "gallery_title": "Fotos y vídeos del equipo"
   },
   "roster": {
     "page_title": "Plantilla del equipo",
@@ -51,18 +72,18 @@
     "streams": "Directos del equipo"
   },
   "calendar": {
-    "page_title": "Fechas",
-    "section_title": "Calendario de Carreras"
+    "page_title": "Agenda",
+    "section_title": "Calendario de carreras"
   },
   "contact": {
     "page_title": "Contacto",
-    "section_title": "Redes Sociales",
-    "description": "Conéctate con nosotros en las siguientes plataformas y sigue todas nuestras novedades, carreras y eventos.",
+    "section_title": "Redes sociales",
+    "description": "Conecta con nosotros en las siguientes plataformas y sigue todas nuestras novedades, carreras y eventos.",
     "email": "Correo"
   },
   "palmares": {
     "page_title": "Palmarés",
-    "intro": "A continuación mostramos los puestos destacados y/o conseguidos por el equipo en las diferentes simuladores.",
+    "intro": "A continuación mostramos los puestos destacados conseguidos por el equipo en los diferentes simuladores.",
     "acc": {
       "e1": "Resistencia 4h Barcelona | Benéfica de La Cueva",
       "e2": "Resistencia 8h Suzuka | CER-V",

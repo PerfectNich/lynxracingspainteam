@@ -1,77 +1,115 @@
+import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import { PageHeader } from "../components/common/PageHeader";
-import { Section } from "../components/common/Section";
-import { SectionTitle } from "../components/common/SectionTitle";
-import { FaDiscord, FaInstagram, FaTwitch, FaEnvelope, FaFacebook } from "react-icons/fa";
+import { FaArrowRight, FaDiscord, FaEnvelope, FaFacebook, FaInstagram, FaTwitch } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import { GradientDots } from "@/components/ui/gradient-dots";
 
 export function ContactPage() {
   const { t } = useTranslation();
 
   const socialLinks = [
+    { name: "Discord", url: "https://discord.gg/H8eNsptxVw", icon: FaDiscord, color: "#7289da" },
+    { name: "Twitter / X", url: "https://x.com/LynxRacingSpain", icon: FaXTwitter, color: "#1da1f2" },
+    { name: "Instagram", url: "https://www.instagram.com/lynxracingspain/", icon: FaInstagram, color: "#e1306c" },
+    { name: "Twitch", url: "https://www.twitch.tv/lynxracingspainteam", icon: FaTwitch, color: "#9146ff" },
     {
-      name: "Discord",
-      url: "https://discord.gg/H8eNsptxVw",
-      icon: FaDiscord,
-      className: "bg-social-discord",
-    },
-    {
-      name: "Twitter / X",
-      url: "https://x.com/LynxRacingSpain",
-      icon: FaXTwitter,
-      className: "bg-social-twitter",
-    },
-    {
-      name: "Instagram",
-      url: "https://www.instagram.com/lynxracingspain/",
-      icon: FaInstagram,
-      className: "bg-social-instagram",
-    },
-    {
-      name: "Twitch",
-      url: "https://www.twitch.tv/lynxracingspainteam",
-      icon: FaTwitch,
-      className: "bg-social-twitch",
-    },
-     {
       name: "Facebook",
       url: "https://www.facebook.com/people/Lynxracingspainteam/100083332022870/",
       icon: FaFacebook,
-      className: "bg-social-facebook",
+      color: "#1877f2",
     },
     {
       name: t("contact.email"),
       url: "mailto:lynxracingspain@gmail.com",
       icon: FaEnvelope,
-      className: "bg-lynx-orange",
+      color: "#ff6a00",
     },
   ];
 
   return (
-    <>
-      <PageHeader title={t("contact.page_title")} />
+    <div className="overflow-x-hidden">
+      <div className="relative overflow-hidden border-b border-lynx-border px-6 py-24 text-center">
+        <div className="absolute inset-0 opacity-15">
+          <GradientDots
+            dotSize={5}
+            spacing={14}
+            duration={35}
+            colorCycleDuration={7}
+            backgroundColor="#0b0b0b"
+          />
+        </div>
+        <div
+          className="absolute inset-0 opacity-10"
+          style={{
+            background:
+              "radial-gradient(ellipse 60% 50% at 50% 0%, rgba(255,106,0,0.5) 0%, transparent 70%)",
+          }}
+        />
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="relative z-10"
+        >
+          <p
+            className="mb-3 text-xs uppercase tracking-[0.4em] text-lynx-orange"
+            style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 700 }}
+          >
+            Encuéntranos
+          </p>
+          <h1
+            className="text-4xl font-black text-white md:text-6xl"
+            style={{ fontFamily: "var(--font-orbitron)" }}
+          >
+            {t("contact.page_title")}
+          </h1>
+          <p
+            className="mx-auto mt-4 max-w-xl text-lynx-text/60"
+            style={{ fontFamily: "var(--font-rajdhani)", fontSize: "1.05rem" }}
+          >
+            {t("contact.description")}
+          </p>
+        </motion.div>
+      </div>
 
-      <Section className="flex-1">
-        <SectionTitle>{t("contact.section_title")}</SectionTitle>
-        <p className="text-lg md:text-xl leading-relaxed mb-8">
-          {t("contact.description")}
-        </p>
-
-        <div className="flex justify-center gap-3 md:gap-6">
-          {socialLinks.map((link) => (
-            <a
+      <section className="px-6 py-14">
+        <div className="mx-auto grid max-w-3xl grid-cols-1 gap-3 sm:grid-cols-2">
+          {socialLinks.map((link, index) => (
+            <motion.a
               key={link.name}
               href={link.url}
               target="_blank"
               rel="noopener noreferrer"
-              title={link.name}
-              className={`social-link inline-flex items-center justify-center p-4 !text-white no-underline rounded-full transition-all duration-300 hover:scale-125 hover:shadow-orange-glow ${link.className}`}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.35, delay: index * 0.06 }}
+              whileHover={{ y: -3 }}
+              className="group flex items-center gap-4 rounded-xl border border-lynx-border bg-lynx-dark-card px-5 py-3.5 transition-colors duration-300 hover:border-lynx-orange"
             >
-              <link.icon className="text-3xl" />
-            </a>
+              <div
+                className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full text-base text-white"
+                style={{ backgroundColor: link.color }}
+              >
+                <link.icon />
+              </div>
+              <span
+                className="font-bold text-white transition-colors duration-200 group-hover:text-lynx-orange"
+                style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 600, fontSize: "1rem" }}
+              >
+                {link.name}
+              </span>
+              <span
+                className="ml-auto text-sm text-lynx-text/30 transition-colors duration-200 group-hover:text-lynx-orange"
+                aria-hidden="true"
+              >
+                <FaArrowRight size={12} />
+              </span>
+            </motion.a>
           ))}
         </div>
-      </Section>
-    </>
+      </section>
+    </div>
   );
 }

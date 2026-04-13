@@ -52,14 +52,16 @@ export function Header() {
       </div>
 
       {/* Mobile nav */}
-      <div className="md:hidden flex justify-between items-center px-4 py-3">
-        <div className="flex items-center gap-3">
+      <div className="md:hidden flex justify-between items-center gap-3 px-4 py-3">
+        <div className="flex items-center gap-2 min-w-0">
           <LanguageToggle lang={lang} basePath={basePath} />
-          <span className="text-lynx-orange font-bold text-lg">LYNX RACING</span>
+          <span className="text-lynx-orange font-bold text-sm sm:text-lg truncate">
+            LYNX RACING
+          </span>
         </div>
         <button
           onClick={toggleMenu}
-          className="text-lynx-text text-2xl hover:text-lynx-orange transition-colors"
+          className="text-lynx-text text-2xl hover:text-lynx-orange transition-colors flex-shrink-0"
           aria-label="Toggle menu"
         >
           {isOpen ? <FaTimes /> : <FaBars />}

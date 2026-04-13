@@ -1,6 +1,6 @@
 {
   "management": [
-    { "name": "Juan Serrano", "dorsal": "83", "country": "spain", "twitch": "juan_serrano83" },
+    { "name": "Juan Serrano", "dorsal": "83", "country": "spain", "twitch": "lynx_serrano83" },
     { "name": "Xavier Sobrerroca", "dorsal": "30", "country": "cat", "twitch": "perfect_nich" },
     { "name": "Josh Mopar", "dorsal": "10", "country": "cat", "twitch": "josh_mopar" },
     { "name": "Albert Gombau", "dorsal": "720", "country": "cat", "twitch": "gombii99" },
@@ -15,7 +15,7 @@
     { "name": "Angel Alvarado", "dorsal": "666", "country": "spain", "twitch": "pist4chon" },
     { "name": "Carlos Molina", "dorsal": "113", "country": "spain", "twitch": null },
     { "name": "Relja Ljubobratovic", "dorsal": "34", "country": "serbia", "twitch": null },
-    { "name": "Dani Diaz", "dorsal": "15", "country": "cat", "twitch": null },
+    { "name": "Dani Diaz", "dorsal": "15", "country": "cat", "twitch": "danibytj_danidiaz" },
     { "name": "Javi Castello", "dorsal": "814", "country": "spain", "twitch": "castello814" },
     { "name": "Ruben Juarez", "dorsal": "95", "country": "spain", "twitch": null },
     { "name": "Juanmi Asmigon", "dorsal": "000", "country": "spain", "twitch": null },
@@ -31,18 +31,28 @@
     { "name": "Fran Gambin", "dorsal": "310", "country": "spain", "twitch": null },
     { "name": "Ruben Gomez", "dorsal": "27", "country": "cat", "twitch": "typicalchibito" },
     { "name": "Juanjo Morales", "dorsal": null, "country": "colombia", "twitch": null },
-    { "name": "Emiliano Sturniolo", "dorsal": "43", "country": "spain", "twitch": null }
+    { "name": "Emiliano Sturniolo", "dorsal": "43", "country": "spain", "twitch": null },
+    { "name": "Marc Garcia", "dorsal": "21", "country": "cat", "twitch": "marckitos21" }
     
   ],
   "twitchChannels": [
+    "lynxracingspainteam",
+    "lynx_serrano83",
     "perfect_nich",
+    "josh_mopar",
     "gombii99",
     "jarrini15",
-    "capi71",
-    "coro85",
     "kikologo",
     "lalo_87",
+    "wilfredoflowers",
+    "coro85",
     "pist4chon",
-    "castello814"
+    "danibytj_danidiaz",
+    "castello814",
+    "aidabp",
+    "javi_gras",
+    "capi71",
+    "typicalchibito",
+    "marckitos21"
   ]
 }

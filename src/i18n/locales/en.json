@@ -9,23 +9,44 @@
     "contact": "Contact"
   },
   "hero": {
-    "subtitle": "Simracing for all levels \u00b7 MultiSimulator \u00b7 Enjoy and compete"
+    "subtitle": "Simracing for all levels · Multi-simulator · Enjoy and compete"
   },
   "home": {
-    "about_title": "About the Team",
-    "about_text": "We are Lynx Racing Spain Team, a team with over 3 years of experience and hundreds of races competed, along with several events and leagues organized over the years. You can find us on Assetto, iRacing, LMU, and more!",
+    "sponsors_label": "Partners",
+    "about_label": "Who we are",
+    "about_title": "About the team",
+    "about_text": "We are Lynx Racing Spain Team, a squad with more than three years of experience, hundreds of races completed, and several events and leagues organised along the way. We compete and enjoy simracing in Assetto Corsa Competizione, iRacing, Le Mans Ultimate and other platforms.",
+    "simulators_label": "Platforms",
     "simulators_title": "Simulators",
-    "roster_title": "Team Roster",
-    "roster_text": "You can see all our drivers and their Twitch",
-    "roster_link": "here",
+    "pulse_label": "Team pulse",
+    "pulse_title": "Latest results and next race",
+    "pulse_results_label": "Latest results",
+    "pulse_next_label": "Next race",
+    "pulse_points_suffix": "pts",
+    "pulse_date_label": "Date",
+    "pulse_simulator_label": "Simulator",
+    "pulse_lineup_label": "Line-up",
+    "pulse_pending": "To be confirmed",
+    "pulse_lineup_pending": "To be confirmed",
+    "pulse_results_link": "View results",
+    "pulse_calendar_link": "View calendar",
+    "team_label": "Our team",
+    "roster_title": "Team roster",
+    "roster_text": "Meet our drivers, staff and the team's Twitch channels.",
+    "roster_link": "View roster",
+    "gallery_label": "Gallery",
+    "gallery_title": "Media",
+    "gallery_text": "Photos and videos from races, practice sessions and team moments.",
+    "gallery_link": "View media",
+    "contact_label": "Contact",
     "contact_title": "Contact"
   },
   "results": {
-    "page_title": "Results & Endurance",
+    "page_title": "Results & endurance",
     "pos": "Pos",
     "driver": "Driver",
     "simulator": "Simulator",
-    "total_time": "Total Time",
+    "total_time": "Total time",
     "points": "Points"
   },
   "shop": {
@@ -42,27 +63,27 @@
   },
   "media": {
     "page_title": "Media",
-    "gallery_title": "Team Photos and Videos"
+    "gallery_title": "Team photos and videos"
   },
   "roster": {
-    "page_title": "Team Roster",
+    "page_title": "Team roster",
     "management": "Management",
     "drivers": "Drivers",
-    "streams": "Team Streams"
+    "streams": "Team streams"
   },
   "calendar": {
-    "page_title": "Dates",
-    "section_title": "Race Calendar"
+    "page_title": "Calendar",
+    "section_title": "Race calendar"
   },
   "contact": {
     "page_title": "Contact",
-    "section_title": "Social Media",
-    "description": "Connect with us on the following platforms and follow all our news, races and events.",
+    "section_title": "Social media",
+    "description": "Connect with us on the following platforms and keep up with all our news, races and events.",
     "email": "Email"
   },
   "palmares": {
     "page_title": "Achievements",
-    "intro": "Below we showcase the notable results achieved by the team across different simulators.",
+    "intro": "Below you can find the standout results achieved by the team across different simulators.",
     "acc": {
       "e1": "4h Endurance Barcelona | La Cueva Charity",
       "e2": "8h Endurance Suzuka | CER-V",

@@ -1,66 +1,345 @@
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import { PageHeader } from "../components/common/PageHeader";
-import { Section } from "../components/common/Section";
-import { SectionTitle } from "../components/common/SectionTitle";
+import { FaChevronDown } from "react-icons/fa";
 import { assetUrl } from "../utils/assetUrl";
+import { GradientDots } from "@/components/ui/gradient-dots";
+
+interface PalmaresEntry {
+  pos: number;
+  event: string;
+  simulator: string;
+  drivers: string[];
+  car: string;
+  year: number;
+}
+
+const DATA: PalmaresEntry[] = [
+  {
+    pos: 1,
+    event: "Resistencia 4h Barcelona - Benéfica de La Cueva",
+    simulator: "ACC",
+    drivers: ["Kiko Ribes", "Xavier Sobrerroca"],
+    car: "porsche",
+    year: 2023,
+  },
+  {
+    pos: 1,
+    event: "Campeonato CNE II - VRGirona",
+    simulator: "ACC",
+    drivers: ["Juan Serrano", "Josh Mopar", "Xavier Sobrerroca"],
+    car: "aston",
+    year: 2023,
+  },
+  {
+    pos: 2,
+    event: "Resistencia 8h Suzuka - CER-V",
+    simulator: "ACC",
+    drivers: ["Dani Gala", "Juan Serrano", "Jorge Pola"],
+    car: "aston",
+    year: 2022,
+  },
+  {
+    pos: 3,
+    event: "Resistencia 9h Kyalami - CER-V",
+    simulator: "ACC",
+    drivers: ["Kiko Ribes", "Juan Serrano"],
+    car: "aston",
+    year: 2022,
+  },
+  {
+    pos: 4,
+    event: "Endurance 4h Titanium Red",
+    simulator: "ACC",
+    drivers: ["Jordi Capdevila", "Francisco Sierra"],
+    car: "ferrari",
+    year: 2025,
+  },
+  {
+    pos: 7,
+    event: "Resistencia 24h Nordschleife - Pitskill",
+    simulator: "ACC",
+    drivers: [
+      "Jordi Capdevila",
+      "Luis Ungo",
+      "Juan Serrano",
+      "Xavier Sobrerroca",
+      "Albert Gombau",
+    ],
+    car: "ferrari",
+    year: 2025,
+  },
+  {
+    pos: 2,
+    event: "Resistencia 24h Daytona",
+    simulator: "iRacing",
+    drivers: [
+      "Jordi Capdevila",
+      "Jesus Jimenez",
+      "Francisco Sierra",
+      "Luis Ungo",
+      "Xavier Sobrerroca",
+    ],
+    car: "porsche",
+    year: 2026,
+  },
+  {
+    pos: 2,
+    event: "Resistencia 12h Sebring",
+    simulator: "iRacing",
+    drivers: ["Nacho Jarrin", "Albert Gombau", "Fran Gambin"],
+    car: "porsche",
+    year: 2026,
+  },
+  {
+    pos: 3,
+    event: "Resistencia 12h Mount Panorama",
+    simulator: "iRacing",
+    drivers: ["Angel Alvarado", "Albert Gombau", "Nacho Jarrin"],
+    car: "mclaren",
+    year: 2026,
+  },
+  {
+    pos: 4,
+    event: "Resistencia 6h Watkins Glen",
+    simulator: "iRacing",
+    drivers: ["Albert Gombau", "Lalo Sanchez"],
+    car: "acura",
+    year: 2024,
+  },
+  {
+    pos: 4,
+    event: "Resistencia 6h Sebring",
+    simulator: "iRacing",
+    drivers: ["Jordi Capdevila", "Francisco Sierra"],
+    car: "porsche",
+    year: 2026,
+  },
+];
+
+const sorted = [...DATA].sort((a, b) => a.pos - b.pos);
+
+function podiumStyle(pos: number): { bg: string; badge: string; text: string } {
+  if (pos === 1) {
+    return {
+      bg: "linear-gradient(135deg, rgba(234,179,8,0.25) 0%, rgba(161,122,5,0.12) 100%)",
+      badge: "#EAB308",
+      text: "text-yellow-400",
+    };
+  }
+
+  if (pos === 2) {
+    return {
+      bg: "linear-gradient(135deg, rgba(203,213,225,0.22) 0%, rgba(148,163,184,0.10) 100%)",
+      badge: "#CBD5E1",
+      text: "text-slate-300",
+    };
+  }
+
+  if (pos === 3) {
+    return {
+      bg: "linear-gradient(135deg, rgba(194,120,50,0.28) 0%, rgba(146,82,20,0.12) 100%)",
+      badge: "#CD7C2F",
+      text: "text-amber-500",
+    };
+  }
+
+  return {
+    bg: "linear-gradient(135deg, rgba(60,60,70,0.30) 0%, rgba(30,30,35,0.15) 100%)",
+    badge: "#6B7280",
+    text: "text-zinc-400",
+  };
+}
+
+function AccordionItem({ entry, index }: { entry: PalmaresEntry; index: number }) {
+  const [open, setOpen] = useState(false);
+  const style = podiumStyle(entry.pos);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.4, delay: index * 0.05 }}
+      className="overflow-hidden rounded-xl border border-lynx-border"
+    >
+      <button
+        onClick={() => setOpen((value) => !value)}
+        className="flex w-full items-center gap-4 px-5 py-4 text-left transition-colors duration-200 hover:bg-white/5"
+        style={{ background: open ? style.bg : "transparent" }}
+      >
+        <span
+          className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full text-sm font-black text-black"
+          style={{ background: style.badge, fontFamily: "var(--font-orbitron)" }}
+        >
+          P{entry.pos}
+        </span>
+
+        <div className="min-w-0 flex-1">
+          <p
+            className="truncate font-bold text-white"
+            style={{ fontFamily: "var(--font-orbitron)", fontSize: "0.85rem" }}
+          >
+            {entry.event}
+          </p>
+          <p
+            className="mt-0.5 text-xs text-lynx-text/50"
+            style={{ fontFamily: "var(--font-rajdhani)" }}
+          >
+            {entry.simulator} · {entry.year}
+          </p>
+        </div>
+
+        <motion.span
+          animate={{ rotate: open ? 180 : 0 }}
+          transition={{ duration: 0.25 }}
+          className="flex-shrink-0 text-sm text-lynx-text/40"
+        >
+          <FaChevronDown />
+        </motion.span>
+      </button>
+
+      <AnimatePresence initial={false}>
+        {open && (
+          <motion.div
+            key="body"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            style={{ overflow: "hidden" }}
+          >
+            <div
+              className="relative flex flex-col items-start gap-6 border-t border-lynx-border/50 px-5 py-6 sm:flex-row sm:items-center"
+              style={{ background: style.bg }}
+            >
+              <span
+                className={`pointer-events-none absolute right-6 top-1/2 -translate-y-1/2 select-none font-black ${style.text}`}
+                style={{
+                  fontFamily: "var(--font-orbitron)",
+                  fontSize: "clamp(4rem, 10vw, 7rem)",
+                  opacity: 0.15,
+                  filter: "blur(3px)",
+                  lineHeight: 1,
+                }}
+              >
+                P{entry.pos}
+              </span>
+
+              <div className="relative z-10 flex h-20 w-20 flex-shrink-0 items-center justify-center rounded-full border border-white/10 bg-black/40 p-3 shadow-lg">
+                <img
+                  src={assetUrl(`/marcas/${entry.car}.svg`)}
+                  alt={entry.car}
+                  className="max-h-full max-w-full object-contain"
+                  style={{ filter: "brightness(0) invert(1)" }}
+                />
+              </div>
+
+              <div className="relative z-10 flex-1">
+                <p
+                  className="mb-2 text-xs uppercase tracking-widest text-lynx-orange"
+                  style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 700 }}
+                >
+                  Pilotos
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {entry.drivers.map((driver) => (
+                    <span
+                      key={driver}
+                      className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-sm text-white"
+                      style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 600 }}
+                    >
+                      {driver}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
+  );
+}
 
 export function PalmaresPage() {
   const { t } = useTranslation();
 
-  const medal = (pos: number) => {
-    switch (pos) {
-      case 1:
-        return "🥇";
-      case 2:
-        return "🥈";
-      case 3:
-        return "🥉";
-      default:
-        return "";
-    }
-  };
-
-  const carLogo = (brand: string) => (
-    <span className="ml-2 inline-block w-6 h-6">
-      <img src={assetUrl(`/marcas/${brand}.png`)} alt={brand} className="w-full h-full object-contain" />
-    </span>
-  );
-
-  const eventName = (key: string) => (
-    <span className="font-semibold" style={{ color: "var(--color-lynx-orange-light)" }}>
-      {t(key)}
-    </span>
-  );
-
   return (
-    <>
-      <PageHeader title={t("palmares.page_title")} />
+    <div className="overflow-x-hidden">
+      <div className="relative overflow-hidden border-b border-lynx-border px-6 py-24 text-center">
+        <div className="absolute inset-0 opacity-15">
+          <GradientDots
+            dotSize={5}
+            spacing={14}
+            duration={35}
+            colorCycleDuration={7}
+            backgroundColor="#0b0b0b"
+          />
+        </div>
+        <div
+          className="absolute inset-0 opacity-10"
+          style={{
+            background:
+              "radial-gradient(ellipse 60% 50% at 50% 0%, rgba(255,106,0,0.5) 0%, transparent 70%)",
+          }}
+        />
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="relative z-10"
+        >
+          <p
+            className="mb-3 text-xs uppercase tracking-[0.4em] text-lynx-orange"
+            style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 700 }}
+          >
+            Logros del equipo
+          </p>
+          <h1
+            className="text-4xl font-black text-white md:text-6xl"
+            style={{ fontFamily: "var(--font-orbitron)" }}
+          >
+            {t("palmares.page_title")}
+          </h1>
+          <p
+            className="mx-auto mt-4 max-w-xl text-lynx-text/60"
+            style={{ fontFamily: "var(--font-rajdhani)", fontSize: "1.05rem" }}
+          >
+            {t("palmares.intro")}
+          </p>
+        </motion.div>
+      </div>
 
-      <Section>
-        <p className="text-lynx-text text-center">
-          {t("palmares.intro")}
-        </p>
-        <hr className="border-lynx-border my-6" />
+      <section className="px-6 py-14">
+        <div className="mx-auto grid max-w-6xl grid-cols-1 items-start gap-8 md:grid-cols-2">
+          {[
+            { label: "Assetto Corsa Competizione", key: "ACC" },
+            { label: "iRacing", key: "iRacing" },
+          ].map((column) => {
+            const entries = sorted.filter((entry) => entry.simulator === column.key);
 
-        <SectionTitle>Assetto Corsa Competizione</SectionTitle>
-        <ul className="list-disc list-inside space-y-1">
-          <li>{medal(1)} {eventName("palmares.acc.e1")} Kiko Ribes | Xavier Sobrerroca – 2023 {carLogo("porsche")}</li>
-          <li>{medal(2)} {eventName("palmares.acc.e2")} Dani Gala | Juan Serrano | Jorge Pola – 2022 {carLogo("aston")}</li>
-          <li>{medal(3)} {eventName("palmares.acc.e3")} Kiko Ribes | Juan Serrano – 2022 {carLogo("aston")}</li>
-          <li>{medal(7)} {eventName("palmares.acc.e4")} Jordi Capdevila | Luis Ungo | Juan Serrano | Xavier Sobrerroca | Albert Gombau – 2025 {carLogo("ferrari")}</li>
-          <li>{medal(1)} {eventName("palmares.acc.e5")} Juan Serrano | Josh Mopar | Xavier Sobrerroca – 2023 {carLogo("aston")}</li>
-          <li>{medal(4)} {eventName("palmares.acc.e6")} Jordi Capdevila | Francisco Sierra – 2025 {carLogo("ferrari")}</li>
-        </ul>
-        <hr className="border-lynx-border my-6" />
-
-        <SectionTitle>iRacing</SectionTitle>
-        <ul className="list-disc list-inside space-y-1">
-          <li>{medal(2)} {eventName("palmares.iracing.e1")} Jordi Capdevila | Jesús Jiménez | Francisco Sierra | Luis Ungo | Xavier Sobrerroca – 2026 {carLogo("porsche")}</li>
-          <li>{medal(4)} {eventName("palmares.iracing.e2")} Albert Gombau | Lalo Sanchez – 2024 {carLogo("acura")}</li>
-          <li>{medal(3)} {eventName("palmares.iracing.e3")} Angel Alvarado | Albert Gombau | Nacho Jarrín - 2026 {carLogo("mclaren")}</li>
-          <li>{eventName("palmares.iracing.e4")} Jordi Capdevila | Francisco Sierra - 2026 {carLogo("porsche")}</li>
-        </ul>
-      </Section>
-    </>
+            return (
+              <div key={column.key} className="flex flex-col gap-3">
+                <h2
+                  className="mb-1 text-xs uppercase tracking-[0.4em] text-lynx-orange"
+                  style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 700 }}
+                >
+                  {column.label}
+                </h2>
+                {entries.map((entry, index) => (
+                  <AccordionItem
+                    key={`${entry.event}-${entry.year}`}
+                    entry={entry}
+                    index={index}
+                  />
+                ))}
+              </div>
+            );
+          })}
+        </div>
+      </section>
+    </div>
   );
 }
