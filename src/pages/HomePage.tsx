@@ -5,6 +5,7 @@ import { FaArrowRight, FaDiscord, FaEnvelope, FaFacebook, FaInstagram } from "re
 import { FaXTwitter } from "react-icons/fa6";
 import { Hero } from "../components/home/Hero";
 import { HomeRacePulse } from "../components/home/HomeRacePulse";
+import { MainSponsorSpotlight } from "../components/home/MainSponsorSpotlight";
 import { SimulatorsGrid } from "../components/home/SimulatorsGrid";
 import { SponsorCarousel } from "../components/home/SponsorCarousel";
 import { GradientDots } from "@/components/ui/gradient-dots";
@@ -75,6 +76,7 @@ export function HomePage() {
             <Divider />
           </motion.div>
 
+          <MainSponsorSpotlight />
           <SponsorCarousel />
         </div>
       </section>

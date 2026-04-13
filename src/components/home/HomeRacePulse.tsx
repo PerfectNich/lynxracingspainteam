@@ -7,8 +7,6 @@ import nextRace from "../../data/next-race.json";
 interface NextRaceData {
   title: string;
   date: string | null;
-  simulator: string;
-  lineup: string[];
 }
 
 export function HomeRacePulse() {
@@ -23,6 +21,12 @@ export function HomeRacePulse() {
         day: "numeric",
         month: "long",
         year: "numeric",
+      }).format(new Date(upcomingRace.date))
+    : t("home.pulse_pending");
+  const formattedTime = upcomingRace.date
+    ? new Intl.DateTimeFormat(locale, {
+        hour: "2-digit",
+        minute: "2-digit",
       }).format(new Date(upcomingRace.date))
     : t("home.pulse_pending");
 
@@ -46,7 +50,7 @@ export function HomeRacePulse() {
             className="text-2xl font-black text-white sm:text-3xl md:text-5xl"
             style={{ fontFamily: "var(--font-orbitron)" }}
           >
-            {t("home.pulse_next_label")}
+            {t("home.pulse_title")}
           </h2>
         </motion.div>
 
@@ -81,38 +85,12 @@ export function HomeRacePulse() {
                 className="mb-2 text-[11px] uppercase tracking-[0.25em] text-lynx-text/50"
                 style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 700 }}
               >
-                {t("home.pulse_simulator_label")}
+                {t("home.pulse_time_label")}
               </p>
               <p className="text-white" style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 600 }}>
-                {upcomingRace.simulator}
+                {formattedTime}
               </p>
             </div>
-          </div>
-
-          <div className="rounded-xl border border-white/8 bg-black/20 px-4 py-4">
-            <p
-              className="mb-3 text-[11px] uppercase tracking-[0.25em] text-lynx-text/50"
-              style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 700 }}
-            >
-              {t("home.pulse_lineup_label")}
-            </p>
-            {upcomingRace.lineup.length > 0 ? (
-              <div className="flex flex-wrap gap-2">
-                {upcomingRace.lineup.map((driver) => (
-                  <span
-                    key={driver}
-                    className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-white"
-                    style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 600 }}
-                  >
-                    {driver}
-                  </span>
-                ))}
-              </div>
-            ) : (
-              <p className="text-lynx-text/75" style={{ fontFamily: "var(--font-rajdhani)" }}>
-                {t("home.pulse_lineup_pending")}
-              </p>
-            )}
           </div>
 
           <Link

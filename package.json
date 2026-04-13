@@ -6,6 +6,7 @@
   "scripts": {
     "sync:x": "node scripts/fetch-latest-x-post.mjs",
     "sync:media": "node scripts/sync-media.mjs",
+    "sync:race": "node scripts/sync-next-race.mjs",
     "dev": "vite",
     "build": "tsc -b && vite build && cp dist/index.html dist/404.html",
     "lint": "eslint .",
@@ -34,6 +35,6 @@
     "tailwindcss": "^4.1.8",
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.46.4",
-    "vite": "^7.2.4"
+    "vite": "^7.3.2"
   }
 }

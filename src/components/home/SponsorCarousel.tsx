@@ -4,7 +4,7 @@ import type { Sponsor } from "../../types";
 import { assetUrl } from "../../utils/assetUrl";
 
 export function SponsorCarousel() {
-  const sponsorList = sponsors as Sponsor[];
+  const sponsorList = (sponsors as Sponsor[]).filter((sponsor) => sponsor.name !== "RM Motor");
   const duplicatedSponsors = [...sponsorList, ...sponsorList, ...sponsorList];
 
   const containerRef = useRef<HTMLDivElement>(null);
