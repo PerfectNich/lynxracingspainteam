@@ -5,6 +5,19 @@ import { useTranslation } from "react-i18next";
 const SITE_ORIGIN = "https://lynxracingspainteam.com";
 const DEFAULT_IMAGE = `${SITE_ORIGIN}/logo.jpg`;
 
+function upsertLink(selector: string, attributes: Record<string, string>) {
+  let element = document.head.querySelector(selector) as HTMLLinkElement | null;
+
+  if (!element) {
+    element = document.createElement("link");
+    document.head.appendChild(element);
+  }
+
+  for (const [key, value] of Object.entries(attributes)) {
+    element.setAttribute(key, value);
+  }
+}
+
 function upsertMeta(selector: string, attributes: Record<string, string>) {
   let element = document.head.querySelector(selector) as HTMLMetaElement | null;
 
@@ -18,23 +31,36 @@ function upsertMeta(selector: string, attributes: Record<string, string>) {
   }
 }
 
-function upsertCanonical(href: string) {
-  let element = document.head.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
+function replaceMetaGroup(attribute: "name" | "property", key: string, values: string[]) {
+  document.head
+    .querySelectorAll(`meta[${attribute}="${key}"]`)
+    .forEach((element) => element.parentElement?.removeChild(element));
 
-  if (!element) {
-    element = document.createElement("link");
-    element.setAttribute("rel", "canonical");
+  values.forEach((value) => {
+    const element = document.createElement("meta");
+    element.setAttribute(attribute, key);
+    element.setAttribute("content", value);
     document.head.appendChild(element);
-  }
+  });
+}
 
-  element.setAttribute("href", href);
+function upsertCanonical(href: string) {
+  upsertLink('link[rel="canonical"]', {
+    rel: "canonical",
+    href,
+  });
 }
 
 export function SeoManager() {
   const location = useLocation();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   useEffect(() => {
+    const currentLang = location.pathname.startsWith("/en")
+      ? "en"
+      : location.pathname.startsWith("/ca")
+        ? "ca"
+        : "es";
     const normalizedPath = location.pathname.replace(/^\/(en|ca)(?=\/|$)/, "") || "/";
     const seoKeyMap: Record<string, string> = {
       "/": "home",
@@ -51,6 +77,16 @@ export function SeoManager() {
     const title = t(`seo.${seoKey}.title`);
     const description = t(`seo.${seoKey}.description`);
     const canonicalUrl = `${SITE_ORIGIN}${location.pathname === "/" ? "/" : location.pathname}`;
+    const localeMap: Record<string, string> = {
+      es: "es_ES",
+      en: "en_GB",
+      ca: "ca_ES",
+    };
+    const alternateUrls = {
+      es: `${SITE_ORIGIN}${normalizedPath === "/" ? "/" : normalizedPath}`,
+      en: `${SITE_ORIGIN}/en${normalizedPath === "/" ? "" : normalizedPath}`,
+      ca: `${SITE_ORIGIN}/ca${normalizedPath === "/" ? "" : normalizedPath}`,
+    };
 
     document.title = title;
 
@@ -79,6 +115,19 @@ export function SeoManager() {
       content: DEFAULT_IMAGE,
     });
 
+    upsertMeta('meta[property="og:locale"]', {
+      property: "og:locale",
+      content: localeMap[currentLang],
+    });
+
+    replaceMetaGroup(
+      "property",
+      "og:locale:alternate",
+      Object.entries(localeMap)
+        .filter(([lang]) => lang !== currentLang)
+        .map(([, locale]) => locale),
+    );
+
     upsertMeta('meta[name="twitter:title"]', {
       name: "twitter:title",
       content: title,
@@ -95,7 +144,31 @@ export function SeoManager() {
     });
 
     upsertCanonical(canonicalUrl);
-  }, [location.pathname, t]);
+
+    upsertLink('link[rel="alternate"][hreflang="es"]', {
+      rel: "alternate",
+      hreflang: "es",
+      href: alternateUrls.es,
+    });
+
+    upsertLink('link[rel="alternate"][hreflang="en"]', {
+      rel: "alternate",
+      hreflang: "en",
+      href: alternateUrls.en,
+    });
+
+    upsertLink('link[rel="alternate"][hreflang="ca"]', {
+      rel: "alternate",
+      hreflang: "ca",
+      href: alternateUrls.ca,
+    });
+
+    upsertLink('link[rel="alternate"][hreflang="x-default"]', {
+      rel: "alternate",
+      hreflang: "x-default",
+      href: alternateUrls.es,
+    });
+  }, [i18n.language, location.pathname, t]);
 
   return null;
 }
