@@ -9,13 +9,61 @@
     "contact": "Contacto"
   },
   "hero": {
-    "subtitle": "Simracing para todos los niveles · Multisimulador · Disfrutar y competir"
+    "label": "Lynx Racing Spain Team",
+    "subtitle": "Simracing para todos los niveles · Multisimulador · Disfrutar y competir",
+    "description": "Comunidad, competición y resistencia en pista. Un equipo abierto a pilotos que quieren crecer, disfrutar y correr con identidad propia.",
+    "primary_cta": "Ver agenda",
+    "secondary_cta": "Conocer el roster",
+    "scroll": "Scroll"
+  },
+  "seo": {
+    "home": {
+      "title": "Lynx Racing Spain Team | Equipo de simracing multisimulador",
+      "description": "Equipo de simracing español con pilotos, calendario, resultados, multimedia y patrocinadores en ACC, iRacing y más simuladores."
+    },
+    "calendar": {
+      "title": "Agenda | Lynx Racing Spain Team",
+      "description": "Consulta la agenda de carreras y próximos eventos de Lynx Racing Spain Team en nuestra temporada de simracing."
+    },
+    "media": {
+      "title": "Multimedia | Lynx Racing Spain Team",
+      "description": "Explora fotos y vídeos del equipo: carreras, entrenamientos, highlights y momentos destacados de Lynx Racing Spain Team."
+    },
+    "roster": {
+      "title": "Roster | Lynx Racing Spain Team",
+      "description": "Conoce el roster de Lynx Racing Spain Team, con pilotos, staff y canales de Twitch del equipo."
+    },
+    "palmares": {
+      "title": "Palmarés | Lynx Racing Spain Team",
+      "description": "Descubre los logros, podios y resultados destacados de Lynx Racing Spain Team en diferentes simuladores."
+    },
+    "shop": {
+      "title": "Tienda | Lynx Racing Spain Team",
+      "description": "Consulta el merchandising y los productos oficiales de Lynx Racing Spain Team."
+    },
+    "contact": {
+      "title": "Contacto | Lynx Racing Spain Team",
+      "description": "Contacta con Lynx Racing Spain Team y síguenos en Discord, Instagram, X, Twitch, Facebook y correo."
+    },
+    "results": {
+      "title": "Resultados | Lynx Racing Spain Team",
+      "description": "Revisa resultados, clasificaciones y rendimiento del equipo en endurance, rally y otras competiciones de simracing."
+    }
   },
   "home": {
     "sponsors_label": "Colaboradores",
+    "sponsors_title": "Sponsors",
     "about_label": "Quiénes somos",
     "about_title": "Sobre el equipo",
     "about_text": "Somos Lynx Racing Spain Team, un equipo con más de tres años de trayectoria, cientos de carreras disputadas y varios eventos y ligas organizados a lo largo de este tiempo. Competimos y disfrutamos del simracing en Assetto Corsa Competizione, iRacing, Le Mans Ultimate y otras plataformas.",
+    "stats": {
+      "years_value": "3+",
+      "years_label": "Años de trayectoria",
+      "races_value": "100+",
+      "races_label": "Carreras disputadas",
+      "platforms_value": "4",
+      "platforms_label": "Simuladores activos"
+    },
     "simulators_label": "Plataformas",
     "simulators_title": "Simuladores",
     "pulse_label": "Próxima carrera",
@@ -40,6 +88,7 @@
     "main_sponsor_text": "Nuestro principal partner impulsa al equipo dentro y fuera de pista. Descubre su trabajo y síguelo en Instagram.",
     "main_sponsor_cta": "Ver Instagram",
     "contact_label": "Contacto",
+    "contact_text": "Si quieres seguir al equipo, colaborar con nosotros o hablar de carreras, aquí tienes nuestros canales principales.",
     "contact_title": "Contacto"
   },
   "results": {
@@ -76,7 +125,18 @@
   },
   "calendar": {
     "page_title": "Agenda",
-    "section_title": "Calendario de carreras"
+    "section_title": "Próximas carreras",
+    "next_label": "Próxima cita",
+    "list_label": "Calendario del equipo",
+    "acc_column": "ACC",
+    "iracing_column": "iRacing",
+    "date_label": "Fecha",
+    "time_label": "Hora",
+    "today": "Hoy",
+    "tomorrow": "Mañana",
+    "other_events": "Otros eventos",
+    "open_full": "Abrir calendario completo",
+    "pending": "Por confirmar"
   },
   "contact": {
     "page_title": "Contacto",

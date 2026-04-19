@@ -14,9 +14,9 @@ export function Header() {
   const navLinks = [
     { to: `${prefix}/`, label: t("nav.home") },
     { to: `${prefix}/agenda`, label: t("nav.calendar") },
-    { to: `${prefix}/multimedia`, label: t("nav.media") },
     { to: `${prefix}/roster`, label: t("nav.roster") },
     { to: `${prefix}/palmares`, label: t("nav.palmares") },
+    { to: `${prefix}/multimedia`, label: t("nav.media") },
     { to: `${prefix}/tienda`, label: t("nav.shop") },
     { to: `${prefix}/contacto`, label: t("nav.contact") },
   ];
