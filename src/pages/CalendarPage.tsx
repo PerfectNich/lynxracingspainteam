@@ -15,7 +15,15 @@ const calendarUrl =
 export function CalendarPage() {
   const { t, i18n } = useTranslation();
   const locale = i18n.language === "en" ? "en-GB" : i18n.language === "ca" ? "ca-ES" : "es-ES";
-  const events = upcomingEvents as CalendarEvent[];
+  const events = (upcomingEvents as CalendarEvent[])
+    .filter((event) => {
+      if (!event.date) return false;
+      return new Date(event.date) >= new Date();
+    })
+    .sort((left, right) => {
+      if (!left.date || !right.date) return 0;
+      return new Date(left.date).getTime() - new Date(right.date).getTime();
+    });
 
   const formatDate = (value: string | null) =>
     value
@@ -42,7 +50,13 @@ export function CalendarPage() {
     const startOfEventDay = new Date(eventDate.getFullYear(), eventDate.getMonth(), eventDate.getDate());
     const diffDays = Math.round((startOfEventDay.getTime() - startOfToday.getTime()) / 86400000);
 
-    if (diffDays <= 0) return t("calendar.today");
+    if (diffDays < 0) {
+      if (i18n.language === "en") return "past event";
+      if (i18n.language === "ca") return "ja passat";
+      return "ya pasado";
+    }
+
+    if (diffDays === 0) return t("calendar.today");
     if (diffDays === 1) return t("calendar.tomorrow");
 
     if (i18n.language === "en") return `in ${diffDays} days`;
@@ -73,6 +87,8 @@ export function CalendarPage() {
       groups: Object.entries(parsedColumns.iracing),
     },
   ];
+
+  const hasEvents = columns.some((column) => column.groups.length > 0);
 
   return (
     <div className="overflow-x-hidden">
@@ -144,8 +160,9 @@ export function CalendarPage() {
               </div>
             </div>
 
-            <div className="grid gap-8 lg:grid-cols-2">
-              {columns.map((column) => (
+            {hasEvents ? (
+              <div className="grid gap-8 lg:grid-cols-2">
+                {columns.map((column) => (
                 <div key={column.key} className="rounded-[1.75rem] border border-lynx-border bg-black/16 p-4 md:p-5">
                   <div className="mb-5 flex items-center gap-3">
                     <div className="flex h-9 w-9 items-center justify-center rounded-full border border-lynx-orange/20 bg-lynx-orange/10 text-lynx-orange">
@@ -213,8 +230,18 @@ export function CalendarPage() {
                     ))}
                   </div>
                 </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            ) : (
+              <div className="rounded-[1.75rem] border border-lynx-border bg-black/16 px-5 py-10 text-center">
+                <p
+                  className="text-base text-lynx-text/75"
+                  style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 600 }}
+                >
+                  {t("calendar.pending")}
+                </p>
+              </div>
+            )}
 
             <a
               href={calendarUrl}

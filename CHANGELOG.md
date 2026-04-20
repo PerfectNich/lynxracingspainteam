@@ -14,3 +14,13 @@
 - Convertido el paso final de `build` a una copia portable de `404.html`, sin depender de `cp`.
 - Añadido SEO por página con `title`, `description`, Open Graph, Twitter y canonical dinámicos según ruta e idioma.
 - Ajustada la home para simplificar secciones, recuperar una navegación más limpia y mantener `Agenda` visible en el header.
+
+## 2026-04-17
+
+- Añadido soporte SEO adicional para idiomas con `hreflang`, `x-default`, `og:locale` y `og:locale:alternate`.
+- Ajustadas las rutas alternas del SEO para que `es`, `en` y `ca` apunten correctamente a su versión equivalente de cada página.
+
+## 2026-04-20
+
+- Corregida la página de `Agenda` para ocultar eventos pasados y evitar que las carreras caducadas aparezcan marcadas como `Hoy`.
+- Resincronizados `next-race.json` y `upcoming-events.json` con la siguiente tanda real de carreras desde Google Calendar.
