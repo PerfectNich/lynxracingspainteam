@@ -42,6 +42,8 @@ export function TwitchEmbed({ channel, height = 220 }: TwitchEmbedProps) {
         width="100%"
         height={height}
         allowFullScreen
+        sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
+        referrerPolicy="strict-origin-when-cross-origin"
         title={`Twitch stream - ${channel}`}
         className="border-0 w-full"
       />

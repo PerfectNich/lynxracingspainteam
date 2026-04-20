@@ -24,3 +24,6 @@
 
 - Corregida la página de `Agenda` para ocultar eventos pasados y evitar que las carreras caducadas aparezcan marcadas como `Hoy`.
 - Resincronizados `next-race.json` y `upcoming-events.json` con la siguiente tanda real de carreras desde Google Calendar.
+- Añadida una política `Content-Security-Policy` base en la entrada principal para endurecer la carga de recursos y embeds de terceros.
+- Restringido mejor el iframe de Twitch con `sandbox` y `referrerPolicy`.
+- Separadas las páginas secundarias con carga diferida por rutas para reducir el peso del bundle inicial.
