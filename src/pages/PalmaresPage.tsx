@@ -169,6 +169,7 @@ function podiumStyle(pos: number): { bg: string; badge: string; text: string } {
 function AccordionItem({ entry, index }: { entry: PalmaresEntry; index: number }) {
   const [open, setOpen] = useState(false);
   const style = podiumStyle(entry.pos);
+  const isFord = entry.car === "ford";
 
   return (
     <motion.div
@@ -246,7 +247,16 @@ function AccordionItem({ entry, index }: { entry: PalmaresEntry; index: number }
                   src={assetUrl(`/marcas/${entry.car}.svg`)}
                   alt={entry.car}
                   className="max-h-full max-w-full object-contain"
-                  style={{ filter: "brightness(0) invert(1)" }}
+                  style={
+                    isFord
+                      ? {
+                          filter: "none",
+                          backgroundColor: "#fff",
+                          borderRadius: "999px",
+                          padding: "0.3rem",
+                        }
+                      : { filter: "brightness(0) invert(1)" }
+                  }
                 />
               </div>
 
