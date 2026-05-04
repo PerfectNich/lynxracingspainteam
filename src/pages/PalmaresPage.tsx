@@ -85,6 +85,21 @@ const DATA: PalmaresEntry[] = [
   },
   {
     pos: 2,
+    event: "Resistencia 24h Nordschleife",
+    simulator: "iRacing",
+    drivers: [
+      "Relja Ljubobratovic",
+      "Marc Garcia",
+      "Rubén Juarez",
+      "Josh Mopar",
+      "Juan Serrano",
+      "Juanjo Morales",
+    ],
+    car: "ford",
+    year: 2026,
+  },
+  {
+    pos: 2,
     event: "Resistencia 12h Sebring",
     simulator: "iRacing",
     drivers: ["Nacho Jarrin", "Albert Gombau", "Fran Gambin"],
