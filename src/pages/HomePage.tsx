@@ -52,10 +52,43 @@ function Divider() {
   );
 }
 
+function StatCard({ value, label }: { value: string; label: string }) {
+  return (
+    <div className="rounded-2xl border border-lynx-border bg-lynx-dark-card px-5 py-4 text-center shadow-[0_14px_40px_rgba(0,0,0,0.18)]">
+      <p
+        className="text-3xl font-black text-white"
+        style={{ fontFamily: "var(--font-orbitron)" }}
+      >
+        {value}
+      </p>
+      <p
+        className="mt-2 text-sm uppercase tracking-[0.18em] text-lynx-text/60"
+        style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 700 }}
+      >
+        {label}
+      </p>
+    </div>
+  );
+}
+
 export function HomePage() {
   const { t, i18n } = useTranslation();
   const prefix = i18n.language === "en" ? "/en" : i18n.language === "ca" ? "/ca" : "";
   const rosterPath = `${prefix}/roster`;
+  const stats = [
+    {
+      value: t("home.stats.years_value"),
+      label: t("home.stats.years_label"),
+    },
+    {
+      value: t("home.stats.races_value"),
+      label: t("home.stats.races_label"),
+    },
+    {
+      value: t("home.stats.platforms_value"),
+      label: t("home.stats.platforms_label"),
+    },
+  ];
 
   return (
     <div className="overflow-x-hidden">
@@ -91,13 +124,19 @@ export function HomePage() {
       </section>
 
       <section className="relative px-6 py-20 md:py-24">
-        <div className="mx-auto max-w-3xl text-center">
+        <div className="mx-auto max-w-5xl text-center">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: "easeOut" }}
           >
+            <SectionLabel>{t("home.stats_label")}</SectionLabel>
+            <div className="mb-10 grid gap-4 md:grid-cols-3">
+              {stats.map((stat) => (
+                <StatCard key={stat.label} value={stat.value} label={stat.label} />
+              ))}
+            </div>
             <SectionLabel>{t("home.about_label")}</SectionLabel>
             <SectionHeading>{t("home.about_title")}</SectionHeading>
             <p

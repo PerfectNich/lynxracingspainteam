@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { FaChevronLeft, FaChevronRight, FaDiscord, FaInstagram } from "react-icons/fa";
 import { assetUrl } from "../utils/assetUrl";
 import { GradientDots } from "@/components/ui/gradient-dots";
 import productsData from "../data/products.json";
@@ -78,12 +78,15 @@ function ProductCard({ product }: { product: Product }) {
           </p>
         </div>
 
-        <button
-          className="w-full rounded-full border border-lynx-orange py-2.5 text-sm tracking-widest text-lynx-orange transition-all duration-300 hover:bg-lynx-orange hover:text-black"
+        <a
+          href="https://www.instagram.com/lynxracingspain/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-full rounded-full border border-lynx-orange py-2.5 text-center text-sm tracking-widest text-lynx-orange transition-all duration-300 hover:bg-lynx-orange hover:text-black"
           style={{ fontFamily: "var(--font-orbitron)", fontSize: "0.7rem" }}
         >
-          {t("shop.buy")}
-        </button>
+          {t("shop.order_cta")}
+        </a>
       </div>
     </motion.div>
   );
@@ -122,7 +125,7 @@ export function ShopPage() {
             className="mb-3 text-xs uppercase tracking-[0.4em] text-lynx-orange"
             style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 700 }}
           >
-            Merchandising oficial
+            {t("shop.hero_label")}
           </p>
           <h1
             className="text-4xl font-black text-white md:text-6xl"
@@ -140,6 +143,50 @@ export function ShopPage() {
       </div>
 
       <section className="px-6 py-14">
+        <div className="mx-auto mb-10 max-w-4xl rounded-[1.75rem] border border-lynx-border bg-lynx-dark-card p-6 text-center shadow-[0_18px_60px_rgba(0,0,0,0.2)]">
+          <p
+            className="mb-3 text-xs uppercase tracking-[0.35em] text-lynx-orange"
+            style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 700 }}
+          >
+            {t("shop.order_label")}
+          </p>
+          <h2
+            className="text-2xl font-black text-white md:text-3xl"
+            style={{ fontFamily: "var(--font-orbitron)" }}
+          >
+            {t("shop.order_title")}
+          </h2>
+          <p
+            className="mx-auto mt-4 max-w-2xl text-lynx-text/70"
+            style={{ fontFamily: "var(--font-rajdhani)", fontSize: "1.05rem" }}
+          >
+            {t("shop.order_text")}
+          </p>
+
+          <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
+            <a
+              href="https://www.instagram.com/lynxracingspain/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center rounded-full border border-lynx-orange px-6 py-3 text-sm tracking-widest text-lynx-orange transition-all duration-300 hover:bg-lynx-orange hover:text-black"
+              style={{ fontFamily: "var(--font-orbitron)" }}
+            >
+              <FaInstagram className="mr-2" size={14} aria-hidden="true" />
+              {t("shop.instagram_cta")}
+            </a>
+            <a
+              href="https://discord.gg/H8eNsptxVw"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center rounded-full border border-lynx-border px-6 py-3 text-sm tracking-widest text-white transition-all duration-300 hover:border-lynx-orange hover:text-lynx-orange"
+              style={{ fontFamily: "var(--font-orbitron)" }}
+            >
+              <FaDiscord className="mr-2" size={14} aria-hidden="true" />
+              {t("shop.discord_cta")}
+            </a>
+          </div>
+        </div>
+
         <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
           {products.map((product) => (
             <ProductCard key={product.id} product={product} />

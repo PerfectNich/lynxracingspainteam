@@ -53,6 +53,7 @@
   "home": {
     "sponsors_label": "Partners",
     "sponsors_title": "Sponsors",
+    "stats_label": "Team at a glance",
     "about_label": "Who we are",
     "about_title": "About the team",
     "about_text": "We are Lynx Racing Spain Team, a squad with more than three years of experience, hundreds of races completed, and several events and leagues organised along the way. We compete and enjoy simracing in Assetto Corsa Competizione, iRacing, Le Mans Ultimate and other platforms.",
@@ -93,16 +94,28 @@
   },
   "results": {
     "page_title": "Results & endurance",
+    "hero_label": "Standings",
+    "subtitle": "Review the team's latest pace, classifications and standout performances on track.",
     "pos": "Pos",
     "driver": "Driver",
     "simulator": "Simulator",
     "total_time": "Total time",
-    "points": "Points"
+    "points": "Points",
+    "cta_label": "More achievements",
+    "cta_text": "If you want to see podiums, standout finishes and major endurance results, the full story lives in our achievements page.",
+    "cta_link": "View achievements"
   },
   "shop": {
     "page_title": "Lynx Racing Official Shop",
     "subtitle": "Merchandising and team products",
     "buy": "Buy",
+    "hero_label": "Official merch",
+    "order_label": "Team orders",
+    "order_title": "Order your merch through Instagram or Discord",
+    "order_text": "The shop works as a visual catalogue. If you want any team item, message us and we will confirm availability, sizes and delivery.",
+    "order_cta": "Order via Instagram",
+    "instagram_cta": "Open Instagram",
+    "discord_cta": "Open Discord",
     "products": {
       "tshirt": "Official T-Shirt",
       "gloves": "Simracing Gloves",
@@ -125,6 +138,7 @@
   },
   "calendar": {
     "page_title": "Calendar",
+    "season_label": "2025 · 2026 season",
     "section_title": "Upcoming races",
     "next_label": "Next event",
     "list_label": "Team calendar",
@@ -140,13 +154,17 @@
   },
   "contact": {
     "page_title": "Contact",
+    "hero_label": "Find us",
     "section_title": "Social media",
     "description": "Connect with us on the following platforms and keep up with all our news, races and events.",
     "email": "Email"
   },
   "palmares": {
     "page_title": "Achievements",
+    "hero_label": "Team achievements",
     "intro": "Below you can find the standout results achieved by the team across different simulators.",
+    "acc_label": "Assetto Corsa Competizione",
+    "iracing_label": "iRacing",
     "acc": {
       "e1": "4h Endurance Barcelona | La Cueva Charity",
       "e2": "8h Endurance Suzuka | CER-V",

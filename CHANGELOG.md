@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-06-02
+
+- Reforzada la home con un bloque de métricas rápidas para dar más credibilidad al equipo de un vistazo.
+- Ajustada `ShopPage` para que la tienda funcione como catálogo realista y los pedidos lleven a Instagram o Discord en lugar de simular una compra cerrada.
+- Mejorada `ResultsPage` con destacados rápidos, más contexto visual y un CTA directo hacia `Palmarés`.
+- Movidos a traducciones varios textos fijos de `Agenda`, `Resultados`, `Contacto` y `Palmarés`.
+- Eliminados componentes antiguos sin uso de la carpeta `src/components/shop` para evitar duplicidades.
+
 ## 2026-04-13
 
 - Añadido `RM Motor` al carrusel de sponsors con enlace a `https://www.instagram.com/rmmotor_/`.

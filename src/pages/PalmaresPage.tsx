@@ -289,6 +289,10 @@ function AccordionItem({ entry, index }: { entry: PalmaresEntry; index: number }
 
 export function PalmaresPage() {
   const { t } = useTranslation();
+  const columns = [
+    { label: t("palmares.acc_label"), key: "ACC" },
+    { label: t("palmares.iracing_label"), key: "iRacing" },
+  ];
 
   return (
     <div className="overflow-x-hidden">
@@ -320,7 +324,7 @@ export function PalmaresPage() {
             className="mb-3 text-xs uppercase tracking-[0.4em] text-lynx-orange"
             style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 700 }}
           >
-            Logros del equipo
+            {t("palmares.hero_label")}
           </p>
           <h1
             className="text-4xl font-black text-white md:text-6xl"
@@ -339,10 +343,7 @@ export function PalmaresPage() {
 
       <section className="px-6 py-14">
         <div className="mx-auto grid max-w-6xl grid-cols-1 items-start gap-8 md:grid-cols-2">
-          {[
-            { label: "Assetto Corsa Competizione", key: "ACC" },
-            { label: "iRacing", key: "iRacing" },
-          ].map((column) => {
+          {columns.map((column) => {
             const entries = sorted.filter((entry) => entry.simulator === column.key);
 
             return (

@@ -120,7 +120,7 @@ export function CalendarPage() {
             className="mb-3 text-xs uppercase tracking-[0.4em] text-lynx-orange"
             style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 700 }}
           >
-            Temporada 2025 · 2026
+            {t("calendar.season_label")}
           </p>
           <h1
             className="text-4xl font-black text-white md:text-6xl"

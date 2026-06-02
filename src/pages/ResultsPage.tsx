@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import { FaArrowRight, FaTrophy } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import { GradientDots } from "@/components/ui/gradient-dots";
 import results from "../data/results.json";
 import type { ResultsCategory } from "../types";
@@ -194,12 +196,71 @@ function ResultsTable({
   );
 }
 
+function ResultHighlight({
+  title,
+  driver,
+  simulator,
+  pos,
+  points,
+}: {
+  title: string;
+  driver: string;
+  simulator: string;
+  pos: number;
+  points: number;
+}) {
+  const style = posStyle(pos);
+
+  return (
+    <div className="rounded-2xl border border-lynx-border bg-lynx-dark-card p-5">
+      <div className="mb-4 flex items-center gap-3">
+        <span
+          className="flex h-10 w-10 items-center justify-center rounded-full text-black"
+          style={{ backgroundColor: style.badge }}
+        >
+          <FaTrophy size={14} />
+        </span>
+        <div>
+          <p
+            className="text-xs uppercase tracking-[0.25em] text-lynx-orange"
+            style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 700 }}
+          >
+            {title}
+          </p>
+          <p className={`text-lg font-black ${style.text}`} style={{ fontFamily: "var(--font-orbitron)" }}>
+            P{pos}
+          </p>
+        </div>
+      </div>
+
+      <p className="text-xl font-bold text-white" style={{ fontFamily: "var(--font-orbitron)" }}>
+        {driver}
+      </p>
+      <p className="mt-1 text-lynx-text/65" style={{ fontFamily: "var(--font-rajdhani)", fontSize: "1rem" }}>
+        {simulator}
+      </p>
+      <p
+        className="mt-4 text-sm uppercase tracking-[0.22em] text-lynx-text/55"
+        style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 700 }}
+      >
+        {points} pts
+      </p>
+    </div>
+  );
+}
+
 export function ResultsPage() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { endurance, rally } = results as {
     endurance: ResultsCategory;
     rally: ResultsCategory;
   };
+  const prefix = i18n.language === "en" ? "/en" : i18n.language === "ca" ? "/ca" : "";
+  const palmaresPath = `${prefix}/palmares`;
+  const highlights = [
+    { title: endurance.title, ...endurance.results[0] },
+    { title: rally.title, ...rally.results[0] },
+  ];
 
   return (
     <div className="overflow-x-hidden">
@@ -231,7 +292,7 @@ export function ResultsPage() {
             className="text-lynx-orange text-xs tracking-[0.4em] uppercase mb-3"
             style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 700 }}
           >
-            Clasificaciones
+            {t("results.hero_label")}
           </p>
           <h1
             className="text-4xl md:text-6xl font-black text-white"
@@ -239,13 +300,55 @@ export function ResultsPage() {
           >
             {t("results.page_title")}
           </h1>
+          <p
+            className="mx-auto mt-4 max-w-2xl text-lynx-text/60"
+            style={{ fontFamily: "var(--font-rajdhani)", fontSize: "1.05rem" }}
+          >
+            {t("results.subtitle")}
+          </p>
         </motion.div>
       </div>
 
       <section className="py-14 px-6">
-        <div className="max-w-4xl mx-auto flex flex-col gap-14">
+        <div className="max-w-5xl mx-auto flex flex-col gap-14">
+          <div className="grid gap-5 md:grid-cols-2">
+            {highlights.map((highlight) => (
+              <ResultHighlight
+                key={`${highlight.title}-${highlight.driver}`}
+                title={highlight.title}
+                driver={highlight.driver}
+                simulator={highlight.simulator}
+                pos={highlight.pos}
+                points={highlight.points}
+              />
+            ))}
+          </div>
+
           <ResultsTable category={endurance} delay={0} />
           <ResultsTable category={rally} delay={0.1} />
+
+          <div className="rounded-2xl border border-lynx-border bg-lynx-dark-card px-6 py-6 text-center">
+            <p
+              className="mb-3 text-xs uppercase tracking-[0.35em] text-lynx-orange"
+              style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 700 }}
+            >
+              {t("results.cta_label")}
+            </p>
+            <p
+              className="mx-auto max-w-2xl text-lynx-text/70"
+              style={{ fontFamily: "var(--font-rajdhani)", fontSize: "1.02rem" }}
+            >
+              {t("results.cta_text")}
+            </p>
+            <Link
+              to={palmaresPath}
+              className="mt-6 inline-flex items-center justify-center rounded-full border border-lynx-orange px-6 py-3 text-sm tracking-widest text-lynx-orange transition-all duration-300 hover:bg-lynx-orange hover:text-black"
+              style={{ fontFamily: "var(--font-orbitron)" }}
+            >
+              {t("results.cta_link")}
+              <FaArrowRight className="ml-2" size={12} aria-hidden="true" />
+            </Link>
+          </div>
         </div>
       </section>
     </div>

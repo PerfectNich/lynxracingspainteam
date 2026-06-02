@@ -53,6 +53,7 @@
   "home": {
     "sponsors_label": "Col·laboradors",
     "sponsors_title": "Sponsors",
+    "stats_label": "L'equip en xifres",
     "about_label": "Qui som",
     "about_title": "Sobre l'equip",
     "about_text": "Som Lynx Racing Spain Team, un equip amb més de tres anys de trajectòria, centenars de curses disputades i diversos esdeveniments i lligues organitzats durant aquest temps. Competim i gaudim del simracing a Assetto Corsa Competizione, iRacing, Le Mans Ultimate i altres plataformes.",
@@ -93,16 +94,28 @@
   },
   "results": {
     "page_title": "Resultats i endurance",
+    "hero_label": "Classificacions",
+    "subtitle": "Repassa el rendiment recent de l'equip i les millors actuacions a pista.",
     "pos": "Pos",
     "driver": "Pilot",
     "simulator": "Simulador",
     "total_time": "Temps total",
-    "points": "Punts"
+    "points": "Punts",
+    "cta_label": "Més èxits",
+    "cta_text": "Si vols veure podis, resultats destacats i resistències importants de l'equip, ací tens l'històric més complet.",
+    "cta_link": "Veure palmarès"
   },
   "shop": {
     "page_title": "Botiga oficial Lynx Racing",
     "subtitle": "Merchandising i productes de l'equip",
     "buy": "Comprar",
+    "hero_label": "Merchandising oficial",
+    "order_label": "Comandes de l'equip",
+    "order_title": "Demana el teu merch per Instagram o Discord",
+    "order_text": "La botiga funciona com a catàleg visual. Si vols una peça o producte de l'equip, escriu-nos i et confirmarem disponibilitat, talles i entrega.",
+    "order_cta": "Demanar per Instagram",
+    "instagram_cta": "Obrir Instagram",
+    "discord_cta": "Obrir Discord",
     "products": {
       "tshirt": "Samarreta oficial",
       "gloves": "Guants de simracing",
@@ -125,6 +138,7 @@
   },
   "calendar": {
     "page_title": "Agenda",
+    "season_label": "Temporada 2025 · 2026",
     "section_title": "Pròximes curses",
     "next_label": "Pròxima cita",
     "list_label": "Calendari de l'equip",
@@ -140,13 +154,17 @@
   },
   "contact": {
     "page_title": "Contacte",
+    "hero_label": "Troba'ns",
     "section_title": "Xarxes socials",
     "description": "Connecta amb nosaltres a les plataformes següents i segueix totes les nostres novetats, curses i esdeveniments.",
     "email": "Correu"
   },
   "palmares": {
     "page_title": "Palmarès",
+    "hero_label": "Èxits de l'equip",
     "intro": "A continuació mostrem les posicions destacades aconseguides per l'equip en els diferents simuladors.",
+    "acc_label": "Assetto Corsa Competizione",
+    "iracing_label": "iRacing",
     "acc": {
       "e1": "Resistència 4h Barcelona | Benèfica de La Cueva",
       "e2": "Resistència 8h Suzuka | CER-V",
