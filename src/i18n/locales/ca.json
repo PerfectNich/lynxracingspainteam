@@ -44,10 +44,6 @@
     "contact": {
       "title": "Contacte | Lynx Racing Spain Team",
       "description": "Contacta amb Lynx Racing Spain Team i segueix-nos a Discord, Instagram, X, Twitch, Facebook i correu."
-    },
-    "results": {
-      "title": "Resultats | Lynx Racing Spain Team",
-      "description": "Revisa resultats, classificacions i rendiment de l'equip en endurance, ral·li i altres competicions de simracing."
     }
   },
   "home": {
@@ -69,13 +65,11 @@
     "simulators_title": "Simuladors",
     "pulse_label": "Pròxima cursa",
     "pulse_title": "Calendari de l'equip",
-    "pulse_results_label": "Últims resultats",
     "pulse_next_label": "Pròxima cursa",
     "pulse_points_suffix": "pts",
     "pulse_date_label": "Data",
     "pulse_time_label": "Hora",
     "pulse_pending": "Per confirmar",
-    "pulse_results_link": "Veure resultats",
     "pulse_calendar_link": "Veure agenda",
     "team_label": "El nostre equip",
     "roster_title": "Roster de l'equip",
@@ -91,19 +85,6 @@
     "contact_label": "Contacte",
     "contact_text": "Si vols seguir l'equip, col·laborar amb nosaltres o parlar de curses, ací tens els nostres canals principals.",
     "contact_title": "Contacte"
-  },
-  "results": {
-    "page_title": "Resultats i endurance",
-    "hero_label": "Classificacions",
-    "subtitle": "Repassa el rendiment recent de l'equip i les millors actuacions a pista.",
-    "pos": "Pos",
-    "driver": "Pilot",
-    "simulator": "Simulador",
-    "total_time": "Temps total",
-    "points": "Punts",
-    "cta_label": "Més èxits",
-    "cta_text": "Si vols veure podis, resultats destacats i resistències importants de l'equip, ací tens l'històric més complet.",
-    "cta_link": "Veure palmarès"
   },
   "shop": {
     "page_title": "Botiga oficial Lynx Racing",

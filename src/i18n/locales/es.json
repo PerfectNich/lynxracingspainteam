@@ -44,10 +44,6 @@
     "contact": {
       "title": "Contacto | Lynx Racing Spain Team",
       "description": "Contacta con Lynx Racing Spain Team y síguenos en Discord, Instagram, X, Twitch, Facebook y correo."
-    },
-    "results": {
-      "title": "Resultados | Lynx Racing Spain Team",
-      "description": "Revisa resultados, clasificaciones y rendimiento del equipo en endurance, rally y otras competiciones de simracing."
     }
   },
   "home": {
@@ -69,13 +65,11 @@
     "simulators_title": "Simuladores",
     "pulse_label": "Próxima carrera",
     "pulse_title": "Calendario del equipo",
-    "pulse_results_label": "Últimos resultados",
     "pulse_next_label": "Próxima carrera",
     "pulse_points_suffix": "pts",
     "pulse_date_label": "Fecha",
     "pulse_time_label": "Hora",
     "pulse_pending": "Por confirmar",
-    "pulse_results_link": "Ver resultados",
     "pulse_calendar_link": "Ver agenda",
     "team_label": "Nuestro equipo",
     "roster_title": "Roster del equipo",
@@ -91,19 +85,6 @@
     "contact_label": "Contacto",
     "contact_text": "Si quieres seguir al equipo, colaborar con nosotros o hablar de carreras, aquí tienes nuestros canales principales.",
     "contact_title": "Contacto"
-  },
-  "results": {
-    "page_title": "Resultados y endurance",
-    "hero_label": "Clasificaciones",
-    "subtitle": "Repasa el rendimiento reciente del equipo y las mejores actuaciones en pista.",
-    "pos": "Pos",
-    "driver": "Piloto",
-    "simulator": "Simulador",
-    "total_time": "Tiempo total",
-    "points": "Puntos",
-    "cta_label": "Más logros",
-    "cta_text": "Si quieres ver podios, resultados destacados y resistencias importantes del equipo, aquí tienes el histórico más completo.",
-    "cta_link": "Ver palmarés"
   },
   "shop": {
     "page_title": "Tienda oficial Lynx Racing",

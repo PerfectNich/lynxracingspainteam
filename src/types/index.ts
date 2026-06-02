@@ -25,16 +25,3 @@ export interface MediaItem {
   poster?: string;
   game: string;
 }
-
-export interface RaceResult {
-  pos: number;
-  driver: string;
-  simulator: string;
-  time: string;
-  points: number;
-}
-
-export interface ResultsCategory {
-  title: string;
-  results: RaceResult[];
-}

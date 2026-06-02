@@ -22,11 +22,14 @@ function ProductCard({ product }: { product: Product }) {
       transition={{ duration: 0.5, ease: "easeOut" }}
       className="group flex flex-col overflow-hidden rounded-2xl border border-lynx-border bg-lynx-dark-card transition-colors duration-300 hover:border-lynx-orange"
     >
-      <div className="relative overflow-hidden" style={{ aspectRatio: "1 / 1" }}>
+      <div
+        className="relative overflow-hidden bg-[radial-gradient(circle_at_top,_rgba(255,106,0,0.12),_transparent_58%),linear-gradient(180deg,_rgba(255,255,255,0.02),_rgba(0,0,0,0.16))]"
+        style={{ aspectRatio: "1 / 1" }}
+      >
         <img
           src={assetUrl(product.images[index])}
           alt={t(product.nameKey)}
-          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          className="h-full w-full object-contain p-4 transition-transform duration-500 group-hover:scale-[1.02]"
         />
 
         {total > 1 && (

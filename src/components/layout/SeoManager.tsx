@@ -70,7 +70,6 @@ export function SeoManager() {
       "/palmares": "palmares",
       "/tienda": "shop",
       "/contacto": "contact",
-      "/resultados": "results",
     };
 
     const seoKey = seoKeyMap[normalizedPath] ?? "home";

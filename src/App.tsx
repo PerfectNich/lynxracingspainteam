@@ -1,5 +1,5 @@
 import { Suspense, lazy } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { Layout } from "./components/layout/Layout";
 import { LanguageWrapper } from "./components/layout/LanguageWrapper";
 import { HomePage } from "./pages/HomePage";
@@ -7,9 +7,6 @@ import { HomePage } from "./pages/HomePage";
 const RosterPage = lazy(() => import("./pages/RosterPage").then((module) => ({ default: module.RosterPage })));
 const CalendarPage = lazy(() =>
   import("./pages/CalendarPage").then((module) => ({ default: module.CalendarPage })),
-);
-const ResultsPage = lazy(() =>
-  import("./pages/ResultsPage").then((module) => ({ default: module.ResultsPage })),
 );
 const ShopPage = lazy(() => import("./pages/ShopPage").then((module) => ({ default: module.ShopPage })));
 const ContactPage = lazy(() =>
@@ -35,6 +32,11 @@ function RouteFallback() {
   );
 }
 
+function ResultsRedirect() {
+  const location = useLocation();
+  return <Navigate to={location.pathname.replace(/\/resultados$/, "/palmares")} replace />;
+}
+
 const pages = (
   <>
     <Route index element={<HomePage />} />
@@ -54,14 +56,7 @@ const pages = (
         </Suspense>
       }
     />
-    <Route
-      path="resultados"
-      element={
-        <Suspense fallback={<RouteFallback />}>
-          <ResultsPage />
-        </Suspense>
-      }
-    />
+    <Route path="resultados" element={<ResultsRedirect />} />
     <Route
       path="palmares"
       element={
