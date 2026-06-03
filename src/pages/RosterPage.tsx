@@ -31,6 +31,7 @@ const CUSTOM_PORTRAITS: Record<string, string> = {
   "Xavier Sobrerroca": assetUrl("/img/xavi.png"),
   "Albert Gombau": assetUrl("/img/gombi.png"),
   "Relja Ljubobratovic": assetUrl("/img/relja.jpg"),
+  "Antonio Balboa": assetUrl("/img/balboa.png"),
   "Antonio Castillo": assetUrl("/img/castillo.png"),
 };
 
@@ -47,6 +48,7 @@ const CUSTOM_PORTRAIT_POSITIONS: Record<string, string> = {
   "Xavier Sobrerroca": "center 22%",
   "Albert Gombau": "center 18%",
   "Relja Ljubobratovic": "center 18%",
+  "Antonio Balboa": "center 18%",
   "Antonio Castillo": "center 20%",
 };
 
