@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 export interface ExpandCardItem {
   id: string;
   imageSrc: string;
+  imagePosition?: string;
   flagSrc?: string;
   name?: string;
   dorsal?: string | null;
@@ -77,6 +78,7 @@ export function ExpandCards({
             src={item.imageSrc}
             alt={item.name ?? `Card ${idx + 1}`}
             className="w-full h-full object-cover"
+            style={item.imagePosition ? { objectPosition: item.imagePosition } : undefined}
           />
 
           <div
