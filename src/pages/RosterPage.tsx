@@ -25,21 +25,42 @@ const FLAG_MAP: Record<string, string> = {
   valencia: assetUrl("/banderas/valencia.png"),
 };
 
-// Retratos deterministas: mujer para Aida Bueno, hombre para el resto
-const FEMALE_NAMES = ['Aida'];
+const CUSTOM_PORTRAITS: Record<string, string> = {
+  "Juan Serrano": assetUrl("/img/juan.png"),
+  "Emiliano Sturniolo": assetUrl("/roster/emiliano-sturniolo.png"),
+  "Xavier Sobrerroca": assetUrl("/img/xavi.png"),
+  "Albert Gombau": assetUrl("/img/gombi.png"),
+  "Antonio Castillo": assetUrl("/img/castillo.png"),
+};
+
+const DEFAULT_PORTRAITS = [
+  assetUrl("/img/foto piloto.png"),
+  assetUrl("/img/foto piloto1.png"),
+  assetUrl("/img/foto piloto2.png"),
+  assetUrl("/img/foto piloto3.png"),
+];
+
+const CUSTOM_PORTRAIT_POSITIONS: Record<string, string> = {
+  "Juan Serrano": "center 18%",
+  "Emiliano Sturniolo": "center 18%",
+  "Xavier Sobrerroca": "center 22%",
+  "Albert Gombau": "center 18%",
+  "Antonio Castillo": "center 20%",
+};
 
 function portraitUrl(m: Member, globalIndex: number): string {
-  const firstName = m.name.split(' ')[0];
-  if (FEMALE_NAMES.includes(firstName)) {
-    return `https://randomuser.me/api/portraits/women/${(globalIndex % 70) + 1}.jpg`;
+  if (CUSTOM_PORTRAITS[m.name]) {
+    return CUSTOM_PORTRAITS[m.name];
   }
-  return `https://randomuser.me/api/portraits/men/${(globalIndex % 90) + 1}.jpg`;
+
+  return DEFAULT_PORTRAITS[globalIndex % DEFAULT_PORTRAITS.length];
 }
 
 function memberToCard(m: Member, globalIndex: number): ExpandCardItem {
   return {
     id: m.name,
     imageSrc: portraitUrl(m, globalIndex),
+    imagePosition: CUSTOM_PORTRAIT_POSITIONS[m.name],
     flagSrc: FLAG_MAP[m.country] ?? assetUrl("/banderas/spain.png"),
     name: m.name,
     dorsal: m.dorsal,
