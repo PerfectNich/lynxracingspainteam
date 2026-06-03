@@ -132,7 +132,7 @@ const DATA: PalmaresEntry[] = [
   },
 ];
 
-const sorted = [...DATA].sort((a, b) => a.pos - b.pos);
+const ordered = [...DATA].sort((a, b) => b.year - a.year || a.pos - b.pos);
 
 function podiumStyle(pos: number): { bg: string; badge: string; text: string } {
   if (pos === 1) {
@@ -166,6 +166,64 @@ function podiumStyle(pos: number): { bg: string; badge: string; text: string } {
   };
 }
 
+function SummaryCard({ value, label }: { value: string; label: string }) {
+  return (
+    <div className="rounded-2xl border border-lynx-border bg-lynx-dark-card px-5 py-4 text-center shadow-[0_18px_45px_rgba(0,0,0,0.18)]">
+      <p
+        className="text-3xl font-black text-white"
+        style={{ fontFamily: "var(--font-orbitron)" }}
+      >
+        {value}
+      </p>
+      <p
+        className="mt-2 text-xs uppercase tracking-[0.24em] text-lynx-text/60"
+        style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 700 }}
+      >
+        {label}
+      </p>
+    </div>
+  );
+}
+
+function HighlightCard({ entry }: { entry: PalmaresEntry }) {
+  const style = podiumStyle(entry.pos);
+
+  return (
+    <div
+      className="rounded-[1.75rem] border border-lynx-border p-5"
+      style={{ background: style.bg }}
+    >
+      <div className="mb-4 flex items-center justify-between gap-4">
+        <span
+          className="inline-flex h-11 w-11 items-center justify-center rounded-full text-sm font-black text-black"
+          style={{ backgroundColor: style.badge, fontFamily: "var(--font-orbitron)" }}
+        >
+          P{entry.pos}
+        </span>
+        <span
+          className="text-xs uppercase tracking-[0.24em] text-lynx-text/60"
+          style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 700 }}
+        >
+          {entry.simulator} · {entry.year}
+        </span>
+      </div>
+
+      <h3
+        className="text-lg font-black text-white"
+        style={{ fontFamily: "var(--font-orbitron)" }}
+      >
+        {entry.event}
+      </h3>
+      <p
+        className="mt-3 text-sm text-lynx-text/70"
+        style={{ fontFamily: "var(--font-rajdhani)" }}
+      >
+        {entry.drivers.join(" · ")}
+      </p>
+    </div>
+  );
+}
+
 function AccordionItem({ entry, index }: { entry: PalmaresEntry; index: number }) {
   const [open, setOpen] = useState(false);
   const style = podiumStyle(entry.pos);
@@ -193,7 +251,7 @@ function AccordionItem({ entry, index }: { entry: PalmaresEntry; index: number }
 
         <div className="min-w-0 flex-1">
           <p
-            className="truncate font-bold text-white"
+            className="font-bold text-white"
             style={{ fontFamily: "var(--font-orbitron)", fontSize: "0.85rem" }}
           >
             {entry.event}
@@ -265,7 +323,7 @@ function AccordionItem({ entry, index }: { entry: PalmaresEntry; index: number }
                   className="mb-2 text-xs uppercase tracking-widest text-lynx-orange"
                   style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 700 }}
                 >
-                  Pilotos
+                  {entry.drivers.length} {entry.drivers.length === 1 ? "piloto" : "pilotos"}
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {entry.drivers.map((driver) => (
@@ -289,6 +347,11 @@ function AccordionItem({ entry, index }: { entry: PalmaresEntry; index: number }
 
 export function PalmaresPage() {
   const { t } = useTranslation();
+  const wins = DATA.filter((entry) => entry.pos === 1).length;
+  const podiums = DATA.filter((entry) => entry.pos <= 3).length;
+  const simulators = new Set(DATA.map((entry) => entry.simulator)).size;
+  const seasons = new Set(DATA.map((entry) => entry.year)).size;
+  const highlights = [...DATA].sort((a, b) => a.pos - b.pos || b.year - a.year).slice(0, 4);
   const columns = [
     { label: t("palmares.acc_label"), key: "ACC" },
     { label: t("palmares.iracing_label"), key: "iRacing" },
@@ -342,28 +405,47 @@ export function PalmaresPage() {
       </div>
 
       <section className="px-6 py-14">
-        <div className="mx-auto grid max-w-6xl grid-cols-1 items-start gap-8 md:grid-cols-2">
-          {columns.map((column) => {
-            const entries = sorted.filter((entry) => entry.simulator === column.key);
+        <div className="mx-auto max-w-6xl">
+          <div className="mb-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+            <SummaryCard value={String(wins)} label={t("palmares.stats.wins")} />
+            <SummaryCard value={String(podiums)} label={t("palmares.stats.podiums")} />
+            <SummaryCard value={String(simulators)} label={t("palmares.stats.simulators")} />
+            <SummaryCard value={String(seasons)} label={t("palmares.stats.seasons")} />
+          </div>
 
-            return (
-              <div key={column.key} className="flex flex-col gap-3">
-                <h2
-                  className="mb-1 text-xs uppercase tracking-[0.4em] text-lynx-orange"
-                  style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 700 }}
-                >
-                  {column.label}
-                </h2>
-                {entries.map((entry, index) => (
-                  <AccordionItem
-                    key={`${entry.event}-${entry.year}`}
-                    entry={entry}
-                    index={index}
-                  />
-                ))}
-              </div>
-            );
-          })}
+          <div className="mb-12">
+            <p
+              className="mb-3 text-xs uppercase tracking-[0.35em] text-lynx-orange"
+              style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 700 }}
+            >
+              {t("palmares.highlights_label")}
+            </p>
+            <div className="grid gap-5 lg:grid-cols-2">
+              {highlights.map((entry) => (
+                <HighlightCard key={`${entry.event}-${entry.year}-highlight`} entry={entry} />
+              ))}
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 items-start gap-8 md:grid-cols-2">
+            {columns.map((column) => {
+              const entries = ordered.filter((entry) => entry.simulator === column.key);
+
+              return (
+                <div key={column.key} className="flex flex-col gap-3">
+                  <h2
+                    className="mb-1 text-xs uppercase tracking-[0.4em] text-lynx-orange"
+                    style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 700 }}
+                  >
+                    {column.label}
+                  </h2>
+                  {entries.map((entry, index) => (
+                    <AccordionItem key={`${entry.event}-${entry.year}`} entry={entry} index={index} />
+                  ))}
+                </div>
+              );
+            })}
+          </div>
         </div>
       </section>
     </div>

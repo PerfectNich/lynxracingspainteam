@@ -109,6 +109,48 @@ export function ContactPage() {
             </motion.a>
           ))}
         </div>
+
+        <div className="mx-auto mt-10 max-w-4xl rounded-[1.75rem] border border-lynx-border bg-lynx-dark-card p-6 text-center shadow-[0_20px_60px_rgba(0,0,0,0.18)]">
+          <p
+            className="mb-3 text-xs uppercase tracking-[0.35em] text-lynx-orange"
+            style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 700 }}
+          >
+            {t("contact.join_label")}
+          </p>
+          <h2
+            className="text-2xl font-black text-white md:text-3xl"
+            style={{ fontFamily: "var(--font-orbitron)" }}
+          >
+            {t("contact.join_title")}
+          </h2>
+          <p
+            className="mx-auto mt-4 max-w-2xl text-lynx-text/70"
+            style={{ fontFamily: "var(--font-rajdhani)", fontSize: "1.05rem" }}
+          >
+            {t("contact.join_text")}
+          </p>
+
+          <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
+            <a
+              href="https://discord.gg/H8eNsptxVw"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center rounded-full border border-lynx-orange px-6 py-3 text-sm tracking-widest text-lynx-orange transition-all duration-300 hover:bg-lynx-orange hover:text-black"
+              style={{ fontFamily: "var(--font-orbitron)" }}
+            >
+              <FaDiscord className="mr-2" size={14} aria-hidden="true" />
+              {t("contact.join_discord")}
+            </a>
+            <a
+              href="mailto:lynxracingspain@gmail.com"
+              className="inline-flex items-center justify-center rounded-full border border-lynx-border px-6 py-3 text-sm tracking-widest text-white transition-all duration-300 hover:border-lynx-orange hover:text-lynx-orange"
+              style={{ fontFamily: "var(--font-orbitron)" }}
+            >
+              <FaEnvelope className="mr-2" size={14} aria-hidden="true" />
+              {t("contact.join_email")}
+            </a>
+          </div>
+        </div>
       </section>
     </div>
   );

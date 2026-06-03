@@ -112,10 +112,24 @@
     "videos_title": "Videos"
   },
   "roster": {
+    "hero_label": "Lynx Racing Spain",
+    "hero_intro": "Active team roster with management, drivers and live channels to follow Lynx on and off the track.",
     "page_title": "Team roster",
+    "management_label": "Team management",
     "management": "Management",
+    "management_intro": "The core group that keeps the project organised across competition, community and team structure.",
+    "drivers_label": "{{count}} drivers",
     "drivers": "Drivers",
-    "streams": "Team streams"
+    "drivers_intro": "Active team drivers across different disciplines and simulators, each with a different profile but the same team identity.",
+    "streams_label": "Live now",
+    "streams": "Team streams",
+    "streams_intro": "Here you can jump into the main channel and quickly access the rest of the team streams.",
+    "stats": {
+      "management": "Staff",
+      "drivers": "Drivers",
+      "streams": "Twitch channels",
+      "countries": "Active flags"
+    }
   },
   "calendar": {
     "page_title": "Calendar",
@@ -138,12 +152,24 @@
     "hero_label": "Find us",
     "section_title": "Social media",
     "description": "Connect with us on the following platforms and keep up with all our news, races and events.",
-    "email": "Email"
+    "email": "Email",
+    "join_label": "Join or collaborate",
+    "join_title": "Want to join the team or work with Lynx?",
+    "join_text": "If you want to race with us, grow the community or support the project as a partner, these are the fastest channels to speak with the team.",
+    "join_discord": "Talk on Discord",
+    "join_email": "Send an email"
   },
   "palmares": {
     "page_title": "Achievements",
     "hero_label": "Team achievements",
     "intro": "Below you can find the standout results achieved by the team across different simulators.",
+    "highlights_label": "Highlights",
+    "stats": {
+      "wins": "Wins",
+      "podiums": "Podiums",
+      "simulators": "Simulators",
+      "seasons": "Seasons"
+    },
     "acc_label": "Assetto Corsa Competizione",
     "iracing_label": "iRacing",
     "acc": {

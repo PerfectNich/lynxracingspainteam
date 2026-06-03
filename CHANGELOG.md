@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-06-03
+
+- Mejorado `Roster` con un hero más contextual, métricas rápidas y una separación más clara entre dirección, pilotos y directos.
+- Rehecho `Palmarés` con resumen superior, destacados rápidos e histórico más ordenado por simulador y temporada.
+- Añadida una franja de captación en `Inicio` para unirse al equipo o colaborar con Lynx.
+- Reforzada `Contacto` con un bloque específico para entrar al equipo o contactar con el proyecto.
+
 ## 2026-06-02
 
 - Reforzada la home con un bloque de métricas rápidas para dar más credibilidad al equipo de un vistazo.

@@ -61,11 +61,36 @@ function chunkArray<T>(arr: T[], size: number): T[][] {
 }
 const driverRows = chunkArray(driverCards, 7);
 
+function StatCard({ value, label }: { value: string; label: string }) {
+  return (
+    <div className="rounded-2xl border border-lynx-border bg-lynx-dark-card px-5 py-4 text-center shadow-[0_18px_45px_rgba(0,0,0,0.18)]">
+      <p
+        className="text-3xl font-black text-white"
+        style={{ fontFamily: "var(--font-orbitron)" }}
+      >
+        {value}
+      </p>
+      <p
+        className="mt-2 text-xs uppercase tracking-[0.24em] text-lynx-text/60"
+        style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 700 }}
+      >
+        {label}
+      </p>
+    </div>
+  );
+}
 
 export function RosterPage() {
   const { t } = useTranslation();
   const [otherChannelsOpen, setOtherChannelsOpen] = useState(false);
   const [selectedChannel, setSelectedChannel] = useState(mainChannel);
+  const totalCountries = new Set([...management, ...drivers].map((member) => member.country)).size;
+  const stats = [
+    { value: String(management.length), label: t("roster.stats.management") },
+    { value: String(drivers.length), label: t("roster.stats.drivers") },
+    { value: String(twitchChannels.length), label: t("roster.stats.streams") },
+    { value: String(totalCountries), label: t("roster.stats.countries") },
+  ];
 
   return (
     <div className="overflow-x-hidden">
@@ -95,7 +120,7 @@ export function RosterPage() {
             className="text-lynx-orange text-xs tracking-[0.4em] uppercase mb-3"
             style={{ fontFamily: 'var(--font-rajdhani)', fontWeight: 700 }}
           >
-            Lynx Racing Spain
+            {t("roster.hero_label")}
           </p>
           <h1
             className="text-4xl md:text-6xl font-black text-white"
@@ -103,8 +128,22 @@ export function RosterPage() {
           >
             {t("roster.page_title")}
           </h1>
+          <p
+            className="mx-auto mt-4 max-w-3xl text-lynx-text/65"
+            style={{ fontFamily: "var(--font-rajdhani)", fontSize: "1.05rem" }}
+          >
+            {t("roster.hero_intro")}
+          </p>
         </motion.div>
       </div>
+
+      <section className="px-6 py-10">
+        <div className="mx-auto grid max-w-6xl gap-4 sm:grid-cols-2 xl:grid-cols-4">
+          {stats.map((stat) => (
+            <StatCard key={stat.label} value={stat.value} label={stat.label} />
+          ))}
+        </div>
+      </section>
 
       {/* Management */}
       <section className="py-16 px-4">
@@ -120,7 +159,7 @@ export function RosterPage() {
               className="text-lynx-orange text-xs tracking-[0.4em] uppercase mb-2"
               style={{ fontFamily: 'var(--font-rajdhani)', fontWeight: 700 }}
             >
-              Equipo directivo
+              {t("roster.management_label")}
             </p>
             <h2
               className="text-2xl md:text-4xl font-black text-white"
@@ -128,6 +167,12 @@ export function RosterPage() {
             >
               {t("roster.management")}
             </h2>
+            <p
+              className="mx-auto mt-3 max-w-2xl text-lynx-text/60"
+              style={{ fontFamily: "var(--font-rajdhani)", fontSize: "1rem" }}
+            >
+              {t("roster.management_intro")}
+            </p>
           </div>
           <div className="overflow-x-auto">
             <ExpandCards
@@ -157,7 +202,7 @@ export function RosterPage() {
               className="text-lynx-orange text-xs tracking-[0.4em] uppercase mb-2"
               style={{ fontFamily: 'var(--font-rajdhani)', fontWeight: 700 }}
             >
-              {drivers.length} pilotos
+              {t("roster.drivers_label", { count: drivers.length })}
             </p>
             <h2
               className="text-2xl md:text-4xl font-black text-white"
@@ -165,11 +210,20 @@ export function RosterPage() {
             >
               {t("roster.drivers")}
             </h2>
+            <p
+              className="mx-auto mt-3 max-w-2xl text-lynx-text/60"
+              style={{ fontFamily: "var(--font-rajdhani)", fontSize: "1rem" }}
+            >
+              {t("roster.drivers_intro")}
+            </p>
           </div>
 
           <div className="flex flex-col gap-3">
             {driverRows.map((row, rowIdx) => (
-              <div key={rowIdx} className="overflow-x-auto">
+              <div
+                key={rowIdx}
+                className="overflow-x-auto rounded-[1.5rem] border border-lynx-border/80 bg-black/10 p-2"
+              >
                 <ExpandCards
                   items={row}
                   cardHeight={240}
@@ -196,7 +250,7 @@ export function RosterPage() {
               className="text-lynx-orange text-xs tracking-[0.4em] uppercase mb-2"
               style={{ fontFamily: 'var(--font-rajdhani)', fontWeight: 700 }}
             >
-              En directo
+              {t("roster.streams_label")}
             </p>
             <h2
               className="text-2xl md:text-4xl font-black text-white"
@@ -204,6 +258,12 @@ export function RosterPage() {
             >
               {t("roster.streams")}
             </h2>
+            <p
+              className="mx-auto mt-3 max-w-2xl text-lynx-text/60"
+              style={{ fontFamily: "var(--font-rajdhani)", fontSize: "1rem" }}
+            >
+              {t("roster.streams_intro")}
+            </p>
           </div>
           <div className="max-w-4xl mx-auto rounded-2xl border border-lynx-border bg-lynx-dark-card overflow-hidden">
             <div className="p-5 space-y-5">

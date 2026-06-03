@@ -112,10 +112,24 @@
     "videos_title": "Vídeos"
   },
   "roster": {
+    "hero_label": "Lynx Racing Spain",
+    "hero_intro": "Roster activo del equipo con dirección, pilotos y canales en directo para seguir el día a día de Lynx dentro y fuera de pista.",
     "page_title": "Plantilla del equipo",
+    "management_label": "Equipo directivo",
     "management": "Dirección",
+    "management_intro": "La base que organiza, coordina y empuja el proyecto en competición, comunidad y estructura del equipo.",
+    "drivers_label": "{{count}} pilotos",
     "drivers": "Pilotos",
-    "streams": "Directos del equipo"
+    "drivers_intro": "Pilotos activos del equipo repartidos entre distintas disciplinas y simuladores, con perfiles muy distintos pero una misma identidad.",
+    "streams_label": "En directo",
+    "streams": "Directos del equipo",
+    "streams_intro": "Aquí tienes el canal principal y el acceso rápido al resto de directos del equipo.",
+    "stats": {
+      "management": "Staff",
+      "drivers": "Pilotos",
+      "streams": "Canales Twitch",
+      "countries": "Banderas activas"
+    }
   },
   "calendar": {
     "page_title": "Agenda",
@@ -138,12 +152,24 @@
     "hero_label": "Encuéntranos",
     "section_title": "Redes sociales",
     "description": "Conecta con nosotros en las siguientes plataformas y sigue todas nuestras novedades, carreras y eventos.",
-    "email": "Correo"
+    "email": "Correo",
+    "join_label": "Únete o colabora",
+    "join_title": "¿Quieres entrar al equipo o colaborar con Lynx?",
+    "join_text": "Si te interesa competir con nosotros, hacer comunidad o apoyar el proyecto como partner, estos son los canales más directos para hablar con el equipo.",
+    "join_discord": "Hablar por Discord",
+    "join_email": "Escribir por correo"
   },
   "palmares": {
     "page_title": "Palmarés",
     "hero_label": "Logros del equipo",
     "intro": "A continuación mostramos los puestos destacados conseguidos por el equipo en los diferentes simuladores.",
+    "highlights_label": "Destacados",
+    "stats": {
+      "wins": "Victorias",
+      "podiums": "Podios",
+      "simulators": "Simuladores",
+      "seasons": "Temporadas"
+    },
     "acc_label": "Assetto Corsa Competizione",
     "iracing_label": "iRacing",
     "acc": {
