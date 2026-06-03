@@ -30,6 +30,7 @@ const CUSTOM_PORTRAITS: Record<string, string> = {
   "Emiliano Sturniolo": assetUrl("/roster/emiliano-sturniolo.png"),
   "Xavier Sobrerroca": assetUrl("/img/xavi.png"),
   "Albert Gombau": assetUrl("/img/gombi.png"),
+  "Relja Ljubobratovic": assetUrl("/img/relja.jpg"),
   "Antonio Castillo": assetUrl("/img/castillo.png"),
 };
 
@@ -45,6 +46,7 @@ const CUSTOM_PORTRAIT_POSITIONS: Record<string, string> = {
   "Emiliano Sturniolo": "center 18%",
   "Xavier Sobrerroca": "center 22%",
   "Albert Gombau": "center 18%",
+  "Relja Ljubobratovic": "center 18%",
   "Antonio Castillo": "center 20%",
 };
 
