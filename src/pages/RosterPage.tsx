@@ -30,7 +30,7 @@ const CUSTOM_PORTRAITS: Record<string, string> = {
   "Emiliano Sturniolo": assetUrl("/roster/emiliano-sturniolo.png"),
   "Xavier Sobrerroca": assetUrl("/img/xavi.png"),
   "Albert Gombau": assetUrl("/img/gombi.png"),
-  "Gonzalo Sanchez": assetUrl("/img/lalo.png"),
+  "Gonzalo Sanchez": assetUrl("/img/lalo2.png"),
   "Relja Ljubobratovic": assetUrl("/img/relja.jpg"),
   "Antonio Balboa": assetUrl("/img/balboa.png"),
   "Antonio Castillo": assetUrl("/img/castillo.png"),
