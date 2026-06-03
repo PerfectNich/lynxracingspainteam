@@ -7,10 +7,8 @@
     { "name": "Nacho Jarrin", "dorsal": "15", "country": "spain", "twitch": "jarrini15" }
   ],
   "drivers": [
-    { "name": "Adrian Sanchez", "dorsal": "53", "country": "spain", "twitch": null },
     { "name": "Jose Linares", "dorsal": "144", "country": "spain", "twitch": null },
     { "name": "Gonzalo Sanchez", "dorsal": "87", "country": "spain", "twitch": "lalo_87" },
-    { "name": "Guillermo Heredia", "dorsal": "314", "country": "andalucia", "twitch": "wilfredoflowers" },
     { "name": "David Corominas", "dorsal": "85", "country": "cat", "twitch": "coro85" },
     { "name": "Angel Alvarado", "dorsal": "666", "country": "spain", "twitch": "pist4chon" },
     { "name": "Carlos Molina", "dorsal": "113", "country": "spain", "twitch": null },
@@ -18,7 +16,6 @@
     { "name": "Dani Diaz", "dorsal": "15", "country": "cat", "twitch": "danibytj_danidiaz" },
     { "name": "Javi Castello", "dorsal": "814", "country": "spain", "twitch": "castello814" },
     { "name": "Ruben Juarez", "dorsal": "95", "country": "spain", "twitch": null },
-    { "name": "Juanmi Asmigon", "dorsal": "000", "country": "spain", "twitch": null },
     { "name": "Aida Bueno", "dorsal": "13", "country": "cat", "twitch": "aidabp" },
     { "name": "Francisco Sierra", "dorsal": "2", "country": "spain", "twitch": "Kikologo" },
     { "name": "Javi Gras", "dorsal": "3", "country": "spain", "twitch": "javi_gras" },
@@ -44,7 +41,6 @@
     "jarrini15",
     "kikologo",
     "lalo_87",
-    "wilfredoflowers",
     "coro85",
     "pist4chon",
     "danibytj_danidiaz",
