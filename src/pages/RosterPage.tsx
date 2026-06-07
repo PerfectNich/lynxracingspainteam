@@ -23,6 +23,7 @@ const FLAG_MAP: Record<string, string> = {
   colombia: assetUrl("/banderas/colombia.png"),
   andalucia: assetUrl("/banderas/andalucia.png"),
   valencia: assetUrl("/banderas/valencia.png"),
+  aragon: assetUrl("/banderas/aragon.svg"),
 };
 
 const CUSTOM_PORTRAITS: Record<string, string> = {
