@@ -12,7 +12,7 @@ const countryFlags: Record<string, string> = {
   valencia: "banderas/valencia.png",
   colombia: "banderas/colombia.png",
   andalucia: "banderas/andalucia.png",
-  aragon: "banderas/aragon.svg",
+  aragon: "banderas/aragon.png",
   argentina: "banderas/argentina.jpg"
 };
 
