@@ -28,6 +28,7 @@ const FLAG_MAP: Record<string, string> = {
 
 const CUSTOM_PORTRAITS: Record<string, string> = {
   "Juan Serrano": assetUrl("/img/juan.png"),
+  "Nacho Jarrin": assetUrl("/img/nacho.jpg"),
   "Emiliano Sturniolo": assetUrl("/roster/emiliano-sturniolo.png"),
   "Xavier Sobrerroca": assetUrl("/img/xavi.png"),
   "Albert Gombau": assetUrl("/img/gombi.png"),
@@ -47,6 +48,7 @@ const DEFAULT_PORTRAITS = [
 
 const CUSTOM_PORTRAIT_POSITIONS: Record<string, string> = {
   "Juan Serrano": "center 18%",
+  "Nacho Jarrin": "center 18%",
   "Emiliano Sturniolo": "center 18%",
   "Xavier Sobrerroca": "center 22%",
   "Albert Gombau": "center 18%",
