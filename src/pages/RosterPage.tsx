@@ -28,7 +28,7 @@ const FLAG_MAP: Record<string, string> = {
 
 const CUSTOM_PORTRAITS: Record<string, string> = {
   "Juan Serrano": assetUrl("/img/juan.png"),
-  "Nacho Jarrin": assetUrl("/img/nacho.jpg"),
+  "Nacho Jarrin": assetUrl("/img/jarrin.png"),
   "Emiliano Sturniolo": assetUrl("/roster/emiliano-sturniolo.png"),
   "Xavier Sobrerroca": assetUrl("/img/xavi.png"),
   "Albert Gombau": assetUrl("/img/gombi.png"),
