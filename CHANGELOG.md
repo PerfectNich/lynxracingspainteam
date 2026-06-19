@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-06-19
+
+- Automatizada la sincronización de `Agenda` con Google Calendar mediante GitHub Actions cada hora y ejecución manual.
+- Actualizados `next-race.json` y `upcoming-events.json` con los nuevos eventos detectados desde el calendario compartido del bot.
+- Documentado el flujo real de sincronización: bot iRacing -> Google Calendar -> web.
+
 ## 2026-06-03
 
 - Mejorado `Roster` con un hero más contextual, métricas rápidas y una separación más clara entre dirección, pilotos y directos.
