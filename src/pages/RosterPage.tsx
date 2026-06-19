@@ -26,19 +26,6 @@ const FLAG_MAP: Record<string, string> = {
   aragon: assetUrl("/banderas/aragon.png"),
 };
 
-const CUSTOM_PORTRAITS: Record<string, string> = {
-  "Juan Serrano": assetUrl("/img/juan.png"),
-  "Nacho Jarrin": assetUrl("/img/jarrin.png"),
-  "Emiliano Sturniolo": assetUrl("/roster/emiliano-sturniolo.png"),
-  "Xavier Sobrerroca": assetUrl("/img/xavi2.png"),
-  "Albert Gombau": assetUrl("/img/gombi.png"),
-  "Gonzalo Sanchez": assetUrl("/img/lalo2.png"),
-  "Javi Gras": assetUrl("/img/gras.png"),
-  "Relja Ljubobratovic": assetUrl("/img/relja.jpg"),
-  "Antonio Balboa": assetUrl("/img/balboa.png"),
-  "Antonio Castillo": assetUrl("/img/castillo.png"),
-};
-
 const DEFAULT_PORTRAITS = [
   assetUrl("/img/foto piloto.png"),
   assetUrl("/img/foto piloto1.png"),
@@ -46,22 +33,9 @@ const DEFAULT_PORTRAITS = [
   assetUrl("/img/foto piloto3.png"),
 ];
 
-const CUSTOM_PORTRAIT_POSITIONS: Record<string, string> = {
-  "Juan Serrano": "center 18%",
-  "Nacho Jarrin": "center 18%",
-  "Emiliano Sturniolo": "center 18%",
-  "Xavier Sobrerroca": "center 22%",
-  "Albert Gombau": "center 18%",
-  "Gonzalo Sanchez": "center 18%",
-  "Javi Gras": "center 18%",
-  "Relja Ljubobratovic": "center 18%",
-  "Antonio Balboa": "center 18%",
-  "Antonio Castillo": "center 20%",
-};
-
 function portraitUrl(m: Member, globalIndex: number): string {
-  if (CUSTOM_PORTRAITS[m.name]) {
-    return CUSTOM_PORTRAITS[m.name];
+  if (m.portrait) {
+    return assetUrl(m.portrait);
   }
 
   return DEFAULT_PORTRAITS[globalIndex % DEFAULT_PORTRAITS.length];
@@ -71,7 +45,7 @@ function memberToCard(m: Member, globalIndex: number): ExpandCardItem {
   return {
     id: m.name,
     imageSrc: portraitUrl(m, globalIndex),
-    imagePosition: CUSTOM_PORTRAIT_POSITIONS[m.name],
+    imagePosition: m.portraitPosition,
     flagSrc: FLAG_MAP[m.country] ?? assetUrl("/banderas/spain.png"),
     name: m.name,
     dorsal: m.dorsal,

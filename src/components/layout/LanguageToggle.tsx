@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { assetUrl } from "../../utils/assetUrl";
 
 interface LanguageToggleProps {
   lang: string;
@@ -36,7 +37,7 @@ export function LanguageToggle({ lang, basePath }: LanguageToggleProps) {
             aria-label={flag.alt}
           >
             <img
-              src={flag.src}
+              src={assetUrl(flag.src)}
               alt={flag.alt}
               className={`${flag.height} w-auto rounded-sm transition-all duration-300`}
               style={{

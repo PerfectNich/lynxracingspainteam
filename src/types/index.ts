@@ -3,6 +3,8 @@ export interface Member {
   dorsal: string | null;
   country: string;
   twitch: string | null;
+  portrait?: string;
+  portraitPosition?: string;
 }
 
 export interface Sponsor {

@@ -31,3 +31,6 @@ vite.err.log
 
 # TypeScript cache
 *.tsbuildinfo
+
+# Git temporary files
+.git-index-tmp
