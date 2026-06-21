@@ -1,9 +1,5 @@
 [
   {
-    "title": "GTES - Watkins Glen International - Boot",
-    "date": "2026-06-21T17:00:00.000Z"
-  },
-  {
     "title": "IMSA Sportscar - Circuit des 24 Heures du Mans - 24 Heures du Mans",
     "date": "2026-06-21T20:00:00.000Z"
   },
@@ -30,5 +26,9 @@
   {
     "title": "GTES - Oran Park Raceway - Grand Prix",
     "date": "2026-06-27T19:00:00.000Z"
+  },
+  {
+    "title": "IMSA Michelin - Watkins Glen International - Boot",
+    "date": "2026-06-28T00:00:00.000Z"
   }
 ]
