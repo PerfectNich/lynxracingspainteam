@@ -1,13 +1,5 @@
 [
   {
-    "title": "SPECIAL - Watkins Glen 6 Hour [GTP, LMP2, GT3]",
-    "date": "2026-06-21T00:00:00.000Z"
-  },
-  {
-    "title": "IMSA Sportscar - Circuit des 24 Heures du Mans - 24 Heures du Mans",
-    "date": "2026-06-21T00:00:00.000Z"
-  },
-  {
     "title": "IMSA - Watkins Glen International - Boot",
     "date": "2026-06-21T14:00:00.000Z"
   },
@@ -30,5 +22,13 @@
   {
     "title": "GTES - Oran Park Raceway - Grand Prix",
     "date": "2026-06-27T09:00:00.000Z"
+  },
+  {
+    "title": "IMSA Michelin - Watkins Glen International - Boot",
+    "date": "2026-06-27T15:00:00.000Z"
+  },
+  {
+    "title": "GET - Mobility Resort Motegi - Grand Prix",
+    "date": "2026-06-27T18:00:00.000Z"
   }
 ]
