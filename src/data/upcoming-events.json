@@ -1,9 +1,5 @@
 [
   {
-    "title": "IMSA Michelin - Watkins Glen",
-    "date": "2026-06-27T15:00:00.000Z"
-  },
-  {
     "title": "GET - Motegi",
     "date": "2026-06-27T18:00:00.000Z"
   },
@@ -30,5 +26,9 @@
   {
     "title": "IMSA - Mosport",
     "date": "2026-07-04T02:00:00.000Z"
+  },
+  {
+    "title": "IMSA Sportscar - Mugello",
+    "date": "2026-07-04T04:00:00.000Z"
   }
 ]
