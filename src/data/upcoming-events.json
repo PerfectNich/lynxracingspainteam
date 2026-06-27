@@ -1,9 +1,5 @@
 [
   {
-    "title": "GET - Motegi",
-    "date": "2026-06-27T07:00:00.000Z"
-  },
-  {
     "title": "GTES - Oran Park",
     "date": "2026-06-27T09:00:00.000Z"
   },
@@ -30,5 +26,9 @@
   {
     "title": "GTES - Oran Park",
     "date": "2026-06-28T17:00:00.000Z"
+  },
+  {
+    "title": "IMSA Michelin - Watkins Glen",
+    "date": "2026-06-28T20:00:00.000Z"
   }
 ]
