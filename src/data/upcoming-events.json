@@ -1,9 +1,5 @@
 [
   {
-    "title": "GTES - Oran Park",
-    "date": "2026-06-27T19:00:00.000Z"
-  },
-  {
     "title": "IMSA Michelin - Watkins Glen",
     "date": "2026-06-28T00:00:00.000Z"
   },
@@ -26,6 +22,10 @@
   {
     "title": "IMSA Sportscar - Mugello",
     "date": "2026-07-04T04:00:00.000Z"
+  },
+  {
+    "title": "NEC - Nürburgring",
+    "date": "2026-07-04T07:00:00.000Z"
   },
   {
     "title": "IMSA - Mosport",
