@@ -1,9 +1,5 @@
 [
   {
-    "title": "IMSA Michelin - Watkins Glen",
-    "date": "2026-06-28T00:00:00.000Z"
-  },
-  {
     "title": "GET - Motegi",
     "date": "2026-06-28T14:00:00.000Z"
   },
@@ -24,11 +20,15 @@
     "date": "2026-07-04T04:00:00.000Z"
   },
   {
+    "title": "NEC - Nürburgring",
+    "date": "2026-07-04T07:00:00.000Z"
+  },
+  {
     "title": "IMSA - Mosport",
     "date": "2026-07-04T07:00:00.000Z"
   },
   {
-    "title": "NEC - Nürburgring",
-    "date": "2026-07-04T07:00:00.000Z"
+    "title": "GTES - Bathurst",
+    "date": "2026-07-04T09:00:00.000Z"
   }
 ]
