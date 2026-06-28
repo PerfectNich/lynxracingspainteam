@@ -69,6 +69,7 @@
     "pulse_points_suffix": "pts",
     "pulse_date_label": "Fecha",
     "pulse_time_label": "Hora",
+    "pulse_format_label": "Formato",
     "pulse_pending": "Por confirmar",
     "pulse_calendar_link": "Ver agenda",
     "team_label": "Nuestro equipo",
@@ -145,7 +146,17 @@
     "tomorrow": "Mañana",
     "other_events": "Otros eventos",
     "open_full": "Abrir calendario completo",
-    "pending": "Por confirmar"
+    "pending": "Por confirmar",
+    "team_target": "Objetivo del equipo",
+    "confirmed_events_only": "Solo mostramos eventos previstos por Lynx Racing",
+    "preparing": "En preparación",
+    "entry": "Inscripción",
+    "gt3_team": "equipo GT3",
+    "car": "Coche",
+    "car_pending": "Modelo por confirmar",
+    "drivers": "Pilotos",
+    "gt3_lineup": "Alineación prevista",
+    "lineup_note": "Participación y coche sujetos a confirmación final"
   },
   "contact": {
     "page_title": "Contacto",

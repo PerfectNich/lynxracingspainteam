@@ -9,6 +9,9 @@
 - Añadido un vídeo promocional optimizado de fondo en la portada, manteniendo el escudo y la animación original como respaldo.
 - Actualizadas dependencias vulnerables y optimizada la portada para ahorro de datos, movimiento reducido y menor consumo gráfico.
 - Reducido el peso de Multimedia con carga diferida, vídeos sin precarga y conversión de la captura LMU a WebP.
+- Sustituida la agenda general de iRacing por un calendario editorial del equipo centrado en las `24H de Spa`.
+- Añadida la alineación GT3 prevista para Spa y retirado el flujo automático que publicaba carreras genéricas.
+- Integrado Cloudflare Web Analytics para medir visitas y rendimiento sin seguimiento individual.
 
 ## 2026-06-19
 

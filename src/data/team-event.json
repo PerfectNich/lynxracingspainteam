@@ -1,0 +1,16 @@
+{
+  "title": "24H de Spa",
+  "startDate": "2026-07-11",
+  "endDate": "2026-07-13",
+  "simulator": "iRacing",
+  "category": "GT3",
+  "teams": 1,
+  "car": null,
+  "drivers": [
+    "Francisco Sierra",
+    "Luis Ungo",
+    "Jordi Capdevila",
+    "Emiliano Sturniolo",
+    "Jesus Jimenez"
+  ]
+}

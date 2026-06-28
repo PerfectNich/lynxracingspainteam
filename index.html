@@ -8,12 +8,12 @@
       http-equiv="Content-Security-Policy"
       content="
         default-src 'self';
-        script-src 'self';
+        script-src 'self' https://static.cloudflareinsights.com;
         style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
         font-src 'self' https://fonts.gstatic.com data:;
         img-src 'self' data: blob: https:;
-        connect-src 'self';
-        frame-src https://discord.com https://player.twitch.tv https://www.twitch.tv https://calendar.google.com;
+        connect-src 'self' https://cloudflareinsights.com;
+        frame-src https://discord.com https://player.twitch.tv https://www.twitch.tv;
         frame-ancestors 'self';
         base-uri 'self';
         form-action 'self';
@@ -50,5 +50,10 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script
+      defer
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon='{"token":"a4b6acb06f55433d992a9c1aafe6d4d9"}'
+    ></script>
   </body>
 </html>

@@ -2,33 +2,24 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { FaArrowRight } from "react-icons/fa";
-import nextRace from "../../data/next-race.json";
+import teamEvent from "../../data/team-event.json";
 
-interface NextRaceData {
-  title: string;
-  date: string | null;
-}
+const eventDate = (value: string) => new Date(`${value}T12:00:00`);
 
 export function HomeRacePulse() {
   const { t, i18n } = useTranslation();
   const prefix = i18n.language === "en" ? "/en" : i18n.language === "ca" ? "/ca" : "";
   const calendarPath = `${prefix}/agenda`;
 
-  const upcomingRace = nextRace as NextRaceData;
   const locale = i18n.language === "en" ? "en-GB" : i18n.language === "ca" ? "ca-ES" : "es-ES";
-  const formattedDate = upcomingRace.date
-    ? new Intl.DateTimeFormat(locale, {
-        day: "numeric",
-        month: "long",
-        year: "numeric",
-      }).format(new Date(upcomingRace.date))
-    : t("home.pulse_pending");
-  const formattedTime = upcomingRace.date
-    ? new Intl.DateTimeFormat(locale, {
-        hour: "2-digit",
-        minute: "2-digit",
-      }).format(new Date(upcomingRace.date))
-    : t("home.pulse_pending");
+  const formattedDate = `${new Intl.DateTimeFormat(locale, {
+    day: "numeric",
+    month: "long",
+  }).format(eventDate(teamEvent.startDate))} - ${new Intl.DateTimeFormat(locale, {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  }).format(eventDate(teamEvent.endDate))}`;
 
   return (
     <section className="relative border-y border-lynx-border bg-lynx-dark-card px-6 py-16 md:py-20">
@@ -65,7 +56,7 @@ export function HomeRacePulse() {
             className="mb-5 text-xl font-black text-white md:text-2xl"
             style={{ fontFamily: "var(--font-orbitron)" }}
           >
-            {upcomingRace.title}
+            {teamEvent.title}
           </h3>
 
           <div className="mb-5 grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -85,10 +76,10 @@ export function HomeRacePulse() {
                 className="mb-2 text-[11px] uppercase tracking-[0.25em] text-lynx-text/50"
                 style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 700 }}
               >
-                {t("home.pulse_time_label")}
+                {t("home.pulse_format_label")}
               </p>
               <p className="text-white" style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 600 }}>
-                {formattedTime}
+                {teamEvent.category} · {teamEvent.teams} {t("calendar.gt3_team")}
               </p>
             </div>
           </div>
