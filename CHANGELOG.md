@@ -6,6 +6,9 @@
 - Reorganizados los eventos con una próxima cita destacada y campeonatos agrupados en una parrilla más compacta.
 - Centrado el contenido de las tarjetas de `Tienda` para unificar la alineación de nombres, precios y acciones.
 - Corregido el canal de Twitch de Rubén Gómez a `chibitowo`.
+- Añadido un vídeo promocional optimizado de fondo en la portada, manteniendo el escudo y la animación original como respaldo.
+- Actualizadas dependencias vulnerables y optimizada la portada para ahorro de datos, movimiento reducido y menor consumo gráfico.
+- Reducido el peso de Multimedia con carga diferida, vídeos sin precarga y conversión de la captura LMU a WebP.
 
 ## 2026-06-19
 

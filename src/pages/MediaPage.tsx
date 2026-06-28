@@ -102,6 +102,7 @@ export function MediaPage() {
                       src={item.src}
                       poster={item.poster}
                       controls
+                      preload="none"
                       className="w-full h-64 object-cover"
                     />
                   </div>
