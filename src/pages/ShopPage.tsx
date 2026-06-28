@@ -64,8 +64,8 @@ function ProductCard({ product }: { product: Product }) {
         )}
       </div>
 
-      <div className="flex flex-1 flex-col gap-4 p-5">
-        <div className="flex-1">
+      <div className="flex flex-1 flex-col items-center gap-4 p-5 text-center">
+        <div className="flex w-full flex-1 flex-col items-center">
           <h3
             className="text-base font-bold leading-tight text-white"
             style={{ fontFamily: "var(--font-orbitron)" }}
