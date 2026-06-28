@@ -26,7 +26,7 @@
     { "name": "Antonio Balboa", "dorsal": null, "country": "cat", "twitch": "oniobagt", "portrait": "/img/balboa.png", "portraitPosition": "center 18%" },
     { "name": "Alvaro Salazar", "dorsal": "91", "country": "spain", "twitch": null },
     { "name": "Fran Gambin", "dorsal": "310", "country": "spain", "twitch": null },
-    { "name": "Ruben Gomez", "dorsal": "27", "country": "cat", "twitch": "typicalchibito" },
+    { "name": "Ruben Gomez", "dorsal": "27", "country": "cat", "twitch": "chibitowo" },
     { "name": "Juanjo Morales", "dorsal": null, "country": "colombia", "twitch": null },
     { "name": "Emiliano Sturniolo", "dorsal": "43", "country": "spain", "twitch": null, "portrait": "/roster/emiliano-sturniolo.png", "portraitPosition": "center 18%" },
     { "name": "Marc Garcia", "dorsal": "21", "country": "cat", "twitch": "marckitos21" }
@@ -49,7 +49,7 @@
     "aidabp",
     "javi_gras",
     "capi71",
-    "typicalchibito",
+    "chibitowo",
     "marckitos21"
   ]
 }
