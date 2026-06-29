@@ -7,10 +7,7 @@ import { GradientDots } from "@/components/ui/gradient-dots";
 import { Lightbox } from "../components/media/Lightbox";
 import type { MediaItem } from "../types";
 
-const hiddenGames = ["AMS2", "RRE"];
-const allItems = (mediaItems as MediaItem[]).filter(
-  (item) => !hiddenGames.includes(item.game ?? "")
-);
+const allItems = mediaItems as MediaItem[];
 
 const imageItems = allItems.filter((item) => item.type === "image");
 const imageCards = imageItems.map((item) => ({

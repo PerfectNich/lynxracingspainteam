@@ -12,6 +12,9 @@
 - Sustituida la agenda general de iRacing por un calendario editorial del equipo centrado en las `24H de Spa`.
 - Añadida la alineación GT3 prevista para Spa y retirado el flujo automático que publicaba carreras genéricas.
 - Integrado Cloudflare Web Analytics para medir visitas y rendimiento sin seguimiento individual.
+- Optimizada la galería completa: imágenes convertidas a WebP y vídeos Meihan/Rally recodificados para web.
+- Añadidos `sitemap.xml`, `robots.txt` y datos estructurados del equipo para mejorar indexación y SEO.
+- Añadidas validaciones automáticas de JSON, activos, eventos y sitemap tanto en build como en pull requests.
 
 ## 2026-06-19
 
