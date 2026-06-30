@@ -16,6 +16,9 @@
     "secondary_cta": "Conéixer el roster",
     "scroll": "Scroll"
   },
+  "common": {
+    "back_to_top": "Tornar amunt"
+  },
   "seo": {
     "home": {
       "title": "Lynx Racing Spain Team | Equip de simracing multisimulador",
@@ -98,6 +101,9 @@
     "order_cta": "Demanar per Instagram",
     "instagram_cta": "Obrir Instagram",
     "discord_cta": "Obrir Discord",
+    "carousel_prev": "Imatge anterior",
+    "carousel_next": "Imatge següent",
+    "carousel_go_to": "Anar a la imatge {{index}}",
     "products": {
       "tshirt": "Samarreta oficial",
       "gloves": "Guants de simracing",
@@ -110,7 +116,10 @@
     "section_label": "Fotos i vídeos",
     "page_title": "Multimèdia",
     "gallery_title": "Fotos i vídeos de l'equip",
-    "videos_title": "Vídeos"
+    "videos_title": "Vídeos",
+    "close_lightbox": "Tancar visor",
+    "previous_item": "Element anterior",
+    "next_item": "Element següent"
   },
   "roster": {
     "hero_label": "Lynx Racing Spain",
@@ -125,6 +134,12 @@
     "streams_label": "En directe",
     "streams": "Directes de l'equip",
     "streams_intro": "Ací tens el canal principal i l'accés ràpid a la resta de directes de l'equip.",
+    "main_channel_title": "Canal principal",
+    "main_channel_text": "Directe principal de Lynx amb accés compacte a la resta de pilots.",
+    "main_channel_badge": "Directe principal de l'equip",
+    "other_channels_title": "Altres canals",
+    "other_channels_count_one": "{{count}} canal disponible",
+    "other_channels_count_other": "{{count}} canals disponibles",
     "stats": {
       "management": "Staff",
       "drivers": "Pilots",
@@ -156,7 +171,9 @@
     "car_pending": "Model per confirmar",
     "drivers": "Pilots",
     "gt3_lineup": "Alineació prevista",
-    "lineup_note": "Participació i cotxe subjectes a confirmació final"
+    "lineup_note": "Participació i cotxe subjectes a confirmació final",
+    "countdown_one": "En {{count}} dia",
+    "countdown_other": "En {{count}} dies"
   },
   "contact": {
     "page_title": "Contacte",
@@ -166,7 +183,7 @@
     "email": "Correu",
     "join_label": "Uneix-te o col·labora",
     "join_title": "Vols entrar a l'equip o col·laborar amb Lynx?",
-    "join_text": "Si t'interessa competir amb nosaltres, fer comunitat o donar suport al projecte com a partner, estos són els canals més directes per parlar amb l'equip.",
+    "join_text": "Si t'interessa competir amb nosaltres, fer comunitat o donar suport al projecte com a partner, aquests són els canals més directes per parlar amb l'equip.",
     "join_discord": "Parlar per Discord",
     "join_email": "Escriure per correu"
   },

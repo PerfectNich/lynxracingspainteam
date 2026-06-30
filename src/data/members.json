@@ -17,7 +17,7 @@
     { "name": "Javi Castello", "dorsal": "814", "country": "spain", "twitch": "castello814" },
     { "name": "Ruben Juarez", "dorsal": "95", "country": "spain", "twitch": null },
     { "name": "Aida Bueno", "dorsal": "13", "country": "cat", "twitch": "aidabp" },
-    { "name": "Francisco Sierra", "dorsal": "2", "country": "spain", "twitch": "Kikologo" },
+    { "name": "Francisco Sierra", "dorsal": "2", "country": "spain", "twitch": "kikologo" },
     { "name": "Javi Gras", "dorsal": "99", "country": "aragon", "twitch": "javi_gras", "portrait": "/img/gras.png", "portraitPosition": "center 18%" },
     { "name": "Jordi Capdevila", "dorsal": "71", "country": "cat", "twitch": "capi71" },
     { "name": "Luis Ungo", "dorsal": "63", "country": "valencia", "twitch": null },
@@ -49,6 +49,7 @@
     "aidabp",
     "javi_gras",
     "capi71",
+    "oniobagt",
     "chibitowo",
     "marckitos21"
   ]

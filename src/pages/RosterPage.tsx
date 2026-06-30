@@ -282,13 +282,13 @@ export function RosterPage() {
                     className="text-white font-bold"
                     style={{ fontFamily: 'var(--font-orbitron)' }}
                   >
-                    Canal principal
+                    {t("roster.main_channel_title")}
                   </p>
                   <p
                     className="text-sm text-lynx-text/65"
                     style={{ fontFamily: 'var(--font-rajdhani)' }}
                   >
-                    Directo principal de Lynx con acceso compacto al resto de pilotos.
+                    {t("roster.main_channel_text")}
                   </p>
                 </div>
               </div>
@@ -312,7 +312,7 @@ export function RosterPage() {
                   className="block text-sm text-lynx-text/65 mt-1"
                   style={{ fontFamily: 'var(--font-rajdhani)' }}
                 >
-                  Directo principal del equipo
+                  {t("roster.main_channel_badge")}
                 </span>
               </button>
 
@@ -331,13 +331,13 @@ export function RosterPage() {
                       className="text-white font-bold"
                       style={{ fontFamily: 'var(--font-orbitron)', fontSize: '0.85rem' }}
                     >
-                      Otros canales
+                      {t("roster.other_channels_title")}
                     </p>
                     <p
                       className="text-sm text-lynx-text/60 mt-1"
                       style={{ fontFamily: 'var(--font-rajdhani)' }}
                     >
-                      {secondaryChannels.length} canales disponibles
+                      {t("roster.other_channels_count", { count: secondaryChannels.length })}
                     </p>
                   </div>
                   <FaChevronDown

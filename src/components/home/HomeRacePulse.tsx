@@ -6,10 +6,20 @@ import teamEvent from "../../data/team-event.json";
 
 const eventDate = (value: string) => new Date(`${value}T12:00:00`);
 
+function getDaysUntil(dateValue: string) {
+  const today = new Date();
+  const todayMidday = new Date(today.getFullYear(), today.getMonth(), today.getDate(), 12, 0, 0);
+  const event = eventDate(dateValue);
+  const diffMs = event.getTime() - todayMidday.getTime();
+
+  return Math.max(0, Math.ceil(diffMs / (1000 * 60 * 60 * 24)));
+}
+
 export function HomeRacePulse() {
   const { t, i18n } = useTranslation();
   const prefix = i18n.language === "en" ? "/en" : i18n.language === "ca" ? "/ca" : "";
   const calendarPath = `${prefix}/agenda`;
+  const daysUntilStart = getDaysUntil(teamEvent.startDate);
 
   const locale = i18n.language === "en" ? "en-GB" : i18n.language === "ca" ? "ca-ES" : "es-ES";
   const formattedDate = `${new Intl.DateTimeFormat(locale, {
@@ -52,12 +62,20 @@ export function HomeRacePulse() {
           transition={{ duration: 0.45, ease: "easeOut" }}
           className="rounded-2xl border border-lynx-border bg-gradient-to-br from-lynx-orange/10 via-black/20 to-black/30 p-5 md:p-6"
         >
-          <h3
-            className="mb-5 text-xl font-black text-white md:text-2xl"
-            style={{ fontFamily: "var(--font-orbitron)" }}
-          >
-            {teamEvent.title}
-          </h3>
+          <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
+            <h3
+              className="text-xl font-black text-white md:text-2xl"
+              style={{ fontFamily: "var(--font-orbitron)" }}
+            >
+              {teamEvent.title}
+            </h3>
+            <span
+              className="rounded-full border border-lynx-orange/30 bg-lynx-orange/10 px-3 py-1 text-xs uppercase tracking-[0.2em] text-lynx-orange"
+              style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 700 }}
+            >
+              {t("calendar.countdown", { count: daysUntilStart })}
+            </span>
+          </div>
 
           <div className="mb-5 grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div className="rounded-xl border border-white/8 bg-black/20 px-4 py-3">

@@ -16,6 +16,9 @@
     "secondary_cta": "Meet the roster",
     "scroll": "Scroll"
   },
+  "common": {
+    "back_to_top": "Back to top"
+  },
   "seo": {
     "home": {
       "title": "Lynx Racing Spain Team | Multi-simulator simracing team",
@@ -98,6 +101,9 @@
     "order_cta": "Order via Instagram",
     "instagram_cta": "Open Instagram",
     "discord_cta": "Open Discord",
+    "carousel_prev": "Previous image",
+    "carousel_next": "Next image",
+    "carousel_go_to": "Go to image {{index}}",
     "products": {
       "tshirt": "Official T-Shirt",
       "gloves": "Simracing Gloves",
@@ -110,7 +116,10 @@
     "section_label": "Photos & videos",
     "page_title": "Media",
     "gallery_title": "Team photos and videos",
-    "videos_title": "Videos"
+    "videos_title": "Videos",
+    "close_lightbox": "Close viewer",
+    "previous_item": "Previous item",
+    "next_item": "Next item"
   },
   "roster": {
     "hero_label": "Lynx Racing Spain",
@@ -125,6 +134,12 @@
     "streams_label": "Live now",
     "streams": "Team streams",
     "streams_intro": "Here you can jump into the main channel and quickly access the rest of the team streams.",
+    "main_channel_title": "Main channel",
+    "main_channel_text": "Lynx main stream with compact access to the rest of the drivers.",
+    "main_channel_badge": "Main team stream",
+    "other_channels_title": "Other channels",
+    "other_channels_count_one": "{{count}} channel available",
+    "other_channels_count_other": "{{count}} channels available",
     "stats": {
       "management": "Staff",
       "drivers": "Drivers",
@@ -156,7 +171,9 @@
     "car_pending": "Model to be confirmed",
     "drivers": "Drivers",
     "gt3_lineup": "Planned line-up",
-    "lineup_note": "Entry and car are subject to final confirmation"
+    "lineup_note": "Entry and car are subject to final confirmation",
+    "countdown_one": "In {{count}} day",
+    "countdown_other": "In {{count}} days"
   },
   "contact": {
     "page_title": "Contact",

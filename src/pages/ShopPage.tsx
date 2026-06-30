@@ -37,14 +37,14 @@ function ProductCard({ product }: { product: Product }) {
             <button
               onClick={() => setIndex((value) => (value - 1 + total) % total)}
               className="absolute left-2 top-1/2 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-white/10 bg-black/60 text-white opacity-0 transition-opacity duration-200 hover:bg-lynx-orange hover:text-black group-hover:opacity-100"
-              aria-label="Anterior"
+              aria-label={t("shop.carousel_prev")}
             >
               <FaChevronLeft size={12} />
             </button>
             <button
               onClick={() => setIndex((value) => (value + 1) % total)}
               className="absolute right-2 top-1/2 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-white/10 bg-black/60 text-white opacity-0 transition-opacity duration-200 hover:bg-lynx-orange hover:text-black group-hover:opacity-100"
-              aria-label="Siguiente"
+              aria-label={t("shop.carousel_next")}
             >
               <FaChevronRight size={12} />
             </button>
@@ -54,6 +54,7 @@ function ProductCard({ product }: { product: Product }) {
                 <button
                   key={dotIndex}
                   onClick={() => setIndex(dotIndex)}
+                  aria-label={t("shop.carousel_go_to", { index: dotIndex + 1 })}
                   className={`h-1.5 w-1.5 rounded-full transition-all duration-200 ${
                     dotIndex === index ? "w-3 bg-lynx-orange" : "bg-white/40"
                   }`}

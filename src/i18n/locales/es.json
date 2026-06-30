@@ -16,6 +16,9 @@
     "secondary_cta": "Conocer el roster",
     "scroll": "Scroll"
   },
+  "common": {
+    "back_to_top": "Volver arriba"
+  },
   "seo": {
     "home": {
       "title": "Lynx Racing Spain Team | Equipo de simracing multisimulador",
@@ -98,6 +101,9 @@
     "order_cta": "Pedir por Instagram",
     "instagram_cta": "Abrir Instagram",
     "discord_cta": "Abrir Discord",
+    "carousel_prev": "Imagen anterior",
+    "carousel_next": "Siguiente imagen",
+    "carousel_go_to": "Ir a la imagen {{index}}",
     "products": {
       "tshirt": "Camiseta oficial",
       "gloves": "Guantes de simracing",
@@ -110,7 +116,10 @@
     "section_label": "Fotos y vídeos",
     "page_title": "Multimedia",
     "gallery_title": "Fotos y vídeos del equipo",
-    "videos_title": "Vídeos"
+    "videos_title": "Vídeos",
+    "close_lightbox": "Cerrar visor",
+    "previous_item": "Elemento anterior",
+    "next_item": "Siguiente elemento"
   },
   "roster": {
     "hero_label": "Lynx Racing Spain",
@@ -125,6 +134,12 @@
     "streams_label": "En directo",
     "streams": "Directos del equipo",
     "streams_intro": "Aquí tienes el canal principal y el acceso rápido al resto de directos del equipo.",
+    "main_channel_title": "Canal principal",
+    "main_channel_text": "Directo principal de Lynx con acceso compacto al resto de pilotos.",
+    "main_channel_badge": "Directo principal del equipo",
+    "other_channels_title": "Otros canales",
+    "other_channels_count_one": "{{count}} canal disponible",
+    "other_channels_count_other": "{{count}} canales disponibles",
     "stats": {
       "management": "Staff",
       "drivers": "Pilotos",
@@ -156,7 +171,9 @@
     "car_pending": "Modelo por confirmar",
     "drivers": "Pilotos",
     "gt3_lineup": "Alineación prevista",
-    "lineup_note": "Participación y coche sujetos a confirmación final"
+    "lineup_note": "Participación y coche sujetos a confirmación final",
+    "countdown_one": "En {{count}} día",
+    "countdown_other": "En {{count}} días"
   },
   "contact": {
     "page_title": "Contacto",

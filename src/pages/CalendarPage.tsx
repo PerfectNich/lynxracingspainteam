@@ -6,9 +6,19 @@ import teamEvent from "../data/team-event.json";
 
 const eventDate = (value: string) => new Date(`${value}T12:00:00`);
 
+function getDaysUntil(dateValue: string) {
+  const today = new Date();
+  const todayMidday = new Date(today.getFullYear(), today.getMonth(), today.getDate(), 12, 0, 0);
+  const event = eventDate(dateValue);
+  const diffMs = event.getTime() - todayMidday.getTime();
+
+  return Math.max(0, Math.ceil(diffMs / (1000 * 60 * 60 * 24)));
+}
+
 export function CalendarPage() {
   const { t, i18n } = useTranslation();
   const locale = i18n.language === "en" ? "en-GB" : i18n.language === "ca" ? "ca-ES" : "es-ES";
+  const daysUntilStart = getDaysUntil(teamEvent.startDate);
   const dateRange = `${new Intl.DateTimeFormat(locale, {
     day: "numeric",
     month: "long",
@@ -111,6 +121,14 @@ export function CalendarPage() {
               >
                 {teamEvent.title}
               </h2>
+              <div className="mt-4 inline-flex rounded-full border border-lynx-orange/30 bg-lynx-orange/10 px-4 py-2">
+                <span
+                  className="text-xs uppercase tracking-[0.22em] text-lynx-orange"
+                  style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 700 }}
+                >
+                  {t("calendar.countdown", { count: daysUntilStart })}
+                </span>
+              </div>
 
               <div className="mt-7 grid gap-3 sm:grid-cols-2">
                 <div className="rounded-2xl border border-white/8 bg-black/20 p-4">

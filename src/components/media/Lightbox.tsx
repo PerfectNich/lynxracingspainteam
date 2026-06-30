@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import { createPortal } from "react-dom";
 import { FaChevronLeft, FaChevronRight, FaTimes } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 import type { MediaItem } from "../../types";
 import { assetUrl } from "../../utils/assetUrl";
 
@@ -12,6 +13,7 @@ interface LightboxProps {
 }
 
 export function Lightbox({ items, currentIndex, onClose, onNavigate }: LightboxProps) {
+  const { t } = useTranslation();
   const videoRef = useRef<HTMLVideoElement>(null);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
@@ -106,7 +108,7 @@ export function Lightbox({ items, currentIndex, onClose, onNavigate }: LightboxP
       <button
         onClick={handleClose}
         className="absolute top-4 right-4 text-white text-2xl hover:text-lynx-orange transition-colors z-10"
-        aria-label="Close"
+        aria-label={t("media.close_lightbox")}
       >
         <FaTimes />
       </button>
@@ -115,7 +117,7 @@ export function Lightbox({ items, currentIndex, onClose, onNavigate }: LightboxP
       <button
         onClick={(e) => { e.stopPropagation(); handlePrev(); }}
         className="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 text-white text-4xl hover:text-lynx-orange transition-colors z-10 bg-black/50 p-3 rounded-full"
-        aria-label="Previous"
+        aria-label={t("media.previous_item")}
       >
         <FaChevronLeft />
       </button>
@@ -124,7 +126,7 @@ export function Lightbox({ items, currentIndex, onClose, onNavigate }: LightboxP
       <button
         onClick={(e) => { e.stopPropagation(); handleNext(); }}
         className="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 text-white text-4xl hover:text-lynx-orange transition-colors z-10 bg-black/50 p-3 rounded-full"
-        aria-label="Next"
+        aria-label={t("media.next_item")}
       >
         <FaChevronRight />
       </button>

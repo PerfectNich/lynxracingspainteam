@@ -70,6 +70,72 @@ if (Array.isArray(products)) {
 }
 
 const event = data["team-event.json"];
+const members = data["members.json"];
+
+if (members) {
+  const management = Array.isArray(members.management) ? members.management : [];
+  const drivers = Array.isArray(members.drivers) ? members.drivers : [];
+  const twitchChannels = Array.isArray(members.twitchChannels) ? members.twitchChannels : [];
+  const roster = [...management, ...drivers];
+  const memberNames = roster.map((member) => member.name).filter(Boolean);
+  const duplicateNames = memberNames.filter((name, index) => memberNames.indexOf(name) !== index);
+  const availableFlags = new Set(
+    fs
+      .readdirSync(path.join(publicDir, "banderas"))
+      .map((file) => path.parse(file).name.toLowerCase()),
+  );
+
+  if (management.length === 0) fail("members.json necesita al menos un miembro en management");
+  if (drivers.length === 0) fail("members.json necesita al menos un piloto en drivers");
+  if (duplicateNames.length > 0) {
+    fail(`members.json contiene nombres duplicados: ${[...new Set(duplicateNames)].join(", ")}`);
+  }
+
+  for (const member of roster) {
+    if (!member.name || !member.country) {
+      fail("members.json contiene miembros sin nombre o bandera");
+      continue;
+    }
+
+    if (!availableFlags.has(String(member.country).toLowerCase())) {
+      fail(`members.json usa una bandera sin archivo asociado: ${member.country}`);
+    }
+
+    if (member.portrait) {
+      const portraitPath = path.join(publicDir, member.portrait.replace(/^\//, ""));
+      if (!fs.existsSync(portraitPath)) {
+        fail(`No existe el portrait referenciado para ${member.name}: ${member.portrait}`);
+      }
+    }
+  }
+
+  const memberChannels = roster
+    .map((member) => member.twitch)
+    .filter((channel) => typeof channel === "string" && channel.trim().length > 0);
+  const duplicateChannels = twitchChannels.filter(
+    (channel, index) => twitchChannels.indexOf(channel) !== index,
+  );
+
+  if (!twitchChannels.includes("lynxracingspainteam")) {
+    fail('members.json debe incluir el canal principal "lynxracingspainteam"');
+  }
+  if (duplicateChannels.length > 0) {
+    fail(`members.json contiene canales Twitch duplicados: ${[...new Set(duplicateChannels)].join(", ")}`);
+  }
+
+  for (const channel of memberChannels) {
+    if (!twitchChannels.includes(channel)) {
+      fail(`Falta el canal Twitch ${channel} dentro de twitchChannels`);
+    }
+  }
+
+  for (const channel of twitchChannels) {
+    if (channel !== "lynxracingspainteam" && !memberChannels.includes(channel)) {
+      fail(`twitchChannels contiene ${channel} pero no esta asignado a ningun miembro`);
+    }
+  }
+}
+
 if (event) {
   const start = new Date(`${event.startDate}T12:00:00`);
   const end = new Date(`${event.endDate}T12:00:00`);
@@ -80,6 +146,18 @@ if (event) {
   }
   if (!Array.isArray(event.drivers) || event.drivers.length === 0) {
     fail("team-event.json necesita al menos un piloto");
+  }
+  if (members && Array.isArray(event.drivers)) {
+    const rosterNames = new Set(
+      [...(members.management ?? []), ...(members.drivers ?? [])]
+        .map((member) => member.name)
+        .filter(Boolean),
+    );
+    for (const driver of event.drivers) {
+      if (!rosterNames.has(driver)) {
+        fail(`team-event.json usa un piloto no presente en members.json: ${driver}`);
+      }
+    }
   }
 }
 
