@@ -9,7 +9,7 @@ interface PalmaresEntry {
   pos: number;
   event: string;
   simulator: string;
-  driverCount: number;
+  drivers: string[];
   car: string;
   year: number;
 }
@@ -19,7 +19,7 @@ const DATA: PalmaresEntry[] = [
     pos: 1,
     event: "Resistencia 4h Barcelona - Benéfica de La Cueva",
     simulator: "ACC",
-    driverCount: 2,
+    drivers: ["Kiko Ribes", "Xavier Sobrerroca"],
     car: "porsche",
     year: 2023,
   },
@@ -27,7 +27,7 @@ const DATA: PalmaresEntry[] = [
     pos: 1,
     event: "Campeonato CNE II - VRGirona",
     simulator: "ACC",
-    driverCount: 3,
+    drivers: ["Juan Serrano", "Josh Mopar", "Xavier Sobrerroca"],
     car: "aston",
     year: 2023,
   },
@@ -35,7 +35,7 @@ const DATA: PalmaresEntry[] = [
     pos: 2,
     event: "Resistencia 8h Suzuka - CER-V",
     simulator: "ACC",
-    driverCount: 3,
+    drivers: ["Dani Gala", "Juan Serrano", "Jorge Pola"],
     car: "aston",
     year: 2022,
   },
@@ -43,7 +43,7 @@ const DATA: PalmaresEntry[] = [
     pos: 3,
     event: "Resistencia 9h Kyalami - CER-V",
     simulator: "ACC",
-    driverCount: 2,
+    drivers: ["Kiko Ribes", "Juan Serrano"],
     car: "aston",
     year: 2022,
   },
@@ -51,7 +51,7 @@ const DATA: PalmaresEntry[] = [
     pos: 4,
     event: "Endurance 4h Titanium Red",
     simulator: "ACC",
-    driverCount: 2,
+    drivers: ["Jordi Capdevila", "Francisco Sierra"],
     car: "ferrari",
     year: 2025,
   },
@@ -59,7 +59,13 @@ const DATA: PalmaresEntry[] = [
     pos: 7,
     event: "Resistencia 24h Nordschleife - Pitskill",
     simulator: "ACC",
-    driverCount: 5,
+    drivers: [
+      "Jordi Capdevila",
+      "Luis Ungo",
+      "Juan Serrano",
+      "Xavier Sobrerroca",
+      "Albert Gombau",
+    ],
     car: "ferrari",
     year: 2025,
   },
@@ -67,7 +73,13 @@ const DATA: PalmaresEntry[] = [
     pos: 2,
     event: "Resistencia 24h Daytona",
     simulator: "iRacing",
-    driverCount: 5,
+    drivers: [
+      "Jordi Capdevila",
+      "Jesus Jimenez",
+      "Francisco Sierra",
+      "Luis Ungo",
+      "Xavier Sobrerroca",
+    ],
     car: "porsche",
     year: 2026,
   },
@@ -75,7 +87,14 @@ const DATA: PalmaresEntry[] = [
     pos: 2,
     event: "Resistencia 24h Nordschleife",
     simulator: "iRacing",
-    driverCount: 6,
+    drivers: [
+      "Relja Ljubobratovic",
+      "Marc Garcia",
+      "Rubén Juarez",
+      "Josh Mopar",
+      "Juan Serrano",
+      "Juanjo Morales",
+    ],
     car: "ford",
     year: 2026,
   },
@@ -83,7 +102,7 @@ const DATA: PalmaresEntry[] = [
     pos: 2,
     event: "Resistencia 12h Sebring",
     simulator: "iRacing",
-    driverCount: 3,
+    drivers: ["Nacho Jarrin", "Albert Gombau", "Fran Gambin"],
     car: "porsche",
     year: 2026,
   },
@@ -91,7 +110,7 @@ const DATA: PalmaresEntry[] = [
     pos: 3,
     event: "Resistencia 12h Mount Panorama",
     simulator: "iRacing",
-    driverCount: 3,
+    drivers: ["Angel Alvarado", "Albert Gombau", "Nacho Jarrin"],
     car: "mclaren",
     year: 2026,
   },
@@ -99,7 +118,7 @@ const DATA: PalmaresEntry[] = [
     pos: 4,
     event: "Resistencia 6h Watkins Glen",
     simulator: "iRacing",
-    driverCount: 2,
+    drivers: ["Albert Gombau", "Lalo Sanchez"],
     car: "acura",
     year: 2024,
   },
@@ -107,7 +126,7 @@ const DATA: PalmaresEntry[] = [
     pos: 4,
     event: "Resistencia 6h Sebring",
     simulator: "iRacing",
-    driverCount: 2,
+    drivers: ["Jordi Capdevila", "Francisco Sierra"],
     car: "porsche",
     year: 2026,
   },
@@ -167,7 +186,6 @@ function SummaryCard({ value, label }: { value: string; label: string }) {
 }
 
 function HighlightCard({ entry }: { entry: PalmaresEntry }) {
-  const { t } = useTranslation();
   const style = podiumStyle(entry.pos);
 
   return (
@@ -200,14 +218,13 @@ function HighlightCard({ entry }: { entry: PalmaresEntry }) {
         className="mt-3 text-sm text-lynx-text/70"
         style={{ fontFamily: "var(--font-rajdhani)" }}
       >
-        {t("palmares.private_lineup_summary", { count: entry.driverCount })}
+        {entry.drivers.join(" · ")}
       </p>
     </div>
   );
 }
 
 function AccordionItem({ entry, index }: { entry: PalmaresEntry; index: number }) {
-  const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const style = podiumStyle(entry.pos);
   const isFord = entry.car === "ford";
@@ -306,14 +323,19 @@ function AccordionItem({ entry, index }: { entry: PalmaresEntry; index: number }
                   className="mb-2 text-xs uppercase tracking-widest text-lynx-orange"
                   style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 700 }}
                 >
-                  {t("palmares.private_lineup_count", { count: entry.driverCount })}
+                  {entry.drivers.length} {entry.drivers.length === 1 ? "piloto" : "pilotos"}
                 </p>
-                <p
-                  className="max-w-xl text-sm text-lynx-text/72"
-                  style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 600 }}
-                >
-                  {t("palmares.private_lineup_note")}
-                </p>
+                <div className="flex flex-wrap gap-2">
+                  {entry.drivers.map((driver) => (
+                    <span
+                      key={driver}
+                      className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-sm text-white"
+                      style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 600 }}
+                    >
+                      {driver}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           </motion.div>

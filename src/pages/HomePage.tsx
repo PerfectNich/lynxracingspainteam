@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
-import { FaArrowRight, FaDiscord, FaInstagram } from "react-icons/fa";
+import { FaArrowRight, FaDiscord, FaEnvelope } from "react-icons/fa";
 import { Hero } from "../components/home/Hero";
 import { HomeRacePulse } from "../components/home/HomeRacePulse";
 import { MainSponsorSpotlight } from "../components/home/MainSponsorSpotlight";
@@ -180,14 +180,12 @@ export function HomePage() {
                 {t("contact.join_discord")}
               </a>
               <a
-                href="https://www.instagram.com/lynxracingspain/"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="mailto:lynxracingspain@gmail.com"
                 className="inline-flex items-center justify-center rounded-full border border-lynx-border px-6 py-3 text-sm tracking-widest text-white transition-all duration-300 hover:border-lynx-orange hover:text-lynx-orange"
                 style={{ fontFamily: "var(--font-orbitron)" }}
               >
-                <FaInstagram className="mr-2" size={14} aria-hidden="true" />
-                {t("contact.join_instagram")}
+                <FaEnvelope className="mr-2" size={14} aria-hidden="true" />
+                {t("contact.join_email")}
               </a>
             </div>
           </motion.div>

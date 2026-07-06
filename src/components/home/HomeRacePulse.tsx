@@ -97,7 +97,7 @@ export function HomeRacePulse() {
                 {t("home.pulse_format_label")}
               </p>
               <p className="text-white" style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 600 }}>
-                {teamEvent.category} · {teamEvent.teams} {t("calendar.gt3_team")} · {teamEvent.driverCount} {t("calendar.drivers_confirmed")}
+                {teamEvent.category} · {teamEvent.teams} {t("calendar.gt3_team")}
               </p>
             </div>
           </div>
