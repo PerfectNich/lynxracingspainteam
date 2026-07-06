@@ -34,7 +34,7 @@
     },
     "roster": {
       "title": "Roster | Lynx Racing Spain Team",
-      "description": "Coneix el roster de Lynx Racing Spain Team, amb pilots, staff i canals de Twitch de l'equip."
+      "description": "Coneix l'estructura pública de l'equip, amb staff, dorsals i canal principal de Twitch de Lynx Racing Spain Team."
     },
     "palmares": {
       "title": "Palmarès | Lynx Racing Spain Team",
@@ -46,7 +46,7 @@
     },
     "contact": {
       "title": "Contacte | Lynx Racing Spain Team",
-      "description": "Contacta amb Lynx Racing Spain Team i segueix-nos a Discord, Instagram, X, Twitch, Facebook i correu."
+      "description": "Contacta amb Lynx Racing Spain Team i segueix-nos a Discord, Instagram, X, Twitch i Facebook."
     }
   },
   "home": {
@@ -77,7 +77,7 @@
     "pulse_calendar_link": "Veure agenda",
     "team_label": "El nostre equip",
     "roster_title": "Roster de l'equip",
-    "roster_text": "Coneix els nostres pilots, l'staff i els canals de Twitch de l'equip.",
+    "roster_text": "Consulta l'estructura pública de l'equip, amb staff, dorsals i canal principal del team.",
     "roster_link": "Veure roster",
     "gallery_label": "Galeria",
     "gallery_title": "Multimèdia",
@@ -167,10 +167,13 @@
     "preparing": "En preparació",
     "entry": "Inscripció",
     "gt3_team": "equip GT3",
+    "drivers_confirmed": "pilots confirmats",
     "car": "Cotxe",
     "car_pending": "Model per confirmar",
     "drivers": "Pilots",
     "gt3_lineup": "Alineació prevista",
+    "private_lineup": "Alineació privada",
+    "lineup_private_note": "L'alineació completa es coordina internament. Només publiquem el nombre de pilots confirmats fins a tancar l'esdeveniment.",
     "lineup_note": "Participació i cotxe subjectes a confirmació final",
     "countdown_one": "En {{count}} dia",
     "countdown_other": "En {{count}} dies"
@@ -185,13 +188,19 @@
     "join_title": "Vols entrar a l'equip o col·laborar amb Lynx?",
     "join_text": "Si t'interessa competir amb nosaltres, fer comunitat o donar suport al projecte com a partner, aquests són els canals més directes per parlar amb l'equip.",
     "join_discord": "Parlar per Discord",
-    "join_email": "Escriure per correu"
+    "join_email": "Escriure per correu",
+    "join_instagram": "Parlar per Instagram"
   },
   "palmares": {
     "page_title": "Palmarès",
     "hero_label": "Èxits de l'equip",
     "intro": "A continuació mostrem les posicions destacades aconseguides per l'equip en els diferents simuladors.",
     "highlights_label": "Destacats",
+    "private_lineup_summary_one": "{{count}} pilot de l'equip",
+    "private_lineup_summary_other": "{{count}} pilots de l'equip",
+    "private_lineup_count_one": "{{count}} pilot confirmat",
+    "private_lineup_count_other": "{{count}} pilots confirmats",
+    "private_lineup_note": "El detall nominal de cada alineació no es mostra a la web pública per protegir la privadesa de l'equip.",
     "stats": {
       "wins": "Victòries",
       "podiums": "Podis",

@@ -144,20 +144,8 @@ if (event) {
   } else if (start > end) {
     fail("team-event.json termina antes de empezar");
   }
-  if (!Array.isArray(event.drivers) || event.drivers.length === 0) {
-    fail("team-event.json necesita al menos un piloto");
-  }
-  if (members && Array.isArray(event.drivers)) {
-    const rosterNames = new Set(
-      [...(members.management ?? []), ...(members.drivers ?? [])]
-        .map((member) => member.name)
-        .filter(Boolean),
-    );
-    for (const driver of event.drivers) {
-      if (!rosterNames.has(driver)) {
-        fail(`team-event.json usa un piloto no presente en members.json: ${driver}`);
-      }
-    }
+  if (!Number.isInteger(event.driverCount) || event.driverCount <= 0) {
+    fail("team-event.json necesita un driverCount valido");
   }
 }
 

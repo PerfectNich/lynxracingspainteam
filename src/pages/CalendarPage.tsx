@@ -196,31 +196,30 @@ export function CalendarPage() {
                     className="mt-1 text-sm text-lynx-text/55"
                     style={{ fontFamily: "var(--font-rajdhani)" }}
                   >
-                    {t("calendar.gt3_lineup")}
+                    {t("calendar.private_lineup")}
                   </p>
                 </div>
               </div>
 
-              <div className="space-y-2">
-                {teamEvent.drivers.map((driver, index) => (
-                  <div
-                    key={driver}
-                    className="flex items-center gap-3 rounded-xl border border-white/7 bg-black/20 px-4 py-3"
-                  >
-                    <span
-                      className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-lynx-orange/12 text-xs text-lynx-orange"
-                      style={{ fontFamily: "var(--font-orbitron)", fontWeight: 700 }}
-                    >
-                      {index + 1}
-                    </span>
-                    <span
-                      className="font-semibold text-white"
-                      style={{ fontFamily: "var(--font-rajdhani)" }}
-                    >
-                      {driver}
-                    </span>
-                  </div>
-                ))}
+              <div className="rounded-2xl border border-white/7 bg-black/20 p-5">
+                <p
+                  className="text-[11px] uppercase tracking-[0.24em] text-lynx-text/50"
+                  style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 700 }}
+                >
+                  {t("calendar.drivers_confirmed")}
+                </p>
+                <p
+                  className="mt-2 text-3xl font-black text-white"
+                  style={{ fontFamily: "var(--font-orbitron)" }}
+                >
+                  {teamEvent.driverCount}
+                </p>
+                <p
+                  className="mt-3 text-sm text-lynx-text/62"
+                  style={{ fontFamily: "var(--font-rajdhani)" }}
+                >
+                  {t("calendar.lineup_private_note")}
+                </p>
               </div>
 
               <div className="mt-5 flex items-center gap-2 text-sm text-lynx-text/55">

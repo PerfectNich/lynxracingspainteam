@@ -34,7 +34,7 @@
     },
     "roster": {
       "title": "Roster | Lynx Racing Spain Team",
-      "description": "Meet the Lynx Racing Spain Team roster, including drivers, staff members and Twitch channels."
+      "description": "Explore the public team structure, including staff, racing numbers and the main Lynx Racing Spain Team Twitch channel."
     },
     "palmares": {
       "title": "Achievements | Lynx Racing Spain Team",
@@ -46,7 +46,7 @@
     },
     "contact": {
       "title": "Contact | Lynx Racing Spain Team",
-      "description": "Get in touch with Lynx Racing Spain Team and follow us on Discord, Instagram, X, Twitch, Facebook and email."
+      "description": "Get in touch with Lynx Racing Spain Team and follow us on Discord, Instagram, X, Twitch and Facebook."
     }
   },
   "home": {
@@ -77,7 +77,7 @@
     "pulse_calendar_link": "View calendar",
     "team_label": "Our team",
     "roster_title": "Team roster",
-    "roster_text": "Meet our drivers, staff and the team's Twitch channels.",
+    "roster_text": "Explore the public team structure with staff, racing numbers and the main team channel.",
     "roster_link": "View roster",
     "gallery_label": "Gallery",
     "gallery_title": "Media",
@@ -167,10 +167,13 @@
     "preparing": "In preparation",
     "entry": "Entry",
     "gt3_team": "GT3 team",
+    "drivers_confirmed": "confirmed drivers",
     "car": "Car",
     "car_pending": "Model to be confirmed",
     "drivers": "Drivers",
     "gt3_lineup": "Planned line-up",
+    "private_lineup": "Private line-up",
+    "lineup_private_note": "The full line-up is coordinated internally. We only publish the number of confirmed drivers until the event is locked in.",
     "lineup_note": "Entry and car are subject to final confirmation",
     "countdown_one": "In {{count}} day",
     "countdown_other": "In {{count}} days"
@@ -185,13 +188,19 @@
     "join_title": "Want to join the team or work with Lynx?",
     "join_text": "If you want to race with us, grow the community or support the project as a partner, these are the fastest channels to speak with the team.",
     "join_discord": "Talk on Discord",
-    "join_email": "Send an email"
+    "join_email": "Send an email",
+    "join_instagram": "Talk on Instagram"
   },
   "palmares": {
     "page_title": "Achievements",
     "hero_label": "Team achievements",
     "intro": "Below you can find the standout results achieved by the team across different simulators.",
     "highlights_label": "Highlights",
+    "private_lineup_summary_one": "{{count}} team driver",
+    "private_lineup_summary_other": "{{count}} team drivers",
+    "private_lineup_count_one": "{{count}} confirmed driver",
+    "private_lineup_count_other": "{{count}} confirmed drivers",
+    "private_lineup_note": "The nominal detail of each line-up is hidden on the public website to protect team privacy.",
     "stats": {
       "wins": "Wins",
       "podiums": "Podiums",

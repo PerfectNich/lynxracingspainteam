@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import { FaArrowRight, FaDiscord, FaEnvelope, FaFacebook, FaInstagram, FaTwitch } from "react-icons/fa";
+import { FaArrowRight, FaDiscord, FaFacebook, FaInstagram, FaTwitch } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { GradientDots } from "@/components/ui/gradient-dots";
 
@@ -17,12 +17,6 @@ export function ContactPage() {
       url: "https://www.facebook.com/people/Lynxracingspainteam/100083332022870/",
       icon: FaFacebook,
       color: "#1877f2",
-    },
-    {
-      name: t("contact.email"),
-      url: "mailto:lynxracingspain@gmail.com",
-      icon: FaEnvelope,
-      color: "#ff6a00",
     },
   ];
 
@@ -142,12 +136,14 @@ export function ContactPage() {
               {t("contact.join_discord")}
             </a>
             <a
-              href="mailto:lynxracingspain@gmail.com"
+              href="https://www.instagram.com/lynxracingspain/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center rounded-full border border-lynx-border px-6 py-3 text-sm tracking-widest text-white transition-all duration-300 hover:border-lynx-orange hover:text-lynx-orange"
               style={{ fontFamily: "var(--font-orbitron)" }}
             >
-              <FaEnvelope className="mr-2" size={14} aria-hidden="true" />
-              {t("contact.join_email")}
+              <FaInstagram className="mr-2" size={14} aria-hidden="true" />
+              {t("contact.join_instagram")}
             </a>
           </div>
         </div>

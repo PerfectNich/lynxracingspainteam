@@ -320,57 +320,59 @@ export function RosterPage() {
                 <TwitchEmbed channel={selectedChannel} height={320} />
               )}
 
-              <div className="rounded-xl border border-lynx-border overflow-hidden">
-                <button
-                  type="button"
-                  onClick={() => setOtherChannelsOpen((open) => !open)}
-                  className="w-full flex items-center justify-between gap-4 px-4 py-3 text-left hover:bg-white/3 transition-colors"
-                >
-                  <div>
-                    <p
-                      className="text-white font-bold"
-                      style={{ fontFamily: 'var(--font-orbitron)', fontSize: '0.85rem' }}
-                    >
-                      {t("roster.other_channels_title")}
-                    </p>
-                    <p
-                      className="text-sm text-lynx-text/60 mt-1"
-                      style={{ fontFamily: 'var(--font-rajdhani)' }}
-                    >
-                      {t("roster.other_channels_count", { count: secondaryChannels.length })}
-                    </p>
-                  </div>
-                  <FaChevronDown
-                    className={`text-lynx-orange transition-transform duration-300 ${otherChannelsOpen ? "rotate-180" : ""}`}
-                  />
-                </button>
-
-                {otherChannelsOpen && (
-                  <div className="border-t border-lynx-border p-4">
-                    <div className="flex flex-wrap gap-2">
-                      {secondaryChannels.map((channel) => {
-                        const active = channel === selectedChannel;
-
-                        return (
-                          <button
-                            key={channel}
-                            type="button"
-                            onClick={() => setSelectedChannel(channel)}
-                            className={`px-3 py-2 rounded-full border text-sm transition-all ${
-                              active
-                                ? "border-[#9146ff] bg-[#9146ff]/15 text-white"
-                                : "border-lynx-border text-lynx-text/70 hover:border-[#9146ff]/40 hover:text-white"
-                            }`}
-                            style={{ fontFamily: 'var(--font-rajdhani)', fontWeight: 700 }}
-                          >
-                            {channel}
-                          </button>
-                        );
-                      })}
+              {secondaryChannels.length > 0 && (
+                <div className="rounded-xl border border-lynx-border overflow-hidden">
+                  <button
+                    type="button"
+                    onClick={() => setOtherChannelsOpen((open) => !open)}
+                    className="w-full flex items-center justify-between gap-4 px-4 py-3 text-left hover:bg-white/3 transition-colors"
+                  >
+                    <div>
+                      <p
+                        className="text-white font-bold"
+                        style={{ fontFamily: 'var(--font-orbitron)', fontSize: '0.85rem' }}
+                      >
+                        {t("roster.other_channels_title")}
+                      </p>
+                      <p
+                        className="text-sm text-lynx-text/60 mt-1"
+                        style={{ fontFamily: 'var(--font-rajdhani)' }}
+                      >
+                        {t("roster.other_channels_count", { count: secondaryChannels.length })}
+                      </p>
                     </div>
-                  </div>
-                )}
-              </div>
+                    <FaChevronDown
+                      className={`text-lynx-orange transition-transform duration-300 ${otherChannelsOpen ? "rotate-180" : ""}`}
+                    />
+                  </button>
+
+                  {otherChannelsOpen && (
+                    <div className="border-t border-lynx-border p-4">
+                      <div className="flex flex-wrap gap-2">
+                        {secondaryChannels.map((channel) => {
+                          const active = channel === selectedChannel;
+
+                          return (
+                            <button
+                              key={channel}
+                              type="button"
+                              onClick={() => setSelectedChannel(channel)}
+                              className={`px-3 py-2 rounded-full border text-sm transition-all ${
+                                active
+                                  ? "border-[#9146ff] bg-[#9146ff]/15 text-white"
+                                  : "border-lynx-border text-lynx-text/70 hover:border-[#9146ff]/40 hover:text-white"
+                              }`}
+                              style={{ fontFamily: 'var(--font-rajdhani)', fontWeight: 700 }}
+                            >
+                              {channel}
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
             </div>
           </div>
         </motion.div>

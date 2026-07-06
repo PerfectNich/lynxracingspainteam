@@ -34,7 +34,7 @@
     },
     "roster": {
       "title": "Roster | Lynx Racing Spain Team",
-      "description": "Conoce el roster de Lynx Racing Spain Team, con pilotos, staff y canales de Twitch del equipo."
+      "description": "Conoce la estructura pública del equipo, con staff, dorsales y canal principal de Twitch de Lynx Racing Spain Team."
     },
     "palmares": {
       "title": "Palmarés | Lynx Racing Spain Team",
@@ -46,7 +46,7 @@
     },
     "contact": {
       "title": "Contacto | Lynx Racing Spain Team",
-      "description": "Contacta con Lynx Racing Spain Team y síguenos en Discord, Instagram, X, Twitch, Facebook y correo."
+      "description": "Contacta con Lynx Racing Spain Team y síguenos en Discord, Instagram, X, Twitch y Facebook."
     }
   },
   "home": {
@@ -77,7 +77,7 @@
     "pulse_calendar_link": "Ver agenda",
     "team_label": "Nuestro equipo",
     "roster_title": "Roster del equipo",
-    "roster_text": "Conoce a nuestros pilotos, el staff y los canales de Twitch del equipo.",
+    "roster_text": "Consulta la estructura pública del equipo, con staff, dorsales y canal principal del team.",
     "roster_link": "Ver roster",
     "gallery_label": "Galería",
     "gallery_title": "Multimedia",
@@ -167,10 +167,13 @@
     "preparing": "En preparación",
     "entry": "Inscripción",
     "gt3_team": "equipo GT3",
+    "drivers_confirmed": "pilotos confirmados",
     "car": "Coche",
     "car_pending": "Modelo por confirmar",
     "drivers": "Pilotos",
     "gt3_lineup": "Alineación prevista",
+    "private_lineup": "Alineación privada",
+    "lineup_private_note": "La alineación completa se coordina de forma interna. Publicamos solo el número de pilotos confirmados hasta cerrar el evento.",
     "lineup_note": "Participación y coche sujetos a confirmación final",
     "countdown_one": "En {{count}} día",
     "countdown_other": "En {{count}} días"
@@ -185,13 +188,19 @@
     "join_title": "¿Quieres entrar al equipo o colaborar con Lynx?",
     "join_text": "Si te interesa competir con nosotros, hacer comunidad o apoyar el proyecto como partner, estos son los canales más directos para hablar con el equipo.",
     "join_discord": "Hablar por Discord",
-    "join_email": "Escribir por correo"
+    "join_email": "Escribir por correo",
+    "join_instagram": "Hablar por Instagram"
   },
   "palmares": {
     "page_title": "Palmarés",
     "hero_label": "Logros del equipo",
     "intro": "A continuación mostramos los puestos destacados conseguidos por el equipo en los diferentes simuladores.",
     "highlights_label": "Destacados",
+    "private_lineup_summary_one": "{{count}} piloto del equipo",
+    "private_lineup_summary_other": "{{count}} pilotos del equipo",
+    "private_lineup_count_one": "{{count}} piloto confirmado",
+    "private_lineup_count_other": "{{count}} pilotos confirmados",
+    "private_lineup_note": "El detalle nominal de cada alineación no se muestra en la web pública por privacidad del equipo.",
     "stats": {
       "wins": "Victorias",
       "podiums": "Podios",

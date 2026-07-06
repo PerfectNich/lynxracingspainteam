@@ -6,11 +6,5 @@
   "category": "GT3",
   "teams": 1,
   "car": null,
-  "drivers": [
-    "Francisco Sierra",
-    "Luis Ungo",
-    "Jordi Capdevila",
-    "Emiliano Sturniolo",
-    "Jesus Jimenez"
-  ]
+  "driverCount": 5
 }
