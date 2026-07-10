@@ -177,13 +177,16 @@
     "preparing": "In preparation",
     "entry": "Entry",
     "gt3_team": "GT3 team",
+    "team_entries": "entries",
     "car": "Car",
     "car_pending": "Model to be confirmed",
     "drivers": "Drivers",
     "gt3_lineup": "Planned line-up",
+    "team_lineups": "Confirmed line-ups",
     "lineup_note": "Entry and car are subject to final confirmation",
     "countdown_one": "In {{count}} day",
-    "countdown_other": "In {{count}} days"
+    "countdown_other": "In {{count}} days",
+    "countdown": "In {{count}} days"
   },
   "contact": {
     "page_title": "Contact",

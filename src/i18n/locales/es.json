@@ -177,13 +177,16 @@
     "preparing": "En preparación",
     "entry": "Inscripción",
     "gt3_team": "equipo GT3",
+    "team_entries": "equipos inscritos",
     "car": "Coche",
     "car_pending": "Modelo por confirmar",
     "drivers": "Pilotos",
     "gt3_lineup": "Alineación prevista",
+    "team_lineups": "Alineaciones confirmadas",
     "lineup_note": "Participación y coche sujetos a confirmación final",
     "countdown_one": "En {{count}} día",
-    "countdown_other": "En {{count}} días"
+    "countdown_other": "En {{count}} días",
+    "countdown": "En {{count}} días"
   },
   "contact": {
     "page_title": "Contacto",

@@ -3,14 +3,34 @@
   "startDate": "2026-07-11",
   "endDate": "2026-07-13",
   "simulator": "iRacing",
-  "category": "GT3",
-  "teams": 1,
-  "car": null,
-  "drivers": [
-    "Francisco Sierra",
-    "Luis Ungo",
-    "Jordi Capdevila",
-    "Emiliano Sturniolo",
-    "Jesus Jimenez"
+  "category": "GT3 + LMP2",
+  "teams": 2,
+  "car": "Dallara LMP2 · Ferrari GT3",
+  "drivers": [],
+  "entries": [
+    {
+      "name": "Orange",
+      "category": "LMP2",
+      "car": "Dallara LMP2",
+      "drivers": [
+        "Albert Gombau",
+        "Juanjo Morales",
+        "Marc Garcia",
+        "Angel Alvarado",
+        "Relja Ljubobratovic"
+      ]
+    },
+    {
+      "name": "Blue",
+      "category": "GT3",
+      "car": "Ferrari GT3",
+      "drivers": [
+        "Francisco Sierra",
+        "Jordi Capdevila",
+        "Luis Ungo",
+        "Emiliano Sturniolo",
+        "Jesus Jimenez"
+      ]
+    }
   ]
 }

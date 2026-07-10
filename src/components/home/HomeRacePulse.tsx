@@ -22,6 +22,7 @@ export function HomeRacePulse() {
   const daysUntilStart = getDaysUntil(teamEvent.startDate);
 
   const locale = i18n.language === "en" ? "en-GB" : i18n.language === "ca" ? "ca-ES" : "es-ES";
+  const entries = Array.isArray(teamEvent.entries) ? teamEvent.entries : [];
   const formattedDate = `${new Intl.DateTimeFormat(locale, {
     day: "numeric",
     month: "long",
@@ -97,10 +98,28 @@ export function HomeRacePulse() {
                 {t("home.pulse_format_label")}
               </p>
               <p className="text-white" style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 600 }}>
-                {teamEvent.category} · {teamEvent.teams} {t("calendar.gt3_team")}
+                {teamEvent.category} · {teamEvent.teams} {t("calendar.team_entries")}
               </p>
             </div>
           </div>
+
+          {entries.length > 0 ? (
+            <div className="grid gap-3 md:grid-cols-2">
+              {entries.map((entry) => (
+                <div key={entry.name} className="rounded-xl border border-white/8 bg-black/20 px-4 py-3">
+                  <p
+                    className="text-[11px] uppercase tracking-[0.25em] text-lynx-orange"
+                    style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 700 }}
+                  >
+                    {entry.name} · {entry.category}
+                  </p>
+                  <p className="mt-1 text-white" style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 600 }}>
+                    {entry.car}
+                  </p>
+                </div>
+              ))}
+            </div>
+          ) : null}
 
           <Link
             to={calendarPath}

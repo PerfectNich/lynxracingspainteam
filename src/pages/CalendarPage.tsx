@@ -18,6 +18,7 @@ function getDaysUntil(dateValue: string) {
 export function CalendarPage() {
   const { t, i18n } = useTranslation();
   const locale = i18n.language === "en" ? "en-GB" : i18n.language === "ca" ? "ca-ES" : "es-ES";
+  const entries = Array.isArray(teamEvent.entries) ? teamEvent.entries : [];
   const daysUntilStart = getDaysUntil(teamEvent.startDate);
   const dateRange = `${new Intl.DateTimeFormat(locale, {
     day: "numeric",
@@ -156,7 +157,7 @@ export function CalendarPage() {
                     className="text-lg font-bold text-white"
                     style={{ fontFamily: "var(--font-rajdhani)" }}
                   >
-                    {teamEvent.teams} {t("calendar.gt3_team")}
+                    {teamEvent.teams} {t("calendar.team_entries")}
                   </p>
                 </div>
               </div>
@@ -192,36 +193,71 @@ export function CalendarPage() {
                   >
                     {t("calendar.drivers")}
                   </p>
-                  <p
-                    className="mt-1 text-sm text-lynx-text/55"
-                    style={{ fontFamily: "var(--font-rajdhani)" }}
-                  >
-                    {t("calendar.gt3_lineup")}
+                  <p className="mt-1 text-sm text-lynx-text/55" style={{ fontFamily: "var(--font-rajdhani)" }}>
+                    {entries.length > 0 ? t("calendar.team_lineups") : t("calendar.gt3_lineup")}
                   </p>
                 </div>
               </div>
 
-              <div className="space-y-2">
-                {teamEvent.drivers.map((driver, index) => (
-                  <div
-                    key={driver}
-                    className="flex items-center gap-3 rounded-xl border border-white/7 bg-black/20 px-4 py-3"
-                  >
-                    <span
-                      className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-lynx-orange/12 text-xs text-lynx-orange"
-                      style={{ fontFamily: "var(--font-orbitron)", fontWeight: 700 }}
+              {entries.length > 0 ? (
+                <div className="space-y-4">
+                  {entries.map((entry) => (
+                    <div key={entry.name} className="rounded-2xl border border-white/7 bg-black/20 p-4">
+                      <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
+                        <div>
+                          <p
+                            className="text-xs uppercase tracking-[0.24em] text-lynx-orange"
+                            style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 700 }}
+                          >
+                            {entry.name}
+                          </p>
+                          <p className="mt-1 text-sm text-white" style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 700 }}>
+                            {entry.category} · {entry.car}
+                          </p>
+                        </div>
+                      </div>
+
+                      <div className="space-y-2">
+                        {entry.drivers.map((driver, index) => (
+                          <div
+                            key={`${entry.name}-${driver}`}
+                            className="flex items-center gap-3 rounded-xl border border-white/7 bg-black/20 px-4 py-3"
+                          >
+                            <span
+                              className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-lynx-orange/12 text-xs text-lynx-orange"
+                              style={{ fontFamily: "var(--font-orbitron)", fontWeight: 700 }}
+                            >
+                              {index + 1}
+                            </span>
+                            <span className="font-semibold text-white" style={{ fontFamily: "var(--font-rajdhani)" }}>
+                              {driver}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="space-y-2">
+                  {teamEvent.drivers.map((driver, index) => (
+                    <div
+                      key={driver}
+                      className="flex items-center gap-3 rounded-xl border border-white/7 bg-black/20 px-4 py-3"
                     >
-                      {index + 1}
-                    </span>
-                    <span
-                      className="font-semibold text-white"
-                      style={{ fontFamily: "var(--font-rajdhani)" }}
-                    >
-                      {driver}
-                    </span>
-                  </div>
-                ))}
-              </div>
+                      <span
+                        className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-lynx-orange/12 text-xs text-lynx-orange"
+                        style={{ fontFamily: "var(--font-orbitron)", fontWeight: 700 }}
+                      >
+                        {index + 1}
+                      </span>
+                      <span className="font-semibold text-white" style={{ fontFamily: "var(--font-rajdhani)" }}>
+                        {driver}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              )}
 
               <div className="mt-5 flex items-center gap-2 text-sm text-lynx-text/55">
                 <FaFlagCheckered className="text-lynx-orange" />
