@@ -2,6 +2,7 @@
 
 ## 2026-06-28
 
+- Automatizado el aviso flotante de Twitch en `Inicio` con sincronización periódica desde GitHub Actions.
 - Simplificada `Agenda` para mostrar únicamente las próximas carreras de iRacing.
 - Reorganizados los eventos con una próxima cita destacada y campeonatos agrupados en una parrilla más compacta.
 - Centrado el contenido de las tarjetas de `Tienda` para unificar la alineación de nombres, precios y acciones.

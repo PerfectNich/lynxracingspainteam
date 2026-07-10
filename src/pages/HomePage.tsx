@@ -7,6 +7,7 @@ import { HomeRacePulse } from "../components/home/HomeRacePulse";
 import { MainSponsorSpotlight } from "../components/home/MainSponsorSpotlight";
 import { SimulatorsGrid } from "../components/home/SimulatorsGrid";
 import { SponsorCarousel } from "../components/home/SponsorCarousel";
+import { LiveNowBadge } from "../components/home/LiveNowBadge";
 import { GradientDots } from "@/components/ui/gradient-dots";
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
@@ -93,6 +94,7 @@ export function HomePage() {
   return (
     <div className="overflow-x-hidden">
       <Hero />
+      <LiveNowBadge />
 
       <section className="relative bg-lynx-dark-card px-6 py-8 sm:py-10">
         <div className="absolute inset-0 overflow-hidden opacity-30">

@@ -86,6 +86,12 @@
     "main_sponsor_label": "Patrocinador principal",
     "main_sponsor_text": "El nostre partner principal impulsa l'equip dins i fora de pista. Descobreix la seua feina i segueix-lo a Instagram.",
     "main_sponsor_cta": "Veure Instagram",
+    "live_badge": {
+      "live_now": "En directe",
+      "watch": "Veure",
+      "team_live": "Hi ha activitat a Twitch ara mateix.",
+      "driver_live": "{{driver}} està ara mateix en directe."
+    },
     "contact_label": "Contacte",
     "contact_text": "Si vols seguir l'equip, col·laborar amb nosaltres o parlar de curses, ací tens els nostres canals principals.",
     "contact_title": "Contacte"
