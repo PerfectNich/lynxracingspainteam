@@ -7,6 +7,9 @@ type LiveStatus = {
   label: string;
   channelName: string;
   driverName?: string;
+  liveCount?: number;
+  additionalLiveCount?: number;
+  isMainChannelLive?: boolean;
   url: string;
   ctaUrl?: string;
 };
@@ -20,9 +23,20 @@ export function LiveNowBadge() {
     return null;
   }
 
-  const description = liveConfig.driverName
+  const liveCount = liveConfig.liveCount ?? 1;
+  const additionalLiveCount = liveConfig.additionalLiveCount ?? 0;
+
+  let description = liveConfig.driverName
     ? t("home.live_badge.driver_live", { driver: liveConfig.driverName })
     : t("home.live_badge.team_live");
+
+  if (liveConfig.isMainChannelLive) {
+    description = t("home.live_badge.main_channel_live");
+  }
+
+  if (liveCount > 1) {
+    description = t("home.live_badge.multiple_live", { count: liveCount });
+  }
 
   return (
     <div className="pointer-events-none fixed bottom-4 right-4 z-50 sm:bottom-6 sm:right-6">
@@ -60,6 +74,15 @@ export function LiveNowBadge() {
           >
             {description}
           </p>
+
+          {additionalLiveCount > 0 ? (
+            <p
+              className="mt-1 text-xs uppercase tracking-[0.18em] text-lynx-orange/80"
+              style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 700 }}
+            >
+              {t("home.live_badge.more_streams", { count: additionalLiveCount })}
+            </p>
+          ) : null}
         </div>
 
         <span

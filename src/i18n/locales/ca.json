@@ -90,7 +90,11 @@
       "live_now": "En directe",
       "watch": "Veure",
       "team_live": "Hi ha activitat a Twitch ara mateix.",
-      "driver_live": "{{driver}} està ara mateix en directe."
+      "driver_live": "{{driver}} està ara mateix en directe.",
+      "main_channel_live": "El canal principal de l'equip està en directe.",
+      "multiple_live": "{{count}} pilots de l'equip estan en directe.",
+      "more_streams": "+{{count}} directe més",
+      "more_streams_other": "+{{count}} directes més"
     },
     "contact_label": "Contacte",
     "contact_text": "Si vols seguir l'equip, col·laborar amb nosaltres o parlar de curses, ací tens els nostres canals principals.",

@@ -3,6 +3,9 @@
   "label": "Lynx Racing",
   "channelName": "",
   "driverName": "",
+  "liveCount": 0,
+  "additionalLiveCount": 0,
+  "isMainChannelLive": false,
   "url": "https://www.twitch.tv/lynxracingspainteam",
   "ctaUrl": "/roster"
 }

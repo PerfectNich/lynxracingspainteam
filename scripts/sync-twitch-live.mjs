@@ -75,6 +75,9 @@ function createDisabledState() {
     label: "Lynx Racing",
     channelName: "",
     driverName: "",
+    liveCount: 0,
+    additionalLiveCount: 0,
+    isMainChannelLive: false,
     url: "https://www.twitch.tv/lynxracingspainteam",
     ctaUrl: "/roster",
   };
@@ -99,9 +102,16 @@ async function main() {
     liveStreams.map((stream) => [String(stream.user_login).toLowerCase(), stream]),
   );
 
-  const priorityChannels = channels.filter((channel) => liveByChannel.has(channel.toLowerCase()));
+  const mainChannel = "lynxracingspainteam";
+  const priorityChannels = [
+    ...channels.filter((channel) => channel.toLowerCase() === mainChannel),
+    ...channels.filter((channel) => channel.toLowerCase() !== mainChannel),
+  ].filter((channel) => liveByChannel.has(channel.toLowerCase()));
   const selectedChannel = priorityChannels[0];
   const output = createDisabledState();
+  output.liveCount = liveStreams.length;
+  output.additionalLiveCount = Math.max(0, liveStreams.length - 1);
+  output.isMainChannelLive = liveByChannel.has(mainChannel);
 
   if (selectedChannel) {
     const stream = liveByChannel.get(selectedChannel.toLowerCase());

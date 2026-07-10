@@ -90,7 +90,11 @@
       "live_now": "En directo",
       "watch": "Ver",
       "team_live": "Hay actividad en Twitch ahora mismo.",
-      "driver_live": "{{driver}} está ahora mismo en directo."
+      "driver_live": "{{driver}} está ahora mismo en directo.",
+      "main_channel_live": "El canal principal del equipo está en directo.",
+      "multiple_live": "{{count}} pilotos del equipo están en directo.",
+      "more_streams": "+{{count}} directo más",
+      "more_streams_other": "+{{count}} directos más"
     },
     "contact_label": "Contacto",
     "contact_text": "Si quieres seguir al equipo, colaborar con nosotros o hablar de carreras, aquí tienes nuestros canales principales.",
