@@ -1,4 +1,5 @@
 [
+  { "type": "image", "src": "/media/lmp2.webp", "alt": "iRacing", "game": "iRacing" },
   { "type": "image", "src": "/media/mustang-nordschleife.webp", "alt": "iRacing", "game": "iRacing" },
   { "type": "image", "src": "/media/mustang2.webp", "alt": "iRacing", "game": "iRacing" },
   { "type": "image", "src": "/media/iracing-lynx-01.webp", "alt": "iRacing", "game": "iRacing" },
