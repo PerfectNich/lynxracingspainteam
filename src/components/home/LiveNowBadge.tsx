@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { FaCircle, FaTwitch } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 import liveStatus from "../../data/live-status.json";
@@ -28,6 +29,7 @@ function formatNameList(names: string[], language: string) {
 
 export function LiveNowBadge() {
   const { i18n, t } = useTranslation();
+  const [expanded, setExpanded] = useState(false);
 
   if (!liveConfig.enabled) {
     return null;
@@ -35,6 +37,23 @@ export function LiveNowBadge() {
 
   const liveCount = liveConfig.liveCount ?? 1;
   const additionalLiveCount = liveConfig.additionalLiveCount ?? 0;
+  const liveChannels = liveConfig.liveChannels?.filter(Boolean) ?? [];
+  const liveDrivers = liveConfig.liveDrivers?.filter(Boolean) ?? [];
+  const liveOptions =
+    liveChannels.length > 0
+      ? liveChannels.map((channel, index) => ({
+          channel,
+          label: liveDrivers[index] ?? channel,
+          url: `https://www.twitch.tv/${channel}`,
+        }))
+      : [
+          {
+            channel: liveConfig.channelName,
+            label: liveConfig.driverName ?? liveConfig.label,
+            url: liveConfig.url,
+          },
+        ];
+  const hasMultipleLiveOptions = liveOptions.length > 1;
 
   let description = liveConfig.driverName
     ? t("home.live_badge.driver_live", { driver: liveConfig.driverName })
@@ -45,8 +64,6 @@ export function LiveNowBadge() {
   }
 
   if (liveCount > 1) {
-    const liveDrivers = liveConfig.liveDrivers?.filter(Boolean) ?? [];
-
     description =
       liveDrivers.length > 1
         ? t("home.live_badge.multiple_live_names", {
@@ -55,15 +72,21 @@ export function LiveNowBadge() {
         : t("home.live_badge.multiple_live", { count: liveCount });
   }
 
-  const href = liveConfig.ctaUrl ?? liveConfig.url;
-  const isExternalLink = href.startsWith("http");
+  function handleBadgeClick() {
+    if (hasMultipleLiveOptions) {
+      setExpanded((current) => !current);
+      return;
+    }
+
+    window.open(liveOptions[0]?.url ?? liveConfig.url, "_blank", "noopener,noreferrer");
+  }
 
   return (
     <div className="pointer-events-none fixed bottom-4 left-4 z-50 sm:bottom-6 sm:left-6">
-      <a
-        href={href}
-        target={isExternalLink ? "_blank" : undefined}
-        rel={isExternalLink ? "noopener noreferrer" : undefined}
+      <button
+        type="button"
+        onClick={handleBadgeClick}
+        aria-expanded={hasMultipleLiveOptions ? expanded : undefined}
         className="pointer-events-auto group flex max-w-[19rem] items-center gap-3 rounded-2xl border border-lynx-orange/60 bg-black/88 px-4 py-3 text-white shadow-[0_18px_45px_rgba(0,0,0,0.45)] backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-lynx-orange hover:bg-black"
       >
         <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-lynx-orange/30 bg-lynx-orange/10 text-lynx-orange">
@@ -111,7 +134,40 @@ export function LiveNowBadge() {
         >
           {t("home.live_badge.watch")}
         </span>
-      </a>
+      </button>
+
+      {expanded ? (
+        <div className="pointer-events-auto mt-2 max-w-[19rem] overflow-hidden rounded-2xl border border-lynx-orange/35 bg-black/92 p-2 text-white shadow-[0_18px_45px_rgba(0,0,0,0.42)] backdrop-blur-md">
+          {liveOptions.map((option) => (
+            <a
+              key={option.channel}
+              href={option.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-between gap-3 rounded-xl px-3 py-2 text-left transition-colors hover:bg-lynx-orange/12"
+            >
+              <span className="min-w-0">
+                <span
+                  className="block truncate text-sm font-bold text-white"
+                  style={{ fontFamily: "var(--font-orbitron)" }}
+                >
+                  {option.label}
+                </span>
+                <span
+                  className="mt-0.5 block truncate text-xs text-lynx-text/65"
+                  style={{ fontFamily: "var(--font-rajdhani)" }}
+                >
+                  twitch.tv/{option.channel}
+                </span>
+              </span>
+              <span className="inline-flex shrink-0 items-center gap-1 rounded-full border border-red-400/60 bg-red-500/12 px-2 py-1 text-[0.62rem] uppercase tracking-[0.16em] text-red-100">
+                <FaCircle className="text-[0.45rem] text-red-400" aria-hidden="true" />
+                Live
+              </span>
+            </a>
+          ))}
+        </div>
+      ) : null}
     </div>
   );
 }
