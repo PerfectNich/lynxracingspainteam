@@ -256,7 +256,7 @@ export function RosterPage() {
       </section>
 
       {/* Streams */}
-      <section className="py-16 px-6">
+      <section id="streams" className="scroll-mt-24 py-16 px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

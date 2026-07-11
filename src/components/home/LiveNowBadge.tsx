@@ -55,12 +55,15 @@ export function LiveNowBadge() {
         : t("home.live_badge.multiple_live", { count: liveCount });
   }
 
+  const href = liveConfig.ctaUrl ?? liveConfig.url;
+  const isExternalLink = href.startsWith("http");
+
   return (
     <div className="pointer-events-none fixed bottom-4 left-4 z-50 sm:bottom-6 sm:left-6">
       <a
-        href={liveConfig.url}
-        target="_blank"
-        rel="noopener noreferrer"
+        href={href}
+        target={isExternalLink ? "_blank" : undefined}
+        rel={isExternalLink ? "noopener noreferrer" : undefined}
         className="pointer-events-auto group flex max-w-[19rem] items-center gap-3 rounded-2xl border border-lynx-orange/60 bg-black/88 px-4 py-3 text-white shadow-[0_18px_45px_rgba(0,0,0,0.45)] backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-lynx-orange hover:bg-black"
       >
         <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-lynx-orange/30 bg-lynx-orange/10 text-lynx-orange">

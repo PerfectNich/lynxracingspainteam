@@ -149,7 +149,7 @@ function createDisabledState() {
     additionalLiveCount: 0,
     isMainChannelLive: false,
     url: "https://www.twitch.tv/lynxracingspainteam",
-    ctaUrl: "/roster",
+    ctaUrl: "/roster#streams",
   };
 }
 
@@ -204,7 +204,7 @@ async function main() {
           ? "Lynx Racing"
           : member?.name ?? selectedChannel;
     output.url = `https://www.twitch.tv/${selectedChannel}`;
-    output.ctaUrl = "/roster";
+    output.ctaUrl = "/roster#streams";
     output.title = stream?.title ?? "";
     output.viewerCount = Number(stream?.viewer_count ?? 0);
     output.startedAt = stream?.started_at ?? "";
