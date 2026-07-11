@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import members from "../data/members.json";
+import liveStatus from "../data/live-status.json";
 import { ExpandCards } from "@/components/ui/expand-cards";
 import type { ExpandCardItem } from "@/components/ui/expand-cards";
 import { GradientDots } from "@/components/ui/gradient-dots";
@@ -56,6 +57,18 @@ const managementCards = management.map((m, i) => memberToCard(m, i));
 const driverCards = drivers.map((m, i) => memberToCard(m, management.length + i));
 const mainChannel = "lynxracingspainteam";
 const secondaryChannels = twitchChannels.filter((channel) => channel !== mainChannel);
+const liveChannels = new Set(
+  ((liveStatus as { liveChannels?: string[] }).liveChannels ?? []).map((channel) =>
+    channel.toLowerCase(),
+  ),
+);
+const hasSecondaryLiveChannels = secondaryChannels.some((channel) =>
+  liveChannels.has(channel.toLowerCase()),
+);
+
+function isLiveChannel(channel: string) {
+  return liveChannels.has(channel.toLowerCase());
+}
 
 // Split drivers into rows of 7
 function chunkArray<T>(arr: T[], size: number): T[][] {
@@ -88,7 +101,7 @@ function StatCard({ value, label }: { value: string; label: string }) {
 
 export function RosterPage() {
   const { t } = useTranslation();
-  const [otherChannelsOpen, setOtherChannelsOpen] = useState(false);
+  const [otherChannelsOpen, setOtherChannelsOpen] = useState(hasSecondaryLiveChannels);
   const [selectedChannel, setSelectedChannel] = useState(mainChannel);
   const totalCountries = new Set([...management, ...drivers].map((member) => member.country)).size;
   const stats = [
@@ -297,16 +310,28 @@ export function RosterPage() {
                 type="button"
                 onClick={() => setSelectedChannel(mainChannel)}
                 className={`w-full rounded-xl border px-4 py-3 text-left transition-all ${
-                  selectedChannel === mainChannel
+                  isLiveChannel(mainChannel)
+                    ? "border-red-500/70 bg-red-500/10 text-white shadow-[0_0_28px_rgba(239,68,68,0.25)]"
+                    : selectedChannel === mainChannel
                     ? "border-[#9146ff] bg-[#9146ff]/15 text-white"
                     : "border-lynx-border text-lynx-text/80 hover:border-[#9146ff]/40 hover:text-white"
                 }`}
               >
-                <span
-                  className="block font-bold"
-                  style={{ fontFamily: 'var(--font-orbitron)', fontSize: '0.92rem' }}
-                >
-                  {mainChannel}
+                <span className="flex flex-wrap items-center gap-2">
+                  <span
+                    className="font-bold"
+                    style={{ fontFamily: 'var(--font-orbitron)', fontSize: '0.92rem' }}
+                  >
+                    {mainChannel}
+                  </span>
+                  {isLiveChannel(mainChannel) ? (
+                    <span
+                      className="rounded-full border border-red-400/70 bg-red-500/15 px-2 py-0.5 text-[0.65rem] uppercase tracking-[0.18em] text-red-200"
+                      style={{ fontFamily: 'var(--font-rajdhani)', fontWeight: 700 }}
+                    >
+                      Live
+                    </span>
+                  ) : null}
                 </span>
                 <span
                   className="block text-sm text-lynx-text/65 mt-1"
@@ -350,6 +375,7 @@ export function RosterPage() {
                     <div className="flex flex-wrap gap-2">
                       {secondaryChannels.map((channel) => {
                         const active = channel === selectedChannel;
+                        const live = isLiveChannel(channel);
 
                         return (
                           <button
@@ -357,13 +383,25 @@ export function RosterPage() {
                             type="button"
                             onClick={() => setSelectedChannel(channel)}
                             className={`px-3 py-2 rounded-full border text-sm transition-all ${
-                              active
+                              live
+                                ? "border-red-500/80 bg-red-500/15 text-white shadow-[0_0_20px_rgba(239,68,68,0.24)] hover:border-red-400"
+                                : active
                                 ? "border-[#9146ff] bg-[#9146ff]/15 text-white"
                                 : "border-lynx-border text-lynx-text/70 hover:border-[#9146ff]/40 hover:text-white"
                             }`}
                             style={{ fontFamily: 'var(--font-rajdhani)', fontWeight: 700 }}
                           >
-                            {channel}
+                            <span className="inline-flex items-center gap-2">
+                              {live ? (
+                                <span className="h-2 w-2 rounded-full bg-red-400 shadow-[0_0_12px_rgba(248,113,113,0.9)]" />
+                              ) : null}
+                              {channel}
+                              {live ? (
+                                <span className="text-[0.62rem] uppercase tracking-[0.16em] text-red-200">
+                                  Live
+                                </span>
+                              ) : null}
+                            </span>
                           </button>
                         );
                       })}
