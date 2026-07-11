@@ -7,10 +7,23 @@ import { TopContact } from "./TopContact";
 import { SeoManager } from "./SeoManager";
 
 function ScrollToTop() {
-  const { pathname } = useLocation();
+  const { hash, pathname } = useLocation();
+
   useEffect(() => {
+    if (hash) {
+      const scrollToHash = () => {
+        document.querySelector(hash)?.scrollIntoView({ behavior: "smooth", block: "start" });
+      };
+
+      requestAnimationFrame(scrollToHash);
+      const fallback = window.setTimeout(scrollToHash, 150);
+
+      return () => window.clearTimeout(fallback);
+    }
+
     window.scrollTo(0, 0);
-  }, [pathname]);
+  }, [hash, pathname]);
+
   return null;
 }
 
