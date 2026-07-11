@@ -143,6 +143,8 @@ function createDisabledState() {
     label: "Lynx Racing",
     channelName: "",
     driverName: "",
+    liveChannels: [],
+    liveDrivers: [],
     liveCount: 0,
     additionalLiveCount: 0,
     isMainChannelLive: false,
@@ -175,6 +177,15 @@ async function main() {
   output.liveCount = liveStreams.length;
   output.additionalLiveCount = Math.max(0, liveStreams.length - 1);
   output.isMainChannelLive = liveByChannel.has(mainChannel);
+  output.liveChannels = priorityChannels;
+  output.liveDrivers = priorityChannels.map((channel) => {
+    const member = rosterEntries.find(
+      (entry) => String(entry.twitch || "").toLowerCase() === channel.toLowerCase(),
+    );
+    const isMainChannel = channel.toLowerCase() === mainChannel;
+
+    return member?.name ?? (isMainChannel ? "Lynx Racing" : channel);
+  });
 
   if (selectedChannel) {
     const stream = liveByChannel.get(selectedChannel.toLowerCase());
@@ -186,7 +197,12 @@ async function main() {
     output.enabled = true;
     output.channelName = selectedChannel;
     output.driverName = member?.name ?? (isMainChannel ? "Lynx Racing" : selectedChannel);
-    output.label = isMainChannel ? "Lynx Racing" : member?.name ?? selectedChannel;
+    output.label =
+      output.liveDrivers.length > 1
+        ? `${output.liveDrivers.length} directos Lynx`
+        : isMainChannel
+          ? "Lynx Racing"
+          : member?.name ?? selectedChannel;
     output.url = `https://www.twitch.tv/${selectedChannel}`;
     output.ctaUrl = "/roster";
     output.title = stream?.title ?? "";

@@ -7,6 +7,8 @@ type LiveStatus = {
   label: string;
   channelName: string;
   driverName?: string;
+  liveChannels?: string[];
+  liveDrivers?: string[];
   liveCount?: number;
   additionalLiveCount?: number;
   isMainChannelLive?: boolean;
@@ -16,8 +18,16 @@ type LiveStatus = {
 
 const liveConfig = liveStatus as LiveStatus;
 
+function formatNameList(names: string[], language: string) {
+  if (names.length <= 2) {
+    return new Intl.ListFormat(language, { style: "long", type: "conjunction" }).format(names);
+  }
+
+  return new Intl.ListFormat(language, { style: "long", type: "conjunction" }).format(names);
+}
+
 export function LiveNowBadge() {
-  const { t } = useTranslation();
+  const { i18n, t } = useTranslation();
 
   if (!liveConfig.enabled) {
     return null;
@@ -35,7 +45,14 @@ export function LiveNowBadge() {
   }
 
   if (liveCount > 1) {
-    description = t("home.live_badge.multiple_live", { count: liveCount });
+    const liveDrivers = liveConfig.liveDrivers?.filter(Boolean) ?? [];
+
+    description =
+      liveDrivers.length > 1
+        ? t("home.live_badge.multiple_live_names", {
+            drivers: formatNameList(liveDrivers, i18n.language),
+          })
+        : t("home.live_badge.multiple_live", { count: liveCount });
   }
 
   return (

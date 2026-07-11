@@ -1,8 +1,16 @@
 {
   "enabled": true,
-  "label": "Angel Alvarado",
+  "label": "2 directos Lynx",
   "channelName": "pist4chon",
   "driverName": "Angel Alvarado",
+  "liveChannels": [
+    "pist4chon",
+    "marckitos21"
+  ],
+  "liveDrivers": [
+    "Angel Alvarado",
+    "Marc Garcia"
+  ],
   "liveCount": 2,
   "additionalLiveCount": 1,
   "isMainChannelLive": false,

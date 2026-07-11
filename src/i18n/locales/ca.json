@@ -93,6 +93,7 @@
       "driver_live": "{{driver}} està ara mateix en directe.",
       "main_channel_live": "El canal principal de l'equip està en directe.",
       "multiple_live": "{{count}} pilots de l'equip estan en directe.",
+      "multiple_live_names": "{{drivers}} estan en directe.",
       "more_streams": "+{{count}} directe més",
       "more_streams_other": "+{{count}} directes més"
     },
