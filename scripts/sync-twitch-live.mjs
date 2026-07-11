@@ -8,6 +8,7 @@ const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, "..");
 const membersPath = path.join(rootDir, "src", "data", "members.json");
 const liveStatusPath = path.join(rootDir, "src", "data", "live-status.json");
+const twitchWebClientId = "kimne78kx3ncx6brgo4mv6wki5h1ko";
 
 function unique(values) {
   return [...new Set(values.filter(Boolean))];
@@ -35,11 +36,78 @@ async function fetchAppToken(clientId, clientSecret) {
   });
 
   if (!response.ok) {
-    throw new Error(`No se pudo pedir el token de Twitch: ${response.status} ${response.statusText}`);
+    const details = await response.text();
+    throw new Error(
+      `No se pudo pedir el token de Twitch: ${response.status} ${response.statusText} ${details}`,
+    );
   }
 
   const payload = await response.json();
   return payload.access_token;
+}
+
+async function fetchStreamFromGraphql(channel) {
+  const response = await fetch("https://gql.twitch.tv/gql", {
+    method: "POST",
+    headers: {
+      "Client-Id": twitchWebClientId,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      query:
+        "query($login:String!){user(login:$login){login displayName stream{title viewersCount createdAt}}}",
+      variables: { login: channel },
+    }),
+  });
+
+  if (!response.ok) {
+    throw new Error(`No se pudo consultar Twitch GraphQL: ${response.status} ${response.statusText}`);
+  }
+
+  const payload = await response.json();
+  const user = payload?.data?.user;
+  const stream = user?.stream;
+
+  if (!user || !stream) {
+    return null;
+  }
+
+  return {
+    user_login: user.login ?? channel,
+    user_name: user.displayName ?? channel,
+    title: stream.title ?? "",
+    viewer_count: Number(stream.viewersCount ?? 0),
+    started_at: stream.createdAt ?? "",
+  };
+}
+
+async function fetchStreamsFromGraphql(channels) {
+  const liveStreams = [];
+
+  for (const channel of channels) {
+    const stream = await fetchStreamFromGraphql(channel);
+
+    if (stream) {
+      liveStreams.push(stream);
+    }
+  }
+
+  return liveStreams;
+}
+
+async function fetchLiveStreams(clientId, clientSecret, channels) {
+  if (clientId && clientSecret) {
+    try {
+      const accessToken = await fetchAppToken(clientId, clientSecret);
+      return await fetchStreams(clientId, accessToken, channels);
+    } catch (error) {
+      console.warn(`Helix no disponible, usando fallback publico: ${error.message}`);
+    }
+  } else {
+    console.warn("Faltan TWITCH_CLIENT_ID o TWITCH_CLIENT_SECRET; usando fallback publico.");
+  }
+
+  return fetchStreamsFromGraphql(channels);
 }
 
 async function fetchStreams(clientId, accessToken, channels) {
@@ -87,17 +155,12 @@ async function main() {
   const clientId = process.env.TWITCH_CLIENT_ID;
   const clientSecret = process.env.TWITCH_CLIENT_SECRET;
 
-  if (!clientId || !clientSecret) {
-    throw new Error("Faltan TWITCH_CLIENT_ID o TWITCH_CLIENT_SECRET en el entorno.");
-  }
-
   const membersRaw = await readFile(membersPath, "utf8");
   const members = JSON.parse(membersRaw);
   const rosterEntries = [...members.management, ...members.drivers];
   const channels = unique(members.twitchChannels);
 
-  const accessToken = await fetchAppToken(clientId, clientSecret);
-  const liveStreams = await fetchStreams(clientId, accessToken, channels);
+  const liveStreams = await fetchLiveStreams(clientId, clientSecret, channels);
   const liveByChannel = new Map(
     liveStreams.map((stream) => [String(stream.user_login).toLowerCase(), stream]),
   );

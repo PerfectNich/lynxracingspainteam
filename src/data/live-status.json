@@ -1,11 +1,14 @@
 {
-  "enabled": false,
-  "label": "Lynx Racing",
-  "channelName": "",
-  "driverName": "",
-  "liveCount": 0,
-  "additionalLiveCount": 0,
+  "enabled": true,
+  "label": "Angel Alvarado",
+  "channelName": "pist4chon",
+  "driverName": "Angel Alvarado",
+  "liveCount": 2,
+  "additionalLiveCount": 1,
   "isMainChannelLive": false,
-  "url": "https://www.twitch.tv/lynxracingspainteam",
-  "ctaUrl": "/roster"
+  "url": "https://www.twitch.tv/pist4chon",
+  "ctaUrl": "/roster",
+  "title": "Global Endurancoe  24 Horas Spa   LMP2",
+  "viewerCount": 1,
+  "startedAt": "2026-07-11T07:01:16Z"
 }
