@@ -109,7 +109,7 @@ const DATA: PalmaresEntry[] = [
       "Angel Alvarado",
       "Relja Ljubobratovic",
     ],
-    car: "acura",
+    car: "lmp2",
     year: 2026,
   },
   {
