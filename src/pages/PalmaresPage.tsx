@@ -100,7 +100,7 @@ const DATA: PalmaresEntry[] = [
   },
   {
     pos: 5,
-    event: "24H de Spa - Orange",
+    event: "Resistencia 24h Spa",
     simulator: "iRacing",
     drivers: [
       "Albert Gombau",
