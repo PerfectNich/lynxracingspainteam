@@ -5,6 +5,7 @@
   "simulator": "iRacing",
   "category": "GT3 + LMP2",
   "teams": 2,
+  "status": "completed",
   "car": "Dallara LMP2 · Ferrari GT3",
   "drivers": [],
   "entries": [
@@ -12,6 +13,7 @@
       "name": "Orange",
       "category": "LMP2",
       "car": "Dallara LMP2",
+      "result": "P5",
       "drivers": [
         "Albert Gombau",
         "Juanjo Morales",
@@ -24,6 +26,7 @@
       "name": "Blue",
       "category": "GT3",
       "car": "Ferrari GT3",
+      "result": "P25",
       "drivers": [
         "Francisco Sierra",
         "Jordi Capdevila",

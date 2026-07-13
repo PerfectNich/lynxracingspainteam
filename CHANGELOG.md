@@ -2,6 +2,7 @@
 
 ## 2026-06-28
 
+- Cerrado el bloque de las `24H de Spa` con resultados finales: `P5` para LMP2 Orange y `P25` para GT3 Blue, tanto en Agenda como en Palmarés.
 - Automatizado el aviso flotante de Twitch en `Inicio` con sincronización periódica desde GitHub Actions.
 - Mejorado el badge de Twitch para priorizar el canal principal y reflejar cuando hay varios pilotos en directo a la vez.
 - Corregido el origen del badge de Twitch para leer estado en tiempo real desde `public/live-status.json` y refrescarlo en la home cada minuto.

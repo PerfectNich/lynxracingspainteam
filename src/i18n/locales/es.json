@@ -176,6 +176,8 @@
     "team_target": "Objetivo del equipo",
     "confirmed_events_only": "Solo mostramos eventos previstos por Lynx Racing",
     "preparing": "En preparación",
+    "completed": "Completado",
+    "finished_event": "Resultado cerrado",
     "entry": "Inscripción",
     "gt3_team": "equipo GT3",
     "team_entries": "equipos inscritos",

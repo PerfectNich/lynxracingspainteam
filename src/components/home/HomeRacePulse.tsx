@@ -20,6 +20,7 @@ export function HomeRacePulse() {
   const prefix = i18n.language === "en" ? "/en" : i18n.language === "ca" ? "/ca" : "";
   const calendarPath = `${prefix}/agenda`;
   const daysUntilStart = getDaysUntil(teamEvent.startDate);
+  const isCompleted = teamEvent.status === "completed";
 
   const locale = i18n.language === "en" ? "en-GB" : i18n.language === "ca" ? "ca-ES" : "es-ES";
   const entries = Array.isArray(teamEvent.entries) ? teamEvent.entries : [];
@@ -74,7 +75,7 @@ export function HomeRacePulse() {
               className="rounded-full border border-lynx-orange/30 bg-lynx-orange/10 px-3 py-1 text-xs uppercase tracking-[0.2em] text-lynx-orange"
               style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 700 }}
             >
-              {t("calendar.countdown", { count: daysUntilStart })}
+              {isCompleted ? t("calendar.completed") : t("calendar.countdown", { count: daysUntilStart })}
             </span>
           </div>
 
@@ -107,12 +108,22 @@ export function HomeRacePulse() {
             <div className="grid gap-3 md:grid-cols-2">
               {entries.map((entry) => (
                 <div key={entry.name} className="rounded-xl border border-white/8 bg-black/20 px-4 py-3">
-                  <p
-                    className="text-[11px] uppercase tracking-[0.25em] text-lynx-orange"
-                    style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 700 }}
-                  >
-                    {entry.name} · {entry.category}
-                  </p>
+                  <div className="flex items-center justify-between gap-3">
+                    <p
+                      className="text-[11px] uppercase tracking-[0.25em] text-lynx-orange"
+                      style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 700 }}
+                    >
+                      {entry.name} · {entry.category}
+                    </p>
+                    {entry.result ? (
+                      <span
+                        className="rounded-full border border-lynx-orange/30 bg-lynx-orange/10 px-2 py-1 text-[0.65rem] uppercase tracking-[0.18em] text-lynx-orange"
+                        style={{ fontFamily: "var(--font-orbitron)" }}
+                      >
+                        {entry.result}
+                      </span>
+                    ) : null}
+                  </div>
                   <p className="mt-1 text-white" style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 600 }}>
                     {entry.car}
                   </p>

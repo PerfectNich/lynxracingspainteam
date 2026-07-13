@@ -20,6 +20,7 @@ export function CalendarPage() {
   const locale = i18n.language === "en" ? "en-GB" : i18n.language === "ca" ? "ca-ES" : "es-ES";
   const entries = Array.isArray(teamEvent.entries) ? teamEvent.entries : [];
   const daysUntilStart = getDaysUntil(teamEvent.startDate);
+  const isCompleted = teamEvent.status === "completed";
   const dateRange = `${new Intl.DateTimeFormat(locale, {
     day: "numeric",
     month: "long",
@@ -104,7 +105,7 @@ export function CalendarPage() {
               className="rounded-full border border-lynx-orange/30 bg-lynx-orange/10 px-4 py-2 text-xs uppercase tracking-[0.2em] text-lynx-orange"
               style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 700 }}
             >
-              {t("calendar.preparing")}
+              {isCompleted ? t("calendar.completed") : t("calendar.preparing")}
             </span>
           </div>
 
@@ -127,7 +128,7 @@ export function CalendarPage() {
                   className="text-xs uppercase tracking-[0.22em] text-lynx-orange"
                   style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 700 }}
                 >
-                  {t("calendar.countdown", { count: daysUntilStart })}
+                  {isCompleted ? t("calendar.finished_event") : t("calendar.countdown", { count: daysUntilStart })}
                 </span>
               </div>
 
@@ -215,6 +216,14 @@ export function CalendarPage() {
                             {entry.category} · {entry.car}
                           </p>
                         </div>
+                        {entry.result ? (
+                          <span
+                            className="rounded-full border border-lynx-orange/30 bg-lynx-orange/10 px-3 py-1 text-xs uppercase tracking-[0.18em] text-lynx-orange"
+                            style={{ fontFamily: "var(--font-orbitron)" }}
+                          >
+                            {entry.result}
+                          </span>
+                        ) : null}
                       </div>
 
                       <div className="space-y-2">
