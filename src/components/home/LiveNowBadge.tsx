@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaCircle, FaTwitch } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
-import liveStatus from "../../data/live-status.json";
+import { assetUrl } from "../../utils/assetUrl";
 
 type LiveStatus = {
   enabled: boolean;
@@ -17,21 +17,56 @@ type LiveStatus = {
   ctaUrl?: string;
 };
 
-const liveConfig = liveStatus as LiveStatus;
-
 function formatNameList(names: string[], language: string) {
-  if (names.length <= 2) {
-    return new Intl.ListFormat(language, { style: "long", type: "conjunction" }).format(names);
-  }
-
   return new Intl.ListFormat(language, { style: "long", type: "conjunction" }).format(names);
 }
 
 export function LiveNowBadge() {
   const { i18n, t } = useTranslation();
+  const [liveConfig, setLiveConfig] = useState<LiveStatus | null>(null);
   const [expanded, setExpanded] = useState(false);
 
-  if (!liveConfig.enabled) {
+  useEffect(() => {
+    let isMounted = true;
+
+    const loadLiveStatus = async () => {
+      try {
+        const minuteStamp = Math.floor(Date.now() / 60000);
+        const response = await fetch(`${assetUrl("/live-status.json")}?v=${minuteStamp}`, {
+          cache: "no-store",
+        });
+
+        if (!response.ok) {
+          return;
+        }
+
+        const payload = (await response.json()) as LiveStatus;
+        if (isMounted) {
+          setLiveConfig(payload);
+          if (!payload.enabled) {
+            setExpanded(false);
+          }
+        }
+      } catch {
+        if (isMounted) {
+          setLiveConfig(null);
+          setExpanded(false);
+        }
+      }
+    };
+
+    void loadLiveStatus();
+    const intervalId = window.setInterval(() => {
+      void loadLiveStatus();
+    }, 60000);
+
+    return () => {
+      isMounted = false;
+      window.clearInterval(intervalId);
+    };
+  }, []);
+
+  if (!liveConfig?.enabled) {
     return null;
   }
 
@@ -54,6 +89,7 @@ export function LiveNowBadge() {
           },
         ];
   const hasMultipleLiveOptions = liveOptions.length > 1;
+  const primaryLiveUrl = liveOptions[0]?.url ?? liveConfig.url;
 
   let description = liveConfig.driverName
     ? t("home.live_badge.driver_live", { driver: liveConfig.driverName })
@@ -78,7 +114,7 @@ export function LiveNowBadge() {
       return;
     }
 
-    window.open(liveOptions[0]?.url ?? liveConfig.url, "_blank", "noopener,noreferrer");
+    window.open(primaryLiveUrl, "_blank", "noopener,noreferrer");
   }
 
   return (
@@ -87,7 +123,7 @@ export function LiveNowBadge() {
         type="button"
         onClick={handleBadgeClick}
         aria-expanded={hasMultipleLiveOptions ? expanded : undefined}
-        className="pointer-events-auto group flex max-w-[19rem] items-center gap-3 rounded-2xl border border-lynx-orange/60 bg-black/88 px-4 py-3 text-white shadow-[0_18px_45px_rgba(0,0,0,0.45)] backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-lynx-orange hover:bg-black"
+        className="pointer-events-auto group flex max-w-[19rem] items-center gap-3 rounded-2xl border border-lynx-orange/60 bg-black/88 px-4 py-3 text-left text-white shadow-[0_18px_45px_rgba(0,0,0,0.45)] backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-lynx-orange hover:bg-black"
       >
         <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-lynx-orange/30 bg-lynx-orange/10 text-lynx-orange">
           <FaTwitch size={18} aria-hidden="true" />

@@ -1,8 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import members from "../data/members.json";
-import liveStatus from "../data/live-status.json";
 import { ExpandCards } from "@/components/ui/expand-cards";
 import type { ExpandCardItem } from "@/components/ui/expand-cards";
 import { GradientDots } from "@/components/ui/gradient-dots";
@@ -57,18 +56,6 @@ const managementCards = management.map((m, i) => memberToCard(m, i));
 const driverCards = drivers.map((m, i) => memberToCard(m, management.length + i));
 const mainChannel = "lynxracingspainteam";
 const secondaryChannels = twitchChannels.filter((channel) => channel !== mainChannel);
-const liveChannels = new Set(
-  ((liveStatus as { liveChannels?: string[] }).liveChannels ?? []).map((channel) =>
-    channel.toLowerCase(),
-  ),
-);
-const hasSecondaryLiveChannels = secondaryChannels.some((channel) =>
-  liveChannels.has(channel.toLowerCase()),
-);
-
-function isLiveChannel(channel: string) {
-  return liveChannels.has(channel.toLowerCase());
-}
 
 // Split drivers into rows of 7
 function chunkArray<T>(arr: T[], size: number): T[][] {
@@ -101,7 +88,8 @@ function StatCard({ value, label }: { value: string; label: string }) {
 
 export function RosterPage() {
   const { t } = useTranslation();
-  const [otherChannelsOpen, setOtherChannelsOpen] = useState(hasSecondaryLiveChannels);
+  const [liveChannels, setLiveChannels] = useState<Set<string>>(new Set());
+  const [otherChannelsOpen, setOtherChannelsOpen] = useState(false);
   const [selectedChannel, setSelectedChannel] = useState(mainChannel);
   const totalCountries = new Set([...management, ...drivers].map((member) => member.country)).size;
   const stats = [
@@ -110,6 +98,48 @@ export function RosterPage() {
     { value: String(twitchChannels.length), label: t("roster.stats.streams") },
     { value: String(totalCountries), label: t("roster.stats.countries") },
   ];
+  function isLiveChannel(channel: string) {
+    return liveChannels.has(channel.toLowerCase());
+  }
+
+  useEffect(() => {
+    let isMounted = true;
+
+    const loadLiveStatus = async () => {
+      try {
+        const minuteStamp = Math.floor(Date.now() / 60000);
+        const response = await fetch(`${assetUrl("/live-status.json")}?v=${minuteStamp}`, {
+          cache: "no-store",
+        });
+
+        if (!response.ok) {
+          return;
+        }
+
+        const payload = (await response.json()) as { liveChannels?: string[] };
+        const liveSet = new Set((payload.liveChannels ?? []).map((channel) => channel.toLowerCase()));
+
+        if (isMounted) {
+          setLiveChannels(liveSet);
+          setOtherChannelsOpen((current) => current || secondaryChannels.some((channel) => liveSet.has(channel.toLowerCase())));
+        }
+      } catch {
+        if (isMounted) {
+          setLiveChannels(new Set());
+        }
+      }
+    };
+
+    void loadLiveStatus();
+    const intervalId = window.setInterval(() => {
+      void loadLiveStatus();
+    }, 60000);
+
+    return () => {
+      isMounted = false;
+      window.clearInterval(intervalId);
+    };
+  }, []);
 
   return (
     <div className="overflow-x-hidden">

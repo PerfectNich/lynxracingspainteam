@@ -7,7 +7,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, "..");
 const membersPath = path.join(rootDir, "src", "data", "members.json");
-const liveStatusPath = path.join(rootDir, "src", "data", "live-status.json");
+const liveStatusPath = path.join(rootDir, "public", "live-status.json");
 const twitchWebClientId = "kimne78kx3ncx6brgo4mv6wki5h1ko";
 
 function unique(values) {
@@ -95,21 +95,6 @@ async function fetchStreamsFromGraphql(channels) {
   return liveStreams;
 }
 
-async function fetchLiveStreams(clientId, clientSecret, channels) {
-  if (clientId && clientSecret) {
-    try {
-      const accessToken = await fetchAppToken(clientId, clientSecret);
-      return await fetchStreams(clientId, accessToken, channels);
-    } catch (error) {
-      console.warn(`Helix no disponible, usando fallback publico: ${error.message}`);
-    }
-  } else {
-    console.warn("Faltan TWITCH_CLIENT_ID o TWITCH_CLIENT_SECRET; usando fallback publico.");
-  }
-
-  return fetchStreamsFromGraphql(channels);
-}
-
 async function fetchStreams(clientId, accessToken, channels) {
   const liveStreams = [];
 
@@ -135,6 +120,21 @@ async function fetchStreams(clientId, accessToken, channels) {
   }
 
   return liveStreams;
+}
+
+async function fetchLiveStreams(clientId, clientSecret, channels) {
+  if (clientId && clientSecret) {
+    try {
+      const accessToken = await fetchAppToken(clientId, clientSecret);
+      return await fetchStreams(clientId, accessToken, channels);
+    } catch (error) {
+      console.warn(`Helix no disponible, usando fallback publico: ${error.message}`);
+    }
+  } else {
+    console.warn("Faltan TWITCH_CLIENT_ID o TWITCH_CLIENT_SECRET; usando fallback publico.");
+  }
+
+  return fetchStreamsFromGraphql(channels);
 }
 
 function createDisabledState() {
@@ -192,7 +192,7 @@ async function main() {
     const member = rosterEntries.find(
       (entry) => String(entry.twitch || "").toLowerCase() === selectedChannel.toLowerCase(),
     );
-    const isMainChannel = selectedChannel.toLowerCase() === "lynxracingspainteam";
+    const isMainChannel = selectedChannel.toLowerCase() === mainChannel;
 
     output.enabled = true;
     output.channelName = selectedChannel;

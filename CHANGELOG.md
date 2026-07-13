@@ -4,6 +4,7 @@
 
 - Automatizado el aviso flotante de Twitch en `Inicio` con sincronización periódica desde GitHub Actions.
 - Mejorado el badge de Twitch para priorizar el canal principal y reflejar cuando hay varios pilotos en directo a la vez.
+- Corregido el origen del badge de Twitch para leer estado en tiempo real desde `public/live-status.json` y refrescarlo en la home cada minuto.
 - Actualizada `Agenda` para las 24H de Spa con dos equipos confirmados, coches asignados y alineaciones separadas por entrada.
 - Simplificada `Agenda` para mostrar únicamente las próximas carreras de iRacing.
 - Reorganizados los eventos con una próxima cita destacada y campeonatos agrupados en una parrilla más compacta.
