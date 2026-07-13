@@ -113,20 +113,6 @@ const DATA: PalmaresEntry[] = [
     year: 2026,
   },
   {
-    pos: 25,
-    event: "24H de Spa - Blue",
-    simulator: "iRacing",
-    drivers: [
-      "Francisco Sierra",
-      "Jordi Capdevila",
-      "Luis Ungo",
-      "Emiliano Sturniolo",
-      "Jesus Jimenez",
-    ],
-    car: "ferrari",
-    year: 2026,
-  },
-  {
     pos: 2,
     event: "Resistencia 12h Sebring",
     simulator: "iRacing",
