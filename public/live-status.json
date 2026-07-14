@@ -1,13 +1,20 @@
 {
-  "enabled": false,
-  "label": "Lynx Racing",
-  "channelName": "",
-  "driverName": "",
-  "liveChannels": [],
-  "liveDrivers": [],
-  "liveCount": 0,
+  "enabled": true,
+  "label": "Nacho Jarrin",
+  "channelName": "jarrini15",
+  "driverName": "Nacho Jarrin",
+  "liveChannels": [
+    "jarrini15"
+  ],
+  "liveDrivers": [
+    "Nacho Jarrin"
+  ],
+  "liveCount": 1,
   "additionalLiveCount": 0,
   "isMainChannelLive": false,
-  "url": "https://www.twitch.tv/lynxracingspainteam",
-  "ctaUrl": "/roster#streams"
+  "url": "https://www.twitch.tv/jarrini15",
+  "ctaUrl": "/roster#streams",
+  "title": "cosas de raritos",
+  "viewerCount": 4,
+  "startedAt": "2026-07-14T13:12:10Z"
 }
