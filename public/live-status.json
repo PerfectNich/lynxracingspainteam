@@ -1,20 +1,13 @@
 {
-  "enabled": true,
-  "label": "Gonzalo Sanchez",
-  "channelName": "lalo_87",
-  "driverName": "Gonzalo Sanchez",
-  "liveChannels": [
-    "lalo_87"
-  ],
-  "liveDrivers": [
-    "Gonzalo Sanchez"
-  ],
-  "liveCount": 1,
+  "enabled": false,
+  "label": "Lynx Racing",
+  "channelName": "",
+  "driverName": "",
+  "liveChannels": [],
+  "liveDrivers": [],
+  "liveCount": 0,
   "additionalLiveCount": 0,
   "isMainChannelLive": false,
-  "url": "https://www.twitch.tv/lalo_87",
-  "ctaUrl": "/roster#streams",
-  "title": "DOMINGO SUBIENDO IRATING",
-  "viewerCount": 1,
-  "startedAt": "2026-07-19T14:49:00Z"
+  "url": "https://www.twitch.tv/lynxracingspainteam",
+  "ctaUrl": "/roster#streams"
 }
