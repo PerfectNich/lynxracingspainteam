@@ -1,20 +1,13 @@
 {
-  "enabled": true,
-  "label": "Xavier Sobrerroca",
-  "channelName": "perfect_nich",
-  "driverName": "Xavier Sobrerroca",
-  "liveChannels": [
-    "perfect_nich"
-  ],
-  "liveDrivers": [
-    "Xavier Sobrerroca"
-  ],
-  "liveCount": 1,
+  "enabled": false,
+  "label": "Lynx Racing",
+  "channelName": "",
+  "driverName": "",
+  "liveChannels": [],
+  "liveDrivers": [],
+  "liveCount": 0,
   "additionalLiveCount": 0,
   "isMainChannelLive": false,
-  "url": "https://www.twitch.tv/perfect_nich",
-  "ctaUrl": "/roster#streams",
-  "title": "1r aniversario de la org ! Vamos a echar un rato en el verso | MuArae !comandos",
-  "viewerCount": 3,
-  "startedAt": "2026-08-02T16:53:33Z"
+  "url": "https://www.twitch.tv/lynxracingspainteam",
+  "ctaUrl": "/roster#streams"
 }
