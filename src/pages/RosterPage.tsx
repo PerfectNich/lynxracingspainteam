@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import members from "../data/members.json";
@@ -88,7 +88,6 @@ function StatCard({ value, label }: { value: string; label: string }) {
 
 export function RosterPage() {
   const { t } = useTranslation();
-  const [liveChannels, setLiveChannels] = useState<Set<string>>(new Set());
   const [otherChannelsOpen, setOtherChannelsOpen] = useState(false);
   const [selectedChannel, setSelectedChannel] = useState(mainChannel);
   const totalCountries = new Set([...management, ...drivers].map((member) => member.country)).size;
@@ -98,49 +97,6 @@ export function RosterPage() {
     { value: String(twitchChannels.length), label: t("roster.stats.streams") },
     { value: String(totalCountries), label: t("roster.stats.countries") },
   ];
-  function isLiveChannel(channel: string) {
-    return liveChannels.has(channel.toLowerCase());
-  }
-
-  useEffect(() => {
-    let isMounted = true;
-
-    const loadLiveStatus = async () => {
-      try {
-        const minuteStamp = Math.floor(Date.now() / 60000);
-        const response = await fetch(`${assetUrl("/live-status.json")}?v=${minuteStamp}`, {
-          cache: "no-store",
-        });
-
-        if (!response.ok) {
-          return;
-        }
-
-        const payload = (await response.json()) as { liveChannels?: string[] };
-        const liveSet = new Set((payload.liveChannels ?? []).map((channel) => channel.toLowerCase()));
-
-        if (isMounted) {
-          setLiveChannels(liveSet);
-          setOtherChannelsOpen((current) => current || secondaryChannels.some((channel) => liveSet.has(channel.toLowerCase())));
-        }
-      } catch {
-        if (isMounted) {
-          setLiveChannels(new Set());
-        }
-      }
-    };
-
-    void loadLiveStatus();
-    const intervalId = window.setInterval(() => {
-      void loadLiveStatus();
-    }, 60000);
-
-    return () => {
-      isMounted = false;
-      window.clearInterval(intervalId);
-    };
-  }, []);
-
   return (
     <div className="overflow-x-hidden">
       {/* Header */}
@@ -340,28 +296,16 @@ export function RosterPage() {
                 type="button"
                 onClick={() => setSelectedChannel(mainChannel)}
                 className={`w-full rounded-xl border px-4 py-3 text-left transition-all ${
-                  isLiveChannel(mainChannel)
-                    ? "border-red-500/70 bg-red-500/10 text-white shadow-[0_0_28px_rgba(239,68,68,0.25)]"
-                    : selectedChannel === mainChannel
+                  selectedChannel === mainChannel
                     ? "border-[#9146ff] bg-[#9146ff]/15 text-white"
                     : "border-lynx-border text-lynx-text/80 hover:border-[#9146ff]/40 hover:text-white"
                 }`}
               >
-                <span className="flex flex-wrap items-center gap-2">
-                  <span
-                    className="font-bold"
-                    style={{ fontFamily: 'var(--font-orbitron)', fontSize: '0.92rem' }}
-                  >
-                    {mainChannel}
-                  </span>
-                  {isLiveChannel(mainChannel) ? (
-                    <span
-                      className="rounded-full border border-red-400/70 bg-red-500/15 px-2 py-0.5 text-[0.65rem] uppercase tracking-[0.18em] text-red-200"
-                      style={{ fontFamily: 'var(--font-rajdhani)', fontWeight: 700 }}
-                    >
-                      Live
-                    </span>
-                  ) : null}
+                <span
+                  className="block font-bold"
+                  style={{ fontFamily: 'var(--font-orbitron)', fontSize: '0.92rem' }}
+                >
+                  {mainChannel}
                 </span>
                 <span
                   className="block text-sm text-lynx-text/65 mt-1"
@@ -405,7 +349,6 @@ export function RosterPage() {
                     <div className="flex flex-wrap gap-2">
                       {secondaryChannels.map((channel) => {
                         const active = channel === selectedChannel;
-                        const live = isLiveChannel(channel);
 
                         return (
                           <button
@@ -413,25 +356,13 @@ export function RosterPage() {
                             type="button"
                             onClick={() => setSelectedChannel(channel)}
                             className={`px-3 py-2 rounded-full border text-sm transition-all ${
-                              live
-                                ? "border-red-500/80 bg-red-500/15 text-white shadow-[0_0_20px_rgba(239,68,68,0.24)] hover:border-red-400"
-                                : active
+                              active
                                 ? "border-[#9146ff] bg-[#9146ff]/15 text-white"
                                 : "border-lynx-border text-lynx-text/70 hover:border-[#9146ff]/40 hover:text-white"
                             }`}
                             style={{ fontFamily: 'var(--font-rajdhani)', fontWeight: 700 }}
                           >
-                            <span className="inline-flex items-center gap-2">
-                              {live ? (
-                                <span className="h-2 w-2 rounded-full bg-red-400 shadow-[0_0_12px_rgba(248,113,113,0.9)]" />
-                              ) : null}
-                              {channel}
-                              {live ? (
-                                <span className="text-[0.62rem] uppercase tracking-[0.16em] text-red-200">
-                                  Live
-                                </span>
-                              ) : null}
-                            </span>
+                            {channel}
                           </button>
                         );
                       })}

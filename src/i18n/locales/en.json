@@ -86,17 +86,6 @@
     "main_sponsor_label": "Main sponsor",
     "main_sponsor_text": "Our leading partner helps drive the team on and off the track. Discover their work and follow them on Instagram.",
     "main_sponsor_cta": "View Instagram",
-    "live_badge": {
-      "live_now": "Live now",
-      "watch": "Watch",
-      "team_live": "The team is active on Twitch right now.",
-      "driver_live": "{{driver}} is live right now.",
-      "main_channel_live": "The main team channel is live right now.",
-      "multiple_live": "{{count}} team drivers are live right now.",
-      "multiple_live_names": "{{drivers}} are live right now.",
-      "more_streams": "+{{count}} more stream",
-      "more_streams_other": "+{{count}} more streams"
-    },
     "contact_label": "Contact",
     "contact_text": "If you want to follow the team, collaborate with us or just talk racing, here are our main channels.",
     "contact_title": "Contact"
