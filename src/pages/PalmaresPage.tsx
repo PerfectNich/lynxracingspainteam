@@ -84,6 +84,20 @@ const DATA: PalmaresEntry[] = [
     year: 2026,
   },
   {
+    pos: 3,
+    event: "Resistencia 24h Daytona",
+    simulator: "iRacing",
+    drivers: [
+      "Marc Garcia",
+      "Luis Ungo",
+      "Jordi Capdevila",
+      "Francisco Sierra",
+      "Jesus Jimenez",
+    ],
+    car: "lmp2",
+    year: 2026,
+  },
+  {
     pos: 2,
     event: "Resistencia 24h Nordschleife",
     simulator: "iRacing",
