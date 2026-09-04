@@ -3,7 +3,7 @@
   "startDate": null,
   "endDate": null,
   "simulator": "iRacing",
-  "category": "LMP2",
+  "category": "GT3",
   "teams": 2,
   "status": "preparing",
   "car": null,
@@ -11,8 +11,8 @@
   "entries": [
     {
       "name": "Orange",
-      "category": "LMP2",
-      "car": null,
+      "category": "GT3",
+      "car": "McLaren GT3",
       "result": null,
       "drivers": [
         "Angel Alvarado",
