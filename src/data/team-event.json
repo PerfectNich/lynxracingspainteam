@@ -23,8 +23,8 @@
     },
     {
       "name": "Blue",
-      "category": "LMP2",
-      "car": null,
+      "category": "GT3",
+      "car": "Ferrari GT3",
       "result": null,
       "drivers": [
         "Relja Ljubobratovic",
