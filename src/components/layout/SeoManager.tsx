@@ -56,12 +56,12 @@ export function SeoManager() {
   const { t, i18n } = useTranslation();
 
   useEffect(() => {
-    const currentLang = location.pathname.startsWith("/en")
+    const currentLang = /^\/en(?:\/|$)/.test(location.pathname)
       ? "en"
-      : location.pathname.startsWith("/ca")
+      : /^\/ca(?:\/|$)/.test(location.pathname)
         ? "ca"
         : "es";
-    const normalizedPath = location.pathname.replace(/^\/(en|ca)(?=\/|$)/, "") || "/";
+    const normalizedPath = location.pathname.replace(/^\/(en|ca)(?=\/|$)/, "").replace(/\/+$/, "") || "/";
     const seoKeyMap: Record<string, string> = {
       "/": "home",
       "/agenda": "calendar",
@@ -72,9 +72,13 @@ export function SeoManager() {
       "/contacto": "contact",
     };
 
-    const seoKey = seoKeyMap[normalizedPath] ?? "home";
-    const title = t(`seo.${seoKey}.title`);
-    const description = t(`seo.${seoKey}.description`);
+    const seoKey = seoKeyMap[normalizedPath];
+    const title = seoKey ? t(`seo.${seoKey}.title`) : `${t("interface.notFound")} | Lynx Racing Spain Team`;
+    const description = seoKey ? t(`seo.${seoKey}.description`) : t("interface.notFoundText");
+    upsertMeta('meta[name="robots"]', {
+      name: "robots",
+      content: seoKey ? "index, follow" : "noindex, follow",
+    });
     const canonicalUrl = `${SITE_ORIGIN}${location.pathname === "/" ? "/" : location.pathname}`;
     const localeMap: Record<string, string> = {
       es: "es_ES",

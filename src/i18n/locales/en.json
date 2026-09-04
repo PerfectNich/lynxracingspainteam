@@ -1,4 +1,11 @@
 {
+  "interface": {
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "notFound": "Page not found",
+    "notFoundText": "This link does not exist or has changed. Return home to keep browsing.",
+    "loading": "Loading"
+  },
   "racing": {
     "featured": "Featured result",
     "history": "Race history",

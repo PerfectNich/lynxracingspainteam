@@ -113,7 +113,8 @@ function AccordionItem({ entry, index }: { entry: PalmaresEntry; index: number }
       className="overflow-hidden rounded-xl border border-lynx-border"
     >
       <button
-        onClick={() => setOpen((value) => !value)}
+          onClick={() => setOpen((value) => !value)}
+          aria-expanded={open}
         className="flex w-full items-center gap-4 px-5 py-4 text-left transition-colors duration-200 hover:bg-white/5"
         style={{ background: open ? style.bg : "transparent" }}
       >

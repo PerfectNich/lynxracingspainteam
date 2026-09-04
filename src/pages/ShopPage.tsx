@@ -29,6 +29,8 @@ function ProductCard({ product }: { product: Product }) {
         <img
           src={assetUrl(product.images[index])}
           alt={t(product.nameKey)}
+          loading="lazy"
+          decoding="async"
           className="h-full w-full object-contain p-4 transition-transform duration-500 group-hover:scale-[1.02]"
         />
 
@@ -36,14 +38,14 @@ function ProductCard({ product }: { product: Product }) {
           <>
             <button
               onClick={() => setIndex((value) => (value - 1 + total) % total)}
-              className="absolute left-2 top-1/2 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-white/10 bg-black/60 text-white opacity-0 transition-opacity duration-200 hover:bg-lynx-orange hover:text-black group-hover:opacity-100"
+              className="absolute left-2 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/10 bg-black/80 text-white hover:bg-lynx-orange hover:text-black"
               aria-label={t("shop.carousel_prev")}
             >
               <FaChevronLeft size={12} />
             </button>
             <button
               onClick={() => setIndex((value) => (value + 1) % total)}
-              className="absolute right-2 top-1/2 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-white/10 bg-black/60 text-white opacity-0 transition-opacity duration-200 hover:bg-lynx-orange hover:text-black group-hover:opacity-100"
+              className="absolute right-2 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/10 bg-black/80 text-white hover:bg-lynx-orange hover:text-black"
               aria-label={t("shop.carousel_next")}
             >
               <FaChevronRight size={12} />
@@ -55,10 +57,11 @@ function ProductCard({ product }: { product: Product }) {
                   key={dotIndex}
                   onClick={() => setIndex(dotIndex)}
                   aria-label={t("shop.carousel_go_to", { index: dotIndex + 1 })}
-                  className={`h-1.5 w-1.5 rounded-full transition-all duration-200 ${
-                    dotIndex === index ? "w-3 bg-lynx-orange" : "bg-white/40"
-                  }`}
-                />
+                  aria-pressed={dotIndex === index}
+                  className="flex h-8 w-8 items-center justify-center rounded-full bg-black/50"
+                >
+                  <span className={`h-2 rounded-full ${dotIndex === index ? "w-4 bg-lynx-orange" : "w-2 bg-white/60"}`} />
+                </button>
               ))}
             </div>
           </>

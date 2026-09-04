@@ -5,9 +5,10 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import { LanguageToggle } from "./LanguageToggle";
 
 export function Header() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [openPath, setOpenPath] = useState<string | null>(null);
   const { t, i18n } = useTranslation();
   const location = useLocation();
+  const isOpen = openPath === location.pathname;
   const lang = i18n.language;
   const prefix = lang === "en" ? "/en" : lang === "ca" ? "/ca" : "";
 
@@ -23,13 +24,18 @@ export function Header() {
 
   const basePath = location.pathname.replace(/^\/(en|ca)(?=\/|$)/, "") || "/";
 
-  const toggleMenu = () => setIsOpen(!isOpen);
-  const closeMenu = () => setIsOpen(false);
+  const toggleMenu = () => setOpenPath(isOpen ? null : location.pathname);
+  const closeMenu = () => setOpenPath(null);
 
   return (
-    <nav className="fixed top-0 w-full bg-lynx-dark-menu border-b-2 border-lynx-orange z-[1000] shadow-[0_2px_10px_rgba(0,0,0,0.7)]">
+    <nav onKeyDown={(event) => {
+      if (event.key === "Escape") {
+        closeMenu();
+        document.getElementById("menu-toggle")?.focus();
+      }
+    }} className="fixed top-0 w-full bg-lynx-dark-menu border-b-2 border-lynx-orange z-[1000] shadow-[0_2px_10px_rgba(0,0,0,0.7)]">
       {/* Desktop nav */}
-      <div className="hidden md:flex justify-between items-center py-4 px-6">
+      <div className="hidden xl:flex justify-between items-center py-4 px-6">
         <div className="flex items-center gap-4">
           <LanguageToggle lang={lang} basePath={basePath} />
         </div>
@@ -52,7 +58,7 @@ export function Header() {
       </div>
 
       {/* Mobile nav */}
-      <div className="md:hidden flex justify-between items-center gap-3 px-4 py-3">
+      <div className="xl:hidden flex justify-between items-center gap-3 px-4 py-3">
         <div className="flex items-center gap-2 min-w-0">
           <LanguageToggle lang={lang} basePath={basePath} />
           <span className="text-lynx-orange font-bold text-sm sm:text-lg truncate">
@@ -60,9 +66,13 @@ export function Header() {
           </span>
         </div>
         <button
+          id="menu-toggle"
+          type="button"
+          aria-expanded={isOpen}
+          aria-controls="mobile-menu"
           onClick={toggleMenu}
           className="text-lynx-text text-2xl hover:text-lynx-orange transition-colors flex-shrink-0"
-          aria-label="Toggle menu"
+          aria-label={t(isOpen ? "interface.closeMenu" : "interface.openMenu")}
         >
           {isOpen ? <FaTimes /> : <FaBars />}
         </button>
@@ -70,9 +80,9 @@ export function Header() {
 
       {/* Mobile menu dropdown */}
       <div
-        className={`md:hidden overflow-hidden transition-all duration-300 ${
-          isOpen ? "max-h-96" : "max-h-0"
-        }`}
+        id="mobile-menu"
+        hidden={!isOpen}
+        className="xl:hidden max-h-[calc(100dvh-68px)] overflow-y-auto"
       >
         <div className="flex flex-col items-center gap-4 py-4 bg-lynx-dark-menu">
           {navLinks.map((link) => (

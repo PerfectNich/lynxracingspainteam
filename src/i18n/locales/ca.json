@@ -1,4 +1,11 @@
 {
+  "interface": {
+    "openMenu": "Obrir menú",
+    "closeMenu": "Tancar menú",
+    "notFound": "Pàgina no trobada",
+    "notFoundText": "Aquest enllaç no existeix o ha canviat. Pots tornar a l’inici per continuar navegant.",
+    "loading": "Carregant"
+  },
   "racing": {
     "featured": "Resultat destacat",
     "history": "Historial de curses",

@@ -15,11 +15,22 @@ interface LightboxProps {
 export function Lightbox({ items, currentIndex, onClose, onNavigate }: LightboxProps) {
   const { t } = useTranslation();
   const videoRef = useRef<HTMLVideoElement>(null);
+  const dialogRef = useRef<HTMLDialogElement>(null);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
 
   const item = items[currentIndex];
   const minSwipeDistance = 50;
+
+  useEffect(() => {
+    const previousFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    const dialog = dialogRef.current;
+    dialog?.showModal();
+    return () => {
+      dialog?.close();
+      previousFocus?.focus({ preventScroll: true });
+    };
+  }, []);
 
   const handlePrev = useCallback(() => {
     const newIndex = currentIndex === 0 ? items.length - 1 : currentIndex - 1;
@@ -50,9 +61,9 @@ export function Lightbox({ items, currentIndex, onClose, onNavigate }: LightboxP
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
-      if (e.key === "ArrowLeft") handlePrev();
-      if (e.key === "ArrowRight") handleNext();
+      if (e.target instanceof HTMLVideoElement) return;
+      if (e.key === "ArrowLeft") { e.preventDefault(); handlePrev(); }
+      if (e.key === "ArrowRight") { e.preventDefault(); handleNext(); }
     };
 
     document.addEventListener("keydown", handleKeyDown);
@@ -61,7 +72,7 @@ export function Lightbox({ items, currentIndex, onClose, onNavigate }: LightboxP
 
   useEffect(() => {
     if (item.type === "video" && videoRef.current) {
-      videoRef.current.play();
+      void videoRef.current.play().catch(() => { /* Native controls remain available if autoplay is blocked. */ });
     }
   }, [item]);
 
@@ -85,7 +96,7 @@ export function Lightbox({ items, currentIndex, onClose, onNavigate }: LightboxP
   };
 
   const onTouchEnd = () => {
-    if (!touchStart || !touchEnd) return;
+    if (touchStart === null || touchEnd === null) return;
 
     const distance = touchStart - touchEnd;
     const isLeftSwipe = distance > minSwipeDistance;
@@ -96,8 +107,11 @@ export function Lightbox({ items, currentIndex, onClose, onNavigate }: LightboxP
   };
 
   const lightboxContent = (
-    <div
-      className="fixed top-0 left-0 right-0 bottom-0 bg-black/95 flex justify-center items-center"
+    <dialog
+      ref={dialogRef}
+      aria-label={t("media.page_title")}
+      onCancel={(event) => { event.preventDefault(); handleClose(); }}
+      className="fixed inset-0 m-0 h-dvh w-screen max-h-none max-w-none border-0 bg-black/95 p-0 text-white open:flex justify-center items-center"
       style={{ zIndex: 99999, touchAction: "none" }}
       onClick={handleClose}
       onTouchStart={onTouchStart}
@@ -106,8 +120,8 @@ export function Lightbox({ items, currentIndex, onClose, onNavigate }: LightboxP
     >
       {/* Close button */}
       <button
-        onClick={handleClose}
-        className="absolute top-4 right-4 text-white text-2xl hover:text-lynx-orange transition-colors z-10"
+        onClick={(event) => { event.stopPropagation(); handleClose(); }}
+        className="absolute top-4 right-4 flex h-11 w-11 items-center justify-center text-white text-2xl hover:text-lynx-orange transition-colors z-10"
         aria-label={t("media.close_lightbox")}
       >
         <FaTimes />
@@ -116,7 +130,7 @@ export function Lightbox({ items, currentIndex, onClose, onNavigate }: LightboxP
       {/* Prev button - desktop only */}
       <button
         onClick={(e) => { e.stopPropagation(); handlePrev(); }}
-        className="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 text-white text-4xl hover:text-lynx-orange transition-colors z-10 bg-black/50 p-3 rounded-full"
+        className="absolute left-2 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center text-white text-xl hover:text-lynx-orange transition-colors z-10 bg-black/70 rounded-full md:left-4"
         aria-label={t("media.previous_item")}
       >
         <FaChevronLeft />
@@ -125,7 +139,7 @@ export function Lightbox({ items, currentIndex, onClose, onNavigate }: LightboxP
       {/* Next button - desktop only */}
       <button
         onClick={(e) => { e.stopPropagation(); handleNext(); }}
-        className="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 text-white text-4xl hover:text-lynx-orange transition-colors z-10 bg-black/50 p-3 rounded-full"
+        className="absolute right-2 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center text-white text-xl hover:text-lynx-orange transition-colors z-10 bg-black/70 rounded-full md:right-4"
         aria-label={t("media.next_item")}
       >
         <FaChevronRight />
@@ -153,7 +167,7 @@ export function Lightbox({ items, currentIndex, onClose, onNavigate }: LightboxP
           onClick={(e) => e.stopPropagation()}
         />
       )}
-    </div>
+    </dialog>
   );
 
   // Render using portal to escape any parent transforms

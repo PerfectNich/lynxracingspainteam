@@ -24,6 +24,8 @@ const FocusCard = React.memo(
       type="button"
       onMouseEnter={() => setHovered(index)}
       onMouseLeave={() => setHovered(null)}
+      onFocus={() => setHovered(index)}
+      onBlur={() => setHovered(null)}
       onClick={onClick}
       className={cn(
         "rounded-lg relative bg-lynx-dark-card overflow-hidden h-60 md:h-80 w-full transition-all duration-300 ease-out border-0 p-0 cursor-pointer",
@@ -40,7 +42,7 @@ const FocusCard = React.memo(
       <div
         className={cn(
           "absolute inset-0 transition-opacity duration-300",
-          hovered === index ? "opacity-0" : "bg-black/55 opacity-100"
+          hovered === index ? "opacity-0" : "bg-black/10 opacity-100"
         )}
       />
     </button>

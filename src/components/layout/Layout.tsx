@@ -12,7 +12,12 @@ function ScrollToTop() {
   useEffect(() => {
     if (hash) {
       const scrollToHash = () => {
-        document.querySelector(hash)?.scrollIntoView({ behavior: "smooth", block: "start" });
+        let id = hash.slice(1);
+        try { id = decodeURIComponent(id); } catch { /* Keep malformed fragments as literal IDs. */ }
+        document.getElementById(id)?.scrollIntoView({
+          behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+          block: "start",
+        });
       };
 
       requestAnimationFrame(scrollToHash);

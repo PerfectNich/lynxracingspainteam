@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-route
 import { Layout } from "./components/layout/Layout";
 import { LanguageWrapper } from "./components/layout/LanguageWrapper";
 import { HomePage } from "./pages/HomePage";
+import { NotFoundPage } from "./pages/NotFoundPage";
+import { useTranslation } from "react-i18next";
 
 const RosterPage = lazy(() => import("./pages/RosterPage").then((module) => ({ default: module.RosterPage })));
 const CalendarPage = lazy(() =>
@@ -18,6 +20,7 @@ const PalmaresPage = lazy(() =>
 );
 
 function RouteFallback() {
+  const { t } = useTranslation();
   return (
     <div className="min-h-[40vh] px-6 py-16">
       <div className="mx-auto max-w-5xl rounded-[1.75rem] border border-lynx-border bg-lynx-dark-card px-6 py-10 text-center">
@@ -25,7 +28,7 @@ function RouteFallback() {
           className="text-sm uppercase tracking-[0.3em] text-lynx-orange"
           style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 700 }}
         >
-          Cargando
+          {t("interface.loading")}
         </p>
       </div>
     </div>
@@ -39,6 +42,7 @@ function ResultsRedirect() {
 
 const pages = (
   <>
+    <Route path="*" element={<NotFoundPage />} />
     <Route index element={<HomePage />} />
     <Route
       path="roster"

@@ -1,4 +1,11 @@
 {
+  "interface": {
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú",
+    "notFound": "Página no encontrada",
+    "notFoundText": "Este enlace no existe o ha cambiado. Puedes volver al inicio para seguir navegando.",
+    "loading": "Cargando"
+  },
   "racing": {
     "featured": "Resultado destacado",
     "history": "Historial de carreras",
