@@ -59,6 +59,7 @@ export function ExpandCards({
         <button
           key={item.id}
           type="button"
+          aria-label={item.name}
           aria-haspopup={onSelect ? "dialog" : undefined}
           className="relative cursor-pointer overflow-hidden rounded-2xl transition-all duration-500 ease-in-out flex-shrink-0 border-0 p-0 bg-transparent text-left"
           style={{
@@ -104,7 +105,7 @@ export function ExpandCards({
             {item.flagSrc && (
               <img
                 src={item.flagSrc}
-                alt="flag"
+                alt=""
                 className="w-8 h-5 object-cover rounded-sm mb-2 opacity-90"
               />
             )}

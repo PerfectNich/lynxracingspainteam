@@ -22,3 +22,6 @@ test("handles malformed data without throwing", () => {
   assert.ok(validateResults(null, []).length);
   assert.ok(validateResults([null], []).length);
 });
+test("rejects duplicate pilots with repeated spaces", () => {
+  assert.ok(validateResults([{ ...result, drivers: ["Marc Garcia", " Marc  Garcia "] }], ["lmp2"]).some((error) => error.includes("duplicados")));
+});

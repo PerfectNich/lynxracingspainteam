@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
+    "test": "node --test scripts/validate-results.test.mjs",
     "add:result": "node scripts/add-result.mjs",
     "sync:x": "node scripts/fetch-latest-x-post.mjs",
     "sync:media": "node scripts/sync-media.mjs",

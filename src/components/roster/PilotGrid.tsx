@@ -5,7 +5,7 @@ export function PilotGrid({ items, onSelect }: { items: ExpandCardItem[]; onSele
     <ul className="grid grid-cols-2 gap-3 md:hidden">
       {items.map((item) => (
         <li key={item.id} className="min-w-0 overflow-hidden rounded-lg border border-lynx-border bg-lynx-dark-card">
-          <button type="button" onClick={() => onSelect(item)} aria-haspopup="dialog" className="block h-full w-full text-left">
+          <button type="button" onClick={() => onSelect(item)} aria-label={item.name} aria-haspopup="dialog" className="block h-full w-full text-left">
           <img src={item.imageSrc} alt={item.name ?? ""} loading="lazy"
             className="aspect-[4/5] w-full object-cover"
             style={item.imagePosition ? { objectPosition: item.imagePosition } : undefined} />

@@ -16,7 +16,7 @@ export function validateResults(results, availableCars) {
     if (!Array.isArray(result.drivers) || !result.drivers.length || result.drivers.some((name) => typeof name !== "string" || !name.trim())) {
       errors.push(`${label}: indica los pilotos`);
     } else {
-      const names = result.drivers.map((name) => name.normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim().toLowerCase());
+      const names = result.drivers.map((name) => name.normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim().replace(/\s+/g, " ").toLowerCase());
       if (new Set(names).size !== names.length) errors.push(`${label}: pilotos duplicados`);
     }
     if (typeof result.featured !== "boolean") errors.push(`${label}: featured debe ser true o false`);
