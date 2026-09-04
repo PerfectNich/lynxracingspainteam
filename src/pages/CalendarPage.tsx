@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { FaCar, FaFlagCheckered, FaRegCalendarAlt, FaUsers } from "react-icons/fa";
 import { GradientDots } from "@/components/ui/gradient-dots";
 import teamEvent from "../data/team-event.json";
+import { RaceResults } from "../components/RaceResults";
 
 const eventDate = (value: string) => new Date(`${value}T12:00:00`);
 
@@ -84,9 +85,8 @@ export function CalendarPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="relative mx-auto max-w-5xl overflow-hidden rounded-[2rem] border border-lynx-border bg-lynx-dark-card p-5 shadow-[0_22px_80px_rgba(0,0,0,0.28)] md:p-8"
+          className="relative mx-auto max-w-5xl"
         >
-          <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-lynx-orange/10 blur-3xl" />
 
           <div className="relative mb-7 flex flex-wrap items-center justify-between gap-4 border-b border-lynx-border pb-6">
             <div className="flex items-center gap-3">
@@ -98,7 +98,7 @@ export function CalendarPage() {
                   className="text-xs uppercase tracking-[0.35em] text-lynx-orange"
                   style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 700 }}
                 >
-                  {t("calendar.team_target")}
+                  {t(isCompleted ? "calendar.completed" : "racing.upcoming")}
                 </p>
                 <p
                   className="mt-1 text-sm text-lynx-text/60"
@@ -116,7 +116,7 @@ export function CalendarPage() {
             </span>
           </div>
 
-          <div className="relative grid gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(300px,0.85fr)]">
+          <div className="relative grid gap-8">
             <div>
               <p
                 className="mb-3 text-xs uppercase tracking-[0.32em] text-lynx-text/55"
@@ -195,7 +195,7 @@ export function CalendarPage() {
               ) : null}
             </div>
 
-            <div className="rounded-[1.5rem] border border-lynx-orange/25 bg-[radial-gradient(circle_at_top_right,rgba(255,106,0,0.14),transparent_55%)] p-5">
+            <div className="min-w-0 border-t border-lynx-border pt-6">
               <div className="mb-5 flex items-center gap-3">
                 <div className="flex h-9 w-9 items-center justify-center rounded-full bg-lynx-orange/12 text-lynx-orange">
                   <FaUsers />
@@ -214,9 +214,9 @@ export function CalendarPage() {
               </div>
 
               {entries.length > 0 ? (
-                <div className="space-y-4">
+                <div className="grid gap-4 md:grid-cols-2">
                   {entries.map((entry) => (
-                    <div key={entry.name} className="rounded-2xl border border-white/7 bg-black/20 p-4">
+                    <div key={entry.name} className="min-w-0 rounded-lg border border-lynx-border bg-lynx-dark-card p-4">
                       <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
                         <div>
                           <p
@@ -291,6 +291,7 @@ export function CalendarPage() {
           </div>
         </motion.div>
       </section>
+      <RaceResults />
     </div>
   );
 }

@@ -41,14 +41,14 @@ export function HomeRacePulse() {
       : t("calendar.pending");
 
   return (
-    <section className="relative border-y border-lynx-border bg-lynx-dark-card px-6 py-16 md:py-20">
+    <section className="relative border-y border-lynx-border bg-lynx-dark-card px-6 py-8 md:py-10">
       <div className="mx-auto max-w-4xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="mb-10 text-center md:mb-12"
+          className="mb-6 text-center"
         >
           <p
             className="mb-3 text-xs uppercase tracking-[0.4em] text-lynx-orange"
@@ -57,7 +57,7 @@ export function HomeRacePulse() {
             {t("home.pulse_label")}
           </p>
           <h2
-            className="text-2xl font-black text-white sm:text-3xl md:text-5xl"
+            className="text-2xl font-black text-white sm:text-3xl"
             style={{ fontFamily: "var(--font-orbitron)" }}
           >
             {t("home.pulse_title")}
@@ -136,8 +136,9 @@ export function HomeRacePulse() {
                     ) : null}
                   </div>
                   <p className="mt-1 text-white" style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 600 }}>
-                    {entry.car ?? entry.drivers.join(" · ")}
+                    {entry.car}
                   </p>
+                  <p className="mt-2 text-sm leading-relaxed text-lynx-text/75">{entry.drivers.join(" · ")}</p>
                 </div>
               ))}
             </div>

@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import members from "../data/members.json";
 import { ExpandCards } from "@/components/ui/expand-cards";
+import { PilotGrid } from "../components/roster/PilotGrid";
 import type { ExpandCardItem } from "@/components/ui/expand-cards";
 import { GradientDots } from "@/components/ui/gradient-dots";
 import { TwitchEmbed } from "../components/roster/TwitchEmbed";
@@ -179,7 +180,8 @@ export function RosterPage() {
               {t("roster.management_intro")}
             </p>
           </div>
-          <div className="overflow-x-auto">
+          <PilotGrid items={managementCards} />
+          <div className="hidden overflow-x-auto md:block">
             <ExpandCards
               items={managementCards}
               cardHeight={300}
@@ -223,7 +225,8 @@ export function RosterPage() {
             </p>
           </div>
 
-          <div className="flex flex-col gap-3">
+          <PilotGrid items={driverCards} />
+          <div className="hidden flex-col gap-3 md:flex">
             {driverRows.map((row, rowIdx) => (
               <div
                 key={rowIdx}

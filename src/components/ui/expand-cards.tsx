@@ -67,6 +67,8 @@ export function ExpandCards({
             height: `${cardHeight}px`,
           }}
           onMouseEnter={() => setExpandedIndex(idx)}
+          onFocus={() => setExpandedIndex(idx)}
+          onBlur={() => !isCompactLayout && setExpandedIndex(null)}
           onMouseLeave={() => !isCompactLayout && setExpandedIndex(null)}
           onClick={() =>
             setExpandedIndex((current) =>

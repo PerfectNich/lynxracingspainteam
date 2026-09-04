@@ -1,4 +1,9 @@
 {
+  "racing": {
+    "featured": "Featured result",
+    "history": "Race history",
+    "upcoming": "Upcoming race"
+  },
   "nav": {
     "home": "Home",
     "calendar": "Calendar",

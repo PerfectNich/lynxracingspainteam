@@ -1,4 +1,9 @@
 {
+  "racing": {
+    "featured": "Resultado destacado",
+    "history": "Historial de carreras",
+    "upcoming": "Próxima carrera"
+  },
   "nav": {
     "home": "Inicio",
     "calendar": "Agenda",
