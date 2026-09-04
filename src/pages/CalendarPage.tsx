@@ -6,7 +6,11 @@ import teamEvent from "../data/team-event.json";
 
 const eventDate = (value: string) => new Date(`${value}T12:00:00`);
 
-function getDaysUntil(dateValue: string) {
+function getDaysUntil(dateValue?: string | null) {
+  if (!dateValue) {
+    return null;
+  }
+
   const today = new Date();
   const todayMidday = new Date(today.getFullYear(), today.getMonth(), today.getDate(), 12, 0, 0);
   const event = eventDate(dateValue);
@@ -21,14 +25,17 @@ export function CalendarPage() {
   const entries = Array.isArray(teamEvent.entries) ? teamEvent.entries : [];
   const daysUntilStart = getDaysUntil(teamEvent.startDate);
   const isCompleted = teamEvent.status === "completed";
-  const dateRange = `${new Intl.DateTimeFormat(locale, {
-    day: "numeric",
-    month: "long",
-  }).format(eventDate(teamEvent.startDate))} - ${new Intl.DateTimeFormat(locale, {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  }).format(eventDate(teamEvent.endDate))}`;
+  const dateRange =
+    teamEvent.startDate && teamEvent.endDate
+      ? `${new Intl.DateTimeFormat(locale, {
+          day: "numeric",
+          month: "long",
+        }).format(eventDate(teamEvent.startDate))} - ${new Intl.DateTimeFormat(locale, {
+          day: "numeric",
+          month: "long",
+          year: "numeric",
+        }).format(eventDate(teamEvent.endDate))}`
+      : t("calendar.pending");
 
   return (
     <div className="overflow-x-hidden">
@@ -128,7 +135,11 @@ export function CalendarPage() {
                   className="text-xs uppercase tracking-[0.22em] text-lynx-orange"
                   style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 700 }}
                 >
-                  {isCompleted ? t("calendar.finished_event") : t("calendar.countdown", { count: daysUntilStart })}
+                  {isCompleted
+                    ? t("calendar.finished_event")
+                    : daysUntilStart === null
+                      ? t("calendar.pending")
+                      : t("calendar.countdown", { count: daysUntilStart })}
                 </span>
               </div>
 
@@ -163,23 +174,25 @@ export function CalendarPage() {
                 </div>
               </div>
 
-              <div className="mt-3 flex items-center gap-3 rounded-2xl border border-white/8 bg-black/20 p-4">
-                <FaCar className="flex-shrink-0 text-lynx-orange" />
-                <div>
-                  <p
-                    className="text-[11px] uppercase tracking-[0.24em] text-lynx-text/50"
-                    style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 700 }}
-                  >
-                    {t("calendar.car")}
-                  </p>
-                  <p
-                    className="mt-1 font-bold text-white"
-                    style={{ fontFamily: "var(--font-rajdhani)" }}
-                  >
-                    {teamEvent.car ?? t("calendar.car_pending")}
-                  </p>
+              {teamEvent.car ? (
+                <div className="mt-3 flex items-center gap-3 rounded-2xl border border-white/8 bg-black/20 p-4">
+                  <FaCar className="flex-shrink-0 text-lynx-orange" />
+                  <div>
+                    <p
+                      className="text-[11px] uppercase tracking-[0.24em] text-lynx-text/50"
+                      style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 700 }}
+                    >
+                      {t("calendar.car")}
+                    </p>
+                    <p
+                      className="mt-1 font-bold text-white"
+                      style={{ fontFamily: "var(--font-rajdhani)" }}
+                    >
+                      {teamEvent.car}
+                    </p>
+                  </div>
                 </div>
-              </div>
+              ) : null}
             </div>
 
             <div className="rounded-[1.5rem] border border-lynx-orange/25 bg-[radial-gradient(circle_at_top_right,rgba(255,106,0,0.14),transparent_55%)] p-5">
@@ -213,7 +226,7 @@ export function CalendarPage() {
                             {entry.name}
                           </p>
                           <p className="mt-1 text-sm text-white" style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 700 }}>
-                            {entry.category} · {entry.car}
+                            {entry.car ? `${entry.category} · ${entry.car}` : entry.category}
                           </p>
                         </div>
                         {entry.result ? (

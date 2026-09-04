@@ -6,7 +6,11 @@ import teamEvent from "../../data/team-event.json";
 
 const eventDate = (value: string) => new Date(`${value}T12:00:00`);
 
-function getDaysUntil(dateValue: string) {
+function getDaysUntil(dateValue?: string | null) {
+  if (!dateValue) {
+    return null;
+  }
+
   const today = new Date();
   const todayMidday = new Date(today.getFullYear(), today.getMonth(), today.getDate(), 12, 0, 0);
   const event = eventDate(dateValue);
@@ -24,14 +28,17 @@ export function HomeRacePulse() {
 
   const locale = i18n.language === "en" ? "en-GB" : i18n.language === "ca" ? "ca-ES" : "es-ES";
   const entries = Array.isArray(teamEvent.entries) ? teamEvent.entries : [];
-  const formattedDate = `${new Intl.DateTimeFormat(locale, {
-    day: "numeric",
-    month: "long",
-  }).format(eventDate(teamEvent.startDate))} - ${new Intl.DateTimeFormat(locale, {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  }).format(eventDate(teamEvent.endDate))}`;
+  const formattedDate =
+    teamEvent.startDate && teamEvent.endDate
+      ? `${new Intl.DateTimeFormat(locale, {
+          day: "numeric",
+          month: "long",
+        }).format(eventDate(teamEvent.startDate))} - ${new Intl.DateTimeFormat(locale, {
+          day: "numeric",
+          month: "long",
+          year: "numeric",
+        }).format(eventDate(teamEvent.endDate))}`
+      : t("calendar.pending");
 
   return (
     <section className="relative border-y border-lynx-border bg-lynx-dark-card px-6 py-16 md:py-20">
@@ -75,7 +82,11 @@ export function HomeRacePulse() {
               className="rounded-full border border-lynx-orange/30 bg-lynx-orange/10 px-3 py-1 text-xs uppercase tracking-[0.2em] text-lynx-orange"
               style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 700 }}
             >
-              {isCompleted ? t("calendar.completed") : t("calendar.countdown", { count: daysUntilStart })}
+              {isCompleted
+                ? t("calendar.completed")
+                : daysUntilStart === null
+                  ? t("calendar.pending")
+                  : t("calendar.countdown", { count: daysUntilStart })}
             </span>
           </div>
 
@@ -125,7 +136,7 @@ export function HomeRacePulse() {
                     ) : null}
                   </div>
                   <p className="mt-1 text-white" style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 600 }}>
-                    {entry.car}
+                    {entry.car ?? entry.drivers.join(" · ")}
                   </p>
                 </div>
               ))}

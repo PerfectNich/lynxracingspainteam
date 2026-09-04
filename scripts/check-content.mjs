@@ -137,22 +137,26 @@ if (members) {
 }
 
 if (event) {
-  const start = new Date(`${event.startDate}T12:00:00`);
-  const end = new Date(`${event.endDate}T12:00:00`);
+  const hasStartDate = typeof event.startDate === "string" && event.startDate.length > 0;
+  const hasEndDate = typeof event.endDate === "string" && event.endDate.length > 0;
+  const start = hasStartDate ? new Date(`${event.startDate}T12:00:00`) : null;
+  const end = hasEndDate ? new Date(`${event.endDate}T12:00:00`) : null;
   const entries = Array.isArray(event.entries) ? event.entries : [];
   const eventDrivers = Array.isArray(event.drivers) ? event.drivers : [];
   const entryDrivers = entries.flatMap((entry) => (Array.isArray(entry.drivers) ? entry.drivers : []));
   const allEventDrivers = [...eventDrivers, ...entryDrivers];
-  if (Number.isNaN(start.getTime()) || Number.isNaN(end.getTime())) {
+  if (hasStartDate !== hasEndDate) {
+    fail("team-event.json debe indicar fecha de inicio y fin, o dejar ambas por confirmar");
+  } else if ((start && Number.isNaN(start.getTime())) || (end && Number.isNaN(end.getTime()))) {
     fail("team-event.json contiene fechas no validas");
-  } else if (start > end) {
+  } else if (start && end && start > end) {
     fail("team-event.json termina antes de empezar");
   }
   if (allEventDrivers.length === 0) {
     fail("team-event.json necesita al menos un piloto");
   }
   for (const entry of entries) {
-    if (!entry.name || !entry.category || !entry.car) {
+    if (!entry.name || !entry.category) {
       fail("team-event.json contiene entries incompletas");
     }
     if (!Array.isArray(entry.drivers) || entry.drivers.length === 0) {
