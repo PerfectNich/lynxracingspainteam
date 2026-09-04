@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { FaArrowRight } from "react-icons/fa";
-import teamEvent from "../../data/team-event.json";
+import teamEvent from "../../data/team-event";
 
 const eventDate = (value: string) => new Date(`${value}T12:00:00`);
 
@@ -41,14 +41,14 @@ export function HomeRacePulse() {
       : t("calendar.pending");
 
   return (
-    <section className="relative border-y border-lynx-border bg-lynx-dark-card px-6 py-8 md:py-10">
+    <section className="min-w-0 py-4">
       <div className="mx-auto max-w-4xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="mb-6 text-center"
+          className="mb-6"
         >
           <p
             className="mb-3 text-xs uppercase tracking-[0.4em] text-lynx-orange"

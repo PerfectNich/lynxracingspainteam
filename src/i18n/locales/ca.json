@@ -1,4 +1,5 @@
 {
+  "profile": {"close":"Tancar fitxa","results":"Resultats registrats","empty":"Encara no hi ha resultats registrats per a aquest pilot.","regions":{"spain":"Espanya","cat":"Catalunya","serbia":"Sèrbia","colombia":"Colòmbia","andalucia":"Andalusia","valencia":"Comunitat Valenciana","aragon":"Aragó"}},
   "interface": {
     "openMenu": "Obrir menú",
     "closeMenu": "Tancar menú",

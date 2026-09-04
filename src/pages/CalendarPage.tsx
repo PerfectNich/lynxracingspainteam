@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { FaCar, FaFlagCheckered, FaRegCalendarAlt, FaUsers } from "react-icons/fa";
 import { GradientDots } from "@/components/ui/gradient-dots";
-import teamEvent from "../data/team-event.json";
+import teamEvent from "../data/team-event";
 import { RaceResults } from "../components/RaceResults";
 
 const eventDate = (value: string) => new Date(`${value}T12:00:00`);

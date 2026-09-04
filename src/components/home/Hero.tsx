@@ -17,7 +17,9 @@ export function Hero() {
     <div
       className="relative flex flex-col items-center justify-center overflow-hidden"
       style={{
-        height: "100svh",
+        height: "68svh",
+        minHeight: "360px",
+        maxHeight: "640px",
         background:
           "radial-gradient(ellipse 70% 60% at 50% 45%, rgba(255,106,0,0.3), transparent 72%), #080808",
       }}
@@ -77,7 +79,7 @@ export function Hero() {
         <img
           src={assetUrl("/logo.jpg")}
           alt="Lynx Racing Spain Team"
-          className="w-36 md:w-56 lg:w-72 mx-auto mb-6 drop-shadow-[0_0_30px_rgba(255,106,0,1)] rounded-lg"
+          className="w-32 md:w-44 lg:w-48 mx-auto mb-6 drop-shadow-[0_0_30px_rgba(255,106,0,1)] rounded-lg"
           loading="eager"
         />
         <p

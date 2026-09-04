@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import members from "../data/members.json";
 import { ExpandCards } from "@/components/ui/expand-cards";
 import { PilotGrid } from "../components/roster/PilotGrid";
+import { PilotProfile } from "../components/roster/PilotProfile";
 import type { ExpandCardItem } from "@/components/ui/expand-cards";
 import { GradientDots } from "@/components/ui/gradient-dots";
 import { TwitchEmbed } from "../components/roster/TwitchEmbed";
@@ -88,6 +89,8 @@ function StatCard({ value, label }: { value: string; label: string }) {
 }
 
 export function RosterPage() {
+  const [selectedPilot, setSelectedPilot] = useState<ExpandCardItem | null>(null);
+  const selectedMember = selectedPilot ? [...management, ...drivers].find((member) => member.name === selectedPilot.id) : null;
   const { t } = useTranslation();
   const [otherChannelsOpen, setOtherChannelsOpen] = useState(false);
   const [selectedChannel, setSelectedChannel] = useState(mainChannel);
@@ -180,10 +183,11 @@ export function RosterPage() {
               {t("roster.management_intro")}
             </p>
           </div>
-          <PilotGrid items={managementCards} />
+          <PilotGrid items={managementCards} onSelect={setSelectedPilot} />
           <div className="hidden overflow-x-auto md:block">
             <ExpandCards
               items={managementCards}
+              onSelect={setSelectedPilot}
               cardHeight={300}
               expandedWidth={320}
               collapsedWidth={80}
@@ -225,7 +229,7 @@ export function RosterPage() {
             </p>
           </div>
 
-          <PilotGrid items={driverCards} />
+          <PilotGrid items={driverCards} onSelect={setSelectedPilot} />
           <div className="hidden flex-col gap-3 md:flex">
             {driverRows.map((row, rowIdx) => (
               <div
@@ -234,6 +238,7 @@ export function RosterPage() {
               >
                 <ExpandCards
                   items={row}
+                  onSelect={setSelectedPilot}
                   cardHeight={240}
                   expandedWidth={280}
                   collapsedWidth={68}
@@ -243,6 +248,8 @@ export function RosterPage() {
           </div>
         </motion.div>
       </section>
+
+      {selectedPilot && selectedMember && <PilotProfile member={selectedMember} card={selectedPilot} onClose={() => setSelectedPilot(null)} />}
 
       {/* Streams */}
       <section id="streams" className="scroll-mt-24 py-16 px-6">

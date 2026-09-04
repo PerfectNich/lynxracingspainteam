@@ -1,0 +1,204 @@
+[
+  {
+    "id": "result-1",
+    "pos": 1,
+    "event": "Resistencia 4h Barcelona - Benéfica de La Cueva",
+    "simulator": "ACC",
+    "drivers": [
+      "Kiko Ribes",
+      "Xavier Sobrerroca"
+    ],
+    "car": "porsche",
+    "year": 2023,
+    "featured": false
+  },
+  {
+    "id": "result-2",
+    "pos": 1,
+    "event": "Campeonato CNE II - VRGirona",
+    "simulator": "ACC",
+    "drivers": [
+      "Juan Serrano",
+      "Josh Mopar",
+      "Xavier Sobrerroca"
+    ],
+    "car": "aston",
+    "year": 2023,
+    "featured": false
+  },
+  {
+    "id": "result-3",
+    "pos": 2,
+    "event": "Resistencia 8h Suzuka - CER-V",
+    "simulator": "ACC",
+    "drivers": [
+      "Dani Gala",
+      "Juan Serrano",
+      "Jorge Pola"
+    ],
+    "car": "aston",
+    "year": 2022,
+    "featured": false
+  },
+  {
+    "id": "result-4",
+    "pos": 3,
+    "event": "Resistencia 9h Kyalami - CER-V",
+    "simulator": "ACC",
+    "drivers": [
+      "Kiko Ribes",
+      "Juan Serrano"
+    ],
+    "car": "aston",
+    "year": 2022,
+    "featured": false
+  },
+  {
+    "id": "result-5",
+    "pos": 4,
+    "event": "Endurance 4h Titanium Red",
+    "simulator": "ACC",
+    "drivers": [
+      "Jordi Capdevila",
+      "Francisco Sierra"
+    ],
+    "car": "ferrari",
+    "year": 2025,
+    "featured": false
+  },
+  {
+    "id": "result-6",
+    "pos": 7,
+    "event": "Resistencia 24h Nordschleife - Pitskill",
+    "simulator": "ACC",
+    "drivers": [
+      "Jordi Capdevila",
+      "Luis Ungo",
+      "Juan Serrano",
+      "Xavier Sobrerroca",
+      "Albert Gombau"
+    ],
+    "car": "ferrari",
+    "year": 2025,
+    "featured": false
+  },
+  {
+    "id": "result-7",
+    "pos": 2,
+    "event": "Resistencia 24h Daytona",
+    "simulator": "iRacing",
+    "drivers": [
+      "Jordi Capdevila",
+      "Jesus Jimenez",
+      "Francisco Sierra",
+      "Luis Ungo",
+      "Xavier Sobrerroca"
+    ],
+    "car": "porsche",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "id": "result-8",
+    "pos": 3,
+    "event": "Resistencia 24h Daytona",
+    "simulator": "iRacing",
+    "drivers": [
+      "Marc Garcia",
+      "Luis Ungo",
+      "Jordi Capdevila",
+      "Francisco Sierra",
+      "Jesus Jimenez"
+    ],
+    "car": "lmp2",
+    "year": 2026,
+    "featured": true
+  },
+  {
+    "id": "result-9",
+    "pos": 2,
+    "event": "Resistencia 24h Nordschleife",
+    "simulator": "iRacing",
+    "drivers": [
+      "Relja Ljubobratovic",
+      "Marc Garcia",
+      "Rubén Juarez",
+      "Josh Mopar",
+      "Juan Serrano",
+      "Juanjo Morales"
+    ],
+    "car": "ford",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "id": "result-10",
+    "pos": 5,
+    "event": "Resistencia 24h Spa",
+    "simulator": "iRacing",
+    "drivers": [
+      "Albert Gombau",
+      "Juanjo Morales",
+      "Marc Garcia",
+      "Angel Alvarado",
+      "Relja Ljubobratovic"
+    ],
+    "car": "lmp2",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "id": "result-11",
+    "pos": 2,
+    "event": "Resistencia 12h Sebring",
+    "simulator": "iRacing",
+    "drivers": [
+      "Nacho Jarrin",
+      "Albert Gombau",
+      "Fran Gambin"
+    ],
+    "car": "porsche",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "id": "result-12",
+    "pos": 3,
+    "event": "Resistencia 12h Mount Panorama",
+    "simulator": "iRacing",
+    "drivers": [
+      "Angel Alvarado",
+      "Albert Gombau",
+      "Nacho Jarrin"
+    ],
+    "car": "mclaren",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "id": "result-13",
+    "pos": 4,
+    "event": "Resistencia 6h Watkins Glen",
+    "simulator": "iRacing",
+    "drivers": [
+      "Albert Gombau",
+      "Lalo Sanchez"
+    ],
+    "car": "acura",
+    "year": 2024,
+    "featured": false
+  },
+  {
+    "id": "result-14",
+    "pos": 4,
+    "event": "Resistencia 6h Sebring",
+    "simulator": "iRacing",
+    "drivers": [
+      "Jordi Capdevila",
+      "Francisco Sierra"
+    ],
+    "car": "porsche",
+    "year": 2026,
+    "featured": false
+  }
+]

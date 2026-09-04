@@ -1,4 +1,5 @@
 {
+  "profile": {"close":"Cerrar ficha","results":"Resultados registrados","empty":"Todavía no hay resultados registrados para este piloto.","regions":{"spain":"España","cat":"Cataluña","serbia":"Serbia","colombia":"Colombia","andalucia":"Andalucía","valencia":"Comunidad Valenciana","aragon":"Aragón"}},
   "interface": {
     "openMenu": "Abrir menú",
     "closeMenu": "Cerrar menú",

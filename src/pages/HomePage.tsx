@@ -94,8 +94,10 @@ export function HomePage() {
   return (
     <div className="overflow-x-hidden">
       <Hero />
-      <HomeRacePulse />
-      <RaceResults featured />
+      <div className="mx-auto grid max-w-6xl items-start gap-6 px-6 py-8 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)]">
+        <HomeRacePulse />
+        <RaceResults featured />
+      </div>
 
       <section className="relative bg-lynx-dark-card px-6 py-8 sm:py-10">
         <div className="absolute inset-0 overflow-hidden opacity-30">

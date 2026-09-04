@@ -15,6 +15,7 @@ interface ExpandCardsProps {
   expandedWidth?: number;
   collapsedWidth?: number;
   defaultExpanded?: number;
+  onSelect?: (item: ExpandCardItem) => void;
 }
 
 export function ExpandCards({
@@ -23,6 +24,7 @@ export function ExpandCards({
   expandedWidth = 300,
   collapsedWidth = 72,
   defaultExpanded,
+  onSelect,
 }: ExpandCardsProps) {
   const [isCompactLayout, setIsCompactLayout] = useState(false);
   const [expandedIndex, setExpandedIndex] = useState<number | null>(
@@ -57,6 +59,7 @@ export function ExpandCards({
         <button
           key={item.id}
           type="button"
+          aria-haspopup={onSelect ? "dialog" : undefined}
           className="relative cursor-pointer overflow-hidden rounded-2xl transition-all duration-500 ease-in-out flex-shrink-0 border-0 p-0 bg-transparent text-left"
           style={{
             width: isCompactLayout
@@ -70,7 +73,7 @@ export function ExpandCards({
           onFocus={() => setExpandedIndex(idx)}
           onBlur={() => !isCompactLayout && setExpandedIndex(null)}
           onMouseLeave={() => !isCompactLayout && setExpandedIndex(null)}
-          onClick={() =>
+          onClick={() => onSelect ? onSelect(item) :
             setExpandedIndex((current) =>
               current === idx && !isCompactLayout ? null : idx
             )

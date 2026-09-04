@@ -1,4 +1,5 @@
 {
+  "profile": {"close":"Close profile","results":"Recorded results","empty":"There are no recorded results for this driver yet.","regions":{"spain":"Spain","cat":"Catalonia","serbia":"Serbia","colombia":"Colombia","andalucia":"Andalusia","valencia":"Valencian Community","aragon":"Aragon"}},
   "interface": {
     "openMenu": "Open menu",
     "closeMenu": "Close menu",

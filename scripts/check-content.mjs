@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import { validateResults } from "./validate-results.mjs";
 
 const root = process.cwd();
 const publicDir = path.join(root, "public");
@@ -70,6 +71,17 @@ if (Array.isArray(products)) {
 }
 
 const event = data["team-event.json"];
+const carLogos = fs.readdirSync(path.join(publicDir, "marcas")).filter((file) => file.endsWith(".svg")).map((file) => path.parse(file).name);
+validateResults(data["race-results.json"], carLogos).forEach(fail);
+if (event) {
+  if (!["preparing", "completed"].includes(event.status)) fail("Estado de carrera no valido");
+  if (!Array.isArray(event.entries) || event.teams !== event.entries.length) fail("El numero de equipos no coincide con las alineaciones");
+  for (const entry of event.entries ?? []) {
+    for (const field of ["car", "result"]) {
+      if (entry[field] != null && typeof entry[field] !== "string") fail(`El campo ${field} debe ser texto o null`);
+    }
+  }
+}
 const members = data["members.json"];
 
 if (members) {
