@@ -1,36 +1,24 @@
 {
   "title": "Le Mans 24",
-  "startDate": null,
-  "endDate": null,
+  "startDate": "2026-09-05",
+  "endDate": "2026-09-06",
   "simulator": "iRacing",
   "category": "GT3",
-  "teams": 2,
-  "status": "preparing",
-  "car": null,
+  "teams": 1,
+  "status": "completed",
+  "car": "McLaren GT3",
   "drivers": [],
   "entries": [
     {
       "name": "Orange",
       "category": "GT3",
       "car": "McLaren GT3",
-      "result": null,
+      "result": "P5",
       "drivers": [
         "Angel Alvarado",
         "Francisco Sierra",
         "Jesus Jimenez",
         "Luis Ungo"
-      ]
-    },
-    {
-      "name": "Blue",
-      "category": "GT3",
-      "car": "Ferrari GT3",
-      "result": null,
-      "drivers": [
-        "Relja Ljubobratovic",
-        "Emiliano Sturniolo",
-        "Juanjo Morales",
-        "Antonio Balboa"
       ]
     }
   ]

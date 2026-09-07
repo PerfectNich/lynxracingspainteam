@@ -38,7 +38,8 @@ export function TwitchEmbed({ channel, height = 220 }: TwitchEmbedProps) {
       </div>
 
       <iframe
-        src={`https://player.twitch.tv/?channel=${encodeURIComponent(channel)}&parent=${encodeURIComponent(parent)}&muted=true`}
+        src={`https://player.twitch.tv/?channel=${encodeURIComponent(channel)}&parent=${encodeURIComponent(parent)}&muted=true&autoplay=false`}
+        loading="lazy"
         width="100%"
         height={height}
         allowFullScreen

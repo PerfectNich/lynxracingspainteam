@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import type React from 'react';
 
 type GradientDotsProps = {
@@ -21,6 +21,7 @@ export function GradientDots({
   style,
 }: GradientDotsProps) {
   const hexSpacing = spacing * 1.732;
+  const prefersReducedMotion = useReducedMotion();
 
   return (
     <motion.div
@@ -51,7 +52,7 @@ export function GradientDots({
         `,
         ...style,
       }}
-      animate={{
+      animate={prefersReducedMotion ? undefined : {
         backgroundPosition: [
           `0px 0px, ${spacing / 2}px ${hexSpacing / 2}px, 800% 400%, 1000% -400%, -1200% -600%, 400% ${hexSpacing}px`,
           `0px 0px, ${spacing / 2}px ${hexSpacing / 2}px, 0% 0%, 0% 0%, 0% 0%, 0% 0%`,
