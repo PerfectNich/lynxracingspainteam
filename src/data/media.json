@@ -19,5 +19,6 @@
   { "type": "image", "src": "/media/crew.webp", "alt": "Assetto", "game": "Assetto" },
   { "type": "video", "src": "/media/meihan.mp4", "poster": "/media/thumbnail1.png", "game": "Assetto" },
   { "type": "video", "src": "/media/accvideo.mp4", "poster": "/media/thumbnail2.png", "game": "Assetto" },
-  { "type": "video", "src": "/media/rally.mp4", "poster": "/media/thumbnail3.png", "game": "Assetto" }
+  { "type": "video", "src": "/media/rally.mp4", "poster": "/media/thumbnail3.png", "game": "Assetto" },
+  { "type": "image", "src": "/media/recuerdo-kyalami-vrgirona.png", "alt": "Recuerdo de Kyalami VRGirona: X. Sobrerroca primero, J. Serrano tercero y J. Mopar cuarto", "game": "ACC" }
 ]
