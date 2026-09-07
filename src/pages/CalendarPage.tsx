@@ -169,7 +169,7 @@ export function CalendarPage() {
                     className="text-lg font-bold text-white"
                     style={{ fontFamily: "var(--font-rajdhani)" }}
                   >
-                    {teamEvent.teams} {t("calendar.team_entries")}
+                    {t("calendar.team_entries", { count: teamEvent.teams })}
                   </p>
                 </div>
               </div>

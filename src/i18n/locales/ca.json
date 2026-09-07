@@ -68,9 +68,9 @@
     "stats_label": "L'equip en xifres",
     "about_label": "Qui som",
     "about_title": "Sobre l'equip",
-    "about_text": "Som Lynx Racing Spain Team, un equip amb més de tres anys de trajectòria, centenars de curses disputades i diversos esdeveniments i lligues organitzats durant aquest temps. Competim i gaudim del simracing a Assetto Corsa Competizione, iRacing, Le Mans Ultimate i altres plataformes.",
+    "about_text": "Som Lynx Racing Spain Team, un equip amb quatre anys de trajectòria, centenars de curses disputades i diversos esdeveniments i lligues organitzats durant aquest temps. Competim i gaudim del simracing a Assetto Corsa Competizione, iRacing, Le Mans Ultimate i altres plataformes.",
     "stats": {
-      "years_value": "3+",
+      "years_value": "4",
       "years_label": "Anys de trajectòria",
       "races_value": "100+",
       "races_label": "Curses disputades",
@@ -157,7 +157,7 @@
       "management": "Staff",
       "drivers": "Pilots",
       "streams": "Canals Twitch",
-      "countries": "Bandes actives"
+      "countries": "Banderes actives"
     }
   },
   "calendar": {
@@ -182,7 +182,8 @@
     "finished_event": "Resultat tancat",
     "entry": "Inscripció",
     "gt3_team": "equip GT3",
-    "team_entries": "equips inscrits",
+    "team_entries_one": "{{count}} equip inscrit",
+    "team_entries_other": "{{count}} equips inscrits",
     "car": "Cotxe",
     "car_pending": "Model per confirmar",
     "drivers": "Pilots",
@@ -219,18 +220,18 @@
     "acc_label": "Assetto Corsa Competizione",
     "iracing_label": "iRacing",
     "acc": {
-      "e1": "Resistència 4h Barcelona | Benèfica de La Cueva",
-      "e2": "Resistència 8h Suzuka | CER-V",
-      "e3": "Resistència 9h Kyalami | CER-V",
-      "e4": "P7 Resistència 24h Nordschleife | Pitskill",
+      "e1": "Resistència 4 h Barcelona | Benèfica de La Cueva",
+      "e2": "Resistència 8 h Suzuka | CER-V",
+      "e3": "Resistència 9 h Kyalami | CER-V",
+      "e4": "P7 Resistència 24 h Nordschleife | Pitskill",
       "e5": "Campionat CNE II VRGirona",
-      "e6": "P4 Endurance 4h Titanium Red"
+      "e6": "P4 Endurance 4 h Titanium Red"
     },
     "iracing": {
-      "e1": "Resistència 24h Daytona",
-      "e2": "P4 Resistència 6h Watkins Glen",
-      "e3": "Resistència 12h Mount Panorama",
-      "e4": "P4 Resistència 6h Sebring"
+      "e1": "Resistència 24 h Daytona",
+      "e2": "P4 Resistència 6 h Watkins Glen",
+      "e3": "Resistència 12 h Mount Panorama",
+      "e4": "P4 Resistència 6 h Sebring"
     }
   }
 }

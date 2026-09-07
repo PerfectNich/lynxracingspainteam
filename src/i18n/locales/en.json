@@ -68,9 +68,9 @@
     "stats_label": "Team at a glance",
     "about_label": "Who we are",
     "about_title": "About the team",
-    "about_text": "We are Lynx Racing Spain Team, a squad with more than three years of experience, hundreds of races completed, and several events and leagues organised along the way. We compete and enjoy simracing in Assetto Corsa Competizione, iRacing, Le Mans Ultimate and other platforms.",
+    "about_text": "We are Lynx Racing Spain Team, a squad with four years of experience, hundreds of races completed, and several events and leagues organised along the way. We compete and enjoy simracing in Assetto Corsa Competizione, iRacing, Le Mans Ultimate and other platforms.",
     "stats": {
-      "years_value": "3+",
+      "years_value": "4",
       "years_label": "Years racing",
       "races_value": "100+",
       "races_label": "Races completed",
@@ -182,7 +182,8 @@
     "finished_event": "Results locked",
     "entry": "Entry",
     "gt3_team": "GT3 team",
-    "team_entries": "entries",
+    "team_entries_one": "{{count}} entry",
+    "team_entries_other": "{{count}} entries",
     "car": "Car",
     "car_pending": "Model to be confirmed",
     "drivers": "Drivers",
@@ -219,18 +220,18 @@
     "acc_label": "Assetto Corsa Competizione",
     "iracing_label": "iRacing",
     "acc": {
-      "e1": "4h Endurance Barcelona | La Cueva Charity",
-      "e2": "8h Endurance Suzuka | CER-V",
-      "e3": "9h Endurance Kyalami | CER-V",
-      "e4": "P7 24h Endurance Nordschleife | Pitskill",
+      "e1": "4 h Endurance Barcelona | La Cueva Charity",
+      "e2": "8 h Endurance Suzuka | CER-V",
+      "e3": "9 h Endurance Kyalami | CER-V",
+      "e4": "P7 24 h Endurance Nordschleife | Pitskill",
       "e5": "CNE II Championship VRGirona",
-      "e6": "P4 Endurance 4h Titanium Red"
+      "e6": "P4 Endurance 4 h Titanium Red"
     },
     "iracing": {
-      "e1": "24h Endurance Daytona",
-      "e2": "P4 6h Endurance Watkins Glen",
-      "e3": "12h Endurance Mount Panorama",
-      "e4": "P4 6h Endurance Sebring"
+      "e1": "24 h Endurance Daytona",
+      "e2": "P4 6 h Endurance Watkins Glen",
+      "e3": "12 h Endurance Mount Panorama",
+      "e4": "P4 6 h Endurance Sebring"
     }
   }
 }

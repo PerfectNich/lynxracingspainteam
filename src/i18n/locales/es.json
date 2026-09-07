@@ -68,9 +68,9 @@
     "stats_label": "El equipo en cifras",
     "about_label": "Quiénes somos",
     "about_title": "Sobre el equipo",
-    "about_text": "Somos Lynx Racing Spain Team, un equipo con más de tres años de trayectoria, cientos de carreras disputadas y varios eventos y ligas organizados a lo largo de este tiempo. Competimos y disfrutamos del simracing en Assetto Corsa Competizione, iRacing, Le Mans Ultimate y otras plataformas.",
+    "about_text": "Somos Lynx Racing Spain Team, un equipo con cuatro años de trayectoria, cientos de carreras disputadas y varios eventos y ligas organizados a lo largo de este tiempo. Competimos y disfrutamos del simracing en Assetto Corsa Competizione, iRacing, Le Mans Ultimate y otras plataformas.",
     "stats": {
-      "years_value": "3+",
+      "years_value": "4",
       "years_label": "Años de trayectoria",
       "races_value": "100+",
       "races_label": "Carreras disputadas",
@@ -182,7 +182,8 @@
     "finished_event": "Resultado cerrado",
     "entry": "Inscripción",
     "gt3_team": "equipo GT3",
-    "team_entries": "equipos inscritos",
+    "team_entries_one": "{{count}} equipo inscrito",
+    "team_entries_other": "{{count}} equipos inscritos",
     "car": "Coche",
     "car_pending": "Modelo por confirmar",
     "drivers": "Pilotos",
@@ -219,18 +220,18 @@
     "acc_label": "Assetto Corsa Competizione",
     "iracing_label": "iRacing",
     "acc": {
-      "e1": "Resistencia 4h Barcelona | Benéfica de La Cueva",
-      "e2": "Resistencia 8h Suzuka | CER-V",
-      "e3": "Resistencia 9h Kyalami | CER-V",
-      "e4": "P7 Resistencia 24h Nordschleife | Pitskill",
+      "e1": "Resistencia 4 h Barcelona | Benéfica de La Cueva",
+      "e2": "Resistencia 8 h Suzuka | CER-V",
+      "e3": "Resistencia 9 h Kyalami | CER-V",
+      "e4": "P7 Resistencia 24 h Nordschleife | Pitskill",
       "e5": "Campeonato CNE II VRGirona",
-      "e6": "P4 Endurance 4h Titanium Red"
+      "e6": "P4 Endurance 4 h Titanium Red"
     },
     "iracing": {
-      "e1": "Resistencia 24h Daytona",
-      "e2": "P4 Resistencia 6h Watkins Glen",
-      "e3": "Resistencia 12h Mount Panorama",
-      "e4": "P4 Resistencia 6h Sebring"
+      "e1": "Resistencia 24 h Daytona",
+      "e2": "P4 Resistencia 6 h Watkins Glen",
+      "e3": "Resistencia 12 h Mount Panorama",
+      "e4": "P4 Resistencia 6 h Sebring"
     }
   }
 }

@@ -2,12 +2,12 @@
   {
     "id": "le-mans-24-2026-mclaren",
     "pos": 5,
-    "event": "Resistencia 24h Le Mans",
+    "event": "Resistencia 24 h Le Mans",
     "simulator": "iRacing",
     "drivers": [
-      "Angel Alvarado",
+      "Ángel Alvarado",
       "Francisco Sierra",
-      "Jesus Jimenez",
+      "Jesús Jiménez",
       "Luis Ungo"
     ],
     "car": "mclaren",
@@ -17,7 +17,7 @@
   {
     "id": "result-1",
     "pos": 1,
-    "event": "Resistencia 4h Barcelona - Benéfica de La Cueva",
+    "event": "Resistencia 4 h Barcelona - Benéfica de La Cueva",
     "simulator": "ACC",
     "drivers": [
       "Kiko Ribes",
@@ -44,7 +44,7 @@
   {
     "id": "result-3",
     "pos": 2,
-    "event": "Resistencia 8h Suzuka - CER-V",
+    "event": "Resistencia 8 h Suzuka - CER-V",
     "simulator": "ACC",
     "drivers": [
       "Dani Gala",
@@ -58,7 +58,7 @@
   {
     "id": "result-4",
     "pos": 3,
-    "event": "Resistencia 9h Kyalami - CER-V",
+    "event": "Resistencia 9 h Kyalami - CER-V",
     "simulator": "ACC",
     "drivers": [
       "Kiko Ribes",
@@ -71,7 +71,7 @@
   {
     "id": "result-5",
     "pos": 4,
-    "event": "Endurance 4h Titanium Red",
+    "event": "Endurance 4 h Titanium Red",
     "simulator": "ACC",
     "drivers": [
       "Jordi Capdevila",
@@ -84,7 +84,7 @@
   {
     "id": "result-6",
     "pos": 7,
-    "event": "Resistencia 24h Nordschleife - Pitskill",
+    "event": "Resistencia 24 h Nordschleife - Pitskill",
     "simulator": "ACC",
     "drivers": [
       "Jordi Capdevila",
@@ -100,11 +100,11 @@
   {
     "id": "result-7",
     "pos": 2,
-    "event": "Resistencia 24h Daytona",
+    "event": "Resistencia 24 h Daytona",
     "simulator": "iRacing",
     "drivers": [
       "Jordi Capdevila",
-      "Jesus Jimenez",
+      "Jesús Jiménez",
       "Francisco Sierra",
       "Luis Ungo",
       "Xavier Sobrerroca"
@@ -116,14 +116,14 @@
   {
     "id": "result-8",
     "pos": 3,
-    "event": "Resistencia 24h Daytona",
+    "event": "Resistencia 24 h Daytona",
     "simulator": "iRacing",
     "drivers": [
       "Marc Garcia",
       "Luis Ungo",
       "Jordi Capdevila",
       "Francisco Sierra",
-      "Jesus Jimenez"
+      "Jesús Jiménez"
     ],
     "car": "lmp2",
     "year": 2026,
@@ -132,12 +132,12 @@
   {
     "id": "result-9",
     "pos": 2,
-    "event": "Resistencia 24h Nordschleife",
+    "event": "Resistencia 24 h Nordschleife",
     "simulator": "iRacing",
     "drivers": [
       "Relja Ljubobratovic",
       "Marc Garcia",
-      "Rubén Juarez",
+      "Rubén Juárez",
       "Josh Mopar",
       "Juan Serrano",
       "Juanjo Morales"
@@ -149,13 +149,13 @@
   {
     "id": "result-10",
     "pos": 5,
-    "event": "Resistencia 24h Spa",
+    "event": "Resistencia 24 h Spa",
     "simulator": "iRacing",
     "drivers": [
       "Albert Gombau",
       "Juanjo Morales",
       "Marc Garcia",
-      "Angel Alvarado",
+      "Ángel Alvarado",
       "Relja Ljubobratovic"
     ],
     "car": "lmp2",
@@ -165,12 +165,12 @@
   {
     "id": "result-11",
     "pos": 2,
-    "event": "Resistencia 12h Sebring",
+    "event": "Resistencia 12 h Sebring",
     "simulator": "iRacing",
     "drivers": [
-      "Nacho Jarrin",
+      "Nacho Jarrín",
       "Albert Gombau",
-      "Fran Gambin"
+      "Fran Gambín"
     ],
     "car": "porsche",
     "year": 2026,
@@ -179,12 +179,12 @@
   {
     "id": "result-12",
     "pos": 3,
-    "event": "Resistencia 12h Mount Panorama",
+    "event": "Resistencia 12 h Mount Panorama",
     "simulator": "iRacing",
     "drivers": [
-      "Angel Alvarado",
+      "Ángel Alvarado",
       "Albert Gombau",
-      "Nacho Jarrin"
+      "Nacho Jarrín"
     ],
     "car": "mclaren",
     "year": 2026,
@@ -193,11 +193,11 @@
   {
     "id": "result-13",
     "pos": 4,
-    "event": "Resistencia 6h Watkins Glen",
+    "event": "Resistencia 6 h Watkins Glen",
     "simulator": "iRacing",
     "drivers": [
       "Albert Gombau",
-      "Lalo Sanchez"
+      "Lalo Sánchez"
     ],
     "car": "acura",
     "year": 2024,
@@ -206,7 +206,7 @@
   {
     "id": "result-14",
     "pos": 4,
-    "event": "Resistencia 6h Sebring",
+    "event": "Resistencia 6 h Sebring",
     "simulator": "iRacing",
     "drivers": [
       "Jordi Capdevila",

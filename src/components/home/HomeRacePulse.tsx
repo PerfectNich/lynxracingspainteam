@@ -110,7 +110,7 @@ export function HomeRacePulse() {
                 {t("home.pulse_format_label")}
               </p>
               <p className="text-white" style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 600 }}>
-                {teamEvent.category} · {teamEvent.teams} {t("calendar.team_entries")}
+                {teamEvent.category} · {t("calendar.team_entries", { count: teamEvent.teams })}
               </p>
             </div>
           </div>

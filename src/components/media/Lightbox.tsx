@@ -114,9 +114,9 @@ export function Lightbox({ items, currentIndex, onClose, onNavigate }: LightboxP
       className="fixed inset-0 m-0 h-dvh w-screen max-h-none max-w-none border-0 bg-black/95 p-0 text-white open:flex justify-center items-center"
       style={{ zIndex: 99999, touchAction: "none" }}
       onClick={handleClose}
-      onTouchStart={onTouchStart}
-      onTouchMove={onTouchMove}
-      onTouchEnd={onTouchEnd}
+      onTouchStart={item.type === "image" ? onTouchStart : undefined}
+      onTouchMove={item.type === "image" ? onTouchMove : undefined}
+      onTouchEnd={item.type === "image" ? onTouchEnd : undefined}
     >
       {/* Close button */}
       <button

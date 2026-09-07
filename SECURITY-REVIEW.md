@@ -52,7 +52,7 @@ revisada era anterior: se conservaron los perfiles de pilotos, los tests de resu
 la página 404 y las mejoras de navegación y accesibilidad de esa versión. La automatización
 Twitch ya había sido eliminada; las correcciones del script antiguo no se incorporan
 ni se restaura la automatización. Le Mans se actualiza con la alineación de Jesús
-presente en la versión remota: Angel Alvarado, Francisco Sierra, Jesus Jimenez y Luis Ungo.
+presente en la versión remota: Ángel Alvarado, Francisco Sierra, Jesús Jiménez y Luis Ungo.
 
 ## Otras mejoras recomendadas
 
