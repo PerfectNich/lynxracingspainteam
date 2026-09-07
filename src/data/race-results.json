@@ -58,11 +58,11 @@
   {
     "id": "result-4",
     "pos": 3,
-    "event": "Resistencia 9 h Kyalami - CER-V",
+    "event": "Resistencia 9 h Kyalami - Campeonato CERV",
     "simulator": "ACC",
     "drivers": [
-      "Kiko Ribes",
-      "Juan Serrano"
+      "Juan Serrano",
+      "Kiko Ribes"
     ],
     "car": "aston",
     "year": 2022,
