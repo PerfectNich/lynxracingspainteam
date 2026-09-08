@@ -29,7 +29,8 @@
     { "name": "Rubén Gómez", "dorsal": "27", "country": "cat", "twitch": "chibitowo" },
     { "name": "Juanjo Morales", "dorsal": null, "country": "colombia", "twitch": null },
     { "name": "Emiliano Sturniolo", "dorsal": "43", "country": "spain", "twitch": null, "portrait": "/roster/emiliano-sturniolo.png", "portraitPosition": "center 18%" },
-    { "name": "Marc Garcia", "dorsal": "21", "country": "cat", "twitch": "marckitos21" }
+    { "name": "Marc Garcia", "dorsal": "21", "country": "cat", "twitch": "marckitos21" },
+    { "name": "Kike Díaz", "dorsal": "71", "country": "spain", "twitch": null }
 
   ],
   "twitchChannels": [
