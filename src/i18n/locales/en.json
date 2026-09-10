@@ -150,6 +150,7 @@
     "main_channel_title": "Main channel",
     "main_channel_text": "Lynx main stream with compact access to the rest of the drivers.",
     "main_channel_badge": "Main team stream",
+    "open_twitch": "Open on Twitch",
     "other_channels_title": "Other channels",
     "other_channels_count_one": "{{count}} channel available",
     "other_channels_count_other": "{{count}} channels available",

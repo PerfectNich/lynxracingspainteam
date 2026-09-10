@@ -150,6 +150,7 @@
     "main_channel_title": "Canal principal",
     "main_channel_text": "Directe principal de Lynx amb accés compacte a la resta de pilots.",
     "main_channel_badge": "Directe principal de l'equip",
+    "open_twitch": "Obrir a Twitch",
     "other_channels_title": "Altres canals",
     "other_channels_count_one": "{{count}} canal disponible",
     "other_channels_count_other": "{{count}} canals disponibles",
