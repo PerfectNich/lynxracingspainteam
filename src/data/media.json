@@ -1,4 +1,6 @@
 [
+  { "type": "image", "src": "/media/lynx-mclaren-2026-09-11.png", "alt": "McLaren GT3 con la decoracion de Lynx Racing Spain Team", "game": "General" },
+  { "type": "image", "src": "/media/lynx-bmw-2026-09-11.png", "alt": "BMW GT3 con la decoracion de Lynx Racing Spain Team", "game": "General" },
   { "type": "image", "src": "/media/lynx-prototipo-2026-09-10.png", "alt": "Prototipo de Lynx Racing Spain Team en pista", "game": "General" },
   { "type": "image", "src": "/media/lmp2.webp", "alt": "iRacing", "game": "iRacing" },
   { "type": "image", "src": "/media/mustang-nordschleife.webp", "alt": "iRacing", "game": "iRacing" },
