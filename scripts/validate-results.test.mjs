@@ -2,7 +2,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { validateResults } from "./validate-results.mjs";
 
-const result = { id: "daytona", event: "Daytona 24", year: 2026, simulator: "iRacing", car: "lmp2", pos: 3, drivers: ["Marc Garcia"], featured: true };
+const result = { id: "daytona", event: "Daytona 24", year: 2026, simulator: "iRacing", car: "lmp2", pos: 3, drivers: ["Test Driver"], featured: true };
 test("accepts a result and preserves historical driver names", () => {
   assert.deepEqual(validateResults([{ ...result, drivers: ["Former driver"] }], ["lmp2"]), []);
 });
@@ -23,5 +23,5 @@ test("handles malformed data without throwing", () => {
   assert.ok(validateResults([null], []).length);
 });
 test("rejects duplicate pilots with repeated spaces", () => {
-  assert.ok(validateResults([{ ...result, drivers: ["Marc Garcia", " Marc  Garcia "] }], ["lmp2"]).some((error) => error.includes("duplicados")));
+  assert.ok(validateResults([{ ...result, drivers: ["Test Driver", " Test  Driver "] }], ["lmp2"]).some((error) => error.includes("duplicados")));
 });
