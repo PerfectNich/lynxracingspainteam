@@ -20,9 +20,9 @@
     { "name": "Francisco Sierra", "dorsal": "2", "country": "spain", "twitch": "kikologo" },
     { "name": "Javi Gras", "dorsal": "99", "country": "aragon", "twitch": "javi_gras", "portrait": "/img/gras.png", "portraitPosition": "center 18%" },
     { "name": "Jordi Capdevila", "dorsal": "71", "country": "cat", "twitch": "capi71" },
-    { "name": "Luis Ungo", "dorsal": "63", "country": "valencia", "twitch": null },
+    { "name": "Luis Ungo", "dorsal": "63", "country": "valencia", "twitch": "luisette_mcrally" },
     { "name": "Antonio Castillo", "dorsal": "76", "country": "spain", "twitch": "acj_ackan", "portrait": "/img/castillo.png", "portraitPosition": "center 20%" },
-    { "name": "Jesús Jiménez", "dorsal": "82", "country": "andalucia", "twitch": null },
+    { "name": "Jesús Jiménez", "dorsal": "82", "country": "andalucia", "twitch": "j_jimenez82" },
     { "name": "Antonio Balboa", "dorsal": null, "country": "cat", "twitch": "oniobagt", "portrait": "/img/balboa.png", "portraitPosition": "center 18%" },
     { "name": "Álvaro Salazar", "dorsal": "91", "country": "spain", "twitch": null },
     { "name": "Fran Gambín", "dorsal": "310", "country": "spain", "twitch": null },
@@ -50,6 +50,8 @@
     "javi_gras",
     "capi71",
     "oniobagt",
-    "chibitowo"
+    "chibitowo",
+    "luisette_mcrally",
+    "j_jimenez82"
   ]
 }
