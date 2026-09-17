@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { FaArrowRight, FaCopy } from "react-icons/fa";
+import { FaCopy } from "react-icons/fa";
 import sponsors from "../data/sponsors.json";
 import type { Sponsor } from "../types";
 import { assetUrl } from "../utils/assetUrl";
@@ -28,7 +28,11 @@ function SponsorCard({ sponsor, featured = false }: { sponsor: Sponsor; featured
   return (
     <article className={`flex min-w-0 flex-col overflow-hidden rounded-2xl border ${featured ? "border-lynx-orange/50 bg-gradient-to-br from-lynx-orange/10 to-lynx-dark-card md:grid md:grid-cols-2" : "border-lynx-border bg-lynx-dark-card"}`}>
       <div className={`flex items-center justify-center border-b border-white/5 bg-black/20 p-8 ${featured ? "min-h-64 md:border-b-0 md:border-r" : "h-48"}`}>
-        <img src={assetUrl(sponsor.logo)} alt={sponsor.name} loading={featured ? "eager" : "lazy"} className="max-h-36 max-w-full object-contain" />
+        {sponsor.url ? (
+          <a href={sponsor.url} target="_blank" rel="noopener noreferrer" aria-label={sponsor.name} className="flex h-full w-full items-center justify-center rounded-lg transition-transform hover:scale-105 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-lynx-orange">
+            <img src={assetUrl(sponsor.logo)} alt={sponsor.name} loading={featured ? "eager" : "lazy"} className="max-h-36 max-w-full object-contain" />
+          </a>
+        ) : <img src={assetUrl(sponsor.logo)} alt={sponsor.name} loading={featured ? "eager" : "lazy"} className="max-h-36 max-w-full object-contain" />}
       </div>
       <div className="flex flex-1 flex-col items-start p-6 sm:p-8">
         {featured && <p className="mb-3 text-xs uppercase tracking-[0.22em] text-lynx-orange">{t("home.main_sponsor_label")}</p>}
@@ -48,7 +52,6 @@ function SponsorCard({ sponsor, featured = false }: { sponsor: Sponsor; featured
             {activeOffer.expiresOn && <p className="mt-2 text-sm text-lynx-text/70">{t("sponsors.expires", { date: new Intl.DateTimeFormat(lang).format(new Date(`${activeOffer.expiresOn}T12:00:00`)) })}</p>}
           </div>
         )}
-        {sponsor.url && <a href={sponsor.url} target="_blank" rel="noopener noreferrer" aria-label={`${t("sponsors.visit")} · ${sponsor.name}`} className="mt-auto inline-flex min-h-11 items-center gap-3 rounded-lg border border-lynx-orange/40 px-4 py-2 font-semibold text-lynx-orange hover:bg-lynx-orange/10 focus-visible:outline-2 focus-visible:outline-lynx-orange">{t("sponsors.visit")}<FaArrowRight aria-hidden="true" /></a>}
       </div>
     </article>
   );
