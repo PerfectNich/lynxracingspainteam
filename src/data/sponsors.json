@@ -116,9 +116,9 @@
     },
     "discount": {
       "description": {
-        "es": "10 % de descuento",
-        "en": "10% discount",
-        "ca": "10 % de descompte"
+        "es": "5 % de descuento",
+        "en": "5% discount",
+        "ca": "5 % de descompte"
       }
     }
   }
