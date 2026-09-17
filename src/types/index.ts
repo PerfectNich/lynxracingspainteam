@@ -11,6 +11,14 @@ export interface Sponsor {
   name: string;
   logo: string;
   url: string | null;
+  published?: boolean;
+  description?: Partial<Record<"es" | "en" | "ca", string>>;
+  discount?: {
+    code?: string;
+    description: Partial<Record<"es" | "en" | "ca", string>>;
+    terms?: Partial<Record<"es" | "en" | "ca", string>>;
+    expiresOn?: string;
+  } | null;
 }
 
 export interface Product {

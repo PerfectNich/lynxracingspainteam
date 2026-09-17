@@ -65,6 +65,22 @@ if (Array.isArray(media)) {
 }
 
 const products = data["products.json"];
+const sponsors = data["sponsors.json"];
+if (Array.isArray(sponsors)) {
+  const names = sponsors.map((sponsor) => sponsor.name);
+  if (new Set(names).size !== names.length) fail("Sponsors contiene nombres duplicados");
+  for (const sponsor of sponsors) {
+    if (!sponsor.name) fail("Sponsor sin nombre");
+    if (sponsor.published === false) continue;
+    if (!sponsor.logo || !fs.existsSync(path.join(publicDir, sponsor.logo.replace(/^\//, "")))) fail(`Falta el logo de ${sponsor.name}`);
+    if (sponsor.url && !/^https:\/\//.test(sponsor.url)) fail(`URL no segura de ${sponsor.name}`);
+    if (sponsor.discount) {
+      if (!sponsor.discount.description?.es?.trim() || (sponsor.discount.code != null && (typeof sponsor.discount.code !== "string" || !sponsor.discount.code.trim()))) fail(`Descuento incompleto de ${sponsor.name}`);
+      const expiry = sponsor.discount.expiresOn;
+      if (expiry && (!/^\d{4}-\d{2}-\d{2}$/.test(expiry) || Number.isNaN(Date.parse(expiry)) || new Date(expiry).toISOString().slice(0, 10) !== expiry)) fail(`Caducidad no válida de ${sponsor.name}`);
+    }
+  }
+}
 if (Array.isArray(products)) {
   const ids = products.map((product) => product.id);
   if (new Set(ids).size !== ids.length) fail("products.json contiene IDs duplicados");
@@ -204,7 +220,7 @@ if (fs.existsSync(robotsPath)) {
 if (fs.existsSync(sitemapPath)) {
   const sitemap = fs.readFileSync(sitemapPath, "utf8");
   const urls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
-  if (urls.length !== 21) fail(`sitemap.xml debe contener 21 rutas y contiene ${urls.length}`);
+  if (urls.length !== 24) fail(`sitemap.xml debe contener 24 rutas y contiene ${urls.length}`);
   if (new Set(urls).size !== urls.length) fail("sitemap.xml contiene rutas duplicadas");
 }
 
@@ -215,5 +231,5 @@ if (errors.length > 0) {
 }
 
 console.log(
-  `Contenido validado: ${dataFiles.length} JSON, ${referencedAssets.size} activos y 21 rutas SEO.`,
+  `Contenido validado: ${dataFiles.length} JSON, ${referencedAssets.size} activos y 24 rutas SEO.`,
 );

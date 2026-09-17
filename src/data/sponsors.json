@@ -1,11 +1,125 @@
 [
-  { "name": "Orbital Detail Cars", "logo": "/sponsors/bg.png", "url": "https://instagram.com/orbitaldetailcars/" },
-  { "name": "SRP Pedals", "logo": "/sponsors/srp.png", "url": "https://simracing-pro.com/es/" },
-  { "name": "No Wheels Sim", "logo": "/sponsors/nowheels.png", "url": "https://nowheelssim.com/" },
-  { "name": "RaceMax", "logo": "/sponsors/racemax1.png", "url": "https://www.racemax.es/" },
-  { "name": "Kikologo", "logo": "/sponsors/kiko.png", "url": "https://www.twitch.tv/kikologo" },
-  { "name": "PadDesign3D", "logo": "/sponsors/paddesign3d.png", "url": "https://www.instagram.com/paddesign3d" },
-  { "name": "RM Motor", "logo": "/sponsors/rmmotor.png", "url": "https://www.instagram.com/rmmotor_/" },
-  { "name": "Sport Generation", "logo": "/sponsors/sport.png", "url": "https://www.instagram.com/gimnasiosport_generation/" },
-  { "name": "Lynx Wear", "logo": "/sponsors/wear.png", "url": null }
+  {
+    "name": "Orbital Detail Cars",
+    "logo": "/sponsors/bg.png",
+    "url": "https://instagram.com/orbitaldetailcars/",
+    "description": {
+      "es": "Lavado premium y detailing para cuidar la imagen de tu coche, con atención a cada detalle.",
+      "en": "Premium car washing and detailing, with careful attention to your car’s appearance.",
+      "ca": "Rentat prèmium i detailing per cuidar la imatge del teu cotxe, amb atenció a cada detall."
+    },
+    "discount": null
+  },
+  {
+    "name": "SRP Pedals",
+    "logo": "/sponsors/srp.png",
+    "url": "https://simracing-pro.com/es/",
+    "description": {
+      "es": "Pedales neumáticos de alta gama fabricados en España, diseñados para una frenada precisa y sensaciones de competición.",
+      "en": "High-end pneumatic pedals made in Spain, designed for precise braking and a racing feel.",
+      "ca": "Pedals pneumàtics de gamma alta fabricats a Espanya, dissenyats per a una frenada precisa i sensacions de competició."
+    },
+    "discount": {
+      "description": {
+        "es": "10 % de descuento",
+        "en": "10% discount",
+        "ca": "10 % de descompte"
+      }
+    }
+  },
+  {
+    "name": "No Wheels Sim",
+    "logo": "/sponsors/nowheels.png",
+    "url": "https://nowheelssim.com/",
+    "description": {
+      "es": "Cockpits y estructuras para simracing, diseñados para dar una base sólida a tu puesto de conducción.",
+      "en": "Simracing cockpits and frames designed to give your driving setup a solid foundation.",
+      "ca": "Cockpits i estructures per a simracing, dissenyats per donar una base sòlida al teu lloc de conducció."
+    },
+    "discount": null
+  },
+  {
+    "name": "RaceMax",
+    "logo": "/sponsors/racemax1.png",
+    "url": "https://www.racemax.es/",
+    "description": {
+      "es": "Guantes para simracing, con diseños personalizados para pilotos y equipos que quieren competir con su propia identidad.",
+      "en": "Simracing gloves with custom designs for drivers and teams who want to race with their own identity.",
+      "ca": "Guants per a simracing, amb dissenys personalitzats per a pilots i equips que volen competir amb identitat pròpia."
+    },
+    "discount": null
+  },
+  {
+    "name": "Kikologo",
+    "logo": "/sponsors/kiko.png",
+    "url": "https://www.twitch.tv/kikologo",
+    "description": {
+      "es": "El canal de Twitch de Francisco Sierra: simracing y directos para compartir la afición por las carreras.",
+      "en": "Francisco Sierra’s Twitch channel: simracing streams to share a passion for racing.",
+      "ca": "El canal de Twitch de Francisco Sierra: simracing i directes per compartir la passió per les curses."
+    },
+    "discount": null
+  },
+  {
+    "name": "PadDesign3D",
+    "logo": "/sponsors/paddesign3d.png",
+    "url": "https://www.instagram.com/paddesign3d",
+    "description": {
+      "es": "Impresión 3D de piezas personalizadas, creadas a partir de las necesidades e ideas de cada cliente.",
+      "en": "Custom 3D-printed pieces created around each customer’s needs and ideas.",
+      "ca": "Impressió 3D de peces personalitzades, creades a partir de les necessitats i idees de cada client."
+    },
+    "discount": null
+  },
+  {
+    "name": "RM Motor",
+    "logo": "/sponsors/rmmotor.png",
+    "url": "https://www.instagram.com/rmmotor_/",
+    "description": {
+      "es": "Taller de automoción y patrocinador principal de Lynx Racing Spain Team: la pasión por el motor, dentro y fuera de pista.",
+      "en": "Automotive workshop and main sponsor of Lynx Racing Spain Team: a passion for motoring, on and off the track.",
+      "ca": "Taller d’automoció i patrocinador principal de Lynx Racing Spain Team: passió pel motor, dins i fora de pista."
+    },
+    "discount": null
+  },
+  {
+    "name": "Sport Generation",
+    "logo": "/sponsors/sport.png",
+    "url": "https://www.instagram.com/gimnasiosport_generation/",
+    "description": {
+      "es": "Gimnasio y espacio de entrenamiento para mantenerte activo y trabajar tu forma física también fuera del simulador.",
+      "en": "A gym and training space to stay active and work on your fitness away from the simulator.",
+      "ca": "Gimnàs i espai d’entrenament per mantenir-te actiu i treballar la forma física també fora del simulador."
+    },
+    "discount": null
+  },
+  {
+    "name": "Piezas de Colección",
+    "logo": "/sponsors/piezas-de-coleccion.png",
+    "url": "https://www.instagram.com/sergio.delgadopastrana.3/",
+    "description": {
+      "es": "Piezas talladas en madera y creaciones en cristal con diseños y dibujos para dar forma a objetos de colección.",
+      "en": "Carved wooden pieces and glass creations featuring designs and illustrations, made into collectible objects.",
+      "ca": "Peces tallades en fusta i creacions en vidre amb dissenys i dibuixos per donar forma a objectes de col·lecció."
+    },
+    "discount": null
+  },
+  {
+    "name": "Bolori",
+    "logo": "/sponsors/bolori.png",
+    "url": "https://bolori.es/",
+    "published": true,
+    "description": {
+      "es": "Distribuidor oficial de SIMAGIC y SIMNET en Europa. Equipamiento para dar el siguiente paso en tu experiencia de simracing.",
+      "en": "Official SIMAGIC and SIMNET distributor in Europe. Equipment to take your simracing experience to the next level.",
+      "ca": "Distribuïdor oficial de SIMAGIC i SIMNET a Europa. Equipament per fer el següent pas en la teva experiència de simracing."
+    },
+    "discount": {
+      "description": {
+        "es": "10 % de descuento",
+        "en": "10% discount",
+        "ca": "10 % de descompte"
+      }
+    }
+  }
 ]

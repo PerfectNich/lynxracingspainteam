@@ -12,7 +12,19 @@
     "history": "Historial de curses",
     "upcoming": "Propera cursa"
   },
+  "sponsors": {
+  "label": "Qui ens acompanya",
+  "intro": "Coneix les marques i els col·laboradors que formen part de Lynx Racing Spain Team.",
+  "partner_description": "{{name}}, un dels col·laboradors de Lynx Racing Spain Team.",
+  "visit": "Saber-ne més",
+  "discover": "Coneix els nostres sponsors",
+  "copy": "Copiar codi",
+  "copied": "Codi copiat",
+  "copy_failed": "No s’ha pogut copiar. Selecciona el codi per copiar-lo manualment.",
+  "expires": "Vàlid fins al {{date}}"
+},
   "nav": {
+    "sponsors": "Sponsors",
     "home": "Inici",
     "calendar": "Agenda",
     "media": "Multimèdia",
@@ -33,6 +45,10 @@
     "back_to_top": "Tornar amunt"
   },
   "seo": {
+    "sponsors": {
+  "title": "Sponsors | Lynx Racing Spain Team",
+  "description": "Coneix les marques i els col·laboradors que formen part de Lynx Racing Spain Team."
+},
     "home": {
       "title": "Lynx Racing Spain Team | Equip de simracing multisimulador",
       "description": "Equip de simracing amb pilots, calendari, resultats, multimèdia i patrocinadors a ACC, iRacing i altres simuladors."

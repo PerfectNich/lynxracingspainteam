@@ -7,6 +7,7 @@ import { NotFoundPage } from "./pages/NotFoundPage";
 import { useTranslation } from "react-i18next";
 
 const RosterPage = lazy(() => import("./pages/RosterPage").then((module) => ({ default: module.RosterPage })));
+const SponsorsPage = lazy(() => import("./pages/SponsorsPage").then((module) => ({ default: module.SponsorsPage })));
 const CalendarPage = lazy(() =>
   import("./pages/CalendarPage").then((module) => ({ default: module.CalendarPage })),
 );
@@ -44,6 +45,7 @@ const pages = (
   <>
     <Route path="*" element={<NotFoundPage />} />
     <Route index element={<HomePage />} />
+    <Route path="sponsors" element={<Suspense fallback={<RouteFallback />}><SponsorsPage /></Suspense>} />
     <Route
       path="roster"
       element={

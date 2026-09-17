@@ -284,7 +284,7 @@ export function CalendarPage() {
               <div className="mt-5 flex items-center gap-2 text-sm text-lynx-text/55">
                 <FaFlagCheckered className="text-lynx-orange" />
                 <span style={{ fontFamily: "var(--font-rajdhani)" }}>
-                  {t("calendar.lineup_note")}
+                  {t(isCompleted ? "calendar.finished_event" : "calendar.lineup_note")}
                 </span>
               </div>
             </div>

@@ -125,6 +125,11 @@ export function HomePage() {
 
           <MainSponsorSpotlight />
           <SponsorCarousel />
+          <div className="mt-8 text-center">
+            <Link to={`${prefix}/sponsors`} className="inline-flex items-center gap-3 rounded-full border border-lynx-orange/40 px-6 py-3 text-lynx-orange hover:bg-lynx-orange/10">
+              {t("sponsors.discover")} <FaArrowRight aria-hidden="true" />
+            </Link>
+          </div>
         </div>
       </section>
 

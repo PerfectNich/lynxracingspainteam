@@ -69,6 +69,7 @@ export function SeoManager() {
       "/roster": "roster",
       "/palmares": "palmares",
       "/tienda": "shop",
+      "/sponsors": "sponsors",
       "/contacto": "contact",
     };
 

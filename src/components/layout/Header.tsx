@@ -18,6 +18,7 @@ export function Header() {
     { to: `${prefix}/roster`, label: t("nav.roster") },
     { to: `${prefix}/palmares`, label: t("nav.palmares") },
     { to: `${prefix}/multimedia`, label: t("nav.media") },
+    { to: `${prefix}/sponsors`, label: t("nav.sponsors") },
     { to: `${prefix}/tienda`, label: t("nav.shop") },
     { to: `${prefix}/contacto`, label: t("nav.contact") },
   ];
@@ -39,7 +40,7 @@ export function Header() {
         <div className="flex items-center gap-4">
           <LanguageToggle lang={lang} basePath={basePath} />
         </div>
-        <div className="flex-1 flex justify-center gap-10">
+        <div className="flex-1 flex justify-center gap-6 2xl:gap-10">
           {navLinks.map((link) => (
             <NavLink
               key={link.to}

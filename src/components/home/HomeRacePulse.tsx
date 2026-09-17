@@ -54,7 +54,7 @@ export function HomeRacePulse() {
             className="mb-3 text-xs uppercase tracking-[0.4em] text-lynx-orange"
             style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 700 }}
           >
-            {t("home.pulse_label")}
+            {t(isCompleted ? "calendar.completed" : "home.pulse_label")}
           </p>
           <h2
             className="text-2xl font-black text-white sm:text-3xl"
