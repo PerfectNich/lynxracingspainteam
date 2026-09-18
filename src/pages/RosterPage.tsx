@@ -67,7 +67,10 @@ function chunkArray<T>(arr: T[], size: number): T[][] {
   }
   return chunks;
 }
-const driverRows = chunkArray(driverCards, 7);
+const driverLayouts = [
+  { className: "hidden flex-col gap-3 md:flex xl:hidden", rows: chunkArray(driverCards, 7) },
+  { className: "hidden flex-col gap-3 xl:flex", rows: chunkArray(driverCards, 12) },
+];
 
 function StatCard({ value, label }: { value: string; label: string }) {
   return (
@@ -230,8 +233,8 @@ export function RosterPage() {
           </div>
 
           <PilotGrid items={driverCards} onSelect={setSelectedPilot} />
-          <div className="hidden flex-col gap-3 md:flex">
-            {driverRows.map((row, rowIdx) => (
+          {driverLayouts.map((layout) => <div key={layout.className} className={layout.className}>
+            {layout.rows.map((row, rowIdx) => (
               <div
                 key={rowIdx}
                 className="overflow-x-auto rounded-[1.5rem] border border-lynx-border/80 bg-black/10 p-2"
@@ -245,7 +248,7 @@ export function RosterPage() {
                 />
               </div>
             ))}
-          </div>
+          </div>)}
         </motion.div>
       </section>
 
