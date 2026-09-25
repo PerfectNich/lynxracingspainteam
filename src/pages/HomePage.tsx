@@ -3,8 +3,6 @@ import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { FaArrowRight, FaDiscord, FaEnvelope } from "react-icons/fa";
 import { Hero } from "../components/home/Hero";
-import { HomeRacePulse } from "../components/home/HomeRacePulse";
-import { RaceResults } from "../components/RaceResults";
 import { MainSponsorSpotlight } from "../components/home/MainSponsorSpotlight";
 import { SimulatorsGrid } from "../components/home/SimulatorsGrid";
 import { SponsorCarousel } from "../components/home/SponsorCarousel";
@@ -94,10 +92,6 @@ export function HomePage() {
   return (
     <div className="overflow-x-hidden">
       <Hero />
-      <div className="mx-auto grid max-w-6xl items-start gap-6 px-6 py-8 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)]">
-        <HomeRacePulse />
-        <RaceResults featured />
-      </div>
 
       <section className="relative bg-lynx-dark-card px-6 py-8 sm:py-10">
         <div className="absolute inset-0 overflow-hidden opacity-30">
