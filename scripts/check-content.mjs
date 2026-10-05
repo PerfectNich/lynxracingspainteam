@@ -165,14 +165,24 @@ if (members) {
 }
 
 if (event) {
+  const hasFeaturedEvent = typeof event.title === "string" && event.title.trim().length > 0;
+  if (
+    event.startTime != null &&
+    (typeof event.startTime !== "string" || !/^([01]\d|2[0-3]):[0-5]\d$/.test(event.startTime))
+  ) {
+    fail("team-event.json contiene una hora de inicio no valida (usa HH:mm)");
+  }
+
   const hasStartDate = typeof event.startDate === "string" && event.startDate.length > 0;
   const hasEndDate = typeof event.endDate === "string" && event.endDate.length > 0;
   const start = hasStartDate ? new Date(`${event.startDate}T12:00:00`) : null;
   const end = hasEndDate ? new Date(`${event.endDate}T12:00:00`) : null;
   const entries = Array.isArray(event.entries) ? event.entries : [];
+  const otherEvents = Array.isArray(event.otherEvents) ? event.otherEvents : [];
   const eventDrivers = Array.isArray(event.drivers) ? event.drivers : [];
   const entryDrivers = entries.flatMap((entry) => (Array.isArray(entry.drivers) ? entry.drivers : []));
-  const allEventDrivers = [...eventDrivers, ...entryDrivers];
+  const otherEventDrivers = otherEvents.flatMap((item) => (Array.isArray(item.drivers) ? item.drivers : []));
+  const allEventDrivers = [...eventDrivers, ...entryDrivers, ...otherEventDrivers];
   if (hasStartDate !== hasEndDate) {
     fail("team-event.json debe indicar fecha de inicio y fin, o dejar ambas por confirmar");
   } else if ((start && Number.isNaN(start.getTime())) || (end && Number.isNaN(end.getTime()))) {
@@ -180,7 +190,7 @@ if (event) {
   } else if (start && end && start > end) {
     fail("team-event.json termina antes de empezar");
   }
-  if (allEventDrivers.length === 0) {
+  if (hasFeaturedEvent && allEventDrivers.length === 0) {
     fail("team-event.json necesita al menos un piloto");
   }
   for (const entry of entries) {
@@ -189,6 +199,24 @@ if (event) {
     }
     if (!Array.isArray(entry.drivers) || entry.drivers.length === 0) {
       fail(`team-event.json contiene una entry sin pilotos: ${entry.name ?? "sin nombre"}`);
+    }
+  }
+  for (const item of otherEvents) {
+    const hasOtherStart = typeof item.startDate === "string" && item.startDate.length > 0;
+    const hasOtherEnd = typeof item.endDate === "string" && item.endDate.length > 0;
+    const otherStart = hasOtherStart ? new Date(`${item.startDate}T12:00:00`) : null;
+    const otherEnd = hasOtherEnd ? new Date(`${item.endDate}T12:00:00`) : null;
+    if (!item.titleKey || !item.category || !["tentative", "preparing"].includes(item.status)) {
+      fail("team-event.json contiene un evento adicional incompleto");
+    }
+    if (hasOtherStart !== hasOtherEnd || (otherStart && Number.isNaN(otherStart.getTime())) || (otherEnd && Number.isNaN(otherEnd.getTime())) || (otherStart && otherEnd && otherStart > otherEnd)) {
+      fail(`team-event.json contiene fechas no válidas para ${item.titleKey ?? "evento adicional"}`);
+    }
+    if (item.startTime != null && (typeof item.startTime !== "string" || !/^([01]\d|2[0-3]):[0-5]\d$/.test(item.startTime))) {
+      fail(`team-event.json contiene una hora no válida para ${item.titleKey ?? "evento adicional"}`);
+    }
+    if (!Array.isArray(item.drivers) || item.drivers.length === 0) {
+      fail(`team-event.json contiene un evento adicional sin pilotos: ${item.titleKey ?? "sin título"}`);
     }
   }
   if (members && allEventDrivers.length > 0) {
@@ -222,6 +250,8 @@ if (fs.existsSync(sitemapPath)) {
   const urls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
   if (urls.length !== 24) fail(`sitemap.xml debe contener 24 rutas y contiene ${urls.length}`);
   if (new Set(urls).size !== urls.length) fail("sitemap.xml contiene rutas duplicadas");
+  const agendaUrls = urls.filter((url) => /\/(?:en\/|ca\/)?agenda$/.test(url));
+  if (agendaUrls.length !== 3) fail(`sitemap.xml debe incluir las 3 rutas de Agenda y contiene ${agendaUrls.length}`);
 }
 
 if (errors.length > 0) {

@@ -7,6 +7,20 @@ import { RaceResults } from "../components/RaceResults";
 
 const eventDate = (value: string) => new Date(`${value}T12:00:00`);
 
+function formatEventDate(value: string, locale: string, includeYear = true) {
+  return new Intl.DateTimeFormat(locale, {
+    day: "numeric",
+    month: "long",
+    ...(includeYear ? { year: "numeric" } : {}),
+  }).format(eventDate(value));
+}
+
+function formatDateRange(start: string | null, end: string | null, locale: string, pending: string) {
+  if (!start || !end) return pending;
+  if (start === end) return formatEventDate(start, locale);
+  return `${formatEventDate(start, locale, false)} - ${formatEventDate(end, locale)}`;
+}
+
 function getDaysUntil(dateValue?: string | null) {
   if (!dateValue) {
     return null;
@@ -24,19 +38,11 @@ export function CalendarPage() {
   const { t, i18n } = useTranslation();
   const locale = i18n.language === "en" ? "en-GB" : i18n.language === "ca" ? "ca-ES" : "es-ES";
   const entries = Array.isArray(teamEvent.entries) ? teamEvent.entries : [];
+  const otherEvents = Array.isArray(teamEvent.otherEvents) ? teamEvent.otherEvents : [];
   const daysUntilStart = getDaysUntil(teamEvent.startDate);
   const isCompleted = teamEvent.status === "completed";
-  const dateRange =
-    teamEvent.startDate && teamEvent.endDate
-      ? `${new Intl.DateTimeFormat(locale, {
-          day: "numeric",
-          month: "long",
-        }).format(eventDate(teamEvent.startDate))} - ${new Intl.DateTimeFormat(locale, {
-          day: "numeric",
-          month: "long",
-          year: "numeric",
-        }).format(eventDate(teamEvent.endDate))}`
-      : t("calendar.pending");
+  const hasEvents = Boolean(teamEvent.title && teamEvent.startDate && teamEvent.endDate);
+  const dateRange = formatDateRange(teamEvent.startDate, teamEvent.endDate, locale, t("calendar.pending"));
 
   return (
     <div className="overflow-x-hidden">
@@ -88,6 +94,13 @@ export function CalendarPage() {
           className="relative mx-auto max-w-5xl"
         >
 
+          {!hasEvents ? (
+            <div className="rounded-2xl border border-lynx-border bg-lynx-dark-card p-8 text-center">
+              <p className="text-lg font-bold text-white" style={{ fontFamily: "var(--font-orbitron)" }}>
+                {t("calendar.no_upcoming_events")}
+              </p>
+            </div>
+          ) : <>
           <div className="relative mb-7 flex flex-wrap items-center justify-between gap-4 border-b border-lynx-border pb-6">
             <div className="flex items-center gap-3">
               <div className="flex h-11 w-11 items-center justify-center rounded-full border border-lynx-orange/30 bg-lynx-orange/10 text-lynx-orange">
@@ -139,6 +152,8 @@ export function CalendarPage() {
                     ? t("calendar.finished_event")
                     : daysUntilStart === null
                       ? t("calendar.pending")
+                      : daysUntilStart === 0
+                        ? t("calendar.today")
                       : t("calendar.countdown", { count: daysUntilStart })}
                 </span>
               </div>
@@ -172,6 +187,22 @@ export function CalendarPage() {
                     {t("calendar.team_entries", { count: teamEvent.teams })}
                   </p>
                 </div>
+                {teamEvent.startTime ? (
+                  <div className="rounded-2xl border border-white/8 bg-black/20 p-4">
+                    <p
+                      className="mb-2 text-[11px] uppercase tracking-[0.24em] text-lynx-text/50"
+                      style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 700 }}
+                    >
+                      {t("calendar.time_label")}
+                    </p>
+                    <p
+                      className="text-lg font-bold text-white"
+                      style={{ fontFamily: "var(--font-rajdhani)" }}
+                    >
+                      {teamEvent.startTime} h
+                    </p>
+                  </div>
+                ) : null}
               </div>
 
               {teamEvent.car ? (
@@ -289,6 +320,78 @@ export function CalendarPage() {
               </div>
             </div>
           </div>
+
+          {otherEvents.length > 0 ? (
+            <div className="mt-10 border-t border-lynx-border pt-7">
+              <p
+                className="mb-4 text-xs uppercase tracking-[0.32em] text-lynx-orange"
+                style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 700 }}
+              >
+                {t("calendar.other_events")}
+              </p>
+              <div className="grid gap-4 md:grid-cols-2">
+                {otherEvents.map((event) => (
+                  <article key={event.titleKey} className="rounded-2xl border border-lynx-border bg-lynx-dark-card p-5">
+                    <div className="mb-4 flex flex-wrap items-start justify-between gap-3">
+                      <div>
+                        <p
+                          className="mb-2 text-[11px] uppercase tracking-[0.24em] text-lynx-text/50"
+                          style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 700 }}
+                        >
+                          {event.simulator ? `${event.simulator} · ` : `${t("calendar.simulator_pending")} · `}{event.category}
+                        </p>
+                        <h3 className="text-xl font-bold text-white" style={{ fontFamily: "var(--font-orbitron)" }}>
+                          {t(event.titleKey)}
+                        </h3>
+                      </div>
+                      <span
+                        className="rounded-full border border-lynx-orange/30 bg-lynx-orange/10 px-3 py-1 text-[10px] uppercase tracking-[0.18em] text-lynx-orange"
+                        style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 700 }}
+                      >
+                        {t("calendar.pending")}
+                      </span>
+                    </div>
+
+                    <div className="grid gap-3 sm:grid-cols-2">
+                      <div className="rounded-xl border border-white/8 bg-black/20 p-3">
+                        <p className="mb-1 text-[10px] uppercase tracking-[0.2em] text-lynx-text/50" style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 700 }}>
+                          {t("calendar.date_label")}
+                        </p>
+                        <p className="font-bold text-white" style={{ fontFamily: "var(--font-rajdhani)" }}>
+                          {event.startDate ? formatDateRange(event.startDate, event.endDate, locale, t("calendar.pending")) : t("calendar.pending")}
+                        </p>
+                      </div>
+                      {event.startTime ? (
+                        <div className="rounded-xl border border-white/8 bg-black/20 p-3">
+                          <p className="mb-1 text-[10px] uppercase tracking-[0.2em] text-lynx-text/50" style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 700 }}>
+                            {t("calendar.time_label")}
+                          </p>
+                          <p className="font-bold text-white" style={{ fontFamily: "var(--font-rajdhani)" }}>{event.startTime} h</p>
+                        </div>
+                      ) : null}
+                      {event.car ? (
+                        <div className="rounded-xl border border-white/8 bg-black/20 p-3">
+                          <p className="mb-1 text-[10px] uppercase tracking-[0.2em] text-lynx-text/50" style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 700 }}>
+                            {t("calendar.car")}
+                          </p>
+                          <p className="font-bold text-white" style={{ fontFamily: "var(--font-rajdhani)" }}>{event.car}</p>
+                        </div>
+                      ) : null}
+                    </div>
+
+                    <div className="mt-4 space-y-2">
+                      {event.drivers.map((driver) => (
+                        <p key={driver} className="rounded-lg border border-white/7 bg-black/20 px-3 py-2 font-semibold text-white" style={{ fontFamily: "var(--font-rajdhani)" }}>
+                          {driver}
+                        </p>
+                      ))}
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </div>
+          ) : null}
+          </>}
         </motion.div>
       </section>
       <RaceResults />

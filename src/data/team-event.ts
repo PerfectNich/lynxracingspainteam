@@ -4,8 +4,9 @@ interface TeamEvent {
   title: string;
   startDate: string | null;
   endDate: string | null;
-  simulator: string;
-  category: string;
+  startTime?: string | null;
+  simulator: string | null;
+  category: string | null;
   teams: number;
   status: "preparing" | "completed";
   car: string | null;
@@ -15,6 +16,17 @@ interface TeamEvent {
     category: string;
     car?: string | null;
     result?: string | null;
+    drivers: string[];
+  }[];
+  otherEvents?: {
+    titleKey: string;
+    startDate: string | null;
+    endDate: string | null;
+    startTime?: string | null;
+    simulator: string | null;
+    category: string;
+    status: "tentative" | "preparing";
+    car: string | null;
     drivers: string[];
   }[];
 }

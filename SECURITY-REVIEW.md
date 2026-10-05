@@ -1,34 +1,22 @@
-# Revisión del 7 de septiembre de 2026
+# Revisión de seguridad y mantenimiento — 5 de octubre de 2026
 
-Alcance: código de `repo-clean`, dependencias instaladas, workflows de GitHub Actions,
-cabeceras públicas HTTPS y comprobaciones del visor multimedia en producción local.
-No es una prueba de penetración ni una garantía de ausencia de vulnerabilidades.
+Alcance: revisión estática del repositorio, comprobación de contenido, análisis de dependencias y workflows de GitHub Actions. No es una prueba de penetración ni una garantía de ausencia de vulnerabilidades.
 
-## Cambios aplicados
+## Estado y medidas del repositorio
 
-- CSP: bloqueo explícito de objetos incrustados (`object-src 'none'`). Retirada de
-  `frame-ancestors` del meta HTML porque el navegador no la aplica en ese formato.
-- Política de referencia explícita `strict-origin-when-cross-origin`.
-- El trabajo de compilación ya no recibe permisos de publicación de Pages ni OIDC.
-  Solo el trabajo de despliegue recibe esos permisos. Checkout no conserva credenciales
-  en los trabajos de compilación y validación.
-- Dependabot configurado para proponer actualizaciones semanales de npm y Actions;
-  se activará cuando estos cambios estén en la rama predeterminada.
-- Reproductores Twitch con carga diferida y reproducción automática desactivada.
-- Conservado el visor multimedia de la versión remota, que ya dispone de diálogo
-  modal nativo, foco inicial/restauración, Escape, manejo de rechazo de reproducción,
-  botones móviles y corrección de gestos desde la coordenada cero.
-- Fondo de puntos respeta la preferencia de movimiento reducido. Preconexiones
-  para las fuentes ya utilizadas por la web.
+- La política CSP del HTML bloquea plugins (`object-src 'none'`), limita scripts y conexiones a los servicios necesarios, y la política de referencia es `strict-origin-when-cross-origin`.
+- Los jobs de validación/compilación usan permisos mínimos y checkout sin persistencia de credenciales; solo el job de despliegue recibe `pages: write` y `id-token: write`.
+- Las GitHub Actions externas están fijadas a SHA completos verificados, con la versión legible en comentario, y Dependabot queda encargado de proponer actualizaciones.
+- Dependabot está configurado para revisar npm y GitHub Actions semanalmente.
+- `npm audit` no detectó vulnerabilidades conocidas en la última revisión local.
+- Se vació el evento antiguo de la Agenda; el componente muestra un mensaje sin carrera programada y conserva la página y sus enlaces.
+- Se actualizaron las fechas `lastmod` del sitemap al 5 de octubre de 2026.
 
-## Pendiente en el alojamiento
+## Cabeceras pendientes del alojamiento
 
-La consulta HTTPS pública devolvió `200 OK` y `Server: GitHub.com`. No incluía
-`Content-Security-Policy`, `Strict-Transport-Security`, `X-Frame-Options`,
-`X-Content-Type-Options` ni `Permissions-Policy` como cabeceras HTTP.
-La CSP del HTML sí ofrece protección, salvo las directivas que requieren cabecera.
+GitHub Pages no permite establecer cabeceras HTTP arbitrarias desde el repositorio. Un archivo `_headers` no configura estas cabeceras en GitHub Pages. La respuesta HTTPS observada en la revisión anterior no incluía CSP HTTP, HSTS, `X-Frame-Options`, `X-Content-Type-Options` ni `Permissions-Policy`. La CSP del HTML sí se aplica, salvo directivas que solo funcionan como cabeceras (por ejemplo `frame-ancestors`).
 
-Configurar en un proxy o alojamiento que admita cabeceras personalizadas:
+Para activar las cabeceras restantes haría falta un proxy o alojamiento que las admita. Configuración sugerida, tras verificarla en dicho alojamiento:
 
 ```http
 Content-Security-Policy: frame-ancestors 'self'
@@ -39,40 +27,26 @@ Permissions-Policy: camera=(), microphone=(), geolocation=()
 Strict-Transport-Security: max-age=31536000
 ```
 
-Si ya existe una CSP HTTP, añadir `frame-ancestors` a ella en lugar de sobrescribirla.
-La CSP del meta continúa aplicándose junto a la cabecera. No añadir `includeSubDomains`
-ni `preload` a HSTS sin revisar antes todos los subdominios y el mantenimiento de HTTPS.
-Un archivo `_headers` por sí solo no configura estas cabeceras en GitHub Pages.
-No se ha modificado DNS ni la configuración del alojamiento.
+Si ya existe una CSP HTTP, añadir `frame-ancestors` a ella en lugar de sustituirla. No añadir `includeSubDomains` ni `preload` a HSTS sin revisar todos los subdominios. No se modificó DNS ni el proveedor de alojamiento.
 
-## Integración con la versión publicada
+## Datos del roster
 
-Antes de publicar se sincronizó con `origin/main` (8d5ff67). La copia inicialmente
-revisada era anterior: se conservaron los perfiles de pilotos, los tests de resultados,
-la página 404 y las mejoras de navegación y accesibilidad de esa versión. La automatización
-Twitch ya había sido eliminada; las correcciones del script antiguo no se incorporan
-ni se restaura la automatización. Le Mans se actualiza con la alineación de Jesús
-presente en la versión remota: Ángel Alvarado, Francisco Sierra, Jesús Jiménez y Luis Ungo.
-
-## Otras mejoras recomendadas
-
-- Fijar Actions a SHA completos verificados y mantenerlos con Dependabot. Actualmente
-  usan etiquetas de versión mayor, que pueden cambiar de contenido.
-- Auditar el peso del vídeo de portada y las imágenes con métricas en un móvil real
-  antes de decidir compresión o sustitución de recursos.
+Los nombres, dorsales, fotos y canales de Twitch se publican deliberadamente para mostrar el roster. Al estar en archivos estáticos también son visibles para quien clone el repositorio. Si en el futuro se quieren mantener visibles en la web y ocultos del repositorio público, hará falta servirlos desde una fuente privada en tiempo de ejecución; un `.env` incluido en un frontend estático no los mantendría secretos.
 
 ## Validación
 
-- `npm audit --json`: 0 vulnerabilidades conocidas, incluidas dependencias de desarrollo.
-- `npm run lint` y `npm run build`: correctos.
-- Navegador local: apertura del visor, siguiente imagen mediante flecha, cierre con
-  Escape, restauración del foco al botón original y ausencia de errores de consola
-  en esa prueba.
-- Los cambios de workflow se validan al publicar en GitHub; no se han utilizado
-  secretos de Twitch.
+- `npm run lint`: correcto.
+- `npm test`: 6 pruebas correctas.
+- `npx tsc -b --pretty false`: correcto.
+- `npm run build`: correcto; generó los recursos de producción y la página 404.
+- `npm audit --json`: 0 vulnerabilidades conocidas (281 dependencias analizadas).
+- `node scripts/check-content.mjs`: 7 archivos JSON, 69 activos y 24 rutas SEO validados.
 
 Referencias:
-
 - https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/frame-ancestors
 - https://docs.github.com/en/actions/reference/security/secure-use
 - https://docs.github.com/en/actions/how-tos/writing-workflows/choosing-when-your-workflow-runs/triggering-a-workflow
+- https://github.com/actions/checkout/releases/tag/v7.0.1
+- https://github.com/actions/setup-node/releases/tag/v6.4.0
+- https://github.com/actions/upload-pages-artifact/releases/tag/v5.0.0
+- https://github.com/actions/deploy-pages/releases/tag/v5.0.0

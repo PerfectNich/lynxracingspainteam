@@ -13,11 +13,13 @@
         style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
         font-src 'self' https://fonts.gstatic.com data:;
         img-src 'self' data: blob: https:;
-        connect-src 'self' https://cloudflareinsights.com;
-        frame-src https://discord.com https://player.twitch.tv https://www.twitch.tv;
+        media-src 'self' blob: https://www.youtube.com https://youtube.com;
+        connect-src 'self' https://cloudflareinsights.com https://www.youtube.com https://youtube.com;
+        frame-src https://discord.com https://player.twitch.tv https://www.twitch.tv https://www.youtube-nocookie.com;
         object-src 'none';
         base-uri 'self';
         form-action 'self';
+        upgrade-insecure-requests;
       "
     />
     <title>Lynx Racing Spain Team</title>

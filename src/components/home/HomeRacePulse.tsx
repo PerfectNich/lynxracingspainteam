@@ -25,6 +25,7 @@ export function HomeRacePulse() {
   const calendarPath = `${prefix}/agenda`;
   const daysUntilStart = getDaysUntil(teamEvent.startDate);
   const isCompleted = teamEvent.status === "completed";
+  const hasEvent = Boolean(teamEvent.title && teamEvent.startDate && teamEvent.endDate);
 
   const locale = i18n.language === "en" ? "en-GB" : i18n.language === "ca" ? "ca-ES" : "es-ES";
   const entries = Array.isArray(teamEvent.entries) ? teamEvent.entries : [];
@@ -76,9 +77,9 @@ export function HomeRacePulse() {
               className="text-xl font-black text-white md:text-2xl"
               style={{ fontFamily: "var(--font-orbitron)" }}
             >
-              {teamEvent.title}
+              {hasEvent ? teamEvent.title : t("calendar.no_upcoming_events")}
             </h3>
-            <span
+            {hasEvent ? <span
               className="rounded-full border border-lynx-orange/30 bg-lynx-orange/10 px-3 py-1 text-xs uppercase tracking-[0.2em] text-lynx-orange"
               style={{ fontFamily: "var(--font-rajdhani)", fontWeight: 700 }}
             >
@@ -87,10 +88,10 @@ export function HomeRacePulse() {
                 : daysUntilStart === null
                   ? t("calendar.pending")
                   : t("calendar.countdown", { count: daysUntilStart })}
-            </span>
+            </span> : null}
           </div>
 
-          <div className="mb-5 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          {hasEvent ? <><div className="mb-5 grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div className="rounded-xl border border-white/8 bg-black/20 px-4 py-3">
               <p
                 className="mb-2 text-[11px] uppercase tracking-[0.25em] text-lynx-text/50"
@@ -143,6 +144,7 @@ export function HomeRacePulse() {
               ))}
             </div>
           ) : null}
+          </> : null}
 
           <Link
             to={calendarPath}
