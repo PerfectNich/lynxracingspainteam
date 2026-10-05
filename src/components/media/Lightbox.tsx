@@ -162,6 +162,7 @@ export function Lightbox({ items, currentIndex, onClose, onNavigate }: LightboxP
         <video
           ref={videoRef}
           src={assetUrl(item.src)}
+          poster={item.poster ? assetUrl(item.poster) : undefined}
           controls
           className="max-w-[90vw] max-h-[80vh] object-contain rounded-lg shadow-orange-glow"
           onClick={(e) => e.stopPropagation()}

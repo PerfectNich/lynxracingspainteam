@@ -33,5 +33,6 @@ export interface MediaItem {
   src: string;
   alt?: string;
   poster?: string;
+  thumbnail?: string;
   game: string;
 }

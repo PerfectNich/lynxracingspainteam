@@ -1,25 +1,163 @@
 [
-  { "type": "image", "src": "/media/lynx-mclaren-2026-09-11.png", "alt": "McLaren GT3 con la decoracion de Lynx Racing Spain Team", "game": "General" },
-  { "type": "image", "src": "/media/lynx-bmw-2026-09-11.png", "alt": "BMW GT3 con la decoracion de Lynx Racing Spain Team", "game": "General" },
-  { "type": "image", "src": "/media/lynx-prototipo-2026-09-10.png", "alt": "Prototipo de Lynx Racing Spain Team en pista", "game": "General" },
-  { "type": "image", "src": "/media/lmp2.webp", "alt": "iRacing", "game": "iRacing" },
-  { "type": "image", "src": "/media/mustang-nordschleife.webp", "alt": "iRacing", "game": "iRacing" },
-  { "type": "image", "src": "/media/mustang2.webp", "alt": "iRacing", "game": "iRacing" },
-  { "type": "image", "src": "/media/iracing-lynx-01.webp", "alt": "iRacing", "game": "iRacing" },
-  { "type": "image", "src": "/media/iracing-lynx-02.webp", "alt": "iRacing", "game": "iRacing" },
-  { "type": "image", "src": "/media/iracing-lynx-03.webp", "alt": "iRacing", "game": "iRacing" },
-  { "type": "image", "src": "/media/iracing-lynx-04.webp", "alt": "iRacing", "game": "iRacing" },
-  { "type": "image", "src": "/media/iracing-lynx-06.webp", "alt": "iRacing", "game": "iRacing" },
-  { "type": "image", "src": "/media/porsche.webp", "alt": "iRacing", "game": "iRacing" },
-  { "type": "image", "src": "/media/porsche2.webp", "alt": "iRacing", "game": "iRacing" },
-  { "type": "image", "src": "/media/mazda.webp", "alt": "iRacing", "game": "iRacing" },
-  { "type": "image", "src": "/media/acura.jpg", "alt": "iRacing", "game": "iRacing" },
-  { "type": "image", "src": "/media/bmw.webp", "alt": "iRacing", "game": "iRacing" },
-  { "type": "image", "src": "/media/lmu_bmw.webp", "alt": "LMU", "game": "LMU" },
-  { "type": "image", "src": "/media/mustang.webp", "alt": "LMU", "game": "LMU" },
-  { "type": "image", "src": "/media/ferrari.jpg", "alt": "Assetto", "game": "Assetto" },
-  { "type": "image", "src": "/media/crew.webp", "alt": "Assetto", "game": "Assetto" },
-  { "type": "video", "src": "/media/meihan.mp4", "poster": "/media/thumbnail1.png", "game": "Assetto" },
-  { "type": "video", "src": "/media/accvideo.mp4", "poster": "/media/thumbnail2.png", "game": "Assetto" },
-  { "type": "video", "src": "/media/rally.mp4", "poster": "/media/thumbnail3.png", "game": "Assetto" }
+  {
+    "type": "image",
+    "src": "/media/lynx-mclaren-2026-09-11.png",
+    "alt": "McLaren GT3 con la decoracion de Lynx Racing Spain Team",
+    "game": "General",
+    "thumbnail": "/media/thumbs/thumb-01-lynx-mclaren-2026-09-11.webp"
+  },
+  {
+    "type": "image",
+    "src": "/media/lynx-bmw-2026-09-11.png",
+    "alt": "BMW GT3 con la decoracion de Lynx Racing Spain Team",
+    "game": "General",
+    "thumbnail": "/media/thumbs/thumb-02-lynx-bmw-2026-09-11.webp"
+  },
+  {
+    "type": "image",
+    "src": "/media/lynx-prototipo-2026-09-10.png",
+    "alt": "Prototipo de Lynx Racing Spain Team en pista",
+    "game": "General",
+    "thumbnail": "/media/thumbs/thumb-03-lynx-prototipo-2026-09-10.webp"
+  },
+  {
+    "type": "image",
+    "src": "/media/lmp2.webp",
+    "alt": "iRacing",
+    "game": "iRacing",
+    "thumbnail": "/media/thumbs/thumb-04-lmp2.webp"
+  },
+  {
+    "type": "image",
+    "src": "/media/mustang-nordschleife.webp",
+    "alt": "iRacing",
+    "game": "iRacing",
+    "thumbnail": "/media/thumbs/thumb-05-mustang-nordschleife.webp"
+  },
+  {
+    "type": "image",
+    "src": "/media/mustang2.webp",
+    "alt": "iRacing",
+    "game": "iRacing",
+    "thumbnail": "/media/thumbs/thumb-06-mustang2.webp"
+  },
+  {
+    "type": "image",
+    "src": "/media/iracing-lynx-01.webp",
+    "alt": "iRacing",
+    "game": "iRacing",
+    "thumbnail": "/media/thumbs/thumb-07-iracing-lynx-01.webp"
+  },
+  {
+    "type": "image",
+    "src": "/media/iracing-lynx-02.webp",
+    "alt": "iRacing",
+    "game": "iRacing",
+    "thumbnail": "/media/thumbs/thumb-08-iracing-lynx-02.webp"
+  },
+  {
+    "type": "image",
+    "src": "/media/iracing-lynx-03.webp",
+    "alt": "iRacing",
+    "game": "iRacing",
+    "thumbnail": "/media/thumbs/thumb-09-iracing-lynx-03.webp"
+  },
+  {
+    "type": "image",
+    "src": "/media/iracing-lynx-04.webp",
+    "alt": "iRacing",
+    "game": "iRacing",
+    "thumbnail": "/media/thumbs/thumb-10-iracing-lynx-04.webp"
+  },
+  {
+    "type": "image",
+    "src": "/media/iracing-lynx-06.webp",
+    "alt": "iRacing",
+    "game": "iRacing",
+    "thumbnail": "/media/thumbs/thumb-11-iracing-lynx-06.webp"
+  },
+  {
+    "type": "image",
+    "src": "/media/porsche.webp",
+    "alt": "iRacing",
+    "game": "iRacing",
+    "thumbnail": "/media/thumbs/thumb-12-porsche.webp"
+  },
+  {
+    "type": "image",
+    "src": "/media/porsche2.webp",
+    "alt": "iRacing",
+    "game": "iRacing",
+    "thumbnail": "/media/thumbs/thumb-13-porsche2.webp"
+  },
+  {
+    "type": "image",
+    "src": "/media/mazda.webp",
+    "alt": "iRacing",
+    "game": "iRacing",
+    "thumbnail": "/media/thumbs/thumb-14-mazda.webp"
+  },
+  {
+    "type": "image",
+    "src": "/media/acura.jpg",
+    "alt": "iRacing",
+    "game": "iRacing",
+    "thumbnail": "/media/thumbs/thumb-15-acura.webp"
+  },
+  {
+    "type": "image",
+    "src": "/media/bmw.webp",
+    "alt": "iRacing",
+    "game": "iRacing",
+    "thumbnail": "/media/thumbs/thumb-16-bmw.webp"
+  },
+  {
+    "type": "image",
+    "src": "/media/lmu_bmw.webp",
+    "alt": "LMU",
+    "game": "LMU",
+    "thumbnail": "/media/thumbs/thumb-17-lmu_bmw.webp"
+  },
+  {
+    "type": "image",
+    "src": "/media/mustang.webp",
+    "alt": "LMU",
+    "game": "LMU",
+    "thumbnail": "/media/thumbs/thumb-18-mustang.webp"
+  },
+  {
+    "type": "image",
+    "src": "/media/ferrari.jpg",
+    "alt": "Assetto",
+    "game": "Assetto",
+    "thumbnail": "/media/thumbs/thumb-19-ferrari.webp"
+  },
+  {
+    "type": "image",
+    "src": "/media/crew.webp",
+    "alt": "Assetto",
+    "game": "Assetto",
+    "thumbnail": "/media/thumbs/thumb-20-crew.webp"
+  },
+  {
+    "type": "video",
+    "src": "/media/meihan.mp4",
+    "poster": "/media/thumbnail1.png",
+    "game": "Assetto",
+    "thumbnail": "/media/thumbs/thumb-21-thumbnail1.webp"
+  },
+  {
+    "type": "video",
+    "src": "/media/accvideo.mp4",
+    "poster": "/media/thumbnail2.png",
+    "game": "Assetto",
+    "thumbnail": "/media/thumbs/thumb-22-thumbnail2.webp"
+  },
+  {
+    "type": "video",
+    "src": "/media/rally.mp4",
+    "poster": "/media/thumbnail3.png",
+    "game": "Assetto",
+    "thumbnail": "/media/thumbs/thumb-23-thumbnail3.webp"
+  }
 ]

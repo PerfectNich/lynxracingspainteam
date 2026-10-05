@@ -24,7 +24,7 @@ export function MediaPage() {
           // Keep DOM order and visual order aligned for keyboard navigation.
           const featured = index % 12 === 0 || index % 12 === 7;
           const isVideo = item.type === "video";
-          const preview = isVideo ? item.poster : item.src;
+          const preview = item.thumbnail || (isVideo ? item.poster : item.src);
 
           return (
             <button
