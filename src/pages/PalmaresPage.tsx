@@ -143,7 +143,7 @@ function AccordionItem({ entry, index }: { entry: PalmaresEntry; index: number }
         <motion.span
           animate={{ rotate: open ? 180 : 0 }}
           transition={{ duration: 0.25 }}
-          className="flex-shrink-0 text-sm text-lynx-text/40"
+          className="flex-shrink-0 text-sm text-lynx-text/70"
         >
           <FaChevronDown />
         </motion.span>

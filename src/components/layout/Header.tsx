@@ -72,7 +72,7 @@ export function Header() {
           aria-expanded={isOpen}
           aria-controls="mobile-menu"
           onClick={toggleMenu}
-          className="text-lynx-text text-2xl hover:text-lynx-orange transition-colors flex-shrink-0"
+          className="min-h-11 min-w-11 flex items-center justify-center text-lynx-text text-2xl hover:text-lynx-orange transition-colors flex-shrink-0"
           aria-label={t(isOpen ? "interface.closeMenu" : "interface.openMenu")}
         >
           {isOpen ? <FaTimes /> : <FaBars />}
@@ -93,7 +93,7 @@ export function Header() {
               end={link.to === `${prefix}/`}
               onClick={closeMenu}
               className={({ isActive }) =>
-                `font-bold text-lg transition-all duration-300 hover:text-lynx-orange ${
+                `min-h-11 flex items-center px-4 font-bold text-lg transition-all duration-300 hover:text-lynx-orange ${
                   isActive ? "text-lynx-orange underline underline-offset-4" : "text-lynx-text no-underline"
                 }`
               }

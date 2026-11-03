@@ -1,7 +1,7 @@
 [
   {
     "name": "Orbital Detail Cars",
-    "logo": "/sponsors/bg.png",
+    "logo": "/sponsors/bg.webp",
     "url": "https://instagram.com/orbitaldetailcars/",
     "description": {
       "es": "Lavado premium y detailing para cuidar la imagen de tu coche, con atención a cada detalle.",
@@ -12,7 +12,7 @@
   },
   {
     "name": "SRP Pedals",
-    "logo": "/sponsors/srp.png",
+    "logo": "/sponsors/srp.webp",
     "url": "https://simracing-pro.com/es/",
     "description": {
       "es": "Pedales neumáticos de alta gama fabricados en España, diseñados para una frenada precisa y sensaciones de competición.",
@@ -34,7 +34,7 @@
   },
   {
     "name": "No Wheels Sim",
-    "logo": "/sponsors/nowheels.png",
+    "logo": "/sponsors/nowheels.webp",
     "url": "https://nowheelssim.com/",
     "description": {
       "es": "Cockpits y estructuras para simracing, diseñados para dar una base sólida a tu puesto de conducción.",
@@ -45,7 +45,7 @@
   },
   {
     "name": "RaceMax",
-    "logo": "/sponsors/racemax1.png",
+    "logo": "/sponsors/racemax1.webp",
     "url": "https://www.racemax.es/",
     "description": {
       "es": "Guantes para simracing, con diseños personalizados para pilotos y equipos que quieren competir con su propia identidad.",
@@ -56,7 +56,7 @@
   },
   {
     "name": "Kikologo",
-    "logo": "/sponsors/kiko.png",
+    "logo": "/sponsors/kiko.webp",
     "url": "https://www.twitch.tv/kikologo",
     "description": {
       "es": "El canal de Twitch de Francisco Sierra: simracing y directos para compartir la afición por las carreras.",
@@ -67,7 +67,7 @@
   },
   {
     "name": "PadDesign3D",
-    "logo": "/sponsors/paddesign3d.png",
+    "logo": "/sponsors/paddesign3d.webp",
     "url": "https://www.instagram.com/paddesign3d",
     "description": {
       "es": "Impresión 3D de piezas personalizadas, creadas a partir de las necesidades e ideas de cada cliente.",
@@ -78,7 +78,7 @@
   },
   {
     "name": "RM Motor",
-    "logo": "/sponsors/rmmotor.png",
+    "logo": "/sponsors/rmmotor.webp",
     "url": "https://www.instagram.com/rmmotor_/",
     "description": {
       "es": "Taller de automoción y patrocinador principal de Lynx Racing Spain Team: la pasión por el motor, dentro y fuera de pista.",
@@ -89,7 +89,7 @@
   },
   {
     "name": "Sport Generation",
-    "logo": "/sponsors/sport.png",
+    "logo": "/sponsors/sport.webp",
     "url": "https://www.instagram.com/gimnasiosport_generation/",
     "description": {
       "es": "Gimnasio y espacio de entrenamiento para mantenerte activo y trabajar tu forma física también fuera del simulador.",
@@ -100,7 +100,7 @@
   },
   {
     "name": "Piezas de Colección",
-    "logo": "/sponsors/piezas-de-coleccion.png",
+    "logo": "/sponsors/piezas-de-coleccion.webp",
     "url": "https://www.instagram.com/sergio.delgadopastrana.3/",
     "description": {
       "es": "Piezas talladas en madera y creaciones en cristal con diseños y dibujos para dar forma a objetos de colección.",
@@ -111,7 +111,7 @@
   },
   {
     "name": "Bolori",
-    "logo": "/sponsors/bolori.png",
+    "logo": "/sponsors/bolori.webp",
     "url": "https://bolori.es/",
     "published": true,
     "description": {
@@ -134,7 +134,7 @@
   },
   {
     "name": "The Mech Cat",
-    "logo": "/sponsors/the-mech-cat.png",
+    "logo": "/sponsors/the-mech-cat.webp",
     "url": "https://themechcat.com/",
     "published": true,
     "description": {
@@ -157,7 +157,7 @@
   },
   {
     "name": "Raptor Racing",
-    "logo": "/sponsors/raptor-racing.png",
+    "logo": "/sponsors/raptor-racing.webp",
     "url": "https://app.raptoracing.cl/es/?codigo=LYNX10",
     "published": true,
     "discount": {

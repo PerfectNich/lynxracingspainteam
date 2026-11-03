@@ -16,7 +16,7 @@ export function LanguageToggle({ lang, basePath }: LanguageToggleProps) {
   const activeIndex = flags.findIndex((f) => f.code === lang);
 
   return (
-    <div className="relative grid grid-cols-3 items-center bg-lynx-dark-card border border-lynx-border rounded-full p-0.5 w-[6.5rem] h-8 hover:border-lynx-orange/50 transition-colors">
+    <div className="relative grid grid-cols-3 items-center bg-lynx-dark-card border border-lynx-border rounded-full p-0.5 w-[9rem] min-h-12 hover:border-lynx-orange/50 transition-colors">
       {/* Sliding highlight */}
       <span
         className="absolute top-0.5 h-[calc(100%-4px)] rounded-full bg-lynx-orange/20 transition-all duration-300 ease-in-out"
@@ -33,7 +33,8 @@ export function LanguageToggle({ lang, basePath }: LanguageToggleProps) {
           <Link
             key={flag.code}
             to={to || "/"}
-            className="relative z-10 flex justify-center items-center"
+            className="relative z-10 flex min-h-11 min-w-11 justify-center items-center"
+            aria-current={isActive ? "true" : undefined}
             aria-label={flag.alt}
           >
             <img
@@ -42,7 +43,7 @@ export function LanguageToggle({ lang, basePath }: LanguageToggleProps) {
               className={`${flag.height} w-auto rounded-sm transition-all duration-300`}
               style={{
                 transform: `scale(${isActive ? 1.15 : 0.95})`,
-                opacity: isActive ? 1 : 0.5,
+                opacity: isActive ? 1 : 0.85,
               }}
             />
           </Link>

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useReducedMotion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { assetUrl } from "../../utils/assetUrl";
-import { EtherealShadow } from "@/components/ui/etheral-shadow";
+
 
 export function Hero() {
   const { t } = useTranslation();
@@ -24,18 +24,6 @@ export function Hero() {
           "radial-gradient(ellipse 70% 60% at 50% 45%, rgba(255,106,0,0.3), transparent 72%), #080808",
       }}
     >
-
-      {/* EtherealShadow de fondo */}
-      {shouldLoadVideo && !videoReady && (
-        <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
-          <EtherealShadow
-            color="rgba(255, 106, 0, 0.9)"
-            animation={{ scale: 100, speed: 85 }}
-            noise={{ opacity: 1, scale: 1.2 }}
-            style={{ width: '100%', height: '100%' }}
-          />
-        </div>
-      )}
 
       {shouldLoadVideo && (
         <video

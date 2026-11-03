@@ -37,9 +37,10 @@ export function Layout() {
     <div className="flex flex-col min-h-screen">
       <ScrollToTop />
       <SeoManager />
+      <a href="#main-content" className="skip-link">Saltar al contenido / Skip to content / Salta al contingut</a>
       <Header />
       <TopContact />
-      <main className="flex-1 pt-[60px]">
+      <main id="main-content" tabIndex={-1} className="flex-1 pt-[60px]">
         <Outlet />
       </main>
       <Footer />
