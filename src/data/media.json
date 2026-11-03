@@ -159,5 +159,19 @@
     "poster": "/media/thumbnail3.png",
     "game": "Assetto",
     "thumbnail": "/media/thumbs/thumb-23-thumbnail3.webp"
+  },
+  {
+    "type": "image",
+    "src": "/media/lynx-gt-prototipo-dunlop.png",
+    "alt": "GT y prototipo de Lynx Racing Spain Team bajo el puente Dunlop",
+    "game": "General",
+    "thumbnail": "/media/thumbs/thumb-24-lynx-gt-prototipo-dunlop.webp"
+  },
+  {
+    "type": "image",
+    "src": "/media/lynx-porsche-sobre-el-piano.png",
+    "alt": "Porsche de Lynx Racing Spain Team sobre el piano de la curva",
+    "game": "General",
+    "thumbnail": "/media/thumbs/thumb-25-lynx-porsche-sobre-el-piano.webp"
   }
 ]
