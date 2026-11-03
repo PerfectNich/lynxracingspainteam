@@ -147,6 +147,11 @@
         "es": "5 % de descuento",
         "en": "5% discount",
         "ca": "5 % de descompte"
+      },
+      "terms": {
+        "es": "Contacta con los administradores antes de comprar para gestionar la compra y el descuento con el sponsor.",
+        "en": "Contact the admins before purchasing to arrange your purchase and discount with the sponsor.",
+        "ca": "Contacta amb els administradors abans de comprar per gestionar la compra i el descompte amb el sponsor."
       }
     }
   },
@@ -161,7 +166,12 @@
         "en": "10% discount",
         "ca": "10 % de descompte"
       },
-      "code": "LYNX10"
+      "code": "LYNX10",
+      "terms": {
+        "es": "El enlace aplica automáticamente el código LYNX10 y el 10 % de descuento.",
+        "en": "The link automatically applies code LYNX10 and the 10% discount.",
+        "ca": "L’enllaç aplica automàticament el codi LYNX10 i el 10 % de descompte."
+      }
     }
   }
 ]
