@@ -172,6 +172,11 @@
         "en": "The link automatically applies code LYNX10 and the 10% discount.",
         "ca": "L’enllaç aplica automàticament el codi LYNX10 i el 10 % de descompte."
       }
+    },
+    "description": {
+      "es": "Overlays para simracing, principalmente para iRacing, con información de carrera en pantalla.",
+      "en": "Simracing overlays, primarily for iRacing, displaying race information on screen.",
+      "ca": "Overlays per a simracing, principalment per a iRacing, amb informació de cursa en pantalla."
     }
   }
 ]
