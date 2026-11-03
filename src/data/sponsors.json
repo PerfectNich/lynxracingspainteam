@@ -131,5 +131,37 @@
         "ca": "Contacta amb els administradors abans de comprar per gestionar la compra i el descompte amb el sponsor."
       }
     }
+  },
+  {
+    "name": "The Mech Cat",
+    "logo": "/sponsors/the-mech-cat.png",
+    "url": "https://themechcat.com/",
+    "published": true,
+    "description": {
+      "es": "Accesorios para simracing: botoneras, dashboards, indicadores y soportes para tu cockpit.",
+      "en": "Simracing accessories: button boxes, dashboards, indicators and mounts for your cockpit.",
+      "ca": "Accessoris per a simracing: botoneres, dashboards, indicadors i suports per al teu cockpit."
+    },
+    "discount": {
+      "description": {
+        "es": "5 % de descuento",
+        "en": "5% discount",
+        "ca": "5 % de descompte"
+      }
+    }
+  },
+  {
+    "name": "Raptor Racing",
+    "logo": "/sponsors/raptor-racing.png",
+    "url": "https://app.raptoracing.cl/es/?codigo=LYNX10",
+    "published": true,
+    "discount": {
+      "description": {
+        "es": "10 % de descuento",
+        "en": "10% discount",
+        "ca": "10 % de descompte"
+      },
+      "code": "LYNX10"
+    }
   }
 ]
