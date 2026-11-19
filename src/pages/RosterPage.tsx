@@ -12,10 +12,10 @@ import { FaChevronDown, FaTwitch } from "react-icons/fa";
 import type { Member } from "../types";
 import { assetUrl } from "../utils/assetUrl";
 
-const { management, drivers, twitchChannels } = members as {
+const { management, drivers, officialTwitchChannel } = members as {
   management: Member[];
   drivers: Member[];
-  twitchChannels: string[];
+  officialTwitchChannel: string;
 };
 
 const FLAG_MAP: Record<string, string> = {
@@ -56,7 +56,9 @@ function memberToCard(m: Member, globalIndex: number): ExpandCardItem {
 
 const managementCards = management.map((m, i) => memberToCard(m, i));
 const driverCards = drivers.map((m, i) => memberToCard(m, management.length + i));
-const mainChannel = "lynxracingspainteam";
+const mainChannel = officialTwitchChannel;
+const twitchChannels = [...new Set([mainChannel, ...[...management, ...drivers]
+  .flatMap(({ twitch }) => twitch ? [twitch.toLowerCase()] : [])])];
 const secondaryChannels = twitchChannels.filter((channel) => channel !== mainChannel);
 
 // Split drivers into rows of 7

@@ -103,7 +103,6 @@ const members = data["members.json"];
 if (members) {
   const management = Array.isArray(members.management) ? members.management : [];
   const drivers = Array.isArray(members.drivers) ? members.drivers : [];
-  const twitchChannels = Array.isArray(members.twitchChannels) ? members.twitchChannels : [];
   const roster = [...management, ...drivers];
   const memberNames = roster.map((member) => member.name).filter(Boolean);
   const duplicateNames = memberNames.filter((name, index) => memberNames.indexOf(name) !== index);
@@ -137,29 +136,13 @@ if (members) {
     }
   }
 
-  const memberChannels = roster
-    .map((member) => member.twitch)
-    .filter((channel) => typeof channel === "string" && channel.trim().length > 0);
-  const duplicateChannels = twitchChannels.filter(
-    (channel, index) => twitchChannels.indexOf(channel) !== index,
-  );
-
-  if (!twitchChannels.includes("lynxracingspainteam")) {
-    fail('members.json debe incluir el canal principal "lynxracingspainteam"');
+  const validChannel = (channel) => typeof channel === "string" && /^[a-z0-9_]+$/i.test(channel);
+  if (!validChannel(members.officialTwitchChannel)) {
+    fail("members.json necesita un canal oficial de Twitch válido");
   }
-  if (duplicateChannels.length > 0) {
-    fail(`members.json contiene canales Twitch duplicados: ${[...new Set(duplicateChannels)].join(", ")}`);
-  }
-
-  for (const channel of memberChannels) {
-    if (!twitchChannels.includes(channel)) {
-      fail(`Falta el canal Twitch ${channel} dentro de twitchChannels`);
-    }
-  }
-
-  for (const channel of twitchChannels) {
-    if (channel !== "lynxracingspainteam" && !memberChannels.includes(channel)) {
-      fail(`twitchChannels contiene ${channel} pero no esta asignado a ningun miembro`);
+  for (const member of roster) {
+    if (member.twitch != null && !validChannel(member.twitch)) {
+      fail(`Canal Twitch no válido para ${member.name}: ${member.twitch}`);
     }
   }
 }

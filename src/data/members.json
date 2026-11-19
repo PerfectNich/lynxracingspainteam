@@ -32,27 +32,5 @@
     { "name": "Kike Díaz", "dorsal": "71", "country": "spain", "twitch": null }
 
   ],
-  "twitchChannels": [
-    "lynxracingspainteam",
-    "lynx_serrano83",
-    "perfect_nich",
-    "josh_mopar",
-    "gombii99",
-    "jarrini15",
-    "kikologo",
-    "lalo_87",
-    "coro85",
-    "pist4chon",
-    "danibytj_danidiaz",
-    "castello814",
-    "acj_ackan",
-    "aidabp",
-    "javi_gras",
-    "capi71",
-    "oniobagt",
-    "chibitowo",
-    "luisette_mcrally",
-    "j_jimenez82",
-    "esturniolo"
-  ]
+  "officialTwitchChannel": "lynxracingspainteam"
 }
