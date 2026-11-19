@@ -20,8 +20,10 @@ try {
   const selected = (await input.question("Numeros de los pilotos separados por comas: ")).split(",").map((value) => Number(value.trim()));
   if (!selected.length || selected.some((value) => !Number.isInteger(value) || value < 1 || value > roster.length)) throw new Error("Seleccion de pilotos no valida");
   const featured = (await input.question("Destacar en inicio? (s/n): ")).trim().toLowerCase() === "s";
-  const next = [...results.map((result) => featured ? { ...result, featured: false } : result),
-    { id: randomUUID(), event, year, simulator, car, pos, drivers: selected.map((value) => roster[value - 1].name), featured }];
+  const next = [
+    { id: randomUUID(), event, year, simulator, car, pos, drivers: selected.map((value) => roster[value - 1].name), featured },
+    ...results.map((result) => featured ? { ...result, featured: false } : result),
+  ];
   const errors = validateResults(next, cars);
   if (errors.length) throw new Error(errors.join("\n"));
   fs.writeFileSync(file, JSON.stringify(next, null, 2) + "\n");

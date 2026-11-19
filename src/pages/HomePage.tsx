@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { FaArrowRight, FaDiscord, FaEnvelope } from "react-icons/fa";
 import { Hero } from "../components/home/Hero";
+import { HomeRacePulse } from "../components/home/HomeRacePulse";
 import { MainSponsorSpotlight } from "../components/home/MainSponsorSpotlight";
 import { SimulatorsGrid } from "../components/home/SimulatorsGrid";
 import { SponsorCarousel } from "../components/home/SponsorCarousel";
@@ -92,6 +93,7 @@ export function HomePage() {
   return (
     <div className="overflow-x-hidden">
       <Hero />
+      <HomeRacePulse />
 
       <section className="relative bg-lynx-dark-card px-6 py-8 sm:py-10">
         <div className="absolute inset-0 overflow-hidden opacity-30">

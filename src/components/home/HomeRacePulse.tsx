@@ -3,6 +3,13 @@ import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { FaArrowRight } from "react-icons/fa";
 import teamEvent from "../../data/team-event";
+import { raceResults } from "../../data/race-results";
+
+// Within the newest season, keep the order curated in Palmarés data.
+const latestResult = raceResults.reduce<(typeof raceResults)[number] | undefined>(
+  (current, result) => !current || result.year > current.year ? result : current,
+  undefined,
+);
 
 const eventDate = (value: string) => new Date(`${value}T12:00:00`);
 
@@ -25,7 +32,29 @@ export function HomeRacePulse() {
   const calendarPath = `${prefix}/agenda`;
   const daysUntilStart = getDaysUntil(teamEvent.startDate);
   const isCompleted = teamEvent.status === "completed";
-  const hasEvent = Boolean(teamEvent.title && teamEvent.startDate && teamEvent.endDate);
+  const today = new Intl.DateTimeFormat("sv-SE", { timeZone: "Europe/Madrid" }).format(new Date());
+  const hasEvent = Boolean(
+    teamEvent.title && teamEvent.startDate && teamEvent.endDate &&
+    !isCompleted && teamEvent.endDate >= today,
+  );
+
+  if (!hasEvent) {
+    if (!latestResult) return null;
+    return (
+      <section className="bg-lynx-dark px-6 py-6">
+        <div className="mx-auto flex max-w-4xl flex-wrap items-center justify-between gap-4 rounded-2xl border border-lynx-border bg-lynx-dark-card p-5 sm:p-6">
+          <div>
+            <p className="mb-1 text-sm font-bold text-lynx-orange">{t("nav.palmares")}</p>
+            <h2 className="text-xl font-bold text-white">{latestResult.event}</h2>
+            <p className="mt-1 text-lynx-text">P{latestResult.pos} · {latestResult.simulator} · {latestResult.year}</p>
+          </div>
+          <Link to={`${prefix}/palmares`} className="inline-flex min-h-11 items-center gap-2 font-bold">
+            {t("nav.palmares")} <FaArrowRight aria-hidden="true" />
+          </Link>
+        </div>
+      </section>
+    );
+  }
 
   const locale = i18n.language === "en" ? "en-GB" : i18n.language === "ca" ? "ca-ES" : "es-ES";
   const entries = Array.isArray(teamEvent.entries) ? teamEvent.entries : [];
@@ -42,7 +71,7 @@ export function HomeRacePulse() {
       : t("calendar.pending");
 
   return (
-    <section className="min-w-0 py-4">
+    <section className="min-w-0 px-6 py-6">
       <div className="mx-auto max-w-4xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
