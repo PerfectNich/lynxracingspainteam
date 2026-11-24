@@ -111,10 +111,14 @@ export function SponsorCarousel() {
 
   return (
     <div
-      className="overflow-x-clip overflow-y-visible w-full my-8 py-4 cursor-grab active:cursor-grabbing select-none"
-      style={{
-        maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)',
-        WebkitMaskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)'
+      className="sponsor-carousel overflow-x-clip overflow-y-visible w-full my-8 py-4 cursor-grab active:cursor-grabbing select-none"
+      onFocus={(event) => {
+        if (event.target.matches(":focus-visible")) {
+          event.target.scrollIntoView({ block: "nearest", inline: "nearest" });
+        }
+      }}
+      onBlur={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget)) event.currentTarget.scrollLeft = 0;
       }}
       onMouseDown={(e) => { e.preventDefault(); handleStart(e.clientX); }}
       onMouseMove={(e) => handleMove(e.clientX)}
@@ -127,10 +131,11 @@ export function SponsorCarousel() {
     >
       <div
         ref={innerRef}
-        className={`flex gap-6 md:gap-16 items-center w-max ${!isPaused ? 'animate-scroll-mobile md:animate-scroll' : ''}`}
+        className={`sponsor-carousel-track flex gap-6 md:gap-16 items-center w-max ${!isPaused ? 'animate-scroll-mobile md:animate-scroll' : ''}`}
         style={isPaused ? { transform: `translateX(${translateX}px)` } : undefined}
       >
         {duplicatedSponsors.map((sponsor, index) => {
+          const isCopy = index >= sponsorList.length;
           const content = (
             <img
               src={assetUrl(sponsor.logo)}
@@ -147,13 +152,16 @@ export function SponsorCarousel() {
               href={sponsor.url}
               target="_blank"
               rel="noopener noreferrer"
+              tabIndex={isCopy ? -1 : undefined}
+              aria-hidden={isCopy || undefined}
+              data-carousel-copy={isCopy || undefined}
               className="flex-shrink-0"
-              onClick={(e) => Math.abs(velocity.current) > 1 && e.preventDefault()}
+              onClick={(e) => e.detail > 0 && Math.abs(velocity.current) > 1 && e.preventDefault()}
             >
               {content}
             </a>
           ) : (
-            <div key={`${sponsor.name}-${index}`} className="flex-shrink-0">
+            <div key={`${sponsor.name}-${index}`} className="flex-shrink-0" data-carousel-copy={isCopy || undefined} aria-hidden={isCopy || undefined}>
               {content}
             </div>
           );

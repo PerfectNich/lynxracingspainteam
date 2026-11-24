@@ -127,4 +127,19 @@ a:not(nav a):not(.member-link):not(.social-link):hover {
 .skip-link { position: fixed; top: 8px; left: 8px; z-index: 100001; transform: translateY(-200%); background: #141414; padding: 12px 18px; border: 2px solid #ffb347; }
 .skip-link:focus { transform: translateY(0); }
 #main-content { scroll-margin-top: 80px; }
+.sponsor-carousel {
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+.sponsor-carousel:has(:focus-visible) {
+  overflow-x: auto;
+  mask-image: none;
+  padding-inline: 8px;
+}
+.sponsor-carousel:has(:focus-visible) .sponsor-carousel-track {
+  animation: none;
+  transform: none !important;
+}
+.sponsor-carousel:has(:focus-visible) [data-carousel-copy] {
+  display: none;
+}
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; } }
